@@ -226,5 +226,10 @@
   "gw.step2": "Apri Google Wallet.",
   "gw.open": "Apri Google Wallet",
   "gw.step3": "Tocca «Aggiungi a Wallet» → «Tutto il resto» (o «Foto») e scegli l'immagine salvata: Google Wallet crea il pass con il QR.",
-  "gw.apple": "iPhone: Apple Wallet accetta solo pass firmati da chi li emette, quindi non si possono aggiungere a mano. Tienili qui nel portafoglio di Ottoteca: funziona anche senza rete, a tutto schermo e con la luminosità al massimo."
+  "gw.apple": "iPhone: Apple Wallet accetta solo pass firmati da chi li emette, quindi non si possono aggiungere a mano. Tienili qui nel portafoglio di Ottoteca: funziona anche senza rete, a tutto schermo e con la luminosità al massimo.",
+  "set.textSize": "Dimensione del testo",
+  "size.s": "Piccolo",
+  "size.m": "Normale",
+  "size.l": "Grande",
+  "size.xl": "Molto grande"
 }

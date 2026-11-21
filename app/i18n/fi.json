@@ -226,5 +226,10 @@
   "gw.step2": "Avaa Google Wallet.",
   "gw.open": "Avaa Google Wallet",
   "gw.step3": "Napauta ”Lisää Walletiin” → ”Kaikki muu” (tai ”Kuva”) ja valitse tallennettu kuva: Google Wallet luo passin QR-koodeineen.",
-  "gw.apple": "iPhone: Apple Wallet hyväksyy vain myöntäjän allekirjoittamat passit, joten niitä ei voi lisätä käsin. Säilytä ne täällä Ottotecan lompakossa: se toimii ilman verkkoa, koko näytöllä ja täydellä kirkkaudella."
+  "gw.apple": "iPhone: Apple Wallet hyväksyy vain myöntäjän allekirjoittamat passit, joten niitä ei voi lisätä käsin. Säilytä ne täällä Ottotecan lompakossa: se toimii ilman verkkoa, koko näytöllä ja täydellä kirkkaudella.",
+  "set.textSize": "Tekstin koko",
+  "size.s": "Pieni",
+  "size.m": "Normaali",
+  "size.l": "Suuri",
+  "size.xl": "Erittäin suuri"
 }

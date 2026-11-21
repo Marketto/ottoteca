@@ -226,5 +226,10 @@
   "gw.step2": "Ouvre Google Wallet.",
   "gw.open": "Ouvrir Google Wallet",
   "gw.step3": "Touche « Ajouter à Wallet » → « Tout le reste » (ou « Photo ») et choisis l'image enregistrée : Google Wallet crée la carte avec le QR code.",
-  "gw.apple": "iPhone : Apple Wallet n'accepte que les cartes signées par leur émetteur, on ne peut donc pas les ajouter à la main. Garde-les ici dans le portefeuille d'Ottoteca : il marche hors ligne, en plein écran et luminosité au maximum."
+  "gw.apple": "iPhone : Apple Wallet n'accepte que les cartes signées par leur émetteur, on ne peut donc pas les ajouter à la main. Garde-les ici dans le portefeuille d'Ottoteca : il marche hors ligne, en plein écran et luminosité au maximum.",
+  "set.textSize": "Taille du texte",
+  "size.s": "Petit",
+  "size.m": "Normal",
+  "size.l": "Grand",
+  "size.xl": "Très grand"
 }

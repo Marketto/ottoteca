@@ -226,5 +226,10 @@
   "gw.step2": "Hap Google Wallet.",
   "gw.open": "Hap Google Wallet",
   "gw.step3": "Prek «Shto në Wallet» → «Gjithçka tjetër» (ose «Foto») dhe zgjidh imazhin e ruajtur: Google Wallet krijon kartën me kodin QR.",
-  "gw.apple": "iPhone: Apple Wallet pranon vetëm karta të nënshkruara nga lëshuesi, ndaj nuk mund të shtohen me dorë. Mbaji këtu në portofolin e Ottoteca-s: punon edhe pa internet, në ekran të plotë dhe me ndriçim maksimal."
+  "gw.apple": "iPhone: Apple Wallet pranon vetëm karta të nënshkruara nga lëshuesi, ndaj nuk mund të shtohen me dorë. Mbaji këtu në portofolin e Ottoteca-s: punon edhe pa internet, në ekran të plotë dhe me ndriçim maksimal.",
+  "set.textSize": "Madhësia e tekstit",
+  "size.s": "E vogël",
+  "size.m": "Normale",
+  "size.l": "E madhe",
+  "size.xl": "Shumë e madhe"
 }

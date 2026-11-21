@@ -226,5 +226,10 @@
   "gw.step2": "Åpne Google Wallet.",
   "gw.open": "Åpne Google Wallet",
   "gw.step3": "Trykk «Legg til i Wallet» → «Alt annet» (eller «Foto») og velg det lagrede bildet: Google Wallet lager kortet med QR-koden.",
-  "gw.apple": "iPhone: Apple Wallet godtar bare kort som utstederen har signert, så de kan ikke legges til for hånd. Ta vare på dem her i Ottotecas lommebok: den virker uten nett, i fullskjerm og med full lysstyrke."
+  "gw.apple": "iPhone: Apple Wallet godtar bare kort som utstederen har signert, så de kan ikke legges til for hånd. Ta vare på dem her i Ottotecas lommebok: den virker uten nett, i fullskjerm og med full lysstyrke.",
+  "set.textSize": "Tekststørrelse",
+  "size.s": "Liten",
+  "size.m": "Normal",
+  "size.l": "Stor",
+  "size.xl": "Ekstra stor"
 }

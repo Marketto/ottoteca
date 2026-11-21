@@ -226,5 +226,10 @@
   "gw.step2": "Otwórz Portfel Google.",
   "gw.open": "Otwórz Portfel Google",
   "gw.step3": "Stuknij „Dodaj do Portfela” → „Wszystko inne” (lub „Zdjęcie”) i wybierz zapisany obraz: Portfel Google utworzy kartę z kodem QR.",
-  "gw.apple": "iPhone: Apple Wallet przyjmuje tylko karty podpisane przez wystawcę, więc nie da się ich dodać ręcznie. Trzymaj je tutaj w portfelu Ottoteki: działa offline, na pełnym ekranie i z maksymalną jasnością."
+  "gw.apple": "iPhone: Apple Wallet przyjmuje tylko karty podpisane przez wystawcę, więc nie da się ich dodać ręcznie. Trzymaj je tutaj w portfelu Ottoteki: działa offline, na pełnym ekranie i z maksymalną jasnością.",
+  "set.textSize": "Rozmiar tekstu",
+  "size.s": "Mały",
+  "size.m": "Normalny",
+  "size.l": "Duży",
+  "size.xl": "Bardzo duży"
 }

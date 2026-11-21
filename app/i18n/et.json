@@ -226,5 +226,10 @@
   "gw.step2": "Ava Google Wallet.",
   "gw.open": "Ava Google Wallet",
   "gw.step3": "Puuduta „Lisa Walletisse“ → „Kõik muu“ (või „Foto“) ja vali salvestatud pilt: Google Wallet loob QR-koodiga passi.",
-  "gw.apple": "iPhone: Apple Wallet võtab vastu ainult väljaandja allkirjastatud passe, nii et neid ei saa käsitsi lisada. Hoia neid siin Ottoteca rahakotis: see töötab ilma võrguta, täisekraanil ja täisheledusega."
+  "gw.apple": "iPhone: Apple Wallet võtab vastu ainult väljaandja allkirjastatud passe, nii et neid ei saa käsitsi lisada. Hoia neid siin Ottoteca rahakotis: see töötab ilma võrguta, täisekraanil ja täisheledusega.",
+  "set.textSize": "Teksti suurus",
+  "size.s": "Väike",
+  "size.m": "Tavaline",
+  "size.l": "Suur",
+  "size.xl": "Väga suur"
 }

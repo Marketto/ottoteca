@@ -226,5 +226,10 @@
   "gw.step2": "Odpri Google Wallet.",
   "gw.open": "Odpri Google Wallet",
   "gw.step3": "Tapni »Dodaj v Wallet« → »Vse drugo« (ali »Fotografija«) in izberi shranjeno sliko: Google Wallet ustvari kartico s kodo QR.",
-  "gw.apple": "iPhone: Apple Wallet sprejme le kartice, ki jih je podpisal izdajatelj, zato jih ni mogoče dodati ročno. Hrani jih tukaj v Ottotekini denarnici: deluje brez povezave, čez cel zaslon in z največjo svetlostjo."
+  "gw.apple": "iPhone: Apple Wallet sprejme le kartice, ki jih je podpisal izdajatelj, zato jih ni mogoče dodati ročno. Hrani jih tukaj v Ottotekini denarnici: deluje brez povezave, čez cel zaslon in z največjo svetlostjo.",
+  "set.textSize": "Velikost besedila",
+  "size.s": "Majhna",
+  "size.m": "Običajna",
+  "size.l": "Velika",
+  "size.xl": "Zelo velika"
 }

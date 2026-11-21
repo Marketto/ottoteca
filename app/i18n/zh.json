@@ -226,5 +226,10 @@
   "gw.step2": "打开 Google 钱包。",
   "gw.open": "打开 Google 钱包",
   "gw.step3": "点“添加到钱包”→“其他所有内容”（或“照片”），选择刚保存的图片：Google 钱包会生成带二维码的卡券。",
-  "gw.apple": "iPhone：Apple 钱包只接受发行方签名的卡券，因此无法手动添加。请保存在 Ottoteca 的卡包里：离线也能用，可全屏显示并调到最高亮度。"
+  "gw.apple": "iPhone：Apple 钱包只接受发行方签名的卡券，因此无法手动添加。请保存在 Ottoteca 的卡包里：离线也能用，可全屏显示并调到最高亮度。",
+  "set.textSize": "文字大小",
+  "size.s": "小",
+  "size.m": "标准",
+  "size.l": "大",
+  "size.xl": "特大"
 }

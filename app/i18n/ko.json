@@ -226,5 +226,10 @@
   "gw.step2": "Google 월렛을 여세요.",
   "gw.open": "Google 월렛 열기",
   "gw.step3": "‘월렛에 추가’ → ‘기타 모든 항목’(또는 ‘사진’)을 누르고 저장한 이미지를 고르세요. Google 월렛이 QR 코드가 있는 패스를 만들어요.",
-  "gw.apple": "iPhone: Apple Wallet은 발행처가 서명한 패스만 받아서 직접 추가할 수 없어요. Ottoteca 지갑에 보관하세요. 오프라인에서도 전체 화면, 최대 밝기로 보여 줘요."
+  "gw.apple": "iPhone: Apple Wallet은 발행처가 서명한 패스만 받아서 직접 추가할 수 없어요. Ottoteca 지갑에 보관하세요. 오프라인에서도 전체 화면, 최대 밝기로 보여 줘요.",
+  "set.textSize": "글자 크기",
+  "size.s": "작게",
+  "size.m": "보통",
+  "size.l": "크게",
+  "size.xl": "아주 크게"
 }

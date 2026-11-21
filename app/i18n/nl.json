@@ -226,5 +226,10 @@
   "gw.step2": "Open Google Wallet.",
   "gw.open": "Google Wallet openen",
   "gw.step3": "Tik op ‘Toevoegen aan Wallet’ → ‘Al het andere’ (of ‘Foto’) en kies de opgeslagen afbeelding: Google Wallet maakt de pas met de QR-code.",
-  "gw.apple": "iPhone: Apple Wallet accepteert alleen passen die de uitgever heeft ondertekend, dus je kunt ze niet met de hand toevoegen. Bewaar ze hier in de wallet van Ottoteca: die werkt offline, schermvullend en met maximale helderheid."
+  "gw.apple": "iPhone: Apple Wallet accepteert alleen passen die de uitgever heeft ondertekend, dus je kunt ze niet met de hand toevoegen. Bewaar ze hier in de wallet van Ottoteca: die werkt offline, schermvullend en met maximale helderheid.",
+  "set.textSize": "Tekstgrootte",
+  "size.s": "Klein",
+  "size.m": "Normaal",
+  "size.l": "Groot",
+  "size.xl": "Extra groot"
 }

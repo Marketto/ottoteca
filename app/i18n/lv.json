@@ -226,5 +226,10 @@
   "gw.step2": "Atver Google Wallet.",
   "gw.open": "Atvērt Google Wallet",
   "gw.step3": "Pieskaries “Pievienot makam” → “Viss pārējais” (vai “Fotoattēls”) un izvēlies saglabāto attēlu: Google Wallet izveidos karti ar QR kodu.",
-  "gw.apple": "iPhone: Apple Wallet pieņem tikai izdevēja parakstītas kartes, tāpēc tās nevar pievienot manuāli. Glabā tās šeit Ottotecas makā: tas darbojas arī bezsaistē, pilnekrānā un ar maksimālu spilgtumu."
+  "gw.apple": "iPhone: Apple Wallet pieņem tikai izdevēja parakstītas kartes, tāpēc tās nevar pievienot manuāli. Glabā tās šeit Ottotecas makā: tas darbojas arī bezsaistē, pilnekrānā un ar maksimālu spilgtumu.",
+  "set.textSize": "Teksta lielums",
+  "size.s": "Mazs",
+  "size.m": "Parasts",
+  "size.l": "Liels",
+  "size.xl": "Ļoti liels"
 }

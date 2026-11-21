@@ -147,6 +147,16 @@ try {
   await mp.waitForTimeout(1200);
   if (shots) await mp.screenshot({ path: "tests/shots/09-telefono.png" });
   ok(await mp.locator("html").getAttribute("lang") === "ja", "giapponese dal browser");
+  // nomi di cartella lunghi non devono allargare la pagina (la mascotte finirebbe fuori schermo)
+  await mp.evaluate(async () => {
+    const r = indexedDB.open("ottoteca"); await new Promise(x => r.onsuccess = x);
+    const tx = r.result.transaction("cats", "readwrite");
+    tx.objectStore("cats").put({ id: "long1", name: "Documenti molto molto lunghi del telefono di casa", color: "#e5637a", order: 1, parent: null });
+    await new Promise(x => tx.oncomplete = x);
+  });
+  await mp.reload(); await mp.waitForTimeout(1500);
+  const wide = await mp.evaluate(() => ({ sw: document.documentElement.scrollWidth, cw: document.documentElement.clientWidth, br: document.getElementById("buddyBtn").getBoundingClientRect().right }));
+  ok(wide.sw <= wide.cw && wide.br <= wide.cw, "pagina mai più larga dello schermo, Otto visibile");
 
   const axe5 = await new AxeBuilder({ page: mp }).withTags(["wcag2a", "wcag2aa", "wcag21aa"]).analyze();
   ok(!axe5.violations.length, "axe telefono: " + axe5.violations.map(v => v.id).join(", "));

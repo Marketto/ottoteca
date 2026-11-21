@@ -38,6 +38,15 @@ function thumbURL(d) {
 }
 
 /* ================= impostazioni ================= */
+function applyTextSize() {
+  const v = localStorage.getItem("otto.text") || "m";
+  document.documentElement.style.fontSize = { s: "93.75%", m: "100%", l: "112.5%", xl: "125%" }[v] || "100%";
+  document.querySelectorAll("input[name=textsize]").forEach(r => r.checked = r.value === v);
+}
+// niente zoom accidentale con due dita o doppio tocco (il testo si ingrandisce dalle Impostazioni; nel visore il pizzico ingrandisce il PDF)
+document.addEventListener("gesturestart", e => e.preventDefault());
+document.addEventListener("gesturechange", e => e.preventDefault());
+document.addEventListener("touchmove", e => { if (e.touches.length > 1 && !e.target.closest?.("#vPages")) e.preventDefault(); }, { passive: false });
 function applyTheme() {
   const th = localStorage.getItem("otto.theme") || "auto", mo = localStorage.getItem("otto.motion") || "auto";
   const h = document.documentElement;
@@ -318,8 +327,8 @@ function visibleDocs() {
 
 function renderChips() {
   const box = $("#chips"); box.replaceChildren();
-  const mk = (id, label, n, color) => {
-    const b = el("button", { class: "chip", type: "button", "aria-pressed": String(S.filter === id), "data-cat": id, onclick: () => { S.filter = id; renderLibrary(); } },
+  const mk = (id, label, n, color, full) => {
+    const b = el("button", { class: "chip", type: "button", "aria-pressed": String(S.filter === id), "data-cat": id, title: full || null, onclick: () => { S.filter = id; renderLibrary(); } },
       color ? el("span", { class: "dot", style: `--c:${color}`, "aria-hidden": "true" }) : null, el("span", { class: "lbl" }, label), el("span", { class: "n" }, String(n)));
     if (color) {
       b.addEventListener("dragover", e => { if (e.dataTransfer.types.includes("text/otto-doc")) { e.preventDefault(); b.classList.add("drop-over"); } });
@@ -335,7 +344,8 @@ function renderChips() {
     if (color && S.filter === id) box.append(el("button", { class: "icon-btn", type: "button", "aria-label": t("cat.edit", { name: label }), title: t("cat.edit", { name: label }), onclick: () => editCat(catById(id)) }, ic("edit")));
   };
   mk("all", t("lib.all"), S.docs.length);
-  for (const { c } of treeOrder()) mk(c.id, catPath(c), countIn(c.id), c.color);
+  // solo i primi due livelli (gli altri si raggiungono dalla vista Cartelle): con tutto il telefono sarebbero centinaia
+  for (const { c, depth } of treeOrder()) if (depth <= 1 || S.filter === c.id) mk(c.id, c.name, countIn(c.id), c.color, catPath(c));
   const nNone = S.docs.filter(d => !d.cats.length).length;
   if (S.cats.length && nNone) mk("none", t("lib.uncat"), nNone);
 }
@@ -989,6 +999,7 @@ async function renderSettings() {
 }
 $("#langSel").onchange = async e => { localStorage.setItem("otto.lang", e.target.value); await setLang(e.target.value); afterLang(); say(t("ev.lang"), "happy"); };
 document.querySelectorAll("input[name=theme]").forEach(r => r.onchange = () => { localStorage.setItem("otto.theme", r.value); applyTheme(); mood("spin", 1000); });
+document.querySelectorAll("input[name=textsize]").forEach(r => r.onchange = () => { localStorage.setItem("otto.text", r.value); applyTextSize(); mood("happy", 1200); });
 document.querySelectorAll("input[name=motion]").forEach(r => r.onchange = () => { localStorage.setItem("otto.motion", r.value); applyTheme(); });
 $("#clearAll").onclick = async () => {
   if (!(await confirmBox(t("set.clear"), t("set.clearConfirm"), t("common.delete")))) return;
@@ -1267,7 +1278,7 @@ function afterLang() {
   $("#sort").value = S.sort;
 }
 (async function init() {
-  applyTheme();
+  applyTheme(); applyTextSize();
   $("#verBadge").textContent = "v" + VERSION;
   mountHabitat();
   startOttoLife();

@@ -226,5 +226,10 @@
   "gw.step2": "Deschide Google Wallet.",
   "gw.open": "Deschide Google Wallet",
   "gw.step3": "Atinge „Adaugă în Wallet” → „Orice altceva” (sau „Fotografie”) și alege imaginea salvată: Google Wallet creează cardul cu codul QR.",
-  "gw.apple": "iPhone: Apple Wallet acceptă doar carduri semnate de emitent, deci nu pot fi adăugate manual. Păstrează-le aici, în portofelul Ottoteca: merge și offline, pe tot ecranul și cu luminozitatea la maximum."
+  "gw.apple": "iPhone: Apple Wallet acceptă doar carduri semnate de emitent, deci nu pot fi adăugate manual. Păstrează-le aici, în portofelul Ottoteca: merge și offline, pe tot ecranul și cu luminozitatea la maximum.",
+  "set.textSize": "Dimensiunea textului",
+  "size.s": "Mic",
+  "size.m": "Normal",
+  "size.l": "Mare",
+  "size.xl": "Foarte mare"
 }

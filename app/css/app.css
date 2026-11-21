@@ -658,6 +658,13 @@ main{padding-top:30px}
 :dir(rtl) .wsteps li{padding:10px 50px 10px 12px}
 .wsteps li>span{flex:1 1 200px}
 .wsteps .btn{min-height:40px;padding:6px 14px}
+/* niente zoom accidentale, niente pagina più larga dello schermo */
+html{touch-action:pan-x pan-y;overflow-x:clip}
+body{overflow-x:clip}
+.cats{min-width:0}.cats .chips{min-width:0;flex:1}
+.chip{max-width:min(100%,280px)}
+.modebar .seg{flex-wrap:nowrap;max-width:100%}
+@media (max-width:420px){.modebar .seg label>span{padding:7px 10px;font-size:.92rem;gap:4px}}
 /* ---------- movimento ridotto ---------- */
 @media (prefers-reduced-motion:reduce){
   :root:not([data-motion="full"]) *,:root:not([data-motion="full"]) *::before,:root:not([data-motion="full"]) *::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}

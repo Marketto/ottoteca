@@ -226,5 +226,10 @@
   "gw.step2": "Otvori Google Wallet.",
   "gw.open": "Otvori Google Wallet",
   "gw.step3": "Dodirni „Dodaj u Wallet” → „Sve ostalo” (ili „Fotografija”) i odaberi spremljenu sliku: Google Wallet izrađuje propusnicu s QR kodom.",
-  "gw.apple": "iPhone: Apple Wallet prihvaća samo propusnice koje je potpisao izdavatelj, pa ih nije moguće dodati ručno. Čuvaj ih ovdje u Ottotekinu novčaniku: radi i bez mreže, preko cijelog zaslona i s najjačom svjetlinom."
+  "gw.apple": "iPhone: Apple Wallet prihvaća samo propusnice koje je potpisao izdavatelj, pa ih nije moguće dodati ručno. Čuvaj ih ovdje u Ottotekinu novčaniku: radi i bez mreže, preko cijelog zaslona i s najjačom svjetlinom.",
+  "set.textSize": "Veličina teksta",
+  "size.s": "Mali",
+  "size.m": "Normalni",
+  "size.l": "Veliki",
+  "size.xl": "Vrlo veliki"
 }

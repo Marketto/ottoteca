@@ -226,5 +226,10 @@
   "gw.step2": "Otevři Google Wallet.",
   "gw.open": "Otevřít Google Wallet",
   "gw.step3": "Klepni na „Přidat do Peněženky“ → „Vše ostatní“ (nebo „Fotka“) a vyber uložený obrázek: Google Wallet vytvoří kartu s QR kódem.",
-  "gw.apple": "iPhone: Apple Wallet přijímá jen karty podepsané vydavatelem, takže je nelze přidat ručně. Nech si je tady v peněžence Ottoteky: funguje offline, na celou obrazovku a s maximálním jasem."
+  "gw.apple": "iPhone: Apple Wallet přijímá jen karty podepsané vydavatelem, takže je nelze přidat ručně. Nech si je tady v peněžence Ottoteky: funguje offline, na celou obrazovku a s maximálním jasem.",
+  "set.textSize": "Velikost textu",
+  "size.s": "Malý",
+  "size.m": "Normální",
+  "size.l": "Velký",
+  "size.xl": "Velmi velký"
 }

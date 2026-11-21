@@ -226,5 +226,10 @@
   "gw.step2": "Oscail Google Wallet.",
   "gw.open": "Oscail Google Wallet",
   "gw.step3": "Tapáil “Cuir le Wallet” → “Gach rud eile” (nó “Grianghraf”) agus roghnaigh an íomhá a sábháladh: cruthaíonn Google Wallet an pas leis an gcód QR.",
-  "gw.apple": "iPhone: ní ghlacann Apple Wallet ach le pasanna a shínigh an t-eisitheoir, mar sin ní féidir iad a chur leis de láimh. Coinnigh anseo iad i sparán Ottoteca: oibríonn sé as líne, ar an scáileán iomlán agus leis an ngile is airde."
+  "gw.apple": "iPhone: ní ghlacann Apple Wallet ach le pasanna a shínigh an t-eisitheoir, mar sin ní féidir iad a chur leis de láimh. Coinnigh anseo iad i sparán Ottoteca: oibríonn sé as líne, ar an scáileán iomlán agus leis an ngile is airde.",
+  "set.textSize": "Méid an téacs",
+  "size.s": "Beag",
+  "size.m": "Gnáth",
+  "size.l": "Mór",
+  "size.xl": "An-mhór"
 }

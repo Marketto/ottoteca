@@ -226,5 +226,10 @@
   "gw.step2": "Iftaħ Google Wallet.",
   "gw.open": "Iftaħ Google Wallet",
   "gw.step3": "Agħfas “Żid ma' Wallet” → “Kull ħaġa oħra” (jew “Ritratt”) u agħżel l-istampa ssejvjata: Google Wallet joħloq il-pass bil-QR.",
-  "gw.apple": "iPhone: Apple Wallet jaċċetta biss passes iffirmati minn min joħroġhom, għalhekk ma jistgħux jiżdiedu bl-idejn. Żommhom hawn fil-kartiera ta' Ottoteca: taħdem anke offline, fuq l-iskrin kollu u bid-dawl fl-ogħla."
+  "gw.apple": "iPhone: Apple Wallet jaċċetta biss passes iffirmati minn min joħroġhom, għalhekk ma jistgħux jiżdiedu bl-idejn. Żommhom hawn fil-kartiera ta' Ottoteca: taħdem anke offline, fuq l-iskrin kollu u bid-dawl fl-ogħla.",
+  "set.textSize": "Daqs tat-test",
+  "size.s": "Żgħir",
+  "size.m": "Normali",
+  "size.l": "Kbir",
+  "size.xl": "Kbir ħafna"
 }

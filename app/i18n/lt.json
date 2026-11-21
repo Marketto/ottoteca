@@ -226,5 +226,10 @@
   "gw.step2": "Atidaryk Google Wallet.",
   "gw.open": "Atidaryti Google Wallet",
   "gw.step3": "Paliesk „Pridėti į Wallet“ → „Visa kita“ (arba „Nuotrauka“) ir pasirink išsaugotą paveikslėlį: Google Wallet sukurs kortelę su QR kodu.",
-  "gw.apple": "iPhone: Apple Wallet priima tik išdavėjo pasirašytas korteles, todėl jų negalima pridėti ranka. Laikyk jas čia, Ottotecos piniginėje: ji veikia ir be ryšio, per visą ekraną ir su didžiausiu ryškumu."
+  "gw.apple": "iPhone: Apple Wallet priima tik išdavėjo pasirašytas korteles, todėl jų negalima pridėti ranka. Laikyk jas čia, Ottotecos piniginėje: ji veikia ir be ryšio, per visą ekraną ir su didžiausiu ryškumu.",
+  "set.textSize": "Teksto dydis",
+  "size.s": "Mažas",
+  "size.m": "Įprastas",
+  "size.l": "Didelis",
+  "size.xl": "Labai didelis"
 }
