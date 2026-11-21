@@ -254,5 +254,7 @@
   "aw.limit": "Sroicheadh teorainn mhíosúil na bpasanna saor in aisce: athshocraítear ar an 1ú.",
   "aw.fail": "Níorbh fhéidir an pas a chruthú: bain triail as na céimeanna láimhe.",
   "aw.oneTap": "Leid: le heochair WalletWallet saor in aisce (sna Socruithe) is leor tapáil amháin.",
-  "aw.saved": "Eochair sábháilte! Tá Apple Wallet tapáil amháin uait anois."
+  "aw.saved": "Eochair sábháilte! Tá Apple Wallet tapáil amháin uait anois.",
+  "add.auto": "Uathoibríoch (molta)",
+  "add.more": "Ardroghanna"
 }

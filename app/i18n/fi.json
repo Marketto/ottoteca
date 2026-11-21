@@ -254,5 +254,7 @@
   "aw.limit": "Ilmaisten passien kuukausiraja täynnä: se nollautuu kuun 1. päivä.",
   "aw.fail": "Passia ei voitu luoda: kokeile käsin tehtäviä vaiheita.",
   "aw.oneTap": "Vinkki: ilmaisella WalletWallet-avaimella (asetuksissa) riittää yksi napautus.",
-  "aw.saved": "Avain tallennettu! Apple Wallet on nyt yhden napautuksen päässä."
+  "aw.saved": "Avain tallennettu! Apple Wallet on nyt yhden napautuksen päässä.",
+  "add.auto": "Automaattinen (suositus)",
+  "add.more": "Lisäasetukset"
 }

@@ -254,5 +254,7 @@
   "aw.limit": "Sasniegts bezmaksas karšu mēneša limits: tas atjaunojas 1. datumā.",
   "aw.fail": "Neizdevās izveidot karti: pamēģini manuālos soļus.",
   "aw.oneTap": "Padoms: ar bezmaksas WalletWallet atslēgu (iestatījumos) pietiek ar vienu pieskārienu.",
-  "aw.saved": "Atslēga saglabāta! Apple Wallet tagad ir viena pieskāriena attālumā."
+  "aw.saved": "Atslēga saglabāta! Apple Wallet tagad ir viena pieskāriena attālumā.",
+  "add.auto": "Automātiski (ieteicams)",
+  "add.more": "Papildu iespējas"
 }

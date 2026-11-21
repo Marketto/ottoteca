@@ -254,5 +254,7 @@
   "aw.limit": "Monatliches Limit kostenloser Pässe erreicht: Es setzt sich am 1. zurück.",
   "aw.fail": "Pass konnte nicht erstellt werden: Versuch die manuellen Schritte.",
   "aw.oneTap": "Tipp: Mit einem kostenlosen WalletWallet-Schlüssel (in den Einstellungen) reicht ein Tipp.",
-  "aw.saved": "Schlüssel gespeichert! Apple Wallet ist jetzt nur einen Tipp entfernt."
+  "aw.saved": "Schlüssel gespeichert! Apple Wallet ist jetzt nur einen Tipp entfernt.",
+  "add.auto": "Automatisch (empfohlen)",
+  "add.more": "Erweiterte Optionen"
 }

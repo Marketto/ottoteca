@@ -254,5 +254,7 @@
   "aw.limit": "Limite mensal de passes gratuitos atingido: reinicia no dia 1.",
   "aw.fail": "Não foi possível criar o passe: experimenta os passos manuais.",
   "aw.oneTap": "Dica: com uma chave gratuita do WalletWallet (nas Definições) basta um toque.",
-  "aw.saved": "Chave guardada! A Apple Wallet está a um toque."
+  "aw.saved": "Chave guardada! A Apple Wallet está a um toque.",
+  "add.auto": "Automático (recomendado)",
+  "add.more": "Opções avançadas"
 }

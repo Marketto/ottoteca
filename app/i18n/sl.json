@@ -254,5 +254,7 @@
   "aw.limit": "Dosežena mesečna omejitev brezplačnih kartic: ponastavi se 1. v mesecu.",
   "aw.fail": "Kartice ni bilo mogoče ustvariti: poskusi ročne korake.",
   "aw.oneTap": "Namig: z brezplačnim ključem WalletWallet (v Nastavitvah) zadošča en dotik.",
-  "aw.saved": "Ključ shranjen! Apple Wallet je zdaj oddaljen en dotik."
+  "aw.saved": "Ključ shranjen! Apple Wallet je zdaj oddaljen en dotik.",
+  "add.auto": "Samodejno (priporočeno)",
+  "add.more": "Napredne možnosti"
 }

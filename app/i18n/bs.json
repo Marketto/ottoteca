@@ -254,5 +254,7 @@
   "aw.limit": "Dostignut je mjesečni limit besplatnih propusnica: poništava se 1. u mjesecu.",
   "aw.fail": "Nije uspjelo kreiranje propusnice: probaj ručne korake.",
   "aw.oneTap": "Savjet: s besplatnim WalletWallet ključem (u Postavkama) dovoljan je jedan dodir.",
-  "aw.saved": "Ključ sačuvan! Apple Wallet je sada na jedan dodir."
+  "aw.saved": "Ključ sačuvan! Apple Wallet je sada na jedan dodir.",
+  "add.auto": "Automatski (preporučeno)",
+  "add.more": "Napredne opcije"
 }

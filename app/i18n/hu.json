@@ -254,5 +254,7 @@
   "aw.limit": "Elérted az ingyenes kártyák havi korlátját: 1-jén nullázódik.",
   "aw.fail": "Nem sikerült létrehozni a kártyát: próbáld a kézi lépéseket.",
   "aw.oneTap": "Tipp: ingyenes WalletWallet-kulccsal (a Beállításokban) egy koppintás elég.",
-  "aw.saved": "Kulcs mentve! Az Apple Wallet most egy koppintásnyira van."
+  "aw.saved": "Kulcs mentve! Az Apple Wallet most egy koppintásnyira van.",
+  "add.auto": "Automatikus (ajánlott)",
+  "add.more": "Speciális beállítások"
 }

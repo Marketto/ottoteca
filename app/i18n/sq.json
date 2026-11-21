@@ -254,5 +254,7 @@
   "aw.limit": "U arrit kufiri mujor i kartave falas: rinis më 1.",
   "aw.fail": "Karta nuk u krijua: provo hapat manualë.",
   "aw.oneTap": "Këshillë: me një çelës falas WalletWallet (te Cilësimet) mjafton një prekje.",
-  "aw.saved": "Çelësi u ruajt! Apple Wallet tani është një prekje larg."
+  "aw.saved": "Çelësi u ruajt! Apple Wallet tani është një prekje larg.",
+  "add.auto": "Automatik (rekomandohet)",
+  "add.more": "Opsione të avancuara"
 }

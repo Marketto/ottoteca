@@ -254,5 +254,7 @@
   "aw.limit": "Pasiektas mėnesio nemokamų kortelių limitas: jis atsinaujins 1 dieną.",
   "aw.fail": "Nepavyko sukurti kortelės: pabandyk rankinius veiksmus.",
   "aw.oneTap": "Patarimas: su nemokamu WalletWallet raktu (nustatymuose) užtenka vieno palietimo.",
-  "aw.saved": "Raktas išsaugotas! Apple Wallet dabar per vieną palietimą."
+  "aw.saved": "Raktas išsaugotas! Apple Wallet dabar per vieną palietimą.",
+  "add.auto": "Automatiškai (rekomenduojama)",
+  "add.more": "Išplėstinės parinktys"
 }

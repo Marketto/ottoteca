@@ -254,5 +254,7 @@
   "aw.limit": "Mánaðarhámarki ókeypis passa náð: það núllstillist þann 1.",
   "aw.fail": "Ekki tókst að búa til passann: prófaðu handvirku skrefin.",
   "aw.oneTap": "Ábending: með ókeypis WalletWallet-lykli (í Stillingum) dugar ein snerting.",
-  "aw.saved": "Lykill vistaður! Apple Wallet er nú í einni snertingu."
+  "aw.saved": "Lykill vistaður! Apple Wallet er nú í einni snertingu.",
+  "add.auto": "Sjálfvirkt (mælt með)",
+  "add.more": "Ítarlegri valkostir"
 }

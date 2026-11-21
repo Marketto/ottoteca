@@ -254,5 +254,7 @@
   "aw.limit": "Limita lunară de carduri gratuite a fost atinsă: se resetează pe 1.",
   "aw.fail": "Nu am putut crea cardul: încearcă pașii manuali.",
   "aw.oneTap": "Sfat: cu o cheie WalletWallet gratuită (în Setări) e nevoie de o singură atingere.",
-  "aw.saved": "Cheie salvată! Apple Wallet e acum la o atingere."
+  "aw.saved": "Cheie salvată! Apple Wallet e acum la o atingere.",
+  "add.auto": "Automat (recomandat)",
+  "add.more": "Opțiuni avansate"
 }

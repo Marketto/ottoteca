@@ -254,5 +254,7 @@
   "aw.limit": "Monthly limit of free passes reached: it resets on the 1st.",
   "aw.fail": "Couldn't create the pass: try the manual steps.",
   "aw.oneTap": "Tip: with a free WalletWallet key (in Settings) this becomes a single tap.",
-  "aw.saved": "Key saved! Apple Wallet is now one tap away."
+  "aw.saved": "Key saved! Apple Wallet is now one tap away.",
+  "add.auto": "Automatic (recommended)",
+  "add.more": "Advanced options"
 }

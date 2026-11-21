@@ -254,5 +254,7 @@
   "aw.limit": "Månedsgrænsen for gratis kort er nået: Den nulstilles den 1.",
   "aw.fail": "Kunne ikke lave kortet: Prøv de manuelle trin.",
   "aw.oneTap": "Tip: Med en gratis WalletWallet-nøgle (i Indstillinger) klares det med ét tryk.",
-  "aw.saved": "Nøgle gemt! Apple Wallet er nu ét tryk væk."
+  "aw.saved": "Nøgle gemt! Apple Wallet er nu ét tryk væk.",
+  "add.auto": "Automatisk (anbefalet)",
+  "add.more": "Avancerede indstillinger"
 }

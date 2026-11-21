@@ -7,7 +7,7 @@ import { classify, KINDS, KIND_ICON } from "./kinds.js";
 import { analyze, openPdf, isPasswordError, renderToCanvas, pdfjs, closePdf } from "./pdf.js";
 import { scanDoc, codeSVG, formatName, readImage } from "./codes.js";
 
-export const VERSION = "1.3.0";
+export const VERSION = "1.3.1";
 const HEAVY = 5 * 1024 * 1024;                     // oltre questa soglia si suggerisce Schiaccia PDF
 const SQUASH_URL = "https://marketto.github.io/pdf-tiny-tools/";
 const COLORS = ["#e5637a", "#f29e4c", "#e8c547", "#7cc46b", "#3fb5a9", "#4f9ae0", "#8f7ae5", "#d06fc0", "#a07b62", "#7d8796"];
@@ -1017,11 +1017,21 @@ async function toAppleWallet(p) {
   await dialog({ title: t("aw.title"), body: [steps, el("p", { class: "muted tip" }, t("aw.privacy")), key ? null : el("p", { class: "muted tip" }, t("aw.oneTap"))].filter(Boolean) });
 }
 // Inserimento manuale: qualsiasi QR o codice a barre (biglietti, carte fedeltà), da fotocamera, immagine o a mano
-const MANUAL_FMT = [["QRCode", "QR"], ["Code128", "Code 128"], ["EAN13", "EAN-13"], ["EAN8", "EAN-8"], ["Code39", "Code 39"], ["PDF417", "PDF417"], ["Aztec", "Aztec"], ["DataMatrix", "Data Matrix"]];
+// Tipo scelto da solo: chi usa l'app non deve sapere cos'è un EAN
+const gtinOk = d => { const n = d.split("").map(Number), c = n.pop(); const s = n.reverse().reduce((a, x, i) => a + x * (i % 2 ? 1 : 3), 0); return (10 - s % 10) % 10 === c; };
+function autoFormat(text, loyalty) {
+  if (/^\d{13}$/.test(text) && gtinOk(text)) return "EAN13";
+  if (/^\d{8}$/.test(text) && gtinOk(text)) return "EAN8";
+  if (/^\d{12}$/.test(text) && gtinOk(text)) return "UPCA";
+  if (/^[\x20-\x7e]{1,24}$/.test(text) && (loyalty || /^[\dA-Z-]+$/.test(text))) return "Code128"; // numeri di tessere e codici brevi: codice a barre
+  return "QRCode";
+}
+const MANUAL_FMT = [["auto", ""], ["QRCode", "QR"], ["Code128", "Code 128"], ["EAN13", "EAN-13"], ["EAN8", "EAN-8"], ["Code39", "Code 39"], ["PDF417", "PDF417"], ["Aztec", "Aztec"], ["DataMatrix", "Data Matrix"]];
 async function addCodeDialog(pre = {}) {
   const name = el("input", { type: "text", id: "acName", value: pre.title || "", maxlength: 80, autocomplete: "off" });
   const value = el("input", { type: "text", id: "acValue", value: pre.text || "", autocomplete: "off", inputmode: "text" });
-  const fmt = el("select", { id: "acFmt", class: "select" }, MANUAL_FMT.map(([v, l]) => el("option", { value: v, selected: v === (pre.format || "QRCode") ? true : null }, l)));
+  const chosen = pre.manualFmt || "auto";
+  const fmt = el("select", { id: "acFmt", class: "select" }, MANUAL_FMT.map(([v, l]) => el("option", { value: v, selected: v === chosen ? true : null }, v === "auto" ? t("add.auto") : l)));
   const loyalty = el("input", { type: "checkbox", id: "acLoyal", checked: pre.loyalty ? true : null });
   const fromCam = el("button", { type: "button", class: "btn btn-soft", onclick: () => { $("#dlg").close("cam"); } }, ic("qr"), t("add.scan"));
   const fromImg = el("button", { type: "button", class: "btn btn-soft", onclick: () => { $("#dlg").close("img"); } }, ic("file-plus"), t("add.fromImg"));
@@ -1030,11 +1040,13 @@ async function addCodeDialog(pre = {}) {
     body: [el("div", { class: "addsrc" }, fromCam, fromImg),
       el("label", { class: "lbl", for: "acName" }, t("wallet.name")), name,
       el("label", { class: "lbl", for: "acValue" }, t("add.value")), value,
-      el("label", { class: "lbl", for: "acFmt" }, t("add.format")), fmt,
-      el("label", { class: "check" }, loyalty, " ", t("add.loyalty"))],
+      el("label", { class: "check" }, loyalty, " ", t("add.loyalty")),
+      el("details", { class: "adv", open: chosen !== "auto" ? true : null }, el("summary", {}, t("add.more")),
+        el("label", { class: "lbl", for: "acFmt" }, t("add.format")), fmt)],
     actions: [{ label: t("common.cancel"), value: "cancel" }, { label: t("common.save"), value: "ok", cls: "btn-primary" }]
   });
-  const draft = { title: name.value.trim(), text: value.value.trim(), format: fmt.value, loyalty: loyalty.checked };
+  const draft = { title: name.value.trim(), text: value.value.trim(), manualFmt: fmt.value, scanned: pre.text === value.value.trim() ? pre.scanned : null, loyalty: loyalty.checked };
+  draft.format = draft.manualFmt !== "auto" ? draft.manualFmt : draft.scanned || autoFormat(draft.text, draft.loyalty);
   if (v === "cam" || v === "img") {
     const input = $(v === "cam" ? "#codePhoto" : "#codeImage");
     input.onchange = async () => {
@@ -1043,7 +1055,7 @@ async function addCodeDialog(pre = {}) {
       mood("think", 0);
       let r = null; try { r = await readImage(f); } catch {}
       mood(null);
-      if (r) { say(t("add.found"), "happy"); addCodeDialog({ ...draft, ...r, title: draft.title || f.name.replace(/\.[^.]+$/, "") }); }
+      if (r) { say(t("add.found"), "happy"); addCodeDialog({ ...draft, ...r, scanned: r.format, manualFmt: "auto", title: draft.title || f.name.replace(/\.[^.]+$/, "") }); }
       else { toast(t("add.notFound")); mood("sad", 1200); addCodeDialog(draft); }
     };
     input.click(); return;

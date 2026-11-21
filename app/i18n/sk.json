@@ -254,5 +254,7 @@
   "aw.limit": "Mesačný limit kariet zadarmo vyčerpaný: obnoví sa 1. dňa.",
   "aw.fail": "Kartu sa nepodarilo vytvoriť: skús ručný postup.",
   "aw.oneTap": "Tip: s bezplatným kľúčom WalletWallet (v Nastaveniach) stačí jedno ťuknutie.",
-  "aw.saved": "Kľúč uložený! Apple Wallet je teraz na jedno ťuknutie."
+  "aw.saved": "Kľúč uložený! Apple Wallet je teraz na jedno ťuknutie.",
+  "add.auto": "Automaticky (odporúčané)",
+  "add.more": "Rozšírené možnosti"
 }

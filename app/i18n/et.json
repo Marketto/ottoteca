@@ -254,5 +254,7 @@
   "aw.limit": "Tasuta passide kuulimiit täis: see nullitakse kuu 1. päeval.",
   "aw.fail": "Passi ei õnnestunud luua: proovi käsitsi samme.",
   "aw.oneTap": "Vihje: tasuta WalletWalleti võtmega (seadetes) piisab ühest puudutusest.",
-  "aw.saved": "Võti salvestatud! Apple Wallet on nüüd ühe puudutuse kaugusel."
+  "aw.saved": "Võti salvestatud! Apple Wallet on nüüd ühe puudutuse kaugusel.",
+  "add.auto": "Automaatne (soovitatav)",
+  "add.more": "Täpsemad valikud"
 }

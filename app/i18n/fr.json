@@ -254,5 +254,7 @@
   "aw.limit": "Limite mensuelle de cartes gratuites atteinte : elle repart le 1er.",
   "aw.fail": "Impossible de créer la carte : essaie les étapes manuelles.",
   "aw.oneTap": "Astuce : avec une clé WalletWallet gratuite (dans les Réglages), un seul geste suffit.",
-  "aw.saved": "Clé enregistrée ! Apple Wallet est à un geste."
+  "aw.saved": "Clé enregistrée ! Apple Wallet est à un geste.",
+  "add.auto": "Automatique (recommandé)",
+  "add.more": "Options avancées"
 }

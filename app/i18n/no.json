@@ -254,5 +254,7 @@
   "aw.limit": "Månedsgrensen for gratis kort er nådd: den nullstilles den 1.",
   "aw.fail": "Klarte ikke å lage kortet: prøv de manuelle trinnene.",
   "aw.oneTap": "Tips: med en gratis WalletWallet-nøkkel (i Innstillinger) holder det med ett trykk.",
-  "aw.saved": "Nøkkel lagret! Apple Wallet er nå ett trykk unna."
+  "aw.saved": "Nøkkel lagret! Apple Wallet er nå ett trykk unna.",
+  "add.auto": "Automatisk (anbefalt)",
+  "add.more": "Avanserte alternativer"
 }

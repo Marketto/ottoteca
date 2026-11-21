@@ -254,5 +254,7 @@
   "aw.limit": "Osiągnięto miesięczny limit darmowych kart: odnowi się 1. dnia miesiąca.",
   "aw.fail": "Nie udało się utworzyć karty: spróbuj kroków ręcznych.",
   "aw.oneTap": "Wskazówka: z darmowym kluczem WalletWallet (w Ustawieniach) wystarczy jedno stuknięcie.",
-  "aw.saved": "Klucz zapisany! Apple Wallet jest teraz o jedno stuknięcie."
+  "aw.saved": "Klucz zapisany! Apple Wallet jest teraz o jedno stuknięcie.",
+  "add.auto": "Automatycznie (zalecane)",
+  "add.more": "Opcje zaawansowane"
 }

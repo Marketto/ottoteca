@@ -125,13 +125,13 @@ try {
   await page.click("#addCode");
   await page.fill("#acName", "Supermercato");
   await page.fill("#acValue", "8001234567897");
-  await page.selectOption("#acFmt", "EAN13");
   await page.check("#acLoyal");
   if (shots) await page.screenshot({ path: "tests/shots/18-aggiungi-codice.png" });
   await page.locator("#dlg button[value=ok]").click();
   await page.waitForFunction(() => document.querySelectorAll("#passes .pass").length === 2);
   await page.waitForSelector("#passes .pass:first-child .mini svg");
   ok((await page.textContent("#passes .pass:first-child")).includes("Supermercato"), "carta fedeltà aggiunta a mano");
+  ok((await page.textContent("#passes .pass:first-child .from")).includes("EAN-13"), "tipo di codice riconosciuto da solo (EAN-13)");
   // Apple Wallet con un tocco (chiave gratuita WalletWallet, API simulata)
   let sent = null;
   await page.route("https://api.walletwallet.dev/api/pkpass", r => { sent = { auth: r.request().headers().authorization, body: JSON.parse(r.request().postData()) }; r.fulfill({ status: 200, contentType: "application/vnd.apple.pkpass", body: "PK" }); });

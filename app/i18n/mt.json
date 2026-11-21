@@ -254,5 +254,7 @@
   "aw.limit": "Intlaħaq il-limitu ta' kull xahar tal-passes b'xejn: jerġa' jibda fl-1.",
   "aw.fail": "Ma rnexxilix noħloq il-pass: ipprova l-passi manwali.",
   "aw.oneTap": "Parir: b'ċavetta WalletWallet b'xejn (fl-Issettjar) tapp wieħed biżżejjed.",
-  "aw.saved": "Ċavetta ssejvjata! Apple Wallet issa tapp wieħed 'il bogħod."
+  "aw.saved": "Ċavetta ssejvjata! Apple Wallet issa tapp wieħed 'il bogħod.",
+  "add.auto": "Awtomatiku (rakkomandat)",
+  "add.more": "Għażliet avvanzati"
 }

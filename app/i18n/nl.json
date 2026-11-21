@@ -254,5 +254,7 @@
   "aw.limit": "Maandlimiet voor gratis passen bereikt: die begint opnieuw op de 1e.",
   "aw.fail": "Kon de pas niet maken: probeer de handmatige stappen.",
   "aw.oneTap": "Tip: met een gratis WalletWallet-sleutel (in Instellingen) is het één tik.",
-  "aw.saved": "Sleutel opgeslagen! Apple Wallet is nu één tik ver."
+  "aw.saved": "Sleutel opgeslagen! Apple Wallet is nu één tik ver.",
+  "add.auto": "Automatisch (aanbevolen)",
+  "add.more": "Geavanceerde opties"
 }

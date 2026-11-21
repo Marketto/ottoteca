@@ -254,5 +254,7 @@
   "aw.limit": "이번 달 무료 패스 한도에 도달했어요. 1일에 초기화돼요.",
   "aw.fail": "패스를 만들지 못했어요. 수동 단계를 시도해 보세요.",
   "aw.oneTap": "팁: 설정에 무료 WalletWallet 키를 넣으면 한 번의 탭이면 돼요.",
-  "aw.saved": "키 저장 완료! 이제 Apple Wallet에 한 번에 추가돼요."
+  "aw.saved": "키 저장 완료! 이제 Apple Wallet에 한 번에 추가돼요.",
+  "add.auto": "자동(권장)",
+  "add.more": "고급 옵션"
 }
