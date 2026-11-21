@@ -347,7 +347,7 @@ function renderLibrary(focusId) {
   $(".cats").hidden = empty || mode === "folders";
   $("#crumbs").hidden = empty || mode !== "folders";
   $("#basisSeg").hidden = mode !== "date";
-  $("#sort").hidden = mode === "date";
+  $("#sort").hidden = mode === "date" || empty;
   $(".modebar").hidden = empty;
   $("#selectBtn").hidden = empty;
   if (mode !== "folders") renderChips(); else renderCrumbs();

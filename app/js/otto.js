@@ -1,50 +1,80 @@
-// Otto, la lontra kawaii. SVG inline + stati animati (classi is-*) + coriandoli.
+// Otto, la lontra kawaii in cel shading: contorno a inchiostro, ombre e luci a bande nette, occhioni lucidi.
 let uid = 0;
 export function ottoSVG() {
   const u = "o" + (++uid);
   return `<svg class="otto" viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true">
   <defs>
-    <radialGradient id="${u}b" cx="50%" cy="35%" r="70%"><stop offset="0" stop-color="var(--otto)"/><stop offset="1" stop-color="var(--otto-dark)"/></radialGradient>
+    <clipPath id="${u}h"><ellipse cx="100" cy="90" rx="70" ry="56"/></clipPath>
+    <clipPath id="${u}b"><ellipse cx="100" cy="162" rx="54" ry="48"/></clipPath>
+    <clipPath id="${u}e1"><ellipse cx="72" cy="88" rx="17" ry="21"/></clipPath>
+    <clipPath id="${u}e2"><ellipse cx="128" cy="88" rx="17" ry="21"/></clipPath>
+    <clipPath id="${u}f"><path d="M42 104c2-21 27-31 58-23 31-8 56 2 58 23 3 25-25 41-58 41S39 129 42 104z"/></clipPath>
   </defs>
-  <ellipse cx="100" cy="212" rx="58" ry="6" fill="#000" opacity=".10"/>
+  <ellipse cx="100" cy="212" rx="60" ry="7" fill="var(--ink)" opacity=".18"/>
   <g class="o-all">
-    <path class="o-tail" d="M140 190c22 2 40-8 46-26 2-7-6-10-10-5-8 11-20 16-38 16z" fill="var(--otto-dark)"/>
-    <ellipse cx="100" cy="160" rx="56" ry="50" fill="url(#${u}b)"/>
-    <ellipse cx="100" cy="168" rx="38" ry="36" fill="var(--otto-cream)"/>
-    <ellipse cx="72" cy="206" rx="17" ry="9" fill="var(--otto-dark)"/>
-    <ellipse cx="128" cy="206" rx="17" ry="9" fill="var(--otto-dark)"/>
+    <g class="o-tail">
+      <path d="M138 188c26 4 44-8 50-28 2-8-7-12-12-6-9 12-22 17-40 16z" fill="var(--otto)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round"/>
+      <path d="M150 190c16-1 28-8 34-20l-4-6c-8 11-18 16-32 17z" fill="var(--otto-dark)"/>
+    </g>
+    <ellipse cx="100" cy="162" rx="54" ry="48" fill="var(--otto)"/>
+    <g clip-path="url(#${u}b)">
+      <ellipse cx="128" cy="176" rx="50" ry="50" fill="var(--otto-dark)"/>
+      <ellipse cx="72" cy="130" rx="22" ry="12" fill="var(--otto-light)"/>
+      <ellipse cx="96" cy="172" rx="36" ry="34" fill="var(--otto-cream)"/>
+      <path d="M112 150c14 10 18 30 6 50h20v-50z" fill="var(--cream-dark)"/>
+    </g>
+    <ellipse cx="100" cy="162" rx="54" ry="48" fill="none" stroke="var(--ink)" stroke-width="5"/>
+    <ellipse cx="72" cy="207" rx="17" ry="9" fill="var(--otto-dark)" stroke="var(--ink)" stroke-width="4"/>
+    <ellipse cx="128" cy="207" rx="17" ry="9" fill="var(--otto-dark)" stroke="var(--ink)" stroke-width="4"/>
     <g class="o-paper">
-      <rect x="78" y="138" width="44" height="54" rx="6" fill="#fff" stroke="#e8d5c2" stroke-width="2"/>
-      <rect x="78" y="138" width="44" height="13" rx="6" fill="#e5637a"/>
-      <rect x="78" y="146" width="44" height="5" fill="#e5637a"/>
+      <rect x="77" y="136" width="46" height="56" rx="7" fill="#fff" stroke="var(--ink)" stroke-width="4"/>
+      <path d="M79 140a5 5 0 0 1 5-3h32a5 5 0 0 1 5 3v11H79z" fill="#ff5c8a"/>
       <text x="100" y="149" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="900" font-size="10" fill="#fff">PDF</text>
-      <rect x="85" y="158" width="30" height="4" rx="2" fill="#ead8c6"/>
-      <rect x="85" y="166" width="22" height="4" rx="2" fill="#ead8c6"/>
-      <rect x="85" y="174" width="27" height="4" rx="2" fill="#ead8c6"/>
-      <ellipse cx="78" cy="166" rx="11" ry="13" fill="var(--otto)"/>
-      <ellipse cx="122" cy="166" rx="11" ry="13" fill="var(--otto)"/>
+      <rect x="85" y="158" width="30" height="4" rx="2" fill="#c9b8ff"/>
+      <rect x="85" y="166" width="22" height="4" rx="2" fill="#9fe6d9"/>
+      <rect x="85" y="174" width="27" height="4" rx="2" fill="#ffd166"/>
+      <ellipse cx="77" cy="166" rx="12" ry="14" fill="var(--otto)" stroke="var(--ink)" stroke-width="4"/>
+      <ellipse cx="123" cy="166" rx="12" ry="14" fill="var(--otto)" stroke="var(--ink)" stroke-width="4"/>
+      <path d="M126 158a10 12 0 0 1 4 16l-6 2z" fill="var(--otto-dark)"/>
+      <ellipse cx="74" cy="160" rx="4" ry="3" fill="var(--otto-light)"/>
     </g>
-    <g class="o-ear"><circle cx="40" cy="68" r="12" fill="var(--otto-dark)"/><circle cx="41" cy="69" r="5.5" fill="var(--cheek)" opacity=".6"/></g>
-    <g class="o-ear r"><circle cx="160" cy="68" r="12" fill="var(--otto-dark)"/><circle cx="159" cy="69" r="5.5" fill="var(--cheek)" opacity=".6"/></g>
-    <ellipse cx="100" cy="92" rx="68" ry="54" fill="url(#${u}b)"/>
-    <path d="M44 102c2-20 26-30 56-22 30-8 54 2 56 22 3 24-24 40-56 40S41 126 44 102z" fill="var(--otto-cream)"/>
-    <ellipse class="o-eye" cx="73" cy="86" rx="13" ry="15.5" fill="var(--eye)"/>
-    <ellipse class="o-eye" cx="127" cy="86" rx="13" ry="15.5" fill="var(--eye)"/>
-    <g class="o-shine" fill="#fff">
-      <circle cx="68" cy="80" r="5.2"/><circle cx="77" cy="92" r="2.4"/>
-      <circle cx="122" cy="80" r="5.2"/><circle cx="131" cy="92" r="2.4"/>
+    <g class="o-ear"><circle cx="40" cy="68" r="13" fill="var(--otto)" stroke="var(--ink)" stroke-width="5"/><circle cx="41" cy="69" r="6" fill="var(--cheek)"/></g>
+    <g class="o-ear r"><circle cx="160" cy="68" r="13" fill="var(--otto)" stroke="var(--ink)" stroke-width="5"/><circle cx="159" cy="69" r="6" fill="var(--cheek)"/></g>
+    <ellipse cx="100" cy="90" rx="70" ry="56" fill="var(--otto)"/>
+    <g clip-path="url(#${u}h)">
+      <ellipse cx="124" cy="112" rx="78" ry="58" fill="var(--otto-dark)"/>
+      <ellipse cx="94" cy="84" rx="74" ry="52" fill="var(--otto)"/>
+      <path d="M52 52c14-14 40-20 62-16-24 2-44 10-56 24z" fill="var(--otto-light)"/>
+      <ellipse cx="64" cy="50" rx="7" ry="4" fill="#fff" opacity=".7" transform="rotate(-25 64 50)"/>
     </g>
-    <ellipse cx="54" cy="112" rx="10" ry="6" fill="var(--cheek)" opacity=".7"/>
-    <ellipse cx="146" cy="112" rx="10" ry="6" fill="var(--cheek)" opacity=".7"/>
-    <path d="M90 101c0-6 20-6 20 0 0 5-6 9-10 9s-10-4-10-9z" fill="var(--eye)"/>
-    <path d="M89 116c3 4 8 4 11 0 3 4 8 4 11 0" fill="none" stroke="var(--eye)" stroke-width="2.6" stroke-linecap="round"/>
-    <g stroke="var(--otto-dark)" stroke-width="2" stroke-linecap="round" opacity=".55">
-      <path d="M70 112 46 108M70 118 47 124"/><path d="M130 112l24-4M130 118l23 6"/>
+    <path d="M42 104c2-21 27-31 58-23 31-8 56 2 58 23 3 25-25 41-58 41S39 129 42 104z" fill="var(--otto-cream)"/>
+    <g clip-path="url(#${u}f)"><path d="M150 96c6 26-18 46-54 48 40 6 70-8 64-40z" fill="var(--cream-dark)"/></g>
+    <ellipse cx="100" cy="90" rx="70" ry="56" fill="none" stroke="var(--ink)" stroke-width="5"/>
+    <g class="o-eye">
+      <ellipse cx="72" cy="88" rx="17" ry="21" fill="var(--eye)"/>
+      <g clip-path="url(#${u}e1)"><ellipse cx="72" cy="108" rx="18" ry="12" fill="var(--iris)"/><ellipse cx="72" cy="112" rx="12" ry="6" fill="var(--iris-light)"/></g>
+      <ellipse cx="65" cy="79" rx="7" ry="8" fill="#fff"/><circle cx="79" cy="97" r="3.2" fill="#fff"/><circle cx="76" cy="77" r="2" fill="#fff"/>
     </g>
-    <g class="o-glass"><circle cx="150" cy="140" r="14" fill="rgba(180,230,255,.45)" stroke="#5a4a40" stroke-width="5"/><path d="M160 150l12 12" stroke="#5a4a40" stroke-width="6" stroke-linecap="round"/></g>
+    <g class="o-eye">
+      <ellipse cx="128" cy="88" rx="17" ry="21" fill="var(--eye)"/>
+      <g clip-path="url(#${u}e2)"><ellipse cx="128" cy="108" rx="18" ry="12" fill="var(--iris)"/><ellipse cx="128" cy="112" rx="12" ry="6" fill="var(--iris-light)"/></g>
+      <ellipse cx="121" cy="79" rx="7" ry="8" fill="#fff"/><circle cx="135" cy="97" r="3.2" fill="#fff"/><circle cx="132" cy="77" r="2" fill="#fff"/>
+    </g>
+    <ellipse cx="48" cy="114" rx="12" ry="7" fill="var(--cheek)"/>
+    <ellipse cx="152" cy="114" rx="12" ry="7" fill="var(--cheek)"/>
+    <g stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".85"><path d="M42 116l3-5M48 116l3-5M54 116l3-5M146 116l3-5M152 116l3-5M158 116l3-5"/></g>
+    <path d="M90 104c0-6 20-6 20 0 0 5-6 9-10 9s-10-4-10-9z" fill="var(--eye)" stroke="var(--ink)" stroke-width="2"/>
+    <ellipse cx="96" cy="103" rx="3" ry="1.8" fill="#fff" opacity=".9"/>
+    <path d="M96 121c1 5 7 5 8 0z" fill="#ff7a9c"/>
+    <path d="M88 119c3 5 9 5 12 0 3 5 9 5 12 0" fill="none" stroke="var(--ink)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+    <g stroke="var(--ink)" stroke-width="2.6" stroke-linecap="round" opacity=".55"><path d="M66 118 44 115M66 124 46 129"/><path d="M134 118l22-3M134 124l20 5"/></g>
+    <g class="o-glass"><circle cx="150" cy="140" r="15" fill="rgba(170,230,255,.55)" stroke="var(--ink)" stroke-width="5"/><path d="M144 134a8 8 0 0 1 8-3" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M161 151l12 12" stroke="var(--ink)" stroke-width="7" stroke-linecap="round"/></g>
   </g>
-  <g class="o-hearts" fill="#ff6f91"><path d="M40 60c-6-8 4-14 8-6 4-8 14-2 8 6l-8 8z"/><path d="M150 30c-5-7 3-12 7-5 4-7 12-2 7 5l-7 7z"/><path d="M168 80c-4-6 3-10 6-4 3-6 10-2 6 4l-6 6z"/></g>
-  <g class="o-zzz" fill="var(--muted)" font-family="Nunito,sans-serif" font-weight="900"><text x="150" y="40" font-size="20">z</text><text x="166" y="24" font-size="14">z</text></g>
+  <g class="o-spark" stroke="var(--ink)" stroke-width="2" stroke-linejoin="round">
+    <path d="M22 40l3 7 7 3-7 3-3 7-3-7-7-3 7-3z" fill="#ffd166"/><path d="M180 108l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" fill="#7fe3ff"/>
+  </g>
+  <g class="o-hearts" fill="#ff5c8a" stroke="var(--ink)" stroke-width="2"><path d="M40 60c-6-8 4-14 8-6 4-8 14-2 8 6l-8 8z"/><path d="M150 30c-5-7 3-12 7-5 4-7 12-2 7 5l-7 7z"/><path d="M168 80c-4-6 3-10 6-4 3-6 10-2 6 4l-6 6z"/></g>
+  <g class="o-zzz" fill="#8b7cff" stroke="var(--ink)" stroke-width="1.5" font-family="Nunito,sans-serif" font-weight="900"><text x="150" y="40" font-size="22">z</text><text x="168" y="22" font-size="15">z</text></g>
 </svg>`;
 }
 
@@ -70,7 +100,7 @@ export function mood(state, ms = 2200, scope = document) {
 export function confetti(x = innerWidth / 2, y = innerHeight / 2, n = 28) {
   if (document.documentElement.dataset.motionEff === "reduced") return;
   const fx = document.getElementById("fx");
-  const colors = ["#ff8fab", "#ffd84d", "#7fd8d6", "#b69cff", "#ffb36b", "#8fe08a"];
+  const colors = ["#ff5c8a", "#ffd166", "#4fd8c4", "#8b7cff", "#ff9f43", "#7fe3ff"];
   for (let i = 0; i < n; i++) {
     const s = document.createElement("i");
     if (i % 3 === 0) s.className = "star";

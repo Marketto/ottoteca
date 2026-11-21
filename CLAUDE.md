@@ -4,5 +4,6 @@
 - Le cartelle sono il negozio `cats` con `parent` (null = radice); un documento ha `cats: [id…]`.
 - Testi: aggiungi la chiave in `app/i18n/en.json` e in **tutte** le altre lingue, poi `npm run check`.
 - Dopo ogni modifica: `npm test` (rigenera `app/sw.js`; deve finire con «Tutto ok», axe senza violazioni).
+- Stile pop in cel shading: contorni `--ink`, ombre nette (`--shadow`), gradienti `--grad`. Icone app: `node tools/icons.mjs` (dalla mascotte).
 - Animazioni: sempre dentro le regole di `prefers-reduced-motion` / `data-motion` già in `app.css`.
 - Mascotte: lontra. Non usare conigli, ricci, capibara, suricati, polpi (già usati in altre app).
