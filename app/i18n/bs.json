@@ -218,5 +218,13 @@
   "find.btn": "Pronađi moje PDF-ove",
   "find.more": "Drugi načini dodavanja PDF-ova",
   "find.ios": "Odaberi „Na mom iPhoneu” ili iCloud Drive: Ottoteka uzima sve PDF-ove, i iz podfoldera, i čuva kopiju. Za ažuriranje dodirni ponovo.",
-  "find.android": "Odaberi memoriju telefona (prvi folder): Ottoteka uzima sve PDF-ove, i iz podfoldera, i čuva kopiju. Za ažuriranje dodirni ponovo."
+  "find.android": "Odaberi memoriju telefona (prvi folder): Ottoteka uzima sve PDF-ove, i iz podfoldera, i čuva kopiju. Za ažuriranje dodirni ponovo.",
+  "gw.btn": "Novčanik u telefonu",
+  "gw.title": "Dodaj u Google Wallet",
+  "gw.step1": "Sačuvaj sliku koda na telefon.",
+  "gw.save": "Sačuvaj sliku",
+  "gw.step2": "Otvori Google Wallet.",
+  "gw.open": "Otvori Google Wallet",
+  "gw.step3": "Dodirni „Dodaj u Wallet” → „Sve ostalo” (ili „Fotografija”) i odaberi sačuvanu sliku: Google Wallet pravi propusnicu s QR kodom.",
+  "gw.apple": "iPhone: Apple Wallet prihvata samo propusnice koje je potpisao izdavač, pa ih nije moguće dodati ručno. Čuvaj ih ovdje u Ottotekinom novčaniku: radi i bez mreže, preko cijelog ekrana i s najjačim osvjetljenjem."
 }

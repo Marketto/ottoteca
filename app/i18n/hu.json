@@ -218,5 +218,13 @@
   "find.btn": "PDF-jeim keresése",
   "find.more": "PDF-ek hozzáadásának más módjai",
   "find.ios": "Válaszd a „Saját iPhone-on” vagy az iCloud Drive lehetőséget: az Ottoteca az összes PDF-et átveszi, az almappákból is, és megőriz egy másolatot. Frissítéshez koppints újra.",
-  "find.android": "Válaszd a telefon tárhelyét (a legfelső mappát): az Ottoteca az összes PDF-et átveszi, az almappákból is, és megőriz egy másolatot. Frissítéshez koppints újra."
+  "find.android": "Válaszd a telefon tárhelyét (a legfelső mappát): az Ottoteca az összes PDF-et átveszi, az almappákból is, és megőriz egy másolatot. Frissítéshez koppints újra.",
+  "gw.btn": "Telefon tárcája",
+  "gw.title": "Hozzáadás a Google Wallethez",
+  "gw.step1": "Mentsd el a kód képét a telefonra.",
+  "gw.save": "Kép mentése",
+  "gw.step2": "Nyisd meg a Google Walletet.",
+  "gw.open": "Google Wallet megnyitása",
+  "gw.step3": "Koppints a „Hozzáadás a Wallethez” → „Minden más” (vagy „Fotó”) lehetőségre, és válaszd ki a mentett képet: a Google Wallet létrehozza a kártyát a QR-kóddal.",
+  "gw.apple": "iPhone: az Apple Wallet csak a kibocsátó által aláírt kártyákat fogadja el, így kézzel nem adhatók hozzá. Tartsd őket itt az Ottoteca tárcájában: offline is működik, teljes képernyőn és maximális fényerővel."
 }

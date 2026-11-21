@@ -218,5 +218,13 @@
   "find.btn": "Hitta mina PDF:er",
   "find.more": "Fler sätt att lägga till PDF:er",
   "find.ios": "Välj ”På min iPhone” eller iCloud Drive: Ottoteca tar alla PDF:er, även i undermappar, och sparar en kopia. Tryck igen för att uppdatera.",
-  "find.android": "Välj telefonens minne (översta mappen): Ottoteca tar alla PDF:er, även i undermappar, och sparar en kopia. Tryck igen för att uppdatera."
+  "find.android": "Välj telefonens minne (översta mappen): Ottoteca tar alla PDF:er, även i undermappar, och sparar en kopia. Tryck igen för att uppdatera.",
+  "gw.btn": "Telefonens plånbok",
+  "gw.title": "Lägg till i Google Wallet",
+  "gw.step1": "Spara bilden av koden på telefonen.",
+  "gw.save": "Spara bild",
+  "gw.step2": "Öppna Google Wallet.",
+  "gw.open": "Öppna Google Wallet",
+  "gw.step3": "Tryck på ”Lägg till i Wallet” → ”Allt annat” (eller ”Foto”) och välj den sparade bilden: Google Wallet skapar kortet med QR-koden.",
+  "gw.apple": "iPhone: Apple Wallet tar bara emot kort som utfärdaren har signerat, så de kan inte läggas till för hand. Spara dem här i Ottotecas plånbok: den fungerar offline, i helskärm och med full ljusstyrka."
 }

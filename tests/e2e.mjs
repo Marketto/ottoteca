@@ -113,6 +113,10 @@ try {
   await page.goto(BASE + "#/wallet");
   await page.waitForSelector("#passes .pass .mini svg");
   ok(await page.locator("#passes .pass").count() === 1, "pass nel portafoglio");
+  await page.locator("#passes .pass .btn", { hasText: "Wallet del telefono" }).click();
+  ok(await page.locator("#dlg .wsteps li").count() === 3, "istruzioni per Google Wallet");
+  if (shots) await page.screenshot({ path: "tests/shots/16-google-wallet.png" });
+  await page.keyboard.press("Escape");
   if (shots) await page.screenshot({ path: "tests/shots/07-portafoglio.png" });
   await page.waitForTimeout(1200);
   const axe3 = await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21aa"]).analyze();

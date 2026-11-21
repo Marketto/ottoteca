@@ -218,5 +218,13 @@
   "find.btn": "Mijn PDF's vinden",
   "find.more": "Andere manieren om PDF's toe te voegen",
   "find.ios": "Kies ‘Op mijn iPhone’ of iCloud Drive: Ottoteca neemt alle PDF's, ook uit submappen, en bewaart een kopie. Tik opnieuw om bij te werken.",
-  "find.android": "Kies het telefoongeheugen (de bovenste map): Ottoteca neemt alle PDF's, ook uit submappen, en bewaart een kopie. Tik opnieuw om bij te werken."
+  "find.android": "Kies het telefoongeheugen (de bovenste map): Ottoteca neemt alle PDF's, ook uit submappen, en bewaart een kopie. Tik opnieuw om bij te werken.",
+  "gw.btn": "Wallet van de telefoon",
+  "gw.title": "Toevoegen aan Google Wallet",
+  "gw.step1": "Sla de afbeelding van de code op de telefoon op.",
+  "gw.save": "Afbeelding opslaan",
+  "gw.step2": "Open Google Wallet.",
+  "gw.open": "Google Wallet openen",
+  "gw.step3": "Tik op ‘Toevoegen aan Wallet’ → ‘Al het andere’ (of ‘Foto’) en kies de opgeslagen afbeelding: Google Wallet maakt de pas met de QR-code.",
+  "gw.apple": "iPhone: Apple Wallet accepteert alleen passen die de uitgever heeft ondertekend, dus je kunt ze niet met de hand toevoegen. Bewaar ze hier in de wallet van Ottoteca: die werkt offline, schermvullend en met maximale helderheid."
 }

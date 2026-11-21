@@ -218,5 +218,13 @@
   "find.btn": "Rasti mano PDF",
   "find.more": "Kiti būdai pridėti PDF",
   "find.ios": "Pasirink „Mano iPhone“ arba iCloud Drive: Ottoteca paims visus PDF, ir iš poaplankių, ir išsaugos kopiją. Atnaujinti – paliesk dar kartą.",
-  "find.android": "Pasirink telefono atmintį (pirmą aplanką): Ottoteca paims visus PDF, ir iš poaplankių, ir išsaugos kopiją. Atnaujinti – paliesk dar kartą."
+  "find.android": "Pasirink telefono atmintį (pirmą aplanką): Ottoteca paims visus PDF, ir iš poaplankių, ir išsaugos kopiją. Atnaujinti – paliesk dar kartą.",
+  "gw.btn": "Telefono piniginė",
+  "gw.title": "Pridėti į Google Wallet",
+  "gw.step1": "Išsaugok kodo paveikslėlį telefone.",
+  "gw.save": "Išsaugoti paveikslėlį",
+  "gw.step2": "Atidaryk Google Wallet.",
+  "gw.open": "Atidaryti Google Wallet",
+  "gw.step3": "Paliesk „Pridėti į Wallet“ → „Visa kita“ (arba „Nuotrauka“) ir pasirink išsaugotą paveikslėlį: Google Wallet sukurs kortelę su QR kodu.",
+  "gw.apple": "iPhone: Apple Wallet priima tik išdavėjo pasirašytas korteles, todėl jų negalima pridėti ranka. Laikyk jas čia, Ottotecos piniginėje: ji veikia ir be ryšio, per visą ekraną ir su didžiausiu ryškumu."
 }

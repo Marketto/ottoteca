@@ -218,5 +218,13 @@
   "find.btn": "Aimsigh mo PDFanna",
   "find.more": "Bealaí eile chun PDFanna a chur leis",
   "find.ios": "Roghnaigh “Ar mo iPhone” nó iCloud Drive: tógann Ottoteca gach PDF, fofhillteáin san áireamh, agus coinníonn sé cóip. Tapáil arís chun nuashonrú.",
-  "find.android": "Roghnaigh cuimhne an fhóin (an chéad fhillteán): tógann Ottoteca gach PDF, fofhillteáin san áireamh, agus coinníonn sé cóip. Tapáil arís chun nuashonrú."
+  "find.android": "Roghnaigh cuimhne an fhóin (an chéad fhillteán): tógann Ottoteca gach PDF, fofhillteáin san áireamh, agus coinníonn sé cóip. Tapáil arís chun nuashonrú.",
+  "gw.btn": "Sparán an fhóin",
+  "gw.title": "Cuir le Google Wallet",
+  "gw.step1": "Sábháil íomhá an chóid ar an bhfón.",
+  "gw.save": "Sábháil íomhá",
+  "gw.step2": "Oscail Google Wallet.",
+  "gw.open": "Oscail Google Wallet",
+  "gw.step3": "Tapáil “Cuir le Wallet” → “Gach rud eile” (nó “Grianghraf”) agus roghnaigh an íomhá a sábháladh: cruthaíonn Google Wallet an pas leis an gcód QR.",
+  "gw.apple": "iPhone: ní ghlacann Apple Wallet ach le pasanna a shínigh an t-eisitheoir, mar sin ní féidir iad a chur leis de láimh. Coinnigh anseo iad i sparán Ottoteca: oibríonn sé as líne, ar an scáileán iomlán agus leis an ngile is airde."
 }

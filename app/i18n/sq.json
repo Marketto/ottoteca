@@ -218,5 +218,13 @@
   "find.btn": "Gjej PDF-të e mia",
   "find.more": "Mënyra të tjera për të shtuar PDF",
   "find.ios": "Zgjidh «Në iPhone-in tim» ose iCloud Drive: Ottoteca merr të gjitha PDF-të, edhe nga nëndosjet, dhe mban një kopje. Prek sërish për ta përditësuar.",
-  "find.android": "Zgjidh memorien e telefonit (dosjen e parë): Ottoteca merr të gjitha PDF-të, edhe nga nëndosjet, dhe mban një kopje. Prek sërish për ta përditësuar."
+  "find.android": "Zgjidh memorien e telefonit (dosjen e parë): Ottoteca merr të gjitha PDF-të, edhe nga nëndosjet, dhe mban një kopje. Prek sërish për ta përditësuar.",
+  "gw.btn": "Portofoli i telefonit",
+  "gw.title": "Shto në Google Wallet",
+  "gw.step1": "Ruaj imazhin e kodit në telefon.",
+  "gw.save": "Ruaj imazhin",
+  "gw.step2": "Hap Google Wallet.",
+  "gw.open": "Hap Google Wallet",
+  "gw.step3": "Prek «Shto në Wallet» → «Gjithçka tjetër» (ose «Foto») dhe zgjidh imazhin e ruajtur: Google Wallet krijon kartën me kodin QR.",
+  "gw.apple": "iPhone: Apple Wallet pranon vetëm karta të nënshkruara nga lëshuesi, ndaj nuk mund të shtohen me dorë. Mbaji këtu në portofolin e Ottoteca-s: punon edhe pa internet, në ekran të plotë dhe me ndriçim maksimal."
 }

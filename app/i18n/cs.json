@@ -218,5 +218,13 @@
   "find.btn": "Najít moje PDF",
   "find.more": "Další způsoby přidání PDF",
   "find.ios": "Vyber „Na mém iPhonu“ nebo iCloud Drive: Ottoteka vezme všechna PDF, i z podsložek, a ponechá si kopii. Pro aktualizaci klepni znovu.",
-  "find.android": "Vyber paměť telefonu (první složku): Ottoteka vezme všechna PDF, i z podsložek, a ponechá si kopii. Pro aktualizaci klepni znovu."
+  "find.android": "Vyber paměť telefonu (první složku): Ottoteka vezme všechna PDF, i z podsložek, a ponechá si kopii. Pro aktualizaci klepni znovu.",
+  "gw.btn": "Peněženka v telefonu",
+  "gw.title": "Přidat do Google Wallet",
+  "gw.step1": "Ulož obrázek kódu do telefonu.",
+  "gw.save": "Uložit obrázek",
+  "gw.step2": "Otevři Google Wallet.",
+  "gw.open": "Otevřít Google Wallet",
+  "gw.step3": "Klepni na „Přidat do Peněženky“ → „Vše ostatní“ (nebo „Fotka“) a vyber uložený obrázek: Google Wallet vytvoří kartu s QR kódem.",
+  "gw.apple": "iPhone: Apple Wallet přijímá jen karty podepsané vydavatelem, takže je nelze přidat ručně. Nech si je tady v peněžence Ottoteky: funguje offline, na celou obrazovku a s maximálním jasem."
 }

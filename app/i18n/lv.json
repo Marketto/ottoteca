@@ -218,5 +218,13 @@
   "find.btn": "Atrast manus PDF",
   "find.more": "Citi veidi, kā pievienot PDF",
   "find.ios": "Izvēlies “Manā iPhone” vai iCloud Drive: Ottoteca paņems visus PDF, arī no apakšmapēm, un saglabās kopiju. Lai atjauninātu, pieskaries vēlreiz.",
-  "find.android": "Izvēlies tālruņa atmiņu (pirmo mapi): Ottoteca paņems visus PDF, arī no apakšmapēm, un saglabās kopiju. Lai atjauninātu, pieskaries vēlreiz."
+  "find.android": "Izvēlies tālruņa atmiņu (pirmo mapi): Ottoteca paņems visus PDF, arī no apakšmapēm, un saglabās kopiju. Lai atjauninātu, pieskaries vēlreiz.",
+  "gw.btn": "Tālruņa maks",
+  "gw.title": "Pievienot Google Wallet",
+  "gw.step1": "Saglabā koda attēlu tālrunī.",
+  "gw.save": "Saglabāt attēlu",
+  "gw.step2": "Atver Google Wallet.",
+  "gw.open": "Atvērt Google Wallet",
+  "gw.step3": "Pieskaries “Pievienot makam” → “Viss pārējais” (vai “Fotoattēls”) un izvēlies saglabāto attēlu: Google Wallet izveidos karti ar QR kodu.",
+  "gw.apple": "iPhone: Apple Wallet pieņem tikai izdevēja parakstītas kartes, tāpēc tās nevar pievienot manuāli. Glabā tās šeit Ottotecas makā: tas darbojas arī bezsaistē, pilnekrānā un ar maksimālu spilgtumu."
 }

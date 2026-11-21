@@ -218,5 +218,13 @@
   "find.btn": "Etsi PDF-tiedostoni",
   "find.more": "Muita tapoja lisätä PDF-tiedostoja",
   "find.ios": "Valitse ”Omassa iPhonessa” tai iCloud Drive: Ottoteca ottaa kaikki PDF:t, myös alikansioista, ja säilyttää kopion. Napauta uudelleen päivittääksesi.",
-  "find.android": "Valitse puhelimen muisti (ylin kansio): Ottoteca ottaa kaikki PDF:t, myös alikansioista, ja säilyttää kopion. Napauta uudelleen päivittääksesi."
+  "find.android": "Valitse puhelimen muisti (ylin kansio): Ottoteca ottaa kaikki PDF:t, myös alikansioista, ja säilyttää kopion. Napauta uudelleen päivittääksesi.",
+  "gw.btn": "Puhelimen lompakko",
+  "gw.title": "Lisää Google Walletiin",
+  "gw.step1": "Tallenna koodin kuva puhelimeen.",
+  "gw.save": "Tallenna kuva",
+  "gw.step2": "Avaa Google Wallet.",
+  "gw.open": "Avaa Google Wallet",
+  "gw.step3": "Napauta ”Lisää Walletiin” → ”Kaikki muu” (tai ”Kuva”) ja valitse tallennettu kuva: Google Wallet luo passin QR-koodeineen.",
+  "gw.apple": "iPhone: Apple Wallet hyväksyy vain myöntäjän allekirjoittamat passit, joten niitä ei voi lisätä käsin. Säilytä ne täällä Ottotecan lompakossa: se toimii ilman verkkoa, koko näytöllä ja täydellä kirkkaudella."
 }

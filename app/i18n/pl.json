@@ -218,5 +218,13 @@
   "find.btn": "Znajdź moje PDF-y",
   "find.more": "Inne sposoby dodania PDF-ów",
   "find.ios": "Wybierz „Na moim iPhonie” lub iCloud Drive: Ottoteka weźmie wszystkie PDF-y, także z podfolderów, i zachowa kopię. Stuknij ponownie, aby odświeżyć.",
-  "find.android": "Wybierz pamięć telefonu (pierwszy folder): Ottoteka weźmie wszystkie PDF-y, także z podfolderów, i zachowa kopię. Stuknij ponownie, aby odświeżyć."
+  "find.android": "Wybierz pamięć telefonu (pierwszy folder): Ottoteka weźmie wszystkie PDF-y, także z podfolderów, i zachowa kopię. Stuknij ponownie, aby odświeżyć.",
+  "gw.btn": "Portfel telefonu",
+  "gw.title": "Dodaj do Portfela Google",
+  "gw.step1": "Zapisz obraz kodu w telefonie.",
+  "gw.save": "Zapisz obraz",
+  "gw.step2": "Otwórz Portfel Google.",
+  "gw.open": "Otwórz Portfel Google",
+  "gw.step3": "Stuknij „Dodaj do Portfela” → „Wszystko inne” (lub „Zdjęcie”) i wybierz zapisany obraz: Portfel Google utworzy kartę z kodem QR.",
+  "gw.apple": "iPhone: Apple Wallet przyjmuje tylko karty podpisane przez wystawcę, więc nie da się ich dodać ręcznie. Trzymaj je tutaj w portfelu Ottoteki: działa offline, na pełnym ekranie i z maksymalną jasnością."
 }

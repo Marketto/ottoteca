@@ -218,5 +218,13 @@
   "find.btn": "查找我的 PDF",
   "find.more": "添加 PDF 的其他方式",
   "find.ios": "选择“我的 iPhone”或 iCloud 云盘：Ottoteca 会取出所有 PDF（包括子文件夹）并保存副本。再点一次即可更新。",
-  "find.android": "选择手机存储（最外层文件夹）：Ottoteca 会取出所有 PDF（包括子文件夹）并保存副本。再点一次即可更新。"
+  "find.android": "选择手机存储（最外层文件夹）：Ottoteca 会取出所有 PDF（包括子文件夹）并保存副本。再点一次即可更新。",
+  "gw.btn": "手机钱包",
+  "gw.title": "添加到 Google 钱包",
+  "gw.step1": "把二维码图片保存到手机。",
+  "gw.save": "保存图片",
+  "gw.step2": "打开 Google 钱包。",
+  "gw.open": "打开 Google 钱包",
+  "gw.step3": "点“添加到钱包”→“其他所有内容”（或“照片”），选择刚保存的图片：Google 钱包会生成带二维码的卡券。",
+  "gw.apple": "iPhone：Apple 钱包只接受发行方签名的卡券，因此无法手动添加。请保存在 Ottoteca 的卡包里：离线也能用，可全屏显示并调到最高亮度。"
 }

@@ -915,6 +915,7 @@ function renderWallet() {
       el("h3", {}, p.title), el("p", { class: "from" }, sub), mini,
       el("div", { class: "row" },
         el("button", { type: "button", class: "btn", onclick: () => showPass(p) }, ic("eye"), t("wallet.show")),
+        p.kind !== "booking" ? el("button", { type: "button", class: "btn", onclick: () => toPhoneWallet(p) }, ic("wallet"), t("gw.btn")) : null,
         doc ? el("button", { type: "button", class: "btn", onclick: () => openViewer(doc.id) }, ic("pdf"), t("wallet.openPdf")) : null,
         el("button", { type: "button", class: "icon-btn", "aria-label": t("doc.rename") + ": " + p.title, title: t("doc.rename"), onclick: async () => { const v = await promptBox(t("doc.rename"), t("wallet.name"), p.title); if (v) { p.title = v; await db.put("passes", p); renderWallet(); } } }, ic("edit")),
         el("button", { type: "button", class: "icon-btn", "aria-label": t("wallet.delete") + ": " + p.title, title: t("wallet.delete"), onclick: async () => { if (await confirmBox(t("wallet.delete"), p.title, t("common.delete"))) { await db.del("passes", p.id); S.passes = S.passes.filter(x => x.id !== p.id); renderWallet(); say(t("ev.delete"), "wiggle"); } } }, ic("trash"))));
@@ -935,20 +936,37 @@ async function showPass(p) {
   dlg.onclose = () => { wake?.release?.(); wake = null; };
 }
 $("#passClose").onclick = () => $("#passDlg").close();
-async function savePassImage(p, svg) {
-  if (!svg) return;
+// Immagine nitida del codice con il titolo sopra (per la galleria o per Google Wallet «Tutto il resto»)
+async function passImage(p, svg) {
+  svg ||= new DOMParser().parseFromString(await codeSVG(p) || "<svg/>", "image/svg+xml").documentElement;
   const xml = new XMLSerializer().serializeToString(svg);
   const img = new Image(); img.src = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(xml);
   await img.decode();
-  const W = 1200, k = W / (img.naturalWidth || 300), H = Math.round((img.naturalHeight || 300) * k);
-  const c = el("canvas"); c.width = W + 120; c.height = H + 120;
-  const x = c.getContext("2d"); x.fillStyle = "#fff"; x.fillRect(0, 0, c.width, c.height); x.imageSmoothingEnabled = false; x.drawImage(img, 60, 60, W, H);
+  const W = 1000, k = W / (img.naturalWidth || 300), H = Math.round((img.naturalHeight || 300) * k);
+  const c = el("canvas"); c.width = W + 160; c.height = H + 260;
+  const x = c.getContext("2d"); x.fillStyle = "#fff"; x.fillRect(0, 0, c.width, c.height);
+  x.fillStyle = "#2b1d4a"; x.font = "800 56px Nunito, sans-serif"; x.textAlign = "center";
+  x.fillText(p.title.length > 30 ? p.title.slice(0, 29) + "…" : p.title, c.width / 2, 110, c.width - 80);
+  x.imageSmoothingEnabled = false; x.drawImage(img, 80, 180, W, H);
   const blob = await new Promise(r => c.toBlob(r, "image/png"));
-  const f = new File([blob], p.title.replace(/[\\/:*?"<>|]+/g, "_") + ".png", { type: "image/png" });
-  try { if (navigator.canShare?.({ files: [f] })) return await navigator.share({ files: [f], title: p.title }); } catch { return; }
-  const u = URL.createObjectURL(f); el("a", { href: u, download: f.name }).click(); setTimeout(() => URL.revokeObjectURL(u), 4000);
+  return new File([blob], p.title.replace(/[\\/:*?"<>|]+/g, "_") + ".png", { type: "image/png" });
 }
-
+function downloadFile(f) { const u = URL.createObjectURL(f); el("a", { href: u, download: f.name }).click(); setTimeout(() => URL.revokeObjectURL(u), 4000); }
+async function savePassImage(p, svg) {
+  if (!svg) return;
+  const f = await passImage(p, svg);
+  try { if (navigator.canShare?.({ files: [f] })) return await navigator.share({ files: [f], title: p.title }); } catch { return; }
+  downloadFile(f);
+}
+// Wallet del telefono: Google Wallet accetta passi creati da una foto del codice («Tutto il resto» / «Foto»).
+// Apple Wallet accetta solo pass firmati dall'emittente: niente modo manuale.
+async function toPhoneWallet(p) {
+  const steps = el("ol", { class: "wsteps" },
+    el("li", {}, el("span", {}, t("gw.step1")), el("button", { type: "button", class: "btn btn-primary", onclick: async ev => { const b = ev.currentTarget; downloadFile(await passImage(p)); b.replaceChildren(ic("check"), t("codes.added")); } }, ic("download"), t("gw.save"))),
+    el("li", {}, el("span", {}, t("gw.step2")), el("a", { class: "btn btn-soft", href: IS_ANDROID ? "intent://#Intent;package=com.google.android.apps.walletnfcrel;S.browser_fallback_url=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.google.android.apps.walletnfcrel;end" : "https://wallet.google.com/", target: "_blank", rel: "noopener" }, ic("wallet"), t("gw.open"))),
+    el("li", {}, el("span", {}, t("gw.step3"))));
+  await dialog({ title: t("gw.title"), body: [steps, el("p", { class: "muted tip" }, t("gw.apple"))] });
+}
 /* ================= impostazioni ================= */
 function renderRoots() {
   const ul = $("#rootsList"); ul.replaceChildren();

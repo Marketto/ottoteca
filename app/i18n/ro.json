@@ -218,5 +218,13 @@
   "find.btn": "Găsește PDF-urile mele",
   "find.more": "Alte moduri de a adăuga PDF-uri",
   "find.ios": "Alege „Pe iPhone-ul meu” sau iCloud Drive: Ottoteca ia toate PDF-urile, inclusiv din subdosare, și păstrează o copie. Atinge din nou pentru actualizare.",
-  "find.android": "Alege memoria telefonului (primul dosar): Ottoteca ia toate PDF-urile, inclusiv din subdosare, și păstrează o copie. Atinge din nou pentru actualizare."
+  "find.android": "Alege memoria telefonului (primul dosar): Ottoteca ia toate PDF-urile, inclusiv din subdosare, și păstrează o copie. Atinge din nou pentru actualizare.",
+  "gw.btn": "Portofelul telefonului",
+  "gw.title": "Adaugă în Google Wallet",
+  "gw.step1": "Salvează imaginea codului pe telefon.",
+  "gw.save": "Salvează imaginea",
+  "gw.step2": "Deschide Google Wallet.",
+  "gw.open": "Deschide Google Wallet",
+  "gw.step3": "Atinge „Adaugă în Wallet” → „Orice altceva” (sau „Fotografie”) și alege imaginea salvată: Google Wallet creează cardul cu codul QR.",
+  "gw.apple": "iPhone: Apple Wallet acceptă doar carduri semnate de emitent, deci nu pot fi adăugate manual. Păstrează-le aici, în portofelul Ottoteca: merge și offline, pe tot ecranul și cu luminozitatea la maximum."
 }

@@ -218,5 +218,13 @@
   "find.btn": "Find my PDFs",
   "find.more": "Other ways to add PDFs",
   "find.ios": "Choose “On My iPhone” or iCloud Drive: Ottoteca takes every PDF, subfolders too, and keeps a copy. Tap again to update.",
-  "find.android": "Choose the phone's memory (the first folder): Ottoteca takes every PDF, subfolders too, and keeps a copy. Tap again to update."
+  "find.android": "Choose the phone's memory (the first folder): Ottoteca takes every PDF, subfolders too, and keeps a copy. Tap again to update.",
+  "gw.btn": "Phone wallet",
+  "gw.title": "Add to Google Wallet",
+  "gw.step1": "Save the image of the code on the phone.",
+  "gw.save": "Save image",
+  "gw.step2": "Open Google Wallet.",
+  "gw.open": "Open Google Wallet",
+  "gw.step3": "Tap “Add to Wallet” → “Everything else” (or “Photo”) and choose the saved image: Google Wallet creates the pass with the QR code.",
+  "gw.apple": "iPhone: Apple Wallet only accepts passes signed by whoever issued them, so they can't be added by hand. Keep them here in Ottoteca's wallet: it works offline too, full screen and with the brightness up."
 }

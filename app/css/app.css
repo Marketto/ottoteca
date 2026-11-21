@@ -652,6 +652,12 @@ main{padding-top:30px}
 .chip .lbl{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
 .chip{white-space:nowrap}
 @media (max-width:720px){.topbar{flex-wrap:nowrap}.brand-name{font-size:1.1rem}.install-btn{padding:8px 10px}}
+.wsteps{margin:0;padding:0;list-style:none;counter-reset:w;display:flex;flex-direction:column;gap:12px}
+.wsteps li{counter-increment:w;display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:10px 12px 10px 50px;position:relative;background:var(--surface2);border:2px solid var(--line);border-radius:var(--r-sm);font-weight:750}
+.wsteps li::before{content:counter(w);position:absolute;inset-inline-start:10px;top:10px;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--grad);border:2px solid var(--ink);font-weight:900;color:var(--on-primary)}
+:dir(rtl) .wsteps li{padding:10px 50px 10px 12px}
+.wsteps li>span{flex:1 1 200px}
+.wsteps .btn{min-height:40px;padding:6px 14px}
 /* ---------- movimento ridotto ---------- */
 @media (prefers-reduced-motion:reduce){
   :root:not([data-motion="full"]) *,:root:not([data-motion="full"]) *::before,:root:not([data-motion="full"]) *::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}

@@ -218,5 +218,13 @@
   "find.btn": "Sib il-PDFs tiegħi",
   "find.more": "Modi oħra biex iżżid PDFs",
   "find.ios": "Agħżel “Fuq l-iPhone tiegħi” jew iCloud Drive: Ottoteca tieħu l-PDFs kollha, anke mis-subfolders, u żżomm kopja. Agħfas mill-ġdid biex taġġorna.",
-  "find.android": "Agħżel il-memorja tat-telefon (l-ewwel folder): Ottoteca tieħu l-PDFs kollha, anke mis-subfolders, u żżomm kopja. Agħfas mill-ġdid biex taġġorna."
+  "find.android": "Agħżel il-memorja tat-telefon (l-ewwel folder): Ottoteca tieħu l-PDFs kollha, anke mis-subfolders, u żżomm kopja. Agħfas mill-ġdid biex taġġorna.",
+  "gw.btn": "Kartiera tat-telefon",
+  "gw.title": "Żid ma' Google Wallet",
+  "gw.step1": "Issejvja l-istampa tal-kodiċi fuq it-telefon.",
+  "gw.save": "Issejvja l-istampa",
+  "gw.step2": "Iftaħ Google Wallet.",
+  "gw.open": "Iftaħ Google Wallet",
+  "gw.step3": "Agħfas “Żid ma' Wallet” → “Kull ħaġa oħra” (jew “Ritratt”) u agħżel l-istampa ssejvjata: Google Wallet joħloq il-pass bil-QR.",
+  "gw.apple": "iPhone: Apple Wallet jaċċetta biss passes iffirmati minn min joħroġhom, għalhekk ma jistgħux jiżdiedu bl-idejn. Żommhom hawn fil-kartiera ta' Ottoteca: taħdem anke offline, fuq l-iskrin kollu u bid-dawl fl-ogħla."
 }

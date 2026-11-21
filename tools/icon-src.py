@@ -76,7 +76,7 @@ ICONS = {
  'eye': f'<path d="M2.5 13S6 7 12 7s9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6z"/><circle cx="12" cy="13" r="2.8"/><path d="M12 4v1.5M7.5 5l.7 1.4M16.5 5l-.7 1.4"/>',
  'edit': f'<path d="M4 20h4L19 9a2.8 2.8 0 0 0-4-4L4 16z"/><path d="M13.5 6.5l4 4"/><path d="M15 20h5"/>',
  'copy': f'<rect x="8" y="8" width="12" height="12" rx="3"/><path d="M16 5.2A2 2 0 0 0 14 4H6a2 2 0 0 0-2 2v8a2 2 0 0 0 1.2 1.8"/>' + face(12.3, 15.7, 13.2),
- 'share': f'<path d="M12 14.5V3.5M8 7.5l4-4 4 4"/><path d="M7 11H6a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5a2 2 0 0 0-2-2h-1"/>',
+ 'share': f'<circle cx="18" cy="5.5" r="2.8"/><circle cx="6" cy="12" r="2.8"/><circle cx="18" cy="18.5" r="2.8"/><path d="M8.5 10.7l7-3.9M8.5 13.3l7 3.9"/>',
  'download': f'<path d="M12 3.5v11M7.5 10l4.5 4.5 4.5-4.5"/><path d="M4 19c1.3 1 2.7 1 4 0 1.3 1 2.7 1 4 0 1.3 1 2.7 1 4 0 1.3 1 2.7 1 4 0"/>',
  'trash': f'<path d="M4 6.5h16M9.5 6.5V4.5h5v2"/><path d="M6 6.5l1 13a1.5 1.5 0 0 0 1.5 1.4h7a1.5 1.5 0 0 0 1.5-1.4l1-13"/>' + face(10.2, 13.8, 12.5),
  # tipi di documento riconosciuti

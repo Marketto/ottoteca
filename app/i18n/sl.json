@@ -218,5 +218,13 @@
   "find.btn": "Poišči moje PDF-je",
   "find.more": "Drugi načini za dodajanje PDF-jev",
   "find.ios": "Izberi »Na mojem iPhonu« ali iCloud Drive: Ottoteka vzame vse PDF-je, tudi iz podmap, in shrani kopijo. Za posodobitev tapni znova.",
-  "find.android": "Izberi pomnilnik telefona (prvo mapo): Ottoteka vzame vse PDF-je, tudi iz podmap, in shrani kopijo. Za posodobitev tapni znova."
+  "find.android": "Izberi pomnilnik telefona (prvo mapo): Ottoteka vzame vse PDF-je, tudi iz podmap, in shrani kopijo. Za posodobitev tapni znova.",
+  "gw.btn": "Denarnica v telefonu",
+  "gw.title": "Dodaj v Google Wallet",
+  "gw.step1": "Shrani sliko kode v telefon.",
+  "gw.save": "Shrani sliko",
+  "gw.step2": "Odpri Google Wallet.",
+  "gw.open": "Odpri Google Wallet",
+  "gw.step3": "Tapni »Dodaj v Wallet« → »Vse drugo« (ali »Fotografija«) in izberi shranjeno sliko: Google Wallet ustvari kartico s kodo QR.",
+  "gw.apple": "iPhone: Apple Wallet sprejme le kartice, ki jih je podpisal izdajatelj, zato jih ni mogoče dodati ročno. Hrani jih tukaj v Ottotekini denarnici: deluje brez povezave, čez cel zaslon in z največjo svetlostjo."
 }

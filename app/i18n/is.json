@@ -218,5 +218,13 @@
   "find.btn": "Finna PDF-skjölin mín",
   "find.more": "Aðrar leiðir til að bæta við PDF",
   "find.ios": "Veldu „Á iPhone“ eða iCloud Drive: Ottoteca tekur öll PDF-skjöl, líka úr undirmöppum, og geymir afrit. Ýttu aftur til að uppfæra.",
-  "find.android": "Veldu minni símans (efstu möppuna): Ottoteca tekur öll PDF-skjöl, líka úr undirmöppum, og geymir afrit. Ýttu aftur til að uppfæra."
+  "find.android": "Veldu minni símans (efstu möppuna): Ottoteca tekur öll PDF-skjöl, líka úr undirmöppum, og geymir afrit. Ýttu aftur til að uppfæra.",
+  "gw.btn": "Veski símans",
+  "gw.title": "Bæta í Google Wallet",
+  "gw.step1": "Vistaðu mynd af kóðanum í símanum.",
+  "gw.save": "Vista mynd",
+  "gw.step2": "Opnaðu Google Wallet.",
+  "gw.open": "Opna Google Wallet",
+  "gw.step3": "Ýttu á „Bæta í Wallet“ → „Allt annað“ (eða „Mynd“) og veldu vistuðu myndina: Google Wallet býr til passann með QR-kóðanum.",
+  "gw.apple": "iPhone: Apple Wallet tekur aðeins við pössum sem útgefandinn hefur undirritað, svo ekki er hægt að bæta þeim við handvirkt. Geymdu þá hér í veski Ottoteca: það virkar án nets, á öllum skjánum og með fullri birtu."
 }

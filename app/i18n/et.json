@@ -218,5 +218,13 @@
   "find.btn": "Leia minu PDF-id",
   "find.more": "Teised viisid PDF-ide lisamiseks",
   "find.ios": "Vali „Minu iPhone'is“ või iCloud Drive: Ottoteca võtab kõik PDF-id, ka alamkaustadest, ja hoiab koopiat. Uuendamiseks puuduta uuesti.",
-  "find.android": "Vali telefoni mälu (kõige ülemine kaust): Ottoteca võtab kõik PDF-id, ka alamkaustadest, ja hoiab koopiat. Uuendamiseks puuduta uuesti."
+  "find.android": "Vali telefoni mälu (kõige ülemine kaust): Ottoteca võtab kõik PDF-id, ka alamkaustadest, ja hoiab koopiat. Uuendamiseks puuduta uuesti.",
+  "gw.btn": "Telefoni rahakott",
+  "gw.title": "Lisa Google Walletisse",
+  "gw.step1": "Salvesta koodi pilt telefoni.",
+  "gw.save": "Salvesta pilt",
+  "gw.step2": "Ava Google Wallet.",
+  "gw.open": "Ava Google Wallet",
+  "gw.step3": "Puuduta „Lisa Walletisse“ → „Kõik muu“ (või „Foto“) ja vali salvestatud pilt: Google Wallet loob QR-koodiga passi.",
+  "gw.apple": "iPhone: Apple Wallet võtab vastu ainult väljaandja allkirjastatud passe, nii et neid ei saa käsitsi lisada. Hoia neid siin Ottoteca rahakotis: see töötab ilma võrguta, täisekraanil ja täisheledusega."
 }
