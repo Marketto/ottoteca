@@ -13,7 +13,9 @@
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Ottoteca">
+<link rel="stylesheet" href="css/icons.css">
 <link rel="stylesheet" href="css/app.css">
+<link rel="preload" href="fonts/ottoteca-icons.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="modulepreload" href="js/app.js">
 <link rel="modulepreload" href="js/habitat.js">
 </head>
@@ -64,8 +66,9 @@
         <option value="size" data-i18n="sort.size">Size</option>
       </select>
       <button class="btn btn-ghost" id="selectBtn" aria-pressed="false"><span class="ic ic-check" aria-hidden="true"></span><span data-i18n="sel.select">Select</span></button>
-      <button class="btn btn-primary" id="addBtn"><span class="ic ic-plus" aria-hidden="true"></span><span data-i18n="lib.add">Add PDF</span></button>
-      <button class="btn btn-soft" id="addDirBtn" data-i18n-label="folder.import"><span class="ic ic-folder" aria-hidden="true"></span><span class="lbl-sm" data-i18n="folder.import">Import folder</span></button>
+      <button class="btn btn-primary" id="scanBtn" hidden><span class="ic ic-phone-search" aria-hidden="true"></span><span data-i18n="scan.btn">Find PDFs on the device</span></button>
+      <button class="btn btn-soft" id="addBtn" data-i18n-label="scan.add"><span class="ic ic-file-plus" aria-hidden="true"></span><span class="lbl-sm" data-i18n="scan.add">Choose PDFs</span></button>
+      <button class="btn btn-soft" id="addDirBtn" data-i18n-label="folder.import" hidden><span class="ic ic-folder-plus" aria-hidden="true"></span><span class="lbl-sm" data-i18n="folder.import">Import folder</span></button>
       <input type="file" id="fileInput" accept="application/pdf,.pdf" multiple hidden>
       <input type="file" id="dirInput" webkitdirectory multiple hidden>
     </div>
@@ -76,6 +79,10 @@
       <button class="chip chip-add" id="newCatBtn"><span class="ic ic-plus" aria-hidden="true"></span><span data-i18n="cat.new">New category</span></button>
     </div>
 
+    <div class="permbar" id="permBar" role="region" data-i18n-label="roots.title" hidden>
+      <span class="ic ic-folder" aria-hidden="true"></span><span data-i18n="scan.perm"></span>
+      <button class="btn btn-primary" id="permBtn"><span data-i18n="scan.allow">Allow</span></button>
+    </div>
     <div class="selbar" id="selbar" hidden>
       <span id="selCount" aria-live="polite"></span>
       <button class="btn btn-soft" id="selCats"><span class="ic ic-tag" aria-hidden="true"></span><span data-i18n="sel.assign">Categories</span></button>
@@ -92,8 +99,13 @@
     <div class="empty" id="empty" hidden>
       <div class="otto-big" data-otto="big" aria-hidden="true"></div>
       <h2 data-i18n="lib.emptyTitle">No PDFs yet</h2>
-      <p data-i18n="lib.emptyText">Add your first PDF: it stays only on this device.</p>
-      <button class="btn btn-primary btn-lg" id="emptyAdd"><span class="ic ic-plus" aria-hidden="true"></span><span data-i18n="lib.add">Add PDF</span></button>
+      <p class="scan-hint" id="scanHint" data-i18n="scan.hint"></p>
+      <div class="empty-actions">
+        <button class="btn btn-primary btn-lg" id="emptyScan" hidden><span class="ic ic-phone-search" aria-hidden="true"></span><span data-i18n="scan.btn">Find PDFs on the device</span></button>
+        <button class="btn btn-soft btn-lg" id="emptyAdd"><span class="ic ic-file-plus" aria-hidden="true"></span><span data-i18n="scan.add">Choose PDFs</span></button>
+        <button class="btn btn-soft btn-lg" id="emptyDir" hidden><span class="ic ic-folder-plus" aria-hidden="true"></span><span data-i18n="folder.import">Import folder</span></button>
+      </div>
+      <p class="hint" id="scanNote"></p>
       <p class="hint" data-i18n="lib.dropHint">…or drop PDFs here</p>
     </div>
     <p class="none" id="noResults" hidden data-i18n="lib.noResults">Nothing found</p>
@@ -134,6 +146,12 @@
           <label><input type="radio" name="motion" value="reduced"><span data-i18n="motion.reduced">Reduced</span></label>
         </div>
       </fieldset>
+    </div>
+    <div class="card" id="rootsCard">
+      <h2 data-i18n="roots.title">Device folders</h2>
+      <p class="muted" id="rootsNote" data-i18n="scan.hint"></p>
+      <ul class="roots" id="rootsList"></ul>
+      <button class="btn btn-primary" id="rootAdd"><span class="ic ic-phone-search" aria-hidden="true"></span><span data-i18n="roots.add">Link a folder</span></button>
     </div>
     <div class="card">
       <h2 data-i18n="set.about">About</h2>

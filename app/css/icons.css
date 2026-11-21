@@ -1,0 +1,36 @@
+/* Generato da tools/build-icons.py: non modificare a mano. */
+@font-face{font-family:'Ottoteca Icons';src:url(../fonts/ottoteca-icons.woff2) format('woff2');font-display:block}
+.ic{font-family:'Ottoteca Icons';font-style:normal;font-weight:normal;font-size:1.25em;line-height:1;display:inline-block;vertical-align:-.125em;speak:never;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;flex:none}
+.ic-back::before{content:'\e900'}
+.ic-books::before{content:'\e901'}
+.ic-check::before{content:'\e902'}
+.ic-clock::before{content:'\e903'}
+.ic-copy::before{content:'\e904'}
+.ic-dots::before{content:'\e905'}
+.ic-down::before{content:'\e906'}
+.ic-download::before{content:'\e907'}
+.ic-edit::before{content:'\e908'}
+.ic-eye::before{content:'\e909'}
+.ic-file-plus::before{content:'\e90a'}
+.ic-fit::before{content:'\e90b'}
+.ic-flower::before{content:'\e90c'}
+.ic-folder::before{content:'\e90d'}
+.ic-folder-plus::before{content:'\e90e'}
+.ic-gear::before{content:'\e90f'}
+.ic-grid::before{content:'\e910'}
+.ic-heart::before{content:'\e911'}
+.ic-minus::before{content:'\e912'}
+.ic-pdf::before{content:'\e913'}
+.ic-phone-search::before{content:'\e914'}
+.ic-plus::before{content:'\e915'}
+.ic-qr::before{content:'\e916'}
+.ic-refresh::before{content:'\e917'}
+.ic-search::before{content:'\e918'}
+.ic-share::before{content:'\e919'}
+.ic-squash::before{content:'\e91a'}
+.ic-tag::before{content:'\e91b'}
+.ic-ticket::before{content:'\e91c'}
+.ic-trash::before{content:'\e91d'}
+.ic-up::before{content:'\e91e'}
+.ic-wallet::before{content:'\e91f'}
+.ic-x::before{content:'\e920'}

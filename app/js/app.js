@@ -27,7 +27,7 @@ const el = (tag, attrs = {}, ...kids) => {
 };
 const ic = n => el("span", { class: "ic ic-" + n, "aria-hidden": "true" });
 
-const S = { docs: [], cats: [], passes: [], filter: "all", q: "", sort: localStorage.getItem("otto.sort") || "added", selecting: false, sel: new Set(),
+const S = { docs: [], cats: [], passes: [], roots: [], filter: "all", q: "", sort: localStorage.getItem("otto.sort") || "added", selecting: false, sel: new Set(),
   mode: localStorage.getItem("otto.mode") || "grid", basis: localStorage.getItem("otto.basis") || "added", folder: null };
 const thumbURLs = new Map();
 function thumbURL(d) {
@@ -146,7 +146,7 @@ addEventListener("pointerdown", e => { if (!menu.hidden && !menu.contains(e.targ
 
 /* ================= dati ================= */
 async function loadAll() {
-  [S.docs, S.cats, S.passes] = await Promise.all([db.all("docs"), db.all("cats"), db.all("passes")]);
+  [S.docs, S.cats, S.passes, S.roots] = await Promise.all([db.all("docs"), db.all("cats"), db.all("passes"), db.all("roots")]);
   S.cats.sort((a, b) => a.order - b.order);
 }
 const docById = id => S.docs.find(d => d.id === id);
@@ -170,11 +170,11 @@ const isPdf = async f => {
 
 let persistAsked = false;
 function importTarget() { return S.mode === "folders" ? S.folder : (S.filter !== "all" && S.filter !== "none" && S.mode !== "folders" ? S.filter : null); }
-async function folderFor(path, base) { // "A/B/x.pdf" -> cartella virtuale B dentro A (creata se manca)
+async function folderFor(path, base, rootId) { // "A/B/x.pdf" -> cartella virtuale B dentro A (creata se manca)
   let parent = base;
   for (const name of path.split("/").slice(0, -1).filter(Boolean)) {
     let c = S.cats.find(x => (x.parent || null) === parent && x.name === name);
-    if (!c) { c = { id: db.uid(), name, color: COLORS[S.cats.length % COLORS.length], order: Date.now(), parent }; await db.put("cats", c); S.cats.push(c); }
+    if (!c) { c = { id: db.uid(), name, color: COLORS[S.cats.length % COLORS.length], order: Date.now(), parent, rootId: rootId || null }; await db.put("cats", c); S.cats.push(c); }
     parent = c.id;
   }
   return parent;
@@ -265,6 +265,7 @@ function docCard(d, i, showTime) {
   const u = thumbURL(d);
   if (u) thumb.append(el("img", { src: u, alt: "", loading: "lazy", decoding: "async" }));
   else thumb.append(ic("pdf"));
+  if (d.pending) thumb.append(el("span", { class: "loading", "aria-hidden": "true" }));
   if (d.size > HEAVY) thumb.append(el("span", { class: "badge-heavy", "aria-hidden": "true" }, size(d.size)));
   const cats = d.cats.map(catById).filter(Boolean);
   const meta = [d.pages ? t("meta.pages", { n: d.pages }) : null, size(d.size)].filter(Boolean).join(" · ");
@@ -483,6 +484,8 @@ async function deleteDocs(ids) {
   if (!ok) return;
   for (const id of ids) {
     $(`#view-library [data-id="${id}"]`)?.classList.add("leaving");
+    const d = docById(id), root = d?.src === "fs" && S.roots.find(r => r.id === d.rootId);
+    if (root) { root.excluded = [...new Set([...(root.excluded || []), d.path])]; await db.put("roots", root); } // non ricompare alla prossima ricerca
     await db.removeDoc(id);
     const u = thumbURLs.get(id); if (u) { URL.revokeObjectURL(u); thumbURLs.delete(id); }
   }
@@ -491,7 +494,14 @@ async function deleteDocs(ids) {
   setTimeout(() => { if (S.selecting) setSelecting(false); else renderLibrary(); }, 320);
   say(t("ev.delete"), "wiggle");
 }
-const fileOf = async d => new File([await db.get("files", d.id)], d.name + ".pdf", { type: "application/pdf" });
+// Il PDF vero: copia interna (IndexedDB) o file nella cartella del dispositivo collegata (senza copiarlo).
+async function getBlob(d) {
+  if (d.src !== "fs") return db.get("files", d.id);
+  const root = S.roots.find(r => r.id === d.rootId);
+  if (root && !(await askPerm(root, true))) throw new Error("perm");
+  try { return await d.handle.getFile(); } catch { throw new Error("missing"); }
+}
+const fileOf = async d => new File([await getBlob(d)], d.name + ".pdf", { type: "application/pdf" });
 async function downloadDoc(d) {
   const f = await fileOf(d), u = URL.createObjectURL(f);
   el("a", { href: u, download: f.name }).click();
@@ -531,7 +541,12 @@ async function openViewer(id, scan = false) {
   $("#vClose").focus();
   cur = { id, d, zoom: 1, rendered: new Map(), pages: [] };
   const me = cur;
-  const data = new Uint8Array(await (await db.get("files", id)).arrayBuffer());
+  let data;
+  try { data = new Uint8Array(await (await getBlob(d)).arrayBuffer()); }
+  catch (e) {
+    vp.replaceChildren(el("div", { class: "vmsg" }, el("div", { "data-otto": "e", "aria-hidden": "true" }), el("p", {}, t(e.message === "perm" ? "scan.perm" : "scan.missing"))));
+    mountOttos(vp); mood("sad", 1500, vp); return;
+  }
   let pdf, pw;
   for (;;) {
     try { pdf = await openPdf(data.slice(0), pw); break; }
@@ -828,7 +843,19 @@ async function savePassImage(p, svg) {
 }
 
 /* ================= impostazioni ================= */
+function renderRoots() {
+  const ul = $("#rootsList"); ul.replaceChildren();
+  if (!CAN_LINK) { $("#rootsCard").hidden = true; return; }
+  if (!S.roots.length) ul.append(el("li", { class: "muted" }, t("roots.none")));
+  for (const r of S.roots) {
+    const n = S.docs.filter(d => d.rootId === r.id).length;
+    ul.append(el("li", {}, el("span", { class: "ic ic-folder", "aria-hidden": "true" }), el("span", { class: "rname" }, el("b", {}, r.name), el("small", {}, t("roots.count", { n }))),
+      el("button", { type: "button", class: "btn btn-soft", onclick: async () => { if (await askPerm(r, true)) await scanRoot(r, false); renderRoots(); } }, ic("refresh"), t("roots.refresh")),
+      el("button", { type: "button", class: "icon-btn", "aria-label": t("roots.unlink") + ": " + r.name, title: t("roots.unlink"), onclick: () => unlinkRoot(r) }, ic("trash"))));
+  }
+}
 async function renderSettings() {
+  renderRoots();
   const sel = $("#langSel");
   if (!sel.options.length) for (const [c, n] of Object.entries(LANGS).sort((a, b) => a[1].localeCompare(b[1]))) sel.append(el("option", { value: c, lang: c }, n));
   sel.value = lang();
@@ -862,6 +889,9 @@ document.querySelectorAll(".tabs a").forEach(a => a.addEventListener("click", ()
 
 /* ================= eventi della libreria ================= */
 const pick = () => $("#fileInput").click();
+$("#scanBtn").onclick = $("#emptyScan").onclick = $("#rootAdd").onclick = () => linkFolder();
+$("#emptyDir").onclick = () => $("#dirInput").click();
+$("#permBtn").onclick = async () => { for (const r of S.roots) if (await askPerm(r, true)) await scanRoot(r, true); updatePermBar(); };
 $("#addDirBtn").onclick = () => $("#dirInput").click();
 $("#dirInput").onchange = async e => { const fs = [...e.target.files].filter(f => /\.pdf$/i.test(f.name)); e.target.value = ""; if (fs.length) { await importFiles(fs); } else toast(t("folder.noPdf")); };
 document.querySelectorAll("input[name=vmode]").forEach(r => r.onchange = () => { S.mode = r.value; localStorage.setItem("otto.mode", r.value); if (S.selecting) setSelecting(false); else renderLibrary(); mood("wiggle", 900); });
@@ -890,6 +920,129 @@ addEventListener("keydown", e => {
   addEventListener("dragleave", e => { if (!hasFiles(e)) return; if (--depth <= 0) { depth = 0; dz.hidden = true; } });
   addEventListener("dragover", e => { if (hasFiles(e)) e.preventDefault(); });
   addEventListener("drop", e => { if (!hasFiles(e)) return; e.preventDefault(); depth = 0; dz.hidden = true; if (!$("#viewer").hidden) closeViewer(); location.hash = "#/"; importFiles(e.dataTransfer.files); });
+}
+
+/* ================= PDF del dispositivo: cartelle collegate (File System Access) ================= */
+// Un sito non può leggere tutto il telefono da solo: l'utente sceglie una o più cartelle, Ottoteca trova
+// tutti i PDF dentro (anche nelle sottocartelle) senza copiarli e li ricontrolla a ogni apertura.
+const CAN_LINK = "showDirectoryPicker" in window;
+const IS_ANDROID = /android/i.test(navigator.userAgent);
+async function askPerm(root, ask) {
+  try {
+    if ((await root.handle.queryPermission({ mode: "read" })) === "granted") return true;
+    if (ask && (await root.handle.requestPermission({ mode: "read" })) === "granted") return true;
+  } catch {}
+  return false;
+}
+async function updatePermBar() {
+  let need = false;
+  for (const r of S.roots) if (!(await askPerm(r, false))) need = true;
+  $("#permBar").hidden = !need;
+}
+async function* walk(dir, path = "", depth = 0) {
+  if (depth > 14) return;
+  for await (const [name, h] of dir.entries()) {
+    if (name.startsWith(".")) continue;
+    if (h.kind === "directory") { if (!/^(android|node_modules|\$recycle\.bin|system volume information|thumbnails|cache)$/i.test(name)) yield* walk(h, path + name + "/", depth + 1); }
+    else if (/\.pdf$/i.test(name)) yield { handle: h, path: path + name, name };
+  }
+}
+async function linkFolder() {
+  if (!CAN_LINK) return pick();
+  let handle;
+  try { handle = await showDirectoryPicker({ id: "ottoteca", mode: "read", startIn: "documents" }); } catch { return; }
+  for (const r of S.roots) if (await r.handle.isSameEntry?.(handle)) return scanRoot(r, false);
+  const root = { id: db.uid(), name: handle.name || "PDF", handle, added: Date.now(), excluded: [] };
+  await db.put("roots", root); S.roots.push(root);
+  if (location.hash !== "#/" && location.hash !== "") location.hash = "#/";
+  await scanRoot(root, false);
+  renderRoots();
+}
+async function unlinkRoot(r) {
+  if (!(await confirmBox(t("roots.unlink"), t("roots.unlinkConfirm", { name: r.name }), t("roots.unlink")))) return;
+  const ids = S.docs.filter(d => d.rootId === r.id).map(d => d.id);
+  for (const id of ids) { await db.removeDoc(id); const u = thumbURLs.get(id); if (u) { URL.revokeObjectURL(u); thumbURLs.delete(id); } }
+  S.docs = S.docs.filter(d => d.rootId !== r.id);
+  const cats = S.cats.filter(c => c.rootId === r.id).map(c => c.id);
+  for (const c of cats) await db.del("cats", c);
+  for (const d of S.docs) if (d.cats.some(c => cats.includes(c))) { d.cats = d.cats.filter(c => !cats.includes(c)); await db.put("docs", d); }
+  S.cats = S.cats.filter(c => c.rootId !== r.id);
+  await db.del("roots", r.id); S.roots = S.roots.filter(x => x.id !== r.id);
+  renderRoots(); renderLibrary(); updatePermBar(); say(t("ev.delete"), "wiggle");
+}
+let scanning = false;
+async function scanRoot(root, quiet) {
+  if (scanning) return; scanning = true;
+  try {
+    if (!(await askPerm(root, !quiet))) { $("#permBar").hidden = false; return; }
+    let rc = S.cats.find(c => c.rootId === root.id && !c.parent);
+    if (!rc) { rc = { id: db.uid(), name: root.name, color: COLORS[S.cats.length % COLORS.length], order: Date.now(), parent: null, rootId: root.id }; await db.put("cats", rc); S.cats.push(rc); }
+    const mine = new Map(S.docs.filter(d => d.rootId === root.id).map(d => [d.path, d]));
+    const excl = new Set(root.excluded || []), seen = new Set();
+    let found = 0, fresh = 0;
+    if (!quiet) { mood("think", 0); say(t("scan.scanning", { name: root.name, n: 0 }), "think", { ms: 600000 }); }
+    for await (const e of walk(root.handle)) {
+      if (excl.has(e.path)) continue;
+      seen.add(e.path); found++;
+      let f; try { f = await e.handle.getFile(); } catch { continue; }
+      let d = mine.get(e.path);
+      if (!d) {
+        d = { id: db.uid(), src: "fs", rootId: root.id, path: e.path, handle: e.handle, name: e.name.replace(/\.pdf$/i, ""), size: f.size, mtime: f.lastModified,
+          pages: 0, thumb: null, text: "", added: f.lastModified || Date.now(), opened: 0, cats: [await folderFor(e.path, rc.id, root.id)], pending: true };
+        await db.put("docs", d); S.docs.push(d); fresh++;
+      } else if (d.mtime !== f.lastModified || d.size !== f.size) {
+        Object.assign(d, { handle: e.handle, size: f.size, mtime: f.lastModified, pending: true }); await db.put("docs", d);
+      } else d.handle = e.handle;
+      if (d.pending) enqueue(d);
+      if (!quiet && found % 20 === 0) { bubble.setAttribute("aria-live", "off"); bubble.textContent = t("scan.scanning", { name: root.name, n: found }); }
+    }
+    const gone = [...mine.values()].filter(d => !seen.has(d.path));
+    for (const d of gone) await db.removeDoc(d.id);
+    if (gone.length) S.docs = S.docs.filter(d => !gone.includes(d));
+    root.lastScan = Date.now(); await db.put("roots", root);
+    mood(null);
+    renderLibrary();
+    if (!quiet || fresh) {
+      if (found) { say(t("ev.scan"), "happy"); toast(t("scan.done", { name: root.name, n: found })); const r = $("#buddyBtn").getBoundingClientRect(); confetti(r.left + r.width / 2, r.top, 30); }
+      else say(t("scan.none", { name: root.name }), "sad");
+    }
+    if (!quiet && !persistAsked && navigator.storage?.persist) { persistAsked = true; navigator.storage.persist().catch(() => {}); }
+  } finally { scanning = false; updatePermBar(); }
+}
+// Miniature e testo, uno alla volta, senza bloccare l'interfaccia
+const queue = []; let working = false;
+function enqueue(d) { if (!queue.includes(d)) queue.push(d); if (!working) work(); }
+async function work() {
+  working = true;
+  while (queue.length) {
+    const d = queue.shift();
+    try {
+      const buf = await (await d.handle.getFile()).arrayBuffer();
+      try { Object.assign(d, await analyze(buf), { locked: false }); } catch (e) { if (isPasswordError(e)) d.locked = true; }
+    } catch {}
+    d.pending = false;
+    if (S.docs.includes(d)) { await db.put("docs", d); updateCard(d); }
+    await new Promise(r => setTimeout(r, 30));
+  }
+  working = false;
+}
+function updateCard(d) {
+  const old = document.querySelector(`#view-library [data-id="${d.id}"]`);
+  if (!old) return;
+  const i = [...old.parentNode.children].indexOf(old);
+  const n = docCard(d, i, old.querySelector(".doc-time") ? (S.basis === "opened" ? d.opened : d.added) : 0);
+  n.style.animation = "none";
+  old.replaceWith(n);
+}
+async function setupDevice() {
+  $("#scanBtn").hidden = $("#emptyScan").hidden = !CAN_LINK;
+  $("#addDirBtn").hidden = $("#emptyDir").hidden = CAN_LINK;
+  $("#scanNote").textContent = CAN_LINK ? (IS_ANDROID ? t("scan.android") : "") : t("scan.noApi");
+  $("#scanHint").hidden = !CAN_LINK;
+  if (!CAN_LINK || !S.roots.length) return;
+  await updatePermBar();
+  for (const r of S.roots) if (await askPerm(r, false)) await scanRoot(r, true);
+  for (const d of S.docs) if (d.pending && d.src === "fs") enqueue(d);
 }
 
 /* ================= installazione e aggiornamenti ================= */
@@ -927,6 +1080,7 @@ async function inbox() {
 /* ================= avvio ================= */
 function afterLang() {
   apply();
+  if ($("#scanNote")) $("#scanNote").textContent = CAN_LINK ? (IS_ANDROID ? t("scan.android") : "") : t("scan.noApi");
   renderLibrary(); route();
   $("#sort").value = S.sort;
 }
@@ -942,6 +1096,7 @@ function afterLang() {
   await loadAll();
   afterLang();
   registerSW(); inbox();
+  setupDevice();
   setTimeout(() => {
     if (!localStorage.getItem("otto.hello")) { localStorage.setItem("otto.hello", "1"); say(t("ev.welcome"), "happy", { ms: 7000 }); }
     else if (!S.docs.length) say(t("ev.empty"), "wiggle");

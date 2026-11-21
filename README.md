@@ -4,7 +4,8 @@ PWA per tenere i PDF in ordine, con **Otto la lontra** come mascotte. Tutto rest
 
 ## Cosa fa
 
-- **Libreria con miniature**: aggiungi PDF (pulsante, trascina e rilascia, «Apri con» e «Condividi» quando l'app è installata). Ricerca nel nome e nel testo delle prime pagine.
+- **PDF del dispositivo**: «Trova i PDF nel dispositivo» collega una o più cartelle (es. Documenti); Ottoteca trova tutti i PDF dentro, anche nelle sottocartelle, **senza copiarli**, ne ricrea la struttura come cartelle e le ricontrolla a ogni apertura. Un sito non può leggere da solo tutto il telefono: serve la scelta della cartella (File System Access API, Chrome/Edge su computer e Android). Su Android non si possono scegliere la memoria intera e Download. Dove l'API manca (Safari/iOS, Firefox) si scelgono i PDF o una cartella e Ottoteca ne tiene una copia.
+- **Libreria con miniature**: anche «Scegli i PDF», trascina e rilascia, «Apri con» e «Condividi» quando l'app è installata. Ricerca nel nome e nel testo delle prime pagine.
 - **Tre viste**: *Griglia* (con filtro per cartella e ordinamento), *Per data* (gruppi Oggi / Ieri / giorno, con l'ora; per data di aggiunta o di apertura) e *Cartelle* (come un esplora risorse: percorso, sottocartelle, su di un livello, Backspace per risalire).
 - **Cartelle virtuali**: un PDF può stare in più cartelle insieme, nessun file viene spostato. Si creano, rinominano, colorano e annidano; si trascinano i PDF sulle cartelle. «Importa cartella» ricrea la struttura delle cartelle del dispositivo.
 - **Visore**: tutte le pagine, zoom (pulsanti, Ctrl+rotella, pizzico), miniature delle pagine, testo selezionabile e leggibile dai lettori di schermo, tastiera (PagSu/PagGiù, +/−, Esc).
@@ -13,6 +14,7 @@ PWA per tenere i PDF in ordine, con **Otto la lontra** come mascotte. Tutto rest
 - **Schiaccia PDF**: per i PDF oltre 5 MB l'app lo suggerisce (badge, Otto e un avviso); il pulsante «Comprimi» è sempre nel visore e nel menu.
 - **Otto**: sbatte gli occhi, galleggia, salta, festeggia con coriandoli, si addormenta se non lo tocchi, e dice frasi motivazionali (12) e commenti a ogni azione.
 - **37 lingue**: tutte le europee + russo, coreano, giapponese, cinese e arabo (da destra a sinistra).
+- **Icone**: font proprio «Ottoteca Icons» (33 icone a tema: foglie, fiori, facce kawaii), generato da `tools/icon-src.py` + `tools/build-icons.py`.
 - **Accessibilità**: WCAG 2.2 AA verificata con axe (chiaro, scuro, RTL, telefono), tastiera completa, movimento ridotto, alto contrasto.
 - Installabile (Android, iPhone, computer) e funziona offline.
 

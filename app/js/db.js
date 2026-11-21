@@ -1,5 +1,5 @@
 // IndexedDB: documenti (metadati + miniatura), file (blob del PDF), categorie, pass del portafoglio.
-const NAME = "ottoteca", VER = 1;
+const NAME = "ottoteca", VER = 2;
 let dbp;
 function open() {
   return dbp ||= new Promise((res, rej) => {
@@ -10,6 +10,7 @@ function open() {
       if (!d.objectStoreNames.contains("files")) d.createObjectStore("files");
       if (!d.objectStoreNames.contains("cats")) d.createObjectStore("cats", { keyPath: "id" });
       if (!d.objectStoreNames.contains("passes")) d.createObjectStore("passes", { keyPath: "id" });
+      if (!d.objectStoreNames.contains("roots")) d.createObjectStore("roots", { keyPath: "id" }); // cartelle del dispositivo collegate
     };
     r.onsuccess = () => res(r.result);
     r.onerror = () => rej(r.error);
@@ -38,6 +39,6 @@ export async function removeDoc(id) {
   return tx(["docs", "files"], "readwrite", (d, f) => { d.delete(id); f.delete(id); });
 }
 export async function clearAll() {
-  return tx(["docs", "files", "cats", "passes"], "readwrite", (...s) => s.forEach(x => x.clear()));
+  return tx(["docs", "files", "cats", "passes", "roots"], "readwrite", (...s) => s.forEach(x => x.clear()));
 }
 export const uid = () => (crypto.randomUUID ? crypto.randomUUID() : Date.now().toString(36) + Math.random().toString(36).slice(2));

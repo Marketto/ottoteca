@@ -3,7 +3,7 @@
 import { chromium } from "playwright";
 import AxeBuilder from "@axe-core/playwright";
 import { spawn } from "node:child_process";
-import { mkdirSync } from "node:fs";
+import { mkdirSync, readFileSync } from "node:fs";
 
 const PORT = 8765, BASE = `http://localhost:${PORT}/`;
 const shots = process.argv.includes("--shots");
@@ -147,6 +147,50 @@ try {
   const axe5 = await new AxeBuilder({ page: mp }).withTags(["wcag2a", "wcag2aa", "wcag21aa"]).analyze();
   ok(!axe5.violations.length, "axe telefono: " + axe5.violations.map(v => v.id).join(", "));
   axe5.violations.forEach(v => console.log("   ", v.id, v.nodes.slice(0, 3).map(n => n.target.join(" ") + " " + (n.any[0]?.message || "")).join(" | ")));
+
+  // cartelle del dispositivo (showDirectoryPicker simulato con il file system privato del browser)
+  const fsx = await browser.newContext({ viewport: { width: 1100, height: 800 }, locale: "it-IT", serviceWorkers: "block" });
+  const fp = await fsx.newPage();
+  fp.on("pageerror", e => errors.push(e.message));
+  const b64 = f => readFileSync(f).toString("base64");
+  await fp.addInitScript(() => { window.showDirectoryPicker = async () => (await navigator.storage.getDirectory()).getDirectoryHandle("Documenti"); });
+  await fp.goto(BASE);
+  await fp.evaluate(async ([a, b]) => {
+    const root = await navigator.storage.getDirectory();
+    const docs = await root.getDirectoryHandle("Documenti", { create: true });
+    const sub = await docs.getDirectoryHandle("Viaggi", { create: true });
+    const put = async (dir, name, data) => { const h = await dir.getFileHandle(name, { create: true }); const w = await h.createWritable(); await w.write(Uint8Array.from(atob(data), c => c.charCodeAt(0))); await w.close(); };
+    await put(sub, "biglietto.pdf", a); await put(docs, "manuale.pdf", b);
+    const n = await docs.getFileHandle("note.txt", { create: true }); const w = await n.createWritable(); await w.write("ciao"); await w.close();
+  }, [b64("tests/fixtures/biglietto.pdf"), b64("tests/fixtures/manuale.pdf")]);
+  await fp.reload();
+  ok(!!(await fp.waitForSelector("#emptyScan:not([hidden])")), "pulsante «Trova i PDF nel dispositivo»");
+  await fp.click("#emptyScan");
+  await fp.waitForFunction(() => document.querySelectorAll("#grid .card-doc").length === 2, null, { timeout: 20000 });
+  await fp.waitForFunction(() => document.querySelectorAll("#grid .thumb img").length === 2, null, { timeout: 20000 });
+  ok(true, "cartella collegata: 2 PDF trovati con miniature, il .txt ignorato");
+  await fp.check('input[name=vmode][value=folders]', { force: true });
+  await fp.locator('#folders .folder', { hasText: "Documenti" }).locator(".fopen").click();
+  ok(await fp.locator('#folders .folder', { hasText: "Viaggi" }).count() === 1, "struttura delle cartelle del dispositivo");
+  if (shots) await fp.screenshot({ path: "tests/shots/12-dispositivo.png" });
+  await fp.check('input[name=vmode][value=grid]', { force: true });
+  await fp.locator("#grid .card-doc .doc").first().click();
+  await fp.waitForSelector("#vPages .page canvas", { timeout: 15000 });
+  ok(true, "PDF aperto direttamente dalla cartella, senza copia");
+  await fp.keyboard.press("Escape");
+  // un PDF nuovo nella cartella: «Ricontrolla» lo trova (niente ricarica: nel Chrome di prova rileggere da
+  // IndexedDB un handle del file system privato fa chiudere il browser; con le cartelle vere non succede)
+  await fp.evaluate(async a => { const d = await (await navigator.storage.getDirectory()).getDirectoryHandle("Documenti"); const h = await d.getFileHandle("nuovo.pdf", { create: true }); const w = await h.createWritable(); await w.write(Uint8Array.from(atob(a), c => c.charCodeAt(0))); await w.close(); }, b64("tests/fixtures/manuale.pdf"));
+  await fp.evaluate(() => location.hash = "#/settings");
+  await fp.waitForSelector("#rootsList li .rname");
+  ok((await fp.textContent("#rootsList")).includes("Documenti"), "cartella elencata nelle impostazioni");
+  await fp.locator("#rootsList .btn").first().click();
+  await fp.waitForFunction(() => /3/.test(document.querySelector("#rootsList small")?.textContent || ""), null, { timeout: 15000 });
+  ok(true, "«Ricontrolla» trova il PDF nuovo");
+  await fp.waitForTimeout(1000);
+  const axe6 = await new AxeBuilder({ page: fp }).withTags(["wcag2a", "wcag2aa", "wcag21aa"]).analyze();
+  ok(!axe6.violations.length, "axe impostazioni: " + axe6.violations.map(v => v.id).join(", "));
+  axe6.violations.forEach(v => console.log("   ", v.id, v.nodes.slice(0, 3).map(n => n.target.join(" ")).join(" | ")));
 
   // offline con il service worker
   const off = await browser.newContext({ viewport: { width: 1000, height: 800 }, locale: "de-DE" });
