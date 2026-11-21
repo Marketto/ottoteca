@@ -118,7 +118,7 @@
   "common.delete": "Kustuta",
   "common.ok": "OK",
   "common.close": "Sulge",
-  "mascot.label": "Saarmas Otto: puuduta, et saada julgustust",
+  "mascot.label": "Saarmas Otto: puuduta, hoia kallistuseks või silita",
   "cheer.1": "Sa saad hakkama! Üks leht korraga.",
   "cheer.2": "Korras failid, rahulik meel.",
   "cheer.3": "Iga väike samm loeb.",
@@ -201,5 +201,18 @@
   "kind.filter": "Filtreeri tüübi järgi",
   "kind.change": "Dokumendi tüüp",
   "kind.none": "Tüüp puudub",
-  "kind.hint": "Ottoteca tunneb tüübi ära teksti järgi. Kui see eksis, vali see siit."
+  "kind.hint": "Ottoteca tunneb tüübi ära teksti järgi. Kui see eksis, vali see siit.",
+  "pet.1": "Hihi, kõdi!",
+  "pet.2": "Nurr… armastan pai!",
+  "pet.3": "Veel, veel!",
+  "pet.4": "Sa oled parim!",
+  "pet.5": "Pehmed käpad, rõõmus süda.",
+  "pet.6": "Piiks! Nii mõnus!",
+  "ev.hug": "Saarma kallistus!",
+  "ev.dizzy": "Vuii… pea käib ringi!",
+  "ev.wave": "Tere, tere!",
+  "ev.juggle": "Vaata, žongleerin kividega!",
+  "share.app": "Jaga Ottotecat",
+  "share.text": "Ottoteca: su PDF-id hubaselt korras, koos saarmas Ottoga!",
+  "share.copied": "Link kopeeritud: kleebi see kuhu tahad!"
 }

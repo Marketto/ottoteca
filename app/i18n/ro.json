@@ -118,7 +118,7 @@
   "common.delete": "Șterge",
   "common.ok": "OK",
   "common.close": "Închide",
-  "mascot.label": "Vidra Otto: atinge-o pentru încurajare",
+  "mascot.label": "Vidra Otto: atinge-l, ține apăsat pentru o îmbrățișare sau mângâie-l",
   "cheer.1": "Poți s-o faci! O pagină pe rând.",
   "cheer.2": "Fișiere ordonate, minte liniștită.",
   "cheer.3": "Fiecare pas mic contează.",
@@ -201,5 +201,18 @@
   "kind.filter": "Filtrează după tip",
   "kind.change": "Tipul documentului",
   "kind.none": "Fără tip",
-  "kind.hint": "Ottoteca recunoaște tipul din text. Dacă a greșit, alege-l aici."
+  "kind.hint": "Ottoteca recunoaște tipul din text. Dacă a greșit, alege-l aici.",
+  "pet.1": "Hihi, mă gâdili!",
+  "pet.2": "Torc… ador alintările!",
+  "pet.3": "Încă, încă!",
+  "pet.4": "Ești cel mai tare!",
+  "pet.5": "Lăbuțe moi, inimă fericită.",
+  "pet.6": "Chiț! Ce plăcut!",
+  "ev.hug": "Îmbrățișare de vidră!",
+  "ev.dizzy": "Uiii… mi se învârte capul!",
+  "ev.wave": "Salut, salut!",
+  "ev.juggle": "Uite, jonglez cu pietricele!",
+  "share.app": "Distribuie Ottoteca",
+  "share.text": "Ottoteca: PDF-urile tale la căldurică și în ordine, cu vidra Otto!",
+  "share.copied": "Link copiat: lipește-l unde vrei!"
 }

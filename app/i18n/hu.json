@@ -118,7 +118,7 @@
   "common.delete": "Törlés",
   "common.ok": "OK",
   "common.close": "Bezárás",
-  "mascot.label": "Otto, a vidra: koppints egy kis biztatásért",
+  "mascot.label": "Otto, a vidra: koppints rá, tartsd nyomva egy ölelésért, vagy simogasd meg",
   "cheer.1": "Menni fog! Oldalról oldalra.",
   "cheer.2": "Rendezett fájlok, nyugodt elme.",
   "cheer.3": "Minden kis lépés számít.",
@@ -201,5 +201,18 @@
   "kind.filter": "Szűrés típus szerint",
   "kind.change": "Dokumentumtípus",
   "kind.none": "Nincs típus",
-  "kind.hint": "Az Ottoteca a szövegből ismeri fel a típust. Ha tévedett, itt választhatod ki."
+  "kind.hint": "Az Ottoteca a szövegből ismeri fel a típust. Ha tévedett, itt választhatod ki.",
+  "pet.1": "Hihi, ez csiklandoz!",
+  "pet.2": "Dorombol… imádom a simogatást!",
+  "pet.3": "Még, még!",
+  "pet.4": "Te vagy a legjobb!",
+  "pet.5": "Puha mancsok, boldog szív.",
+  "pet.6": "Cin! De jó!",
+  "ev.hug": "Vidraölelés!",
+  "ev.dizzy": "Hiii… forog a fejem!",
+  "ev.wave": "Szia, szia!",
+  "ev.juggle": "Nézd, kavicsokkal zsonglőrködöm!",
+  "share.app": "Ottoteca megosztása",
+  "share.text": "Ottoteca: a PDF-jeid melegben és rendben, Otto vidrával!",
+  "share.copied": "Link másolva: illeszd be, ahová szeretnéd!"
 }

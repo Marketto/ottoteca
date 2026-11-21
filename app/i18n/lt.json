@@ -118,7 +118,7 @@
   "common.delete": "Ištrinti",
   "common.ok": "Gerai",
   "common.close": "Uždaryti",
-  "mascot.label": "Ūdra Otas: paliesk ir gauk padrąsinimą",
+  "mascot.label": "Ūdra Otas: paliesk, palaikyk apkabinimui arba paglostyk",
   "cheer.1": "Tau pavyks! Po vieną puslapį.",
   "cheer.2": "Tvarkingi failai, rami galva.",
   "cheer.3": "Kiekvienas mažas žingsnis svarbus.",
@@ -201,5 +201,18 @@
   "kind.filter": "Filtruoti pagal tipą",
   "kind.change": "Dokumento tipas",
   "kind.none": "Be tipo",
-  "kind.hint": "Ottoteca tipą atpažįsta iš teksto. Jei suklydo, pasirink jį čia."
+  "kind.hint": "Ottoteca tipą atpažįsta iš teksto. Jei suklydo, pasirink jį čia.",
+  "pet.1": "Chi chi, kutena!",
+  "pet.2": "Murr… dievinu glostymą!",
+  "pet.3": "Dar, dar!",
+  "pet.4": "Tu geriausias!",
+  "pet.5": "Minkštos letenėlės, laiminga širdis.",
+  "pet.6": "Cyp! Kaip jauku!",
+  "ev.hug": "Ūdros apkabinimas!",
+  "ev.dizzy": "Vyyy… galva sukasi!",
+  "ev.wave": "Labas, labas!",
+  "ev.juggle": "Žiūrėk, žongliruoju akmenėliais!",
+  "share.app": "Bendrinti Ottotecą",
+  "share.text": "Ottoteca: tavo PDF jaukiai ir tvarkingai, su ūdra Otu!",
+  "share.copied": "Nuoroda nukopijuota: įklijuok, kur nori!"
 }

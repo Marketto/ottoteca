@@ -118,7 +118,7 @@
   "common.delete": "Smazat",
   "common.ok": "OK",
   "common.close": "Zavřít",
-  "mascot.label": "Vydra Otto: klepni pro povzbuzení",
+  "mascot.label": "Vydra Otto: ťukni, podrž pro objetí nebo pohlaď pro mazlení",
   "cheer.1": "Zvládneš to! Stránku po stránce.",
   "cheer.2": "Uklizené soubory, klidná mysl.",
   "cheer.3": "Každý malý krok se počítá.",
@@ -201,5 +201,18 @@
   "kind.filter": "Filtrovat podle typu",
   "kind.change": "Typ dokumentu",
   "kind.none": "Bez typu",
-  "kind.hint": "Ottoteka pozná typ podle textu. Pokud se spletla, vyber ho tady."
+  "kind.hint": "Ottoteka pozná typ podle textu. Pokud se spletla, vyber ho tady.",
+  "pet.1": "Hihi, to lechtá!",
+  "pet.2": "Vrrr… miluju mazlení!",
+  "pet.3": "Ještě, ještě!",
+  "pet.4": "Jsi nejlepší!",
+  "pet.5": "Měkké tlapky, šťastné srdíčko.",
+  "pet.6": "Píp! To je fajn!",
+  "ev.hug": "Vydří objetí!",
+  "ev.dizzy": "Juuu… točí se mi hlava!",
+  "ev.wave": "Ahoj, ahoj!",
+  "ev.juggle": "Koukej, žongluju s oblázky!",
+  "share.app": "Sdílet Ottoteku",
+  "share.text": "Ottoteka: tvoje PDF v teple a v pořádku, s vydrou Ottem!",
+  "share.copied": "Odkaz zkopírován: vlož ho, kam chceš!"
 }

@@ -118,7 +118,7 @@
   "common.delete": "Ħassar",
   "common.ok": "OK",
   "common.close": "Agħlaq",
-  "mascot.label": "Otto l-lontra: agħfas għal ftit inkuraġġiment",
+  "mascot.label": "Otto l-lontra: agħfsu, żommu magħfus għal tgħanniqa jew ħassu",
   "cheer.1": "Tista' tagħmilha! Paġna paġna.",
   "cheer.2": "Fajls fl-ordni, moħħ kalm.",
   "cheer.3": "Kull pass żgħir jgħodd.",
@@ -201,5 +201,18 @@
   "kind.filter": "Iffiltra skont it-tip",
   "kind.change": "Tip ta' dokument",
   "kind.none": "L-ebda tip",
-  "kind.hint": "Ottoteca tagħraf it-tip mit-test. Jekk żbaljat, agħżlu hawn."
+  "kind.hint": "Ottoteca tagħraf it-tip mit-test. Jekk żbaljat, agħżlu hawn.",
+  "pet.1": "Ħiħi, qed tagħmilli l-ħakk!",
+  "pet.2": "Purr… inħobb il-ħass!",
+  "pet.3": "Aktar, aktar!",
+  "pet.4": "Int l-aqwa!",
+  "pet.5": "Saqajn rotob, qalb kuntenta.",
+  "pet.6": "Swiq! Kemm hu sabiħ!",
+  "ev.hug": "Tgħanniqa tal-lontra!",
+  "ev.dizzy": "Wiii… rasi qed iddur!",
+  "ev.wave": "Ħello, ħello!",
+  "ev.juggle": "Ara, qed nilgħab biż-żrar!",
+  "share.app": "Aqsam Ottoteca",
+  "share.text": "Ottoteca: il-PDFs tiegħek sħan u f'ordni, ma' Otto l-lontra!",
+  "share.copied": "Ħolqa kkupjata: waħħalha fejn trid!"
 }

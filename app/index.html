@@ -28,6 +28,8 @@
     <span class="brand-otto" aria-hidden="true" data-otto="mini"></span>
     <span class="brand-name">Ottoteca</span>
   </a>
+  <span class="ver" id="verBadge"></span>
+  <button class="icon-btn share-app" id="shareApp" data-i18n-label="share.app"><span class="ic ic-share" aria-hidden="true"></span></button>
   <nav class="tabs" aria-label="Ottoteca">
     <a href="#/" data-tab="library"><span class="ic ic-books" aria-hidden="true"></span><span data-i18n="nav.library">Library</span></a>
     <a href="#/wallet" data-tab="wallet"><span class="ic ic-wallet" aria-hidden="true"></span><span data-i18n="nav.wallet">Wallet</span></a>
@@ -224,7 +226,7 @@
   <button class="buddy-btn" id="buddyBtn" data-i18n-label="mascot.label"><span data-otto="buddy" aria-hidden="true"></span></button>
 </aside>
 
-<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+<div class="toast" id="toast" role="status" aria-live="polite" hidden><span class="toast-otto" data-otto="toast" aria-hidden="true"></span><span class="toast-msg" id="toastMsg"></span><span class="toast-act" id="toastAct"></span><button type="button" class="icon-btn toast-x" id="toastX" data-i18n-label="common.close"><span class="ic ic-x" aria-hidden="true"></span></button><i class="toast-bar" aria-hidden="true"></i></div>
 <div class="dropzone" id="dropzone" hidden><div><div data-otto="big" aria-hidden="true"></div><p data-i18n="lib.dropHint"></p></div></div>
 <div class="fx" id="fx" aria-hidden="true"></div>
 

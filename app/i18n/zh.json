@@ -118,7 +118,7 @@
   "common.delete": "删除",
   "common.ok": "确定",
   "common.close": "关闭",
-  "mascot.label": "水獭小欧：点一下获得鼓励",
+  "mascot.label": "水獭小欧：点一下，长按抱抱，或者摸摸它",
   "cheer.1": "你可以的！一页一页来。",
   "cheer.2": "文件整齐，心情舒畅。",
   "cheer.3": "每一小步都算数。",
@@ -201,5 +201,18 @@
   "kind.filter": "按类型筛选",
   "kind.change": "文档类型",
   "kind.none": "无类型",
-  "kind.hint": "Ottoteca 会根据文字识别类型。如果识别错了，可以在这里选择。"
+  "kind.hint": "Ottoteca 会根据文字识别类型。如果识别错了，可以在这里选择。",
+  "pet.1": "嘻嘻，好痒！",
+  "pet.2": "呼噜…最喜欢摸摸了！",
+  "pet.3": "还要，还要！",
+  "pet.4": "你最棒了！",
+  "pet.5": "软软的小爪子，开心的小心心。",
+  "pet.6": "吱！好舒服！",
+  "ev.hug": "水獭大抱抱！",
+  "ev.dizzy": "哇…头好晕！",
+  "ev.wave": "你好，你好！",
+  "ev.juggle": "看，我会抛小石子！",
+  "share.app": "分享 Ottoteca",
+  "share.text": "Ottoteca：和水獭小欧一起，让你的 PDF 暖暖的、整整齐齐！",
+  "share.copied": "链接已复制：粘贴到任何地方吧！"
 }

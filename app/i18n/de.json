@@ -118,7 +118,7 @@
   "common.delete": "Löschen",
   "common.ok": "OK",
   "common.close": "Schließen",
-  "mascot.label": "Otto der Otter: antippen für Aufmunterung",
+  "mascot.label": "Otto der Otter: antippen, gedrückt halten zum Kuscheln oder streicheln",
   "cheer.1": "Du schaffst das! Eine Seite nach der anderen.",
   "cheer.2": "Ordentliche Dateien, ruhiger Kopf.",
   "cheer.3": "Jeder kleine Schritt zählt.",
@@ -201,5 +201,18 @@
   "kind.filter": "Nach Typ filtern",
   "kind.change": "Dokumenttyp",
   "kind.none": "Kein Typ",
-  "kind.hint": "Ottoteca erkennt den Typ am Text. Wenn es falsch liegt, wähle ihn hier."
+  "kind.hint": "Ottoteca erkennt den Typ am Text. Wenn es falsch liegt, wähle ihn hier.",
+  "pet.1": "Hihi, das kitzelt!",
+  "pet.2": "Schnurr… ich liebe Kuscheln!",
+  "pet.3": "Mehr, mehr!",
+  "pet.4": "Du bist der Beste!",
+  "pet.5": "Weiche Pfoten, glückliches Herz.",
+  "pet.6": "Quiek! So kuschelig!",
+  "ev.hug": "Otter-Umarmung!",
+  "ev.dizzy": "Huiii… mir ist ganz schwindelig!",
+  "ev.wave": "Hallo, hallo!",
+  "ev.juggle": "Schau, ich jongliere mit Kieseln!",
+  "share.app": "Ottoteca teilen",
+  "share.text": "Ottoteca: deine PDFs kuschelig und ordentlich, mit Otto dem Otter!",
+  "share.copied": "Link kopiert: Füge ihn ein, wo du willst!"
 }

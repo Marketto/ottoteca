@@ -118,7 +118,7 @@
   "common.delete": "Eliminar",
   "common.ok": "Aceptar",
   "common.close": "Cerrar",
-  "mascot.label": "Otto la nutria: tócala para recibir ánimos",
+  "mascot.label": "Otto la nutria: tócala, mantén pulsado para un abrazo o acaríciala para mimos",
   "cheer.1": "¡Tú puedes! Página a página.",
   "cheer.2": "Archivos en orden, mente tranquila.",
   "cheer.3": "Cada pequeño paso cuenta.",
@@ -201,5 +201,18 @@
   "kind.filter": "Filtrar por tipo",
   "kind.change": "Tipo de documento",
   "kind.none": "Sin tipo",
-  "kind.hint": "Ottoteca reconoce el tipo por el texto. Si se ha equivocado, elígelo aquí."
+  "kind.hint": "Ottoteca reconoce el tipo por el texto. Si se ha equivocado, elígelo aquí.",
+  "pet.1": "¡Jiji, me haces cosquillas!",
+  "pet.2": "Purr… ¡me encantan los mimos!",
+  "pet.3": "¡Más, más!",
+  "pet.4": "¡Eres lo mejor!",
+  "pet.5": "Patitas suaves, corazón feliz.",
+  "pet.6": "¡Squit! ¡Qué gustito!",
+  "ev.hug": "¡Abrazo de nutria!",
+  "ev.dizzy": "¡Uiii… me da vueltas la cabeza!",
+  "ev.wave": "¡Hola, hola!",
+  "ev.juggle": "¡Mira, hago malabares con piedrecitas!",
+  "share.app": "Compartir Ottoteca",
+  "share.text": "Ottoteca: tus PDF calentitos y ordenados, ¡con Otto la nutria!",
+  "share.copied": "Enlace copiado: ¡pégalo donde quieras!"
 }

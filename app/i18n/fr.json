@@ -118,7 +118,7 @@
   "common.delete": "Supprimer",
   "common.ok": "OK",
   "common.close": "Fermer",
-  "mascot.label": "Otto la loutre : touche-la pour un encouragement",
+  "mascot.label": "Otto la loutre : touche-la, appuie longuement pour un câlin ou caresse-la",
   "cheer.1": "Tu vas y arriver ! Une page à la fois.",
   "cheer.2": "Fichiers rangés, esprit léger.",
   "cheer.3": "Chaque petit pas compte.",
@@ -201,5 +201,18 @@
   "kind.filter": "Filtrer par type",
   "kind.change": "Type de document",
   "kind.none": "Aucun type",
-  "kind.hint": "Ottoteca reconnaît le type grâce au texte. S'il s'est trompé, choisis-le ici."
+  "kind.hint": "Ottoteca reconnaît le type grâce au texte. S'il s'est trompé, choisis-le ici.",
+  "pet.1": "Hihi, ça chatouille !",
+  "pet.2": "Ronron… j'adore les câlins !",
+  "pet.3": "Encore, encore !",
+  "pet.4": "Tu es le meilleur !",
+  "pet.5": "Pattes douces, cœur heureux.",
+  "pet.6": "Couic ! Trop bien !",
+  "ev.hug": "Câlin de loutre !",
+  "ev.dizzy": "Wiii… la tête me tourne !",
+  "ev.wave": "Coucou, coucou !",
+  "ev.juggle": "Regarde, je jongle avec des cailloux !",
+  "share.app": "Partager Ottoteca",
+  "share.text": "Ottoteca : tes PDF au chaud et bien rangés, avec Otto la loutre !",
+  "share.copied": "Lien copié : colle-le où tu veux !"
 }

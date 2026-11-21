@@ -148,6 +148,26 @@ try {
   ok(!axe5.violations.length, "axe telefono: " + axe5.violations.map(v => v.id).join(", "));
   axe5.violations.forEach(v => console.log("   ", v.id, v.nodes.slice(0, 3).map(n => n.target.join(" ") + " " + (n.any[0]?.message || "")).join(" | ")));
 
+  // Otto interattivo, versione, condividi
+  ok((await page.textContent("#verBadge")).startsWith("v"), "versione visibile");
+  ok(await page.locator("#shareApp").isVisible(), "pulsante Condividi");
+  await page.goto(BASE + "#/");
+  await page.waitForTimeout(600);
+  const bb = await page.locator("#buddyBtn").boundingBox();
+  const cx = bb.x + bb.width / 2, cy = bb.y + bb.height / 2;
+  await page.mouse.move(cx, cy); await page.mouse.down();
+  for (let i = 0; i < 12; i++) await page.mouse.move(cx + (i % 2 ? 18 : -18), cy + 4, { steps: 3 });
+  ok(await page.locator("#buddy .otto.is-pet").count() === 1, "coccole: Otto fa le fusa");
+  if (shots) await page.screenshot({ path: "tests/shots/14-coccole.png" });
+  await page.mouse.up();
+  await page.waitForTimeout(1700);
+  await page.mouse.move(cx, cy); await page.mouse.down(); await page.waitForTimeout(800);
+  ok(await page.locator("#buddy .otto.is-hug").count() === 1, "abbraccio tenendo premuto");
+  await page.mouse.up(); await page.waitForTimeout(2000);
+  for (let i = 0; i < 5; i++) { await page.mouse.click(cx, cy); await page.waitForTimeout(120); }
+  ok(await page.locator("#buddy .otto.is-dizzy").count() === 1, "tanti tocchi: gira la testa");
+  await page.waitForTimeout(2800);
+
   // tipi riconosciuti: fattura, scontrino, viaggio, spettacolo, con filtro
   const kx = await browser.newContext({ viewport: { width: 1200, height: 860 }, locale: "it-IT", serviceWorkers: "block" });
   const kp = await kx.newPage();

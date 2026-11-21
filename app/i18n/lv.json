@@ -118,7 +118,7 @@
   "common.delete": "Dzēst",
   "common.ok": "Labi",
   "common.close": "Aizvērt",
-  "mascot.label": "Ūdrs Oto: pieskaries, lai saņemtu uzmundrinājumu",
+  "mascot.label": "Ūdrs Oto: pieskaries, turi nospiestu apskāvienam vai paglaudi",
   "cheer.1": "Tev izdosies! Pa vienai lapai.",
   "cheer.2": "Kārtīgi faili, mierīgs prāts.",
   "cheer.3": "Katrs mazs solis ir svarīgs.",
@@ -201,5 +201,18 @@
   "kind.filter": "Filtrēt pēc veida",
   "kind.change": "Dokumenta veids",
   "kind.none": "Bez veida",
-  "kind.hint": "Ottoteca atpazīst veidu pēc teksta. Ja tā kļūdījās, izvēlies to šeit."
+  "kind.hint": "Ottoteca atpazīst veidu pēc teksta. Ja tā kļūdījās, izvēlies to šeit.",
+  "pet.1": "Hihi, kutina!",
+  "pet.2": "Murr… dievinu glāstus!",
+  "pet.3": "Vēl, vēl!",
+  "pet.4": "Tu esi labākais!",
+  "pet.5": "Mīkstas ķepas, laimīga sirds.",
+  "pet.6": "Pīk! Cik jauki!",
+  "ev.hug": "Ūdra apskāviens!",
+  "ev.dizzy": "Uiii… galva griežas!",
+  "ev.wave": "Sveiks, sveiks!",
+  "ev.juggle": "Skaties, es žonglēju ar oļiem!",
+  "share.app": "Kopīgot Ottotecu",
+  "share.text": "Ottoteca: tavi PDF siltumā un kārtībā, kopā ar ūdru Oto!",
+  "share.copied": "Saite nokopēta: ielīmē to, kur vēlies!"
 }

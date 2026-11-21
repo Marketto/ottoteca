@@ -118,7 +118,7 @@
   "common.delete": "Delete",
   "common.ok": "OK",
   "common.close": "Close",
-  "mascot.label": "Otto the otter: tap for a cheer",
+  "mascot.label": "Otto the otter: tap him, hold for a hug, or stroke him for cuddles",
   "cheer.1": "You've got this! One page at a time.",
   "cheer.2": "Tidy files, calm mind.",
   "cheer.3": "Every small step counts.",
@@ -201,5 +201,18 @@
   "kind.filter": "Filter by type",
   "kind.change": "Document type",
   "kind.none": "No type",
-  "kind.hint": "Ottoteca recognises the type from the text. If it got it wrong, choose it here."
+  "kind.hint": "Ottoteca recognises the type from the text. If it got it wrong, choose it here.",
+  "pet.1": "Hehe, that tickles!",
+  "pet.2": "Purr… I love cuddles!",
+  "pet.3": "More, more!",
+  "pet.4": "You're the best!",
+  "pet.5": "Soft paws, happy heart.",
+  "pet.6": "Squeak! So cosy!",
+  "ev.hug": "Big otter hug!",
+  "ev.dizzy": "Wheee… my head is spinning!",
+  "ev.wave": "Hello, hello!",
+  "ev.juggle": "Look, I can juggle pebbles!",
+  "share.app": "Share Ottoteca",
+  "share.text": "Ottoteca: your PDFs cosy and tidy, with Otto the otter!",
+  "share.copied": "Link copied: paste it wherever you like!"
 }

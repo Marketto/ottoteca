@@ -118,7 +118,7 @@
   "common.delete": "Ta bort",
   "common.ok": "OK",
   "common.close": "Stäng",
-  "mascot.label": "Otto uttern: tryck för lite pepp",
+  "mascot.label": "Uttern Otto: tryck, håll in för en kram eller klappa för gos",
   "cheer.1": "Du klarar det! En sida i taget.",
   "cheer.2": "Ordning bland filerna, lugn i sinnet.",
   "cheer.3": "Varje litet steg räknas.",
@@ -201,5 +201,18 @@
   "kind.filter": "Filtrera efter typ",
   "kind.change": "Dokumenttyp",
   "kind.none": "Ingen typ",
-  "kind.hint": "Ottoteca känner igen typen från texten. Blev det fel, välj den här."
+  "kind.hint": "Ottoteca känner igen typen från texten. Blev det fel, välj den här.",
+  "pet.1": "Hihi, det kittlas!",
+  "pet.2": "Spinn… jag älskar gos!",
+  "pet.3": "Mer, mer!",
+  "pet.4": "Du är bäst!",
+  "pet.5": "Mjuka tassar, glatt hjärta.",
+  "pet.6": "Pip! Så mysigt!",
+  "ev.hug": "Utterkram!",
+  "ev.dizzy": "Wiii… det snurrar i huvudet!",
+  "ev.wave": "Hej, hej!",
+  "ev.juggle": "Titta, jag jonglerar med småsten!",
+  "share.app": "Dela Ottoteca",
+  "share.text": "Ottoteca: dina PDF:er mysiga och ordnade, med uttern Otto!",
+  "share.copied": "Länken kopierad: klistra in den var du vill!"
 }

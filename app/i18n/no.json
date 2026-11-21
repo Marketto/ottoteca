@@ -118,7 +118,7 @@
   "common.delete": "Slett",
   "common.ok": "OK",
   "common.close": "Lukk",
-  "mascot.label": "Oteren Otto: trykk for litt oppmuntring",
+  "mascot.label": "Oteren Otto: trykk, hold inne for en klem eller kos med ham",
   "cheer.1": "Du klarer det! Én side om gangen.",
   "cheer.2": "Ryddige filer, rolig sinn.",
   "cheer.3": "Hvert lille steg teller.",
@@ -201,5 +201,18 @@
   "kind.filter": "Filtrer etter type",
   "kind.change": "Dokumenttype",
   "kind.none": "Ingen type",
-  "kind.hint": "Ottoteca kjenner igjen typen fra teksten. Ble det feil, velg den her."
+  "kind.hint": "Ottoteca kjenner igjen typen fra teksten. Ble det feil, velg den her.",
+  "pet.1": "Hihi, det kiler!",
+  "pet.2": "Mjau… jeg elsker kos!",
+  "pet.3": "Mer, mer!",
+  "pet.4": "Du er best!",
+  "pet.5": "Myke poter, glad hjerte.",
+  "pet.6": "Pip! Så koselig!",
+  "ev.hug": "Oterklem!",
+  "ev.dizzy": "Wiii… det går rundt i hodet!",
+  "ev.wave": "Hei, hei!",
+  "ev.juggle": "Se, jeg sjonglerer med småstein!",
+  "share.app": "Del Ottoteca",
+  "share.text": "Ottoteca: PDF-ene dine lune og ryddige, med oteren Otto!",
+  "share.copied": "Lenke kopiert: lim den inn hvor du vil!"
 }

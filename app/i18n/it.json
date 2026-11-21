@@ -118,7 +118,7 @@
   "common.delete": "Elimina",
   "common.ok": "OK",
   "common.close": "Chiudi",
-  "mascot.label": "Otto la lontra: toccala per un incoraggiamento",
+  "mascot.label": "Otto la lontra: toccalo, tienilo premuto per un abbraccio o accarezzalo per le coccole",
   "cheer.1": "Ce la fai! Una pagina alla volta.",
   "cheer.2": "File in ordine, mente serena.",
   "cheer.3": "Ogni piccolo passo conta.",
@@ -201,5 +201,18 @@
   "kind.filter": "Filtra per tipo",
   "kind.change": "Tipo di documento",
   "kind.none": "Nessun tipo",
-  "kind.hint": "Ottoteca riconosce il tipo dal testo. Se ha sbagliato, sceglilo qui."
+  "kind.hint": "Ottoteca riconosce il tipo dal testo. Se ha sbagliato, sceglilo qui.",
+  "pet.1": "Hihi, mi fai il solletico!",
+  "pet.2": "Purr… adoro le coccole!",
+  "pet.3": "Ancora, ancora!",
+  "pet.4": "Sei il migliore!",
+  "pet.5": "Zampine morbide, cuore felice.",
+  "pet.6": "Squit! Che bello!",
+  "ev.hug": "Abbraccio di lontra!",
+  "ev.dizzy": "Uiii… mi gira la testa!",
+  "ev.wave": "Ciao, ciao!",
+  "ev.juggle": "Guarda, faccio il giocoliere coi sassolini!",
+  "share.app": "Condividi Ottoteca",
+  "share.text": "Ottoteca: i tuoi PDF al calduccio e in ordine, con Otto la lontra!",
+  "share.copied": "Link copiato: incollalo dove vuoi!"
 }

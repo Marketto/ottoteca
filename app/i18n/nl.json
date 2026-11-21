@@ -118,7 +118,7 @@
   "common.delete": "Verwijderen",
   "common.ok": "OK",
   "common.close": "Sluiten",
-  "mascot.label": "Otto de otter: tik voor een aanmoediging",
+  "mascot.label": "Otto de otter: tik hem aan, houd vast voor een knuffel of aai hem",
   "cheer.1": "Jij kunt dit! Eén pagina tegelijk.",
   "cheer.2": "Opgeruimde bestanden, rustig hoofd.",
   "cheer.3": "Elke kleine stap telt.",
@@ -201,5 +201,18 @@
   "kind.filter": "Filteren op type",
   "kind.change": "Documenttype",
   "kind.none": "Geen type",
-  "kind.hint": "Ottoteca herkent het type aan de tekst. Klopt het niet, kies het dan hier."
+  "kind.hint": "Ottoteca herkent het type aan de tekst. Klopt het niet, kies het dan hier.",
+  "pet.1": "Hihi, dat kriebelt!",
+  "pet.2": "Spin… ik hou van knuffels!",
+  "pet.3": "Meer, meer!",
+  "pet.4": "Jij bent de beste!",
+  "pet.5": "Zachte pootjes, blij hartje.",
+  "pet.6": "Piep! Zo knus!",
+  "ev.hug": "Otterknuffel!",
+  "ev.dizzy": "Wieee… mijn hoofd tolt!",
+  "ev.wave": "Hallo, hallo!",
+  "ev.juggle": "Kijk, ik jongleer met kiezeltjes!",
+  "share.app": "Ottoteca delen",
+  "share.text": "Ottoteca: je PDF's knus en netjes, met Otto de otter!",
+  "share.copied": "Link gekopieerd: plak hem waar je maar wilt!"
 }

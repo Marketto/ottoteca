@@ -118,7 +118,7 @@
   "common.delete": "Poista",
   "common.ok": "OK",
   "common.close": "Sulje",
-  "mascot.label": "Saukko Otto: napauta saadaksesi kannustusta",
+  "mascot.label": "Saukko Otto: napauta, pidä painettuna halaukseen tai silitä",
   "cheer.1": "Sinä pystyt tähän! Sivu kerrallaan.",
   "cheer.2": "Siistit tiedostot, rauhallinen mieli.",
   "cheer.3": "Jokainen pieni askel on tärkeä.",
@@ -201,5 +201,18 @@
   "kind.filter": "Suodata tyypin mukaan",
   "kind.change": "Asiakirjan tyyppi",
   "kind.none": "Ei tyyppiä",
-  "kind.hint": "Ottoteca tunnistaa tyypin tekstistä. Jos se meni väärin, valitse se tästä."
+  "kind.hint": "Ottoteca tunnistaa tyypin tekstistä. Jos se meni väärin, valitse se tästä.",
+  "pet.1": "Hihi, kutittaa!",
+  "pet.2": "Hrr… rakastan rapsutuksia!",
+  "pet.3": "Lisää, lisää!",
+  "pet.4": "Olet paras!",
+  "pet.5": "Pehmeät tassut, iloinen sydän.",
+  "pet.6": "Piip! Ihanaa!",
+  "ev.hug": "Saukkohalaus!",
+  "ev.dizzy": "Hiii… päätä huimaa!",
+  "ev.wave": "Moi, moi!",
+  "ev.juggle": "Katso, jongleeraan kivillä!",
+  "share.app": "Jaa Ottoteca",
+  "share.text": "Ottoteca: PDF-tiedostosi lämpimästi järjestyksessä, saukko Oton kanssa!",
+  "share.copied": "Linkki kopioitu: liitä se minne haluat!"
 }

@@ -1,13 +1,13 @@
 // Ottoteca — app principale.
 import * as db from "./db.js";
 import { LANGS, detect, setLang, lang, t, apply, size, date, collator } from "./i18n.js";
-import { mountOttos, mood, confetti } from "./otto.js";
+import { mountOttos, mood, confetti, sparkle, startOttoLife } from "./otto.js";
 import { mountHabitat } from "./habitat.js";
 import { classify, KINDS, KIND_ICON } from "./kinds.js";
 import { analyze, openPdf, isPasswordError, renderToCanvas, pdfjs, closePdf } from "./pdf.js";
 import { scanDoc, codeSVG, formatName } from "./codes.js";
 
-export const VERSION = "1.0.0";
+export const VERSION = "1.1.0";
 const HEAVY = 5 * 1024 * 1024;                     // oltre questa soglia si suggerisce Schiaccia PDF
 const SQUASH_URL = "https://marketto.github.io/pdf-tiny-tools/";
 const COLORS = ["#e5637a", "#f29e4c", "#e8c547", "#7cc46b", "#3fb5a9", "#4f9ae0", "#8f7ae5", "#d06fc0", "#a07b62", "#7d8796"];
@@ -65,11 +65,70 @@ function cheer(live = true) {
   cheerIdx = (cheerIdx + 1) % 12;
   say(t("cheer." + (cheerIdx + 1)), ["happy", "wiggle", "love", "spin"][cheerIdx % 4], { live });
 }
-$("#buddyBtn").addEventListener("click", e => {
-  cheer(true);
-  const r = e.currentTarget.getBoundingClientRect();
-  if (Math.random() < .35) confetti(r.left + r.width / 2, r.top, 14);
-});
+// Otto interattivo: tocco = reazione a sorpresa, tieni premuto = abbraccio, strofina = coccole, tanti tocchi = gira la testa
+{
+  const btn = $("#buddyBtn");
+  let down = null, taps = [], lastPetSay = 0, lastHeart = 0;
+  const reactions = [
+    () => { cheer(true); mood("happy"); },
+    () => { say(t("ev.wave"), "wave"); },
+    () => { say(t("ev.juggle"), "juggle", { ms: 3500 }); mood("juggle", 3200); },
+    () => { cheer(true); mood("spin", 1000); },
+    () => { cheer(true); mood("love"); }
+  ];
+  let ri = 0;
+  const react = (x, y) => {
+    const now = Date.now();
+    taps = taps.filter(tt => now - tt < 2200); taps.push(now);
+    if (taps.length >= 5) { taps = []; say(t("ev.dizzy"), "dizzy", { ms: 3000 }); mood("dizzy", 2600); return; }
+    ri = (ri + 1 + Math.floor(Math.random() * 3)) % reactions.length;
+    reactions[ri]();
+    if (x != null) sparkle(x, y, 7);
+  };
+  btn.addEventListener("pointerdown", e => {
+    down = { x: e.clientX, y: e.clientY, t: Date.now(), dist: 0, pet: false, hug: false, px: e.clientX, py: e.clientY };
+    try { btn.setPointerCapture(e.pointerId); } catch {}
+    down.timer = setTimeout(() => {
+      if (!down || down.pet || down.dist > 14) return;
+      down.hug = true; mood("hug", 1800); say(t("ev.hug"), null);
+      const r = btn.getBoundingClientRect(); confetti(r.left + r.width / 2, r.top + r.height / 3, 18); navigator.vibrate?.(30);
+    }, 650);
+  });
+  btn.addEventListener("pointermove", e => {
+    if (!down) return;
+    down.dist += Math.hypot(e.clientX - down.px, e.clientY - down.py); down.px = e.clientX; down.py = e.clientY;
+    if (!down.pet && down.dist > 50 && !down.hug) { down.pet = true; mood("pet", 0); }
+    if (down.pet) {
+      const now = Date.now();
+      if (now - lastHeart > 140) { lastHeart = now; sparkle(e.clientX, e.clientY, 2, "heart"); }
+      if (now - lastPetSay > 2600) { lastPetSay = now; say(t("pet." + (1 + Math.floor(Math.random() * 6))), null, { live: false, ms: 2600 }); }
+    }
+  });
+  const end = e => {
+    if (!down) return;
+    clearTimeout(down.timer);
+    const d = down; down = null;
+    if (d.pet) { mood("love", 1600); bubble.setAttribute("aria-live", "polite"); bubble.textContent = t("pet." + (1 + Math.floor(Math.random() * 6))); return; }
+    if (d.hug || e.type === "pointercancel") return;
+    react(e.clientX, e.clientY);
+  };
+  btn.addEventListener("pointerup", end);
+  btn.addEventListener("pointercancel", end);
+  btn.addEventListener("click", e => { if (e.detail === 0) react(); }); // tastiera: Invio o Spazio
+  btn.addEventListener("contextmenu", e => e.preventDefault());
+}
+// rimbalzo e scintille su pulsanti, schede e filtri
+{
+  let pt = null;
+  addEventListener("pointerdown", e => { pt = { x: e.clientX, y: e.clientY }; }, { passive: true });
+  addEventListener("click", e => {
+    const el2 = e.target.closest?.(".btn,.chip,.icon-btn,.doc,.fopen,.source,.tabs a,.seg label");
+    if (!el2 || e.detail === 0 || el2.closest("#buddyBtn")) return;
+    el2.classList.remove("boing"); void el2.offsetWidth; el2.classList.add("boing");
+    el2.addEventListener("animationend", () => el2.classList.remove("boing"), { once: true });
+    if (pt) sparkle(pt.x, pt.y, 5);
+  }, true);
+}
 ["pointerdown", "keydown"].forEach(ev => addEventListener(ev, () => { if (Date.now() - lastAct > 90000) mood(null); lastAct = Date.now(); }, { passive: true }));
 setInterval(() => {
   if (document.hidden || !$("#viewer").hidden) return;
@@ -79,15 +138,30 @@ setInterval(() => {
 }, 30000);
 
 /* ================= toast e dialoghi ================= */
+// Avvisi in stile Ottoteca: nuvoletta con Otto, pulsante d'azione, barra del tempo e chiusura
 let toastT;
+function hideToast() { const tEl = $("#toast"); if (tEl.hidden) return; tEl.classList.add("out"); setTimeout(() => { tEl.hidden = true; tEl.classList.remove("out"); }, 260); }
 function toast(msg, action) {
-  const tEl = $("#toast");
-  tEl.replaceChildren(el("span", {}, msg));
-  if (action) tEl.append(el("button", { type: "button", onclick: () => { tEl.hidden = true; action.fn(); } }, action.label));
-  tEl.hidden = false;
+  const tEl = $("#toast"), ms = action ? 9000 : 4000;
+  mountOttos(tEl);
+  $("#toastMsg").textContent = msg;
+  $("#toastAct").replaceChildren(action ? el("button", { type: "button", class: "btn btn-primary", onclick: () => { hideToast(); action.fn(); } }, action.label) : "");
+  tEl.style.setProperty("--ms", ms + "ms");
+  tEl.hidden = false; tEl.classList.remove("out", "in"); void tEl.offsetWidth; tEl.classList.add("in");
+  mood(action ? "wave" : "happy", 1500, tEl);
   clearTimeout(toastT);
-  toastT = setTimeout(() => tEl.hidden = true, action ? 9000 : 3500);
+  toastT = setTimeout(hideToast, ms);
 }
+$("#toastX").onclick = () => { clearTimeout(toastT); hideToast(); };
+$("#toast").addEventListener("pointerenter", () => clearTimeout(toastT));
+$("#toast").addEventListener("pointerleave", () => { clearTimeout(toastT); toastT = setTimeout(hideToast, 2500); });
+// Condividi l'app
+$("#shareApp").onclick = async () => {
+  const url = location.origin + location.pathname;
+  const data = { title: "Ottoteca", text: t("share.text"), url };
+  try { if (navigator.share) { await navigator.share(data); return; } } catch (e) { if (e?.name === "AbortError") return; }
+  try { await navigator.clipboard.writeText(url); toast(t("share.copied")); } catch { toast(url); }
+};
 
 function dialog({ title, body, actions, onOpen, init }) {
   const d = $("#dlg");
@@ -950,7 +1024,7 @@ addEventListener("keydown", e => {
 {
   let depth = 0; const dz = $("#dropzone");
   const hasFiles = e => [...(e.dataTransfer?.types || [])].includes("Files");
-  addEventListener("dragenter", e => { if (!hasFiles(e)) return; depth++; dz.hidden = false; mountOttos(dz); mood("happy", 0, dz); });
+  addEventListener("dragenter", e => { if (!hasFiles(e)) return; depth++; dz.hidden = false; mountOttos(dz); mood("surprised", 900); mood("happy", 0, dz); });
   addEventListener("dragleave", e => { if (!hasFiles(e)) return; if (--depth <= 0) { depth = 0; dz.hidden = true; } });
   addEventListener("dragover", e => { if (hasFiles(e)) e.preventDefault(); });
   addEventListener("drop", e => { if (!hasFiles(e)) return; e.preventDefault(); depth = 0; dz.hidden = true; if (!$("#viewer").hidden) closeViewer(); location.hash = "#/"; importFiles(e.dataTransfer.files); });
@@ -1162,7 +1236,9 @@ function afterLang() {
 }
 (async function init() {
   applyTheme();
+  $("#verBadge").textContent = "v" + VERSION;
   mountHabitat();
+  startOttoLife();
   const setHH = () => document.documentElement.style.setProperty("--hh", $(".topbar").offsetHeight + "px");
   setHH(); addEventListener("resize", setHH);
   matchMedia("(prefers-color-scheme: dark)").addEventListener?.("change", applyTheme);

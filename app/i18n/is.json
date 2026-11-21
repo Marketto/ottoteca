@@ -118,7 +118,7 @@
   "common.delete": "Eyða",
   "common.ok": "Í lagi",
   "common.close": "Loka",
-  "mascot.label": "Otto otur: ýttu til að fá hvatningu",
+  "mascot.label": "Oturinn Otto: ýttu á hann, haltu inni fyrir knús eða klappaðu honum",
   "cheer.1": "Þú getur þetta! Ein síða í einu.",
   "cheer.2": "Snyrtilegar skrár, rólegur hugur.",
   "cheer.3": "Hvert lítið skref skiptir máli.",
@@ -201,5 +201,18 @@
   "kind.filter": "Sía eftir tegund",
   "kind.change": "Tegund skjals",
   "kind.none": "Engin tegund",
-  "kind.hint": "Ottoteca þekkir tegundina af textanum. Ef það er rangt, veldu hana hér."
+  "kind.hint": "Ottoteca þekkir tegundina af textanum. Ef það er rangt, veldu hana hér.",
+  "pet.1": "Híhí, þetta kitlar!",
+  "pet.2": "Mal… ég elska kúr!",
+  "pet.3": "Meira, meira!",
+  "pet.4": "Þú ert bestur!",
+  "pet.5": "Mjúkar loppur, glatt hjarta.",
+  "pet.6": "Típ! Svo notalegt!",
+  "ev.hug": "Oturknús!",
+  "ev.dizzy": "Víí… allt snýst!",
+  "ev.wave": "Halló, halló!",
+  "ev.juggle": "Sjáðu, ég leik mér með steinvölur!",
+  "share.app": "Deila Ottoteca",
+  "share.text": "Ottoteca: PDF-skjölin þín hlý og snyrtileg, með Otto otrinum!",
+  "share.copied": "Tengill afritaður: límdu hann hvar sem er!"
 }

@@ -118,7 +118,7 @@
   "common.delete": "Usuń",
   "common.ok": "OK",
   "common.close": "Zamknij",
-  "mascot.label": "Wydra Otto: stuknij po dawkę otuchy",
+  "mascot.label": "Wydra Otto: dotknij, przytrzymaj, żeby się przytulić, albo pogłaszcz",
   "cheer.1": "Dasz radę! Strona po stronie.",
   "cheer.2": "Porządek w plikach, spokój w głowie.",
   "cheer.3": "Liczy się każdy mały krok.",
@@ -201,5 +201,18 @@
   "kind.filter": "Filtruj według typu",
   "kind.change": "Typ dokumentu",
   "kind.none": "Brak typu",
-  "kind.hint": "Ottoteka rozpoznaje typ po tekście. Jeśli się pomyliła, wybierz go tutaj."
+  "kind.hint": "Ottoteka rozpoznaje typ po tekście. Jeśli się pomyliła, wybierz go tutaj.",
+  "pet.1": "Hihi, łaskocze!",
+  "pet.2": "Mrrr… uwielbiam przytulasy!",
+  "pet.3": "Jeszcze, jeszcze!",
+  "pet.4": "Jesteś najlepszy!",
+  "pet.5": "Miękkie łapki, szczęśliwe serduszko.",
+  "pet.6": "Pisk! Ale miło!",
+  "ev.hug": "Wydrzy uścisk!",
+  "ev.dizzy": "Iii… kręci mi się w głowie!",
+  "ev.wave": "Cześć, cześć!",
+  "ev.juggle": "Patrz, żongluję kamyczkami!",
+  "share.app": "Udostępnij Ottotekę",
+  "share.text": "Ottoteka: twoje PDF-y przytulnie i w porządku, z wydrą Otto!",
+  "share.copied": "Link skopiowany: wklej go, gdzie chcesz!"
 }

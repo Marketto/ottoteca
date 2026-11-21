@@ -291,46 +291,97 @@ progress::-moz-progress-bar{background:var(--primary);border-radius:999px}
 .bubble.show{opacity:1;transform:none}
 .bubble:empty{display:none}
 
-.otto{width:100%;height:100%;overflow:visible}
-.otto .o-all{transform-origin:100px 200px;animation:bob 3.2s ease-in-out infinite}
-.otto .o-tail{transform-origin:150px 190px;animation:wag 1.8s ease-in-out infinite}
-.otto .o-eye{transform-box:fill-box;transform-origin:center;animation:blink 4.6s infinite}
-
-.otto .o-ear{transform-box:fill-box;transform-origin:center bottom;animation:ear 5s ease-in-out infinite}
+.otto{width:100%;height:100%;overflow:visible;--lx:0px;--ly:0px}
+.otto *{transform-box:fill-box}
+.otto .o-all{transform-box:view-box;transform-origin:100px 205px;animation:bob 3.2s ease-in-out infinite}
+.otto .o-squish{transform-box:view-box;transform-origin:100px 210px}
+.otto .o-head{transform-box:view-box;transform-origin:100px 140px;animation:headTilt 6s ease-in-out infinite}
+.otto .o-tail{transform-origin:0% 60%;animation:wag 1.8s ease-in-out infinite}
+.otto .o-eye{transform-origin:center;animation:blink 4.6s infinite}
+.otto .o-look{transform:translate(var(--lx),var(--ly));transition:transform .25s cubic-bezier(.3,1.4,.5,1)}
+.otto .o-star{transform-origin:center;animation:twinkle 1.8s ease-in-out infinite}
+.otto .o-ear{transform-origin:center bottom;animation:ear 5s ease-in-out infinite}
 .otto .o-ear.r{animation-delay:.4s}
-.otto .o-paper{transform-origin:100px 160px;animation:paper 3.2s ease-in-out infinite}
-.otto .o-shine{animation:twinkle 2.4s ease-in-out infinite}
-.otto .o-zzz,.otto .o-hearts,.otto .o-glass{opacity:0}
-@keyframes bob{0%,100%{transform:translateY(0) scale(1,1)}50%{transform:translateY(-5px) scale(1.01,.99)}}
-@keyframes wag{0%,100%{transform:rotate(-6deg)}50%{transform:rotate(10deg)}}
+.otto .o-tuft{transform-origin:50% 100%;animation:tuft 3.2s ease-in-out infinite}
+.otto .o-paper{transform-box:view-box;transform-origin:100px 160px;animation:paper 3.2s ease-in-out infinite}
+.otto .o-pawR{transform-box:view-box;transform-origin:116px 154px}
+.otto .o-cheeks{transform-origin:center;transition:transform .3s}
+.otto .o-zzz,.otto .o-hearts,.otto .o-glass,.otto .o-joy,.otto .o-dizzy,.otto .o-pebbles,.otto .o-m-grin,.otto .o-m-open{opacity:0}
+.otto .o-hearts path,.otto .o-zzz text,.otto .o-pebbles circle{transform-origin:center}
+@keyframes bob{0%,100%{transform:translateY(0) scale(1,1)}50%{transform:translateY(-5px) scale(1.015,.985)}}
+@keyframes headTilt{0%,40%,100%{transform:rotate(0)}48%{transform:rotate(-5deg)}56%{transform:rotate(-5deg)}64%{transform:rotate(0)}}
+@keyframes wag{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(12deg)}}
 @keyframes blink{0%,90%,100%{transform:scaleY(1)}93%{transform:scaleY(.08)}96%{transform:scaleY(1)}}
-@keyframes ear{0%,80%,100%{transform:rotate(0)}86%{transform:rotate(-12deg)}92%{transform:rotate(6deg)}}
+@keyframes ear{0%,80%,100%{transform:rotate(0)}86%{transform:rotate(-14deg)}92%{transform:rotate(8deg)}}
+@keyframes tuft{0%,100%{transform:rotate(-6deg)}50%{transform:rotate(8deg)}}
 @keyframes paper{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
-@keyframes twinkle{0%,100%{opacity:1}50%{opacity:.5}}
+@keyframes twinkle{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.6)}}
+/* felice: salto con occhi a mezzaluna e bocca aperta */
 .otto.is-happy .o-all{animation:jump .9s cubic-bezier(.3,1.4,.5,1) 2}
-@keyframes jump{0%{transform:translateY(0) scale(1,1)}20%{transform:translateY(4px) scale(1.08,.9)}50%{transform:translateY(-26px) scale(.95,1.06)}75%{transform:translateY(0) scale(1.06,.94)}100%{transform:translateY(0) scale(1)}}
-.otto.is-happy .o-eye,.otto.is-love .o-eye{animation:none;transform:scaleY(.25) translateY(4px)}
+@keyframes jump{0%{transform:translateY(0) scale(1,1)}20%{transform:translateY(4px) scale(1.1,.88)}50%{transform:translateY(-28px) scale(.94,1.07)}75%{transform:translateY(0) scale(1.08,.92)}100%{transform:translateY(0) scale(1)}}
+.otto:is(.is-happy,.is-love,.is-pet,.is-hug,.is-wave,.is-juggle) .o-m-smile{opacity:0}
+.otto:is(.is-happy,.is-love,.is-pet,.is-hug,.is-wave,.is-juggle) .o-m-grin{opacity:1}
+.otto:is(.is-happy,.is-love,.is-pet,.is-hug) .o-eyes{opacity:0}
+.otto:is(.is-happy,.is-love,.is-pet,.is-hug) .o-joy{opacity:1}
+.otto:is(.is-love,.is-pet,.is-hug) .o-cheeks{transform:scale(1.25)}
 .otto.is-wiggle .o-all{animation:wiggle .8s ease-in-out 2}
 @keyframes wiggle{0%,100%{transform:rotate(0)}25%{transform:rotate(-8deg)}75%{transform:rotate(8deg)}}
 .otto.is-spin .o-all{animation:spin 1s cubic-bezier(.5,0,.3,1.3)}
 @keyframes spin{to{transform:rotate(360deg)}}
 .otto.is-think .o-all{animation:think 2s ease-in-out infinite}
 .otto.is-think .o-glass{opacity:1;animation:glass 1.4s ease-in-out infinite}
+.otto.is-think .o-m-smile,.otto.is-surprised .o-m-smile,.otto.is-yawn .o-m-smile{opacity:0}
+.otto.is-think .o-m-open,.otto.is-surprised .o-m-open,.otto.is-yawn .o-m-open{opacity:1}
 @keyframes think{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(5deg)}}
 @keyframes glass{0%,100%{transform:translate(0,0)}25%{transform:translate(-14px,-6px)}75%{transform:translate(12px,4px)}}
-.otto.is-love .o-hearts{opacity:1}
-.otto.is-love .o-hearts path{animation:heart 1.6s ease-out infinite}
-.otto.is-love .o-hearts path:nth-child(2){animation-delay:.5s}
-.otto.is-love .o-hearts path:nth-child(3){animation-delay:1s}
-@keyframes heart{0%{opacity:0;transform:translateY(10px) scale(.5)}30%{opacity:1}100%{opacity:0;transform:translateY(-40px) scale(1.1)}}
+.otto:is(.is-love,.is-pet,.is-hug) .o-hearts{opacity:1}
+.otto:is(.is-love,.is-pet,.is-hug) .o-hearts path{animation:heart 1.6s ease-out infinite}
+.otto .o-hearts path:nth-child(2){animation-delay:.5s}
+.otto .o-hearts path:nth-child(3){animation-delay:1s}
+@keyframes heart{0%{opacity:0;transform:translateY(10px) scale(.5)}30%{opacity:1}100%{opacity:0;transform:translateY(-40px) scale(1.15)}}
+/* coccole: si strofina e fa le fusa */
+.otto.is-pet .o-all{animation:purr .28s ease-in-out infinite}
+@keyframes purr{0%,100%{transform:rotate(-2deg) scale(1.02,.98)}50%{transform:rotate(2deg) scale(.99,1.01)}}
+.otto.is-pet .o-tail{animation-duration:.5s}
+/* abbraccio: si schiaccia felice */
+.otto.is-hug .o-squish{animation:hug 1.6s cubic-bezier(.3,1.5,.5,1)}
+@keyframes hug{0%{transform:scale(1)}20%{transform:scale(1.14,.86)}45%{transform:scale(.92,1.1)}65%{transform:scale(1.05,.95)}100%{transform:scale(1)}}
+/* saluto con la zampa */
+.otto.is-wave .o-pawR{animation:wave 1.8s ease-in-out}
+@keyframes wave{0%,100%{transform:none}12%{transform:translate(42px,-44px) rotate(-25deg)}28%{transform:translate(42px,-44px) rotate(20deg)}44%{transform:translate(42px,-44px) rotate(-25deg)}60%{transform:translate(42px,-44px) rotate(20deg)}80%{transform:translate(42px,-44px) rotate(-10deg)}}
+/* giocoliere coi sassolini, come le lontre vere */
+.otto.is-juggle .o-pebbles{opacity:1}
+.otto.is-juggle .p1{animation:jug1 .9s ease-in-out infinite}
+.otto.is-juggle .p2{animation:jug1 .9s ease-in-out infinite reverse}
+.otto.is-juggle .p3{animation:jug2 .9s ease-in-out infinite}
+@keyframes jug1{0%,100%{transform:translate(0,30px)}50%{transform:translate(20px,-14px)}}
+@keyframes jug2{0%,100%{transform:translate(-14px,-6px)}50%{transform:translate(14px,24px)}}
+.otto.is-juggle .o-head{animation:jugHead .9s ease-in-out infinite}
+@keyframes jugHead{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+/* troppi tocchi: gira la testa */
+.otto.is-dizzy .o-eyes{opacity:0}
+.otto.is-dizzy .o-dizzy{opacity:1}
+.otto.is-dizzy .o-dizzy path{transform-origin:center;animation:spin 1s linear infinite}
+.otto.is-dizzy .o-all{animation:dizzy 1.2s ease-in-out infinite}
+@keyframes dizzy{0%,100%{transform:rotate(-7deg) translateX(-3px)}50%{transform:rotate(7deg) translateX(3px)}}
+.otto.is-surprised .o-all{animation:jumpSmall .5s cubic-bezier(.3,1.6,.5,1)}
+@keyframes jumpSmall{40%{transform:translateY(-12px) scale(.96,1.05)}}
+.otto.is-yawn .o-head{animation:yawn 2s ease-in-out}
+@keyframes yawn{0%,100%{transform:rotate(0) scale(1)}40%,60%{transform:rotate(-6deg) scale(1.04,.98)}}
+.otto.is-yawn .o-eye{animation:none;transform:scaleY(.3)}
 .otto.is-sleep .o-eye{animation:none;transform:scaleY(.08)}
 .otto.is-sleep .o-zzz{opacity:1}
 .otto.is-sleep .o-zzz text{animation:zzz 2.4s ease-in-out infinite}
 .otto.is-sleep .o-zzz text:nth-child(2){animation-delay:.8s}
+.otto.is-sleep .o-all{animation:breathe 3.6s ease-in-out infinite}
+@keyframes breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.03,.98)}}
 @keyframes zzz{0%{opacity:0;transform:translate(0,0)}40%{opacity:1}100%{opacity:0;transform:translate(16px,-26px)}}
 .otto.is-sad .o-all{animation:sad 1.5s ease-in-out}
 @keyframes sad{30%,70%{transform:translateY(6px) scale(1.03,.96)}}
 .buddy-btn:hover .otto .o-all{animation-duration:1.4s}
+.buddy-btn:active .otto .o-squish{transform:scale(1.08,.92)}
+.buddy-btn{touch-action:none;user-select:none;-webkit-user-select:none}
+.buddy-btn:focus-visible{outline:3px solid var(--focus);outline-offset:4px}
 
 /* coriandoli e scintille */
 .fx{position:fixed;inset:0;pointer-events:none;z-index:90;overflow:hidden}
@@ -339,11 +390,6 @@ progress::-moz-progress-bar{background:var(--primary);border-radius:999px}
 @keyframes confetti{0%{opacity:1;transform:translate(0,0) rotate(0)}100%{opacity:0;transform:translate(var(--x),var(--y)) rotate(var(--r))}}
 
 /* ---------- toast e zona di rilascio ---------- */
-.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom));transform:translateX(-50%);z-index:80;background:var(--text);color:var(--bg);padding:12px 18px;border-radius:999px;font-weight:800;box-shadow:var(--shadow);display:flex;gap:12px;align-items:center;animation:toastIn .35s cubic-bezier(.3,1.6,.5,1);max-width:92vw}
-@media (max-width:720px){.toast{bottom:auto;top:calc(12px + env(safe-area-inset-top));animation-name:toastInTop}}
-@keyframes toastInTop{from{opacity:0;transform:translate(-50%,-20px) scale(.9)}}
-.toast button{background:transparent;border:2px solid currentColor;color:inherit;border-radius:999px;padding:4px 12px;font-weight:800;cursor:pointer;min-height:36px}
-@keyframes toastIn{from{opacity:0;transform:translate(-50%,20px) scale(.9)}}
 .dropzone{position:fixed;inset:10px;z-index:95;border:4px dashed var(--primary);border-radius:28px;background:color-mix(in srgb,var(--bg) 88%,transparent);display:grid;place-items:center;text-align:center;font-weight:900;font-size:1.3rem;animation:pop .3s}
 .dropzone [data-otto]{width:180px;height:190px;margin:0 auto}
 
@@ -426,17 +472,15 @@ progress::-moz-progress-bar{background:var(--primary);border-radius:999px}
 .vfoot{border:var(--bw) solid var(--ink);box-shadow:0 4px 0 var(--ink)}
 .bubble{border:var(--bw) solid var(--ink);box-shadow:4px 4px 0 var(--ink);font-weight:800}
 .buddy-btn{width:96px;height:104px}
-.toast{border:var(--bw) solid var(--ink);box-shadow:0 4px 0 color-mix(in srgb,var(--ink) 60%,transparent)}
 .dropzone{border-color:var(--ink);background:color-mix(in srgb,var(--bg) 90%,transparent)}
 progress{border:2px solid var(--ink);height:16px}
 progress::-webkit-progress-value{background:var(--grad)}
 progress::-moz-progress-bar{background:var(--grad)}
 .swatches span{border:3px solid var(--surface);box-shadow:0 0 0 2px var(--ink)}
-.otto .o-spark{transform-box:fill-box;transform-origin:center;animation:sparkle 2.2s ease-in-out infinite}
+.otto .o-spark path{transform-origin:center;animation:sparkle 2.2s ease-in-out infinite}
+.otto .o-spark path+path{animation-delay:1.1s}
 @keyframes sparkle{0%,100%{opacity:.25;transform:scale(.7) rotate(0)}50%{opacity:1;transform:scale(1.1) rotate(20deg)}}
-.otto .o-eye{transform-box:fill-box;transform-origin:center}
 @media (max-width:720px){
-  .toast{top:calc(var(--hh,120px) + 22px)}
   .h-land{height:50vh;bottom:calc(62px + env(safe-area-inset-bottom))}
   .lbl-sm{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
   .toolbar{gap:8px}
@@ -561,6 +605,47 @@ main{padding-top:30px}
 .doc:hover .kind-badge{animation:wiggle .6s ease-in-out}
 .selecting .kind-badge{display:none}
 .checklist .kind-dot{width:26px;height:26px}
+/* ---------- più kawaii: scintille al tocco, rimbalzi, bolle ---------- */
+.fx b.tap{position:absolute;width:12px;height:12px;margin:-6px 0 0 -6px;background:var(--c);animation:tapFx .8s cubic-bezier(.2,.8,.3,1) forwards}
+.fx b.star{clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
+.fx b.heart,.fx i.heart{-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 21s-8-5-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 6-8 11-8 11z'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 21s-8-5-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 6-8 11-8 11z'/%3E%3C/svg%3E") center/contain no-repeat}
+.fx i.heart{width:16px;height:16px;border-radius:0}
+@keyframes tapFx{0%{opacity:1;transform:translate(0,0) scale(.3) rotate(0)}60%{opacity:1}100%{opacity:0;transform:translate(var(--x),var(--y)) scale(1.1) rotate(90deg)}}
+.boing{animation:boing .5s cubic-bezier(.3,1.8,.5,1)!important}
+@keyframes boing{0%{transform:scale(1)}30%{transform:scale(1.12,.88)}55%{transform:scale(.94,1.08)}80%{transform:scale(1.03,.97)}100%{transform:scale(1)}}
+.tabs a[aria-current="page"] .ic{animation:tabHop .6s cubic-bezier(.3,1.8,.5,1)}
+@keyframes tabHop{30%{transform:translateY(-6px) rotate(-10deg)}60%{transform:translateY(0) rotate(6deg)}}
+.doc:hover .thumb img{transform:scale(1.05) rotate(.8deg)}
+.card-doc{animation-name:plop}
+@keyframes plop{0%{opacity:0;transform:translateY(30px) scale(.8)}55%{opacity:1;transform:translateY(-8px) scale(1.04,.97)}75%{transform:translateY(2px) scale(.98,1.02)}100%{transform:none}}
+.chip[aria-pressed="true"]{animation:boing .5s cubic-bezier(.3,1.8,.5,1)}
+.bubble.show{animation:bubbleIn .55s cubic-bezier(.3,1.7,.5,1)}
+@keyframes bubbleIn{0%{transform:translateY(10px) scale(.6) rotate(-4deg)}60%{transform:translateY(-3px) scale(1.05) rotate(2deg)}100%{transform:none}}
+.h-bubbles i{position:absolute;bottom:4vh;width:var(--s);height:var(--s);border-radius:50%;border:2px solid color-mix(in srgb,#fff 85%,var(--water3));background:radial-gradient(circle at 30% 30%,#fff 0 18%,transparent 22%);animation:rise var(--t) ease-in infinite;animation-delay:calc(var(--d) * -1);opacity:0}
+@keyframes rise{0%{opacity:0;transform:translate(0,0)}15%{opacity:.9}100%{opacity:0;transform:translate(var(--x),-30vh)}}
+.view-title,.count{animation:boing .7s cubic-bezier(.3,1.8,.5,1) both}
+.kind-chip[aria-pressed="true"] .kind-dot{animation:spinSlow 2.4s linear infinite}
+
+/* ---------- versione, condividi, avvisi kawaii ---------- */
+.ver{font-size:.78rem;font-weight:900;padding:2px 9px;border-radius:999px;background:var(--grad2);color:var(--ink);border:2px solid var(--ink);box-shadow:0 2px 0 var(--ink);white-space:nowrap;align-self:center}
+.share-app{border:var(--bw) solid var(--ink);background:var(--surface);box-shadow:0 3px 0 var(--ink);margin-inline-start:4px}
+@media (max-width:720px){.share-app{margin-inline-start:auto}}
+.toast,.toast[class]{position:fixed;left:50%;right:auto;bottom:auto;top:calc(var(--hh,64px) + 18px);transform:translateX(-50%);z-index:80;display:flex;align-items:center;gap:10px;
+  width:max-content;max-width:min(560px,94vw);padding:8px 8px 12px 8px;border-radius:24px;background:var(--surface);color:var(--text);border:var(--bw) solid var(--ink);box-shadow:5px 6px 0 var(--ink);font-weight:800;overflow:hidden}
+.toast.in{animation:toastPop .55s cubic-bezier(.3,1.6,.5,1)}
+.toast.out{animation:toastOut .26s ease-in forwards}
+@keyframes toastPop{0%{opacity:0;transform:translate(-50%,-24px) scale(.7) rotate(-3deg)}60%{opacity:1;transform:translate(-50%,4px) scale(1.04) rotate(1deg)}100%{transform:translate(-50%,0)}}
+@keyframes toastOut{to{opacity:0;transform:translate(-50%,-16px) scale(.85)}}
+.toast-otto{width:46px;height:50px;flex:none;margin-top:-2px}
+.toast-msg{flex:1;min-width:0;line-height:1.3}
+.toast-act:empty{display:none}
+.toast .btn{min-height:40px;padding:6px 14px;font-size:.92rem}
+.toast-x{width:36px;height:36px;flex:none}
+.toast-bar{position:absolute;left:0;bottom:0;height:5px;width:100%;background:var(--grad);transform-origin:left;animation:toastBar var(--ms,4000ms) linear forwards}
+:dir(rtl) .toast-bar{transform-origin:right}
+@keyframes toastBar{to{transform:scaleX(0)}}
+.toast:hover .toast-bar{animation-play-state:paused}
+
 /* ---------- movimento ridotto ---------- */
 @media (prefers-reduced-motion:reduce){
   :root:not([data-motion="full"]) *,:root:not([data-motion="full"]) *::before,:root:not([data-motion="full"]) *::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}

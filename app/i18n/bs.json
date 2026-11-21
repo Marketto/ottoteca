@@ -118,7 +118,7 @@
   "common.delete": "Izbriši",
   "common.ok": "U redu",
   "common.close": "Zatvori",
-  "mascot.label": "Vidra Otto: dodirni za ohrabrenje",
+  "mascot.label": "Vidra Otto: dodirni ga, zadrži za zagrljaj ili ga pomazi",
   "cheer.1": "Možeš ti to! Stranicu po stranicu.",
   "cheer.2": "Uredne datoteke, miran um.",
   "cheer.3": "Svaki mali korak se broji.",
@@ -201,5 +201,18 @@
   "kind.filter": "Filtriraj po vrsti",
   "kind.change": "Vrsta dokumenta",
   "kind.none": "Bez vrste",
-  "kind.hint": "Ottoteka vrstu prepoznaje iz teksta. Ako je pogriješila, odaberi je ovdje."
+  "kind.hint": "Ottoteka vrstu prepoznaje iz teksta. Ako je pogriješila, odaberi je ovdje.",
+  "pet.1": "Hihi, škaklja!",
+  "pet.2": "Prrr… obožavam maženje!",
+  "pet.3": "Još, još!",
+  "pet.4": "Ti si najbolji!",
+  "pet.5": "Meke šapice, sretno srce.",
+  "pet.6": "Cik! Baš je ugodno!",
+  "ev.hug": "Vidrin zagrljaj!",
+  "ev.dizzy": "Juuu… vrti mi se!",
+  "ev.wave": "Zdravo, zdravo!",
+  "ev.juggle": "Gledaj, žongliram kamenčićima!",
+  "share.app": "Podijeli Ottoteku",
+  "share.text": "Ottoteka: tvoji PDF-ovi na toplom i uredni, s vidrom Ottom!",
+  "share.copied": "Link kopiran: zalijepi ga gdje želiš!"
 }

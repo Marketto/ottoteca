@@ -118,7 +118,7 @@
   "common.delete": "Slet",
   "common.ok": "OK",
   "common.close": "Luk",
-  "mascot.label": "Odderen Otto: tryk for en opmuntring",
+  "mascot.label": "Odderen Otto: tryk, hold for et kram eller ae for kæl",
   "cheer.1": "Du kan godt! Én side ad gangen.",
   "cheer.2": "Ryddelige filer, roligt sind.",
   "cheer.3": "Hvert lille skridt tæller.",
@@ -201,5 +201,18 @@
   "kind.filter": "Filtrér efter type",
   "kind.change": "Dokumenttype",
   "kind.none": "Ingen type",
-  "kind.hint": "Ottoteca genkender typen ud fra teksten. Er den forkert, så vælg den her."
+  "kind.hint": "Ottoteca genkender typen ud fra teksten. Er den forkert, så vælg den her.",
+  "pet.1": "Hihi, det kilder!",
+  "pet.2": "Spind… jeg elsker kæl!",
+  "pet.3": "Mere, mere!",
+  "pet.4": "Du er den bedste!",
+  "pet.5": "Bløde poter, glad hjerte.",
+  "pet.6": "Pip! Så hyggeligt!",
+  "ev.hug": "Odderkram!",
+  "ev.dizzy": "Wiii… det snurrer i hovedet!",
+  "ev.wave": "Hej, hej!",
+  "ev.juggle": "Se, jeg jonglerer med småsten!",
+  "share.app": "Del Ottoteca",
+  "share.text": "Ottoteca: dine PDF'er hyggelige og ryddelige, med odderen Otto!",
+  "share.copied": "Link kopieret: indsæt det, hvor du vil!"
 }

@@ -118,7 +118,7 @@
   "common.delete": "Scrios",
   "common.ok": "OK",
   "common.close": "Dún",
-  "mascot.label": "Otto an madra uisce: tapáil le haghaidh spreagtha",
+  "mascot.label": "Otto an madra uisce: tapáil é, coinnigh brúite le haghaidh barróige nó cuimil é",
   "cheer.1": "Is féidir leat é! Leathanach amháin ag an am.",
   "cheer.2": "Comhaid néata, intinn shocair.",
   "cheer.3": "Is tábhachtach gach céim bheag.",
@@ -201,5 +201,18 @@
   "kind.filter": "Scag de réir cineáil",
   "kind.change": "Cineál cáipéise",
   "kind.none": "Gan chineál",
-  "kind.hint": "Aithníonn Ottoteca an cineál ón téacs. Má rinne sé botún, roghnaigh anseo é."
+  "kind.hint": "Aithníonn Ottoteca an cineál ón téacs. Má rinne sé botún, roghnaigh anseo é.",
+  "pet.1": "Hihí, cuireann sé sin cigilt orm!",
+  "pet.2": "Crónán… is breá liom barróga!",
+  "pet.3": "Tuilleadh, tuilleadh!",
+  "pet.4": "Is tusa an duine is fearr!",
+  "pet.5": "Lapaí boga, croí sona.",
+  "pet.6": "Gíog! Chomh compordach!",
+  "ev.hug": "Barróg madra uisce!",
+  "ev.dizzy": "Úúú… tá mo cheann ag casadh!",
+  "ev.wave": "Dia duit, dia duit!",
+  "ev.juggle": "Féach, táim ag lámhchleasaíocht le méaróga!",
+  "share.app": "Comhroinn Ottoteca",
+  "share.text": "Ottoteca: do PDFanna te teolaí agus néata, le Otto an madra uisce!",
+  "share.copied": "Nasc cóipeáilte: greamaigh é áit ar bith!"
 }

@@ -118,7 +118,7 @@
   "common.delete": "Fshi",
   "common.ok": "OK",
   "common.close": "Mbyll",
-  "mascot.label": "Lundërza Otto: prek për pak inkurajim",
+  "mascot.label": "Lundërza Otto: preke, mbaje shtypur për një përqafim ose përkëdheleje",
   "cheer.1": "Ti mundesh! Një faqe në një kohë.",
   "cheer.2": "Skedarë në rregull, mendje e qetë.",
   "cheer.3": "Çdo hap i vogël ka rëndësi.",
@@ -201,5 +201,18 @@
   "kind.filter": "Filtro sipas llojit",
   "kind.change": "Lloji i dokumentit",
   "kind.none": "Pa lloj",
-  "kind.hint": "Ottoteca e njeh llojin nga teksti. Nëse gaboi, zgjidhe këtu."
+  "kind.hint": "Ottoteca e njeh llojin nga teksti. Nëse gaboi, zgjidhe këtu.",
+  "pet.1": "Hihi, më gudulis!",
+  "pet.2": "Mrrr… i dua përkëdheljet!",
+  "pet.3": "Edhe, edhe!",
+  "pet.4": "Je më i miri!",
+  "pet.5": "Putra të buta, zemër e lumtur.",
+  "pet.6": "Ciu! Sa mirë!",
+  "ev.hug": "Përqafim lundërze!",
+  "ev.dizzy": "Uiii… më vjen rrotull koka!",
+  "ev.wave": "Tung, tung!",
+  "ev.juggle": "Shiko, luaj me guralecë!",
+  "share.app": "Ndaj Ottoteca-n",
+  "share.text": "Ottoteca: PDF-të e tua ngrohtë e në rregull, me lundërzën Otto!",
+  "share.copied": "Lidhja u kopjua: ngjite ku të duash!"
 }

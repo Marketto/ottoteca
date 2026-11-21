@@ -94,8 +94,10 @@ export function mountHabitat() {
   for (let i = 0; i < 26; i++) stars += `<i style="left:${(r() * 100).toFixed(1)}%;top:${(r() * 45).toFixed(1)}%;--d:${(r() * 3).toFixed(2)}s"></i>`;
   let petals = "";
   for (let i = 0; i < 14; i++) petals += `<i style="left:${(r() * 100).toFixed(1)}%;--d:${(r() * 14).toFixed(1)}s;--t:${(12 + r() * 10).toFixed(1)}s;--x:${(r() * 160 - 80) | 0}px;--c:${PETALS[i % 5]}"></i>`;
+  let bubbles = "";
+  for (let i = 0; i < 9; i++) bubbles += `<i style="left:${(4 + r() * 92).toFixed(1)}%;--s:${(8 + r() * 14) | 0}px;--d:${(r() * 9).toFixed(1)}s;--t:${(6 + r() * 6).toFixed(1)}s;--x:${(r() * 40 - 20) | 0}px"></i>`;
   h.innerHTML = `<div class="h-stars">${stars}</div>${SUN}
     <div class="h-cloud c1">${CLOUD}</div><div class="h-cloud c2">${CLOUD}</div><div class="h-cloud c3">${CLOUD}</div>
     <div class="h-fly f1" style="--c:#ffb3d1;--c2:#ff8fb8">${FLY}</div><div class="h-fly f2" style="--c:#bfe9ff;--c2:#b9a2ff">${FLY}</div>
-    ${landSVG()}<div class="h-petals">${petals}</div>`;
+    ${landSVG()}<div class="h-petals">${petals}</div><div class="h-bubbles">${bubbles}</div>`;
 }
