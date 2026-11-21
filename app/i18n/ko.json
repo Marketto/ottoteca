@@ -253,8 +253,19 @@
   "aw.badKey": "WalletWallet 키가 올바르지 않아요. 설정에서 확인하세요.",
   "aw.limit": "이번 달 무료 패스 한도에 도달했어요. 1일에 초기화돼요.",
   "aw.fail": "패스를 만들지 못했어요. 수동 단계를 시도해 보세요.",
-  "aw.oneTap": "팁: 설정에 무료 WalletWallet 키를 넣으면 한 번의 탭이면 돼요.",
+  "aw.oneTap": "팁: 내 무료 WalletWallet 키가 있으면 한 번의 탭이면 돼요.",
   "aw.saved": "키 저장 완료! 이제 Apple Wallet에 한 번에 추가돼요.",
   "add.auto": "자동(권장)",
-  "add.more": "고급 옵션"
+  "add.more": "고급 옵션",
+  "aw.howTo": "어떻게 하나요?",
+  "aw.guideTitle": "3단계로 무료 키 받기",
+  "aw.g1": "WalletWallet 사이트를 열고 이메일을 입력하세요. 무료이고 카드가 필요 없어요.",
+  "aw.g2": "24시간 안에 키가 담긴 이메일이 와요. 키는 ‘ww_live_’로 시작해요.",
+  "aw.g3": "이메일의 키를 복사해서 여기에 붙여 넣으세요.",
+  "aw.paste": "붙여넣기",
+  "aw.badFmt": "WalletWallet 키처럼 보이지 않아요. ‘ww_live_’ 뒤에 영문자와 숫자 32자가 와야 해요.",
+  "aw.keyLocal": "키는 이 기기에만 저장되고, WalletWallet에 패스를 요청할 때만 쓰여요.",
+  "aw.shared": "이번 달 공용 무료 패스가 모두 소진됐어요. 내 무료 키가 있으면 바로 계속할 수 있어요.",
+  "aw.slow": "연속으로 너무 많이 만들었어요. 1분 뒤에 다시 시도하세요.",
+  "aw.keyHintShared": "모두가 함께 쓰는 무료 패스 덕분에 Apple Wallet이 이미 한 번의 탭으로 돼요. 다 떨어지면 내 무료 키(월 1,000장, 나만 사용)를 추가하세요."
 }

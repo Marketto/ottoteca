@@ -253,8 +253,19 @@
   "aw.badKey": "WalletWallet raktas negalioja: patikrink jį nustatymuose.",
   "aw.limit": "Pasiektas mėnesio nemokamų kortelių limitas: jis atsinaujins 1 dieną.",
   "aw.fail": "Nepavyko sukurti kortelės: pabandyk rankinius veiksmus.",
-  "aw.oneTap": "Patarimas: su nemokamu WalletWallet raktu (nustatymuose) užtenka vieno palietimo.",
+  "aw.oneTap": "Patarimas: su savo nemokamu WalletWallet raktu užtenka vieno palietimo.",
   "aw.saved": "Raktas išsaugotas! Apple Wallet dabar per vieną palietimą.",
   "add.auto": "Automatiškai (rekomenduojama)",
-  "add.more": "Išplėstinės parinktys"
+  "add.more": "Išplėstinės parinktys",
+  "aw.howTo": "Kaip tai padaryti?",
+  "aw.guideTitle": "Tavo nemokamas raktas per 3 žingsnius",
+  "aw.g1": "Atidaryk WalletWallet svetainę ir įrašyk savo el. paštą. Nemokamai, be kortelės.",
+  "aw.g2": "Per 24 valandas gausi laišką su raktu: jis prasideda „ww_live_“.",
+  "aw.g3": "Nukopijuok raktą iš laiško ir įklijuok čia.",
+  "aw.paste": "Įklijuoti",
+  "aw.badFmt": "Tai nepanašu į WalletWallet raktą: jis turi prasidėti „ww_live_“ ir toliau 32 raidės bei skaičiai.",
+  "aw.keyLocal": "Raktas lieka tik šiame įrenginyje: Ottoteca jį naudoja tik kortelėms iš WalletWallet užsakyti.",
+  "aw.shared": "Šio mėnesio bendros nemokamos kortelės baigėsi. Su savo nemokamu raktu tęsi iškart.",
+  "aw.slow": "Per daug kortelių iš eilės: palauk minutę ir bandyk vėl.",
+  "aw.keyHintShared": "Apple Wallet jau veikia vienu palietimu dėl bendrų nemokamų kortelių. Jei jos baigsis, pridėk savo nemokamą raktą (1000 kortelių per mėnesį, tik tau)."
 }

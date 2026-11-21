@@ -1,0 +1,9 @@
+{
+  "name": "ottoteca-wallet",
+  "main": "src/index.js",
+  "compatibility_date": "2026-11-01",
+  "workers_dev": true,
+  "vars": { "ALLOWED_ORIGINS": "https://marketto.github.io" },
+  // Al massimo 5 pass al minuto per persona (indirizzo IP): protegge i 1000 pass gratuiti del mese
+  "ratelimits": [{ "name": "PER_PERSON", "namespace_id": "4211", "simple": { "limit": 5, "period": 60 } }]
+}

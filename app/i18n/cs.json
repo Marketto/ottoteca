@@ -253,8 +253,19 @@
   "aw.badKey": "Klíč WalletWallet není platný: zkontroluj ho v Nastavení.",
   "aw.limit": "Měsíční limit karet zdarma vyčerpán: obnoví se 1. dne.",
   "aw.fail": "Kartu se nepodařilo vytvořit: zkus ruční postup.",
-  "aw.oneTap": "Tip: s bezplatným klíčem WalletWallet (v Nastavení) stačí jedno klepnutí.",
+  "aw.oneTap": "Tip: s vlastním klíčem WalletWallet zdarma stačí jedno klepnutí.",
   "aw.saved": "Klíč uložen! Apple Wallet je teď na jedno klepnutí.",
   "add.auto": "Automaticky (doporučeno)",
-  "add.more": "Pokročilé možnosti"
+  "add.more": "Pokročilé možnosti",
+  "aw.howTo": "Jak na to?",
+  "aw.guideTitle": "Tvůj klíč zdarma ve 3 krocích",
+  "aw.g1": "Otevři web WalletWallet a napiš svůj e-mail. Zdarma, bez karty.",
+  "aw.g2": "Do 24 hodin ti přijde e-mail s klíčem: začíná „ww_live_“.",
+  "aw.g3": "Zkopíruj klíč z e-mailu a vlož ho sem.",
+  "aw.paste": "Vložit",
+  "aw.badFmt": "To nevypadá jako klíč WalletWallet: musí začínat „ww_live_“ a pak 32 písmen a číslic.",
+  "aw.keyLocal": "Klíč zůstává jen v tomto zařízení: Ottoteka ho používá jen k žádosti o karty u WalletWallet.",
+  "aw.shared": "Sdílené karty zdarma na tento měsíc došly. S vlastním klíčem zdarma pokračuješ hned.",
+  "aw.slow": "Příliš mnoho karet za sebou: počkej minutu a zkus to znovu.",
+  "aw.keyHintShared": "Apple Wallet už funguje jedním klepnutím díky sdíleným kartám zdarma. Když dojdou, přidej si vlastní klíč zdarma (1000 karet měsíčně, jen pro tebe)."
 }

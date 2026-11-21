@@ -253,8 +253,19 @@
   "aw.badKey": "A WalletWallet-kulcs érvénytelen: ellenőrizd a Beállításokban.",
   "aw.limit": "Elérted az ingyenes kártyák havi korlátját: 1-jén nullázódik.",
   "aw.fail": "Nem sikerült létrehozni a kártyát: próbáld a kézi lépéseket.",
-  "aw.oneTap": "Tipp: ingyenes WalletWallet-kulccsal (a Beállításokban) egy koppintás elég.",
+  "aw.oneTap": "Tipp: saját ingyenes WalletWallet-kulccsal egy koppintás elég.",
   "aw.saved": "Kulcs mentve! Az Apple Wallet most egy koppintásnyira van.",
   "add.auto": "Automatikus (ajánlott)",
-  "add.more": "Speciális beállítások"
+  "add.more": "Speciális beállítások",
+  "aw.howTo": "Hogyan kell?",
+  "aw.guideTitle": "Ingyenes kulcsod 3 lépésben",
+  "aw.g1": "Nyisd meg a WalletWallet oldalát, és írd be az e-mail-címed. Ingyenes, bankkártya nélkül.",
+  "aw.g2": "24 órán belül kapsz egy e-mailt a kulccsal: „ww_live_” kezdetű.",
+  "aw.g3": "Másold ki a kulcsot az e-mailből, és illeszd be ide.",
+  "aw.paste": "Beillesztés",
+  "aw.badFmt": "Ez nem tűnik WalletWallet-kulcsnak: „ww_live_” kezdetű, utána 32 betű és szám.",
+  "aw.keyLocal": "A kulcs csak ezen az eszközön marad: az Ottoteca csak arra használja, hogy kártyát kérjen a WalletWallettől.",
+  "aw.shared": "Elfogytak a hónap közös ingyenes kártyái. Saját ingyenes kulccsal azonnal folytathatod.",
+  "aw.slow": "Túl sok kártya egymás után: várj egy percet, és próbáld újra.",
+  "aw.keyHintShared": "Az Apple Wallet már egy koppintással megy a közös ingyenes kártyáknak köszönhetően. Ha elfogynak, adj meg saját ingyenes kulcsot (havi 1000 kártya, csak neked)."
 }

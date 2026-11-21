@@ -253,8 +253,19 @@
   "aw.badKey": "Ključ WalletWallet ni veljaven: preveri ga v Nastavitvah.",
   "aw.limit": "Dosežena mesečna omejitev brezplačnih kartic: ponastavi se 1. v mesecu.",
   "aw.fail": "Kartice ni bilo mogoče ustvariti: poskusi ročne korake.",
-  "aw.oneTap": "Namig: z brezplačnim ključem WalletWallet (v Nastavitvah) zadošča en dotik.",
+  "aw.oneTap": "Namig: s svojim brezplačnim ključem WalletWallet zadošča en dotik.",
   "aw.saved": "Ključ shranjen! Apple Wallet je zdaj oddaljen en dotik.",
   "add.auto": "Samodejno (priporočeno)",
-  "add.more": "Napredne možnosti"
+  "add.more": "Napredne možnosti",
+  "aw.howTo": "Kako se to naredi?",
+  "aw.guideTitle": "Tvoj brezplačni ključ v 3 korakih",
+  "aw.g1": "Odpri spletno stran WalletWallet in vpiši svoj e-poštni naslov. Brezplačno, brez kartice.",
+  "aw.g2": "V 24 urah dobiš e-pošto s ključem: začne se z »ww_live_«.",
+  "aw.g3": "Kopiraj ključ iz e-pošte in ga prilepi sem.",
+  "aw.paste": "Prilepi",
+  "aw.badFmt": "To ni videti kot ključ WalletWallet: začeti se mora z »ww_live_«, nato 32 črk in številk.",
+  "aw.keyLocal": "Ključ ostane samo v tej napravi: Ottoteka ga uporablja samo za naročanje kartic pri WalletWallet.",
+  "aw.shared": "Skupne brezplačne kartice za ta mesec so porabljene. S svojim brezplačnim ključem nadaljuješ takoj.",
+  "aw.slow": "Preveč kartic zapored: počakaj minuto in poskusi znova.",
+  "aw.keyHintShared": "Apple Wallet že deluje z enim dotikom zaradi skupnih brezplačnih kartic. Če zmanjka, dodaj svoj brezplačni ključ (1000 kartic na mesec, samo zate)."
 }

@@ -253,8 +253,19 @@
   "aw.badKey": "The WalletWallet key isn't valid: check it in Settings.",
   "aw.limit": "Monthly limit of free passes reached: it resets on the 1st.",
   "aw.fail": "Couldn't create the pass: try the manual steps.",
-  "aw.oneTap": "Tip: with a free WalletWallet key (in Settings) this becomes a single tap.",
+  "aw.oneTap": "Tip: with your own free WalletWallet key it becomes a single tap.",
   "aw.saved": "Key saved! Apple Wallet is now one tap away.",
   "add.auto": "Automatic (recommended)",
-  "add.more": "Advanced options"
+  "add.more": "Advanced options",
+  "aw.howTo": "How do I get it?",
+  "aw.guideTitle": "Your free key in 3 steps",
+  "aw.g1": "Open the WalletWallet site and type your email. It's free and asks for no card.",
+  "aw.g2": "Within 24 hours you'll get an email with your key: it starts with “ww_live_”.",
+  "aw.g3": "Copy the key from the email and paste it here.",
+  "aw.paste": "Paste",
+  "aw.badFmt": "That doesn't look like a WalletWallet key: it should start with “ww_live_” followed by 32 letters and numbers.",
+  "aw.keyLocal": "The key stays only on this device: Ottoteca doesn't send it anywhere except to WalletWallet to create your passes.",
+  "aw.shared": "The free shared passes for this month are used up. With your own free key you can keep going right away.",
+  "aw.slow": "Too many passes in a row: wait a minute and try again.",
+  "aw.keyHintShared": "Apple Wallet already works with one tap, thanks to free passes shared by everyone. If they run out, add your own free key (1,000 passes a month, just for you)."
 }

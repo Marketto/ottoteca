@@ -253,8 +253,19 @@
   "aw.badKey": "WalletWallet 密钥无效：请在设置中检查。",
   "aw.limit": "本月免费卡券已达上限：每月 1 日重置。",
   "aw.fail": "无法创建卡券：请试试手动步骤。",
-  "aw.oneTap": "提示：在设置中填入免费的 WalletWallet 密钥，只需轻点一下。",
+  "aw.oneTap": "提示：使用你自己的免费 WalletWallet 密钥，只需轻点一下。",
   "aw.saved": "密钥已保存！现在一键添加到 Apple 钱包。",
   "add.auto": "自动（推荐）",
-  "add.more": "高级选项"
+  "add.more": "高级选项",
+  "aw.howTo": "怎么获取？",
+  "aw.guideTitle": "3 步获得免费密钥",
+  "aw.g1": "打开 WalletWallet 网站，填写你的邮箱。免费，无需银行卡。",
+  "aw.g2": "24 小时内你会收到一封带密钥的邮件：以“ww_live_”开头。",
+  "aw.g3": "从邮件中复制密钥，粘贴到这里。",
+  "aw.paste": "粘贴",
+  "aw.badFmt": "这看起来不像 WalletWallet 密钥：应以“ww_live_”开头，后面是 32 个字母和数字。",
+  "aw.keyLocal": "密钥只保存在本设备上：Ottoteca 只用它向 WalletWallet 申请卡券。",
+  "aw.shared": "本月共享的免费卡券已用完。用你自己的免费密钥可以马上继续。",
+  "aw.slow": "连续生成太多卡券：请等一分钟再试。",
+  "aw.keyHintShared": "有了大家共享的免费卡券，Apple 钱包已经可以一键添加。如果用完了，就添加你自己的免费密钥（每月 1000 张，仅你使用）。"
 }

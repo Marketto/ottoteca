@@ -1,0 +1,49 @@
+name: Pubblica il Worker del wallet
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ["worker/**", ".github/workflows/worker.yml"]
+permissions:
+  contents: write
+  actions: write
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      WALLETWALLET_KEY: ${{ secrets.WALLETWALLET_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Controlla i secret
+        id: chk
+        run: |
+          if [ -z "$CLOUDFLARE_API_TOKEN" ] || [ -z "$CLOUDFLARE_ACCOUNT_ID" ] || [ -z "$WALLETWALLET_KEY" ]; then
+            echo "Mancano i secret (vedi worker/README.md): salto la pubblicazione."; echo "go=no" >> "$GITHUB_OUTPUT"
+          else echo "go=yes" >> "$GITHUB_OUTPUT"; fi
+      - name: Pubblica il Worker
+        if: steps.chk.outputs.go == 'yes'
+        working-directory: worker
+        run: |
+          npx --yes wrangler@4 deploy 2>&1 | tee deploy.log
+          printf '%s' "$WALLETWALLET_KEY" | npx --yes wrangler@4 secret put WW_KEY
+          URL=$(grep -oE 'https://[a-z0-9.-]+\.workers\.dev' deploy.log | head -1)
+          echo "Indirizzo: $URL"
+          echo "URL=$URL" >> "$GITHUB_ENV"
+      - name: Salva l'indirizzo nell'app
+        if: steps.chk.outputs.go == 'yes' && env.URL != ''
+        run: |
+          printf '// Generato da .github/workflows/worker.yml\nexport const WALLET_PROXY = "%s";\n' "$URL" > app/js/config.js
+          if ! git diff --quiet app/js/config.js; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -am "Indirizzo del Worker del wallet"
+            git push
+            gh workflow run pages.yml
+          fi
+        env:
+          GH_TOKEN: ${{ github.token }}

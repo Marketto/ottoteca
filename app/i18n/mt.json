@@ -253,8 +253,19 @@
   "aw.badKey": "Iċ-ċavetta WalletWallet mhix valida: iċċekkjaha fl-Issettjar.",
   "aw.limit": "Intlaħaq il-limitu ta' kull xahar tal-passes b'xejn: jerġa' jibda fl-1.",
   "aw.fail": "Ma rnexxilix noħloq il-pass: ipprova l-passi manwali.",
-  "aw.oneTap": "Parir: b'ċavetta WalletWallet b'xejn (fl-Issettjar) tapp wieħed biżżejjed.",
+  "aw.oneTap": "Parir: biċ-ċavetta WalletWallet tiegħek b'xejn tapp wieħed biżżejjed.",
   "aw.saved": "Ċavetta ssejvjata! Apple Wallet issa tapp wieħed 'il bogħod.",
   "add.auto": "Awtomatiku (rakkomandat)",
-  "add.more": "Għażliet avvanzati"
+  "add.more": "Għażliet avvanzati",
+  "aw.howTo": "Kif isir?",
+  "aw.guideTitle": "Iċ-ċavetta tiegħek b'xejn fi 3 passi",
+  "aw.g1": "Iftaħ is-sit ta' WalletWallet u ikteb l-email tiegħek. B'xejn, bla karta.",
+  "aw.g2": "Fi żmien 24 siegħa jaslek email biċ-ċavetta: tibda b'“ww_live_”.",
+  "aw.g3": "Ikkopja ċ-ċavetta mill-email u waħħalha hawn.",
+  "aw.paste": "Waħħal",
+  "aw.badFmt": "Ma tidhirx ċavetta WalletWallet: trid tibda b'“ww_live_” u warajha 32 ittra u numru.",
+  "aw.keyLocal": "Iċ-ċavetta tibqa' biss fuq dan l-apparat: Ottoteca tużaha biss biex titlob passes minn WalletWallet.",
+  "aw.shared": "Il-passes b'xejn kondiviżi ta' dan ix-xahar spiċċaw. Biċ-ċavetta tiegħek b'xejn tkompli minnufih.",
+  "aw.slow": "Wisq passes wara xulxin: stenna minuta u erġa' pprova.",
+  "aw.keyHintShared": "Apple Wallet diġà jaħdem b'tapp wieħed grazzi għall-passes b'xejn kondiviżi. Jekk jispiċċaw, żid iċ-ċavetta tiegħek b'xejn (1,000 pass fix-xahar, għalik biss)."
 }

@@ -253,8 +253,19 @@
   "aw.badKey": "De WalletWallet-sleutel is ongeldig: controleer hem in Instellingen.",
   "aw.limit": "Maandlimiet voor gratis passen bereikt: die begint opnieuw op de 1e.",
   "aw.fail": "Kon de pas niet maken: probeer de handmatige stappen.",
-  "aw.oneTap": "Tip: met een gratis WalletWallet-sleutel (in Instellingen) is het één tik.",
+  "aw.oneTap": "Tip: met je eigen gratis WalletWallet-sleutel is het één tik.",
   "aw.saved": "Sleutel opgeslagen! Apple Wallet is nu één tik ver.",
   "add.auto": "Automatisch (aanbevolen)",
-  "add.more": "Geavanceerde opties"
+  "add.more": "Geavanceerde opties",
+  "aw.howTo": "Hoe doe ik dat?",
+  "aw.guideTitle": "Je gratis sleutel in 3 stappen",
+  "aw.g1": "Open de WalletWallet-site en vul je e-mail in. Gratis, zonder kaart.",
+  "aw.g2": "Binnen 24 uur krijg je een e-mail met je sleutel: die begint met ‘ww_live_’.",
+  "aw.g3": "Kopieer de sleutel uit de e-mail en plak hem hier.",
+  "aw.paste": "Plakken",
+  "aw.badFmt": "Dat lijkt geen WalletWallet-sleutel: die begint met ‘ww_live_’ gevolgd door 32 letters en cijfers.",
+  "aw.keyLocal": "De sleutel blijft alleen op dit apparaat: Ottoteca gebruikt hem alleen om passen bij WalletWallet aan te vragen.",
+  "aw.shared": "De gedeelde gratis passen van deze maand zijn op. Met je eigen gratis sleutel ga je meteen verder.",
+  "aw.slow": "Te veel passen achter elkaar: wacht een minuut en probeer opnieuw.",
+  "aw.keyHintShared": "Apple Wallet werkt al met één tik dankzij gedeelde gratis passen. Zijn ze op, voeg dan je eigen gratis sleutel toe (1000 passen per maand, alleen voor jou)."
 }

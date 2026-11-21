@@ -253,8 +253,19 @@
   "aw.badKey": "Klucz WalletWallet jest nieprawidłowy: sprawdź go w Ustawieniach.",
   "aw.limit": "Osiągnięto miesięczny limit darmowych kart: odnowi się 1. dnia miesiąca.",
   "aw.fail": "Nie udało się utworzyć karty: spróbuj kroków ręcznych.",
-  "aw.oneTap": "Wskazówka: z darmowym kluczem WalletWallet (w Ustawieniach) wystarczy jedno stuknięcie.",
+  "aw.oneTap": "Wskazówka: z własnym darmowym kluczem WalletWallet wystarczy jedno stuknięcie.",
   "aw.saved": "Klucz zapisany! Apple Wallet jest teraz o jedno stuknięcie.",
   "add.auto": "Automatycznie (zalecane)",
-  "add.more": "Opcje zaawansowane"
+  "add.more": "Opcje zaawansowane",
+  "aw.howTo": "Jak to zrobić?",
+  "aw.guideTitle": "Twój darmowy klucz w 3 krokach",
+  "aw.g1": "Otwórz stronę WalletWallet i wpisz swój e-mail. Za darmo, bez karty.",
+  "aw.g2": "W ciągu 24 godzin dostaniesz e-mail z kluczem: zaczyna się od „ww_live_”.",
+  "aw.g3": "Skopiuj klucz z e-maila i wklej go tutaj.",
+  "aw.paste": "Wklej",
+  "aw.badFmt": "To nie wygląda na klucz WalletWallet: musi zaczynać się od „ww_live_” i mieć dalej 32 litery i cyfry.",
+  "aw.keyLocal": "Klucz zostaje tylko na tym urządzeniu: Ottoteka używa go wyłącznie do zamawiania kart w WalletWallet.",
+  "aw.shared": "Wspólne darmowe karty na ten miesiąc się skończyły. Z własnym darmowym kluczem działasz od razu dalej.",
+  "aw.slow": "Za dużo kart naraz: poczekaj minutę i spróbuj ponownie.",
+  "aw.keyHintShared": "Apple Wallet działa już jednym stuknięciem dzięki wspólnym darmowym kartom. Gdy się skończą, dodaj własny darmowy klucz (1000 kart miesięcznie, tylko dla ciebie)."
 }

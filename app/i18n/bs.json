@@ -253,8 +253,19 @@
   "aw.badKey": "WalletWallet ključ nije važeći: provjeri ga u Postavkama.",
   "aw.limit": "Dostignut je mjesečni limit besplatnih propusnica: poništava se 1. u mjesecu.",
   "aw.fail": "Nije uspjelo kreiranje propusnice: probaj ručne korake.",
-  "aw.oneTap": "Savjet: s besplatnim WalletWallet ključem (u Postavkama) dovoljan je jedan dodir.",
+  "aw.oneTap": "Savjet: sa svojim besplatnim WalletWallet ključem dovoljan je jedan dodir.",
   "aw.saved": "Ključ sačuvan! Apple Wallet je sada na jedan dodir.",
   "add.auto": "Automatski (preporučeno)",
-  "add.more": "Napredne opcije"
+  "add.more": "Napredne opcije",
+  "aw.howTo": "Kako se to radi?",
+  "aw.guideTitle": "Tvoj besplatni ključ u 3 koraka",
+  "aw.g1": "Otvori stranicu WalletWallet i upiši svoj e-mail. Besplatno, bez kartice.",
+  "aw.g2": "U roku od 24 sata stiže ti e-mail s ključem: počinje s „ww_live_”.",
+  "aw.g3": "Kopiraj ključ iz e-maila i zalijepi ga ovdje.",
+  "aw.paste": "Zalijepi",
+  "aw.badFmt": "To ne izgleda kao WalletWallet ključ: mora počinjati s „ww_live_” i zatim 32 slova i broja.",
+  "aw.keyLocal": "Ključ ostaje samo na ovom uređaju: Ottoteka ga koristi samo za traženje propusnica od WalletWalleta.",
+  "aw.shared": "Zajedničke besplatne propusnice za ovaj mjesec su potrošene. Sa svojim besplatnim ključem nastavljaš odmah.",
+  "aw.slow": "Previše propusnica zaredom: sačekaj minutu i pokušaj ponovo.",
+  "aw.keyHintShared": "Apple Wallet već radi jednim dodirom zahvaljujući zajedničkim besplatnim propusnicama. Ako ih nestane, dodaj svoj besplatni ključ (1000 propusnica mjesečno, samo za tebe)."
 }

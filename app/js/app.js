@@ -6,8 +6,9 @@ import { mountHabitat } from "./habitat.js";
 import { classify, KINDS, KIND_ICON } from "./kinds.js";
 import { analyze, openPdf, isPasswordError, renderToCanvas, pdfjs, closePdf } from "./pdf.js";
 import { scanDoc, codeSVG, formatName, readImage } from "./codes.js";
+import { WALLET_PROXY } from "./config.js";
 
-export const VERSION = "1.3.1";
+export const VERSION = "1.4.0";
 const HEAVY = 5 * 1024 * 1024;                     // oltre questa soglia si suggerisce Schiaccia PDF
 const SQUASH_URL = "https://marketto.github.io/pdf-tiny-tools/";
 const COLORS = ["#e5637a", "#f29e4c", "#e8c547", "#7cc46b", "#3fb5a9", "#4f9ae0", "#8f7ae5", "#d06fc0", "#a07b62", "#7d8796"];
@@ -983,11 +984,13 @@ async function toPhoneWallet(p) {
 const AW_API = { QRCode: "QR", MicroQRCode: "QR", RMQRCode: "QR", DataMatrix: "QR", Aztec: "Aztec", PDF417: "PDF417", CompactPDF417: "PDF417" };
 const awFmt = f => AW_API[f] || "Code128"; // i codici a barre lineari (EAN, Code 39…) diventano Code 128 con lo stesso numero
 const AW_COLOR = ["blue", "red", "green", "purple", "orange", "dark"];
-async function appleDirect(p, key) {
+async function appleDirect(p, key) { // key = chiave personale; senza, usa il Worker condiviso di Ottoteca
   mood("think", 0);
   try {
     const body = { barcodeValue: p.text.slice(0, 512), barcodeFormat: awFmt(p.format), title: (p.title || "Ottoteca").slice(0, 64), logoText: (p.title || "Ottoteca").slice(0, 64), organizationName: "Ottoteca", description: (p.title || "Pass").slice(0, 128), colorPreset: AW_COLOR[parseInt(p.id.slice(-2), 36) % AW_COLOR.length || 0], sharingProhibited: false };
-    const r = await fetch("https://api.walletwallet.dev/api/pkpass", { method: "POST", headers: { "Content-Type": "application/json", Authorization: "Bearer " + key }, body: JSON.stringify(body) });
+    const r = key
+      ? await fetch("https://api.walletwallet.dev/api/pkpass", { method: "POST", headers: { "Content-Type": "application/json", Authorization: "Bearer " + key }, body: JSON.stringify(body) })
+      : await fetch(WALLET_PROXY.replace(/\/$/, "") + "/pkpass", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
     if (!r.ok) { let m = ""; try { m = (await r.json()).error || ""; } catch {} throw new Error(r.status + (m ? " " + m : "")); }
     const blob = new Blob([await r.blob()], { type: "application/vnd.apple.pkpass" });
     const url = URL.createObjectURL(blob);
@@ -999,13 +1002,15 @@ async function appleDirect(p, key) {
     return true;
   } catch (e) {
     mood("sad", 1500);
-    toast(t(String(e.message).startsWith("401") ? "aw.badKey" : String(e.message).startsWith("429") ? "aw.limit" : "aw.fail"));
+    const m = String(e.message);
+    if (!key && m.startsWith("429")) toast(t(m.includes("slow") ? "aw.slow" : "aw.shared"), m.includes("slow") ? null : { label: t("aw.howTo"), fn: keyGuide });
+    else toast(t(m.startsWith("401") ? "aw.badKey" : m.startsWith("429") ? "aw.limit" : "aw.fail"));
     return false;
   }
 }
 async function toAppleWallet(p) {
   const key = (localStorage.getItem("otto.awkey") || "").trim();
-  if (key && p.text && await appleDirect(p, key)) return;
+  if (p.text && (key || WALLET_PROXY) && await appleDirect(p, key || null)) return;
   const fmt = { QR: "QR", PDF417: "PDF417", Aztec: "Aztec", Code128: "Code 128" }[awFmt(p.format)];
   const value = p.text || "";
   const steps = el("ol", { class: "wsteps" },
@@ -1014,7 +1019,7 @@ async function toAppleWallet(p) {
       : el("button", { type: "button", class: "btn btn-primary", onclick: async ev => { const b = ev.currentTarget; downloadFile(await passImage(p)); b.replaceChildren(ic("check"), t("codes.added")); } }, ic("download"), t("gw.save"))),
     el("li", {}, el("span", {}, t("aw.step2")), el("a", { class: "btn btn-soft", href: "https://walletwallet.alen.ro/", target: "_blank", rel: "noopener" }, ic("wallet"), t("aw.open"))),
     el("li", {}, el("span", {}, t("aw.step3", { f: fmt }))));
-  await dialog({ title: t("aw.title"), body: [steps, el("p", { class: "muted tip" }, t("aw.privacy")), key ? null : el("p", { class: "muted tip" }, t("aw.oneTap"))].filter(Boolean) });
+  await dialog({ title: t("aw.title"), body: [steps, el("p", { class: "muted tip" }, t("aw.privacy")), key ? null : el("p", { class: "muted tip" }, t("aw.oneTap"), " ", el("button", { type: "button", class: "linkish", onclick: () => { $("#dlg").close(); keyGuide(); } }, t("aw.howTo")))].filter(Boolean) });
 }
 // Inserimento manuale: qualsiasi QR o codice a barre (biglietti, carte fedeltà), da fotocamera, immagine o a mano
 // Tipo scelto da solo: chi usa l'app non deve sapere cos'è un EAN
@@ -1092,8 +1097,32 @@ async function renderSettings() {
 $("#langSel").onchange = async e => { localStorage.setItem("otto.lang", e.target.value); await setLang(e.target.value); afterLang(); say(t("ev.lang"), "happy"); };
 document.querySelectorAll("input[name=theme]").forEach(r => r.onchange = () => { localStorage.setItem("otto.theme", r.value); applyTheme(); mood("spin", 1000); });
 document.querySelectorAll("input[name=textsize]").forEach(r => r.onchange = () => { localStorage.setItem("otto.text", r.value); applyTextSize(); mood("happy", 1200); });
+// Guida per la chiave WalletWallet personale: 3 passi con Otto, incolla e salva
+const KEY_RE = /^ww_live_[0-9a-f]{32}$/i;
+function saveKey(v) {
+  v = (v || "").trim().replace(/\s+/g, "");
+  if (v && !KEY_RE.test(v)) { toast(t("aw.badFmt")); return false; }
+  if (v) localStorage.setItem("otto.awkey", v); else localStorage.removeItem("otto.awkey");
+  $("#awKey").value = v;
+  if (v) { say(t("aw.saved"), "love"); const r = $("#buddyBtn").getBoundingClientRect(); confetti(r.left + r.width / 2, r.top, 20); }
+  return true;
+}
+async function keyGuide() {
+  const inp = el("input", { type: "text", id: "gKey", autocomplete: "off", spellcheck: "false", placeholder: "ww_live_…", value: localStorage.getItem("otto.awkey") || "" });
+  const paste = el("button", { type: "button", class: "btn btn-soft", onclick: async () => { try { inp.value = (await navigator.clipboard.readText()).trim(); inp.focus(); } catch { inp.focus(); } } }, ic("copy"), t("aw.paste"));
+  const steps = el("ol", { class: "wsteps" },
+    el("li", {}, el("span", {}, t("aw.g1")), el("a", { class: "btn btn-primary", href: "https://walletwallet.dev/signup/", target: "_blank", rel: "noopener" }, ic("wallet"), t("aw.getKey"))),
+    el("li", {}, el("span", {}, t("aw.g2"))),
+    el("li", {}, el("span", {}, t("aw.g3")), el("label", { class: "lbl", for: "gKey" }, t("aw.key")), inp, paste));
+  const otto = el("div", { class: "guide-otto", "data-otto": "", "aria-hidden": "true" });
+  const v = await dialog({ title: t("aw.guideTitle"), body: [otto, steps, el("p", { class: "muted tip" }, t("aw.keyLocal"))], onOpen: d => { mountOttos(d); mood("wave", 1600, d); },
+    actions: [{ label: t("common.cancel"), value: "cancel" }, { label: t("common.save"), value: "ok", cls: "btn-primary" }] });
+  if (v === "ok" && !saveKey(inp.value)) return keyGuide();
+}
+$("#awGuide").onclick = keyGuide;
 $("#awKey").value = localStorage.getItem("otto.awkey") || "";
-$("#awKey").onchange = e => { const v = e.target.value.trim(); if (v) localStorage.setItem("otto.awkey", v); else localStorage.removeItem("otto.awkey"); if (v) say(t("aw.saved"), "happy"); };
+$("#awKey").onchange = e => saveKey(e.target.value);
+if (WALLET_PROXY) $("#awHint").dataset.i18n = "aw.keyHintShared";
 document.querySelectorAll("input[name=motion]").forEach(r => r.onchange = () => { localStorage.setItem("otto.motion", r.value); applyTheme(); });
 $("#clearAll").onclick = async () => {
   if (!(await confirmBox(t("set.clear"), t("set.clearConfirm"), t("common.delete")))) return;

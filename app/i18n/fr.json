@@ -253,8 +253,19 @@
   "aw.badKey": "La clé WalletWallet n'est pas valide : vérifie-la dans les Réglages.",
   "aw.limit": "Limite mensuelle de cartes gratuites atteinte : elle repart le 1er.",
   "aw.fail": "Impossible de créer la carte : essaie les étapes manuelles.",
-  "aw.oneTap": "Astuce : avec une clé WalletWallet gratuite (dans les Réglages), un seul geste suffit.",
+  "aw.oneTap": "Astuce : avec ta propre clé WalletWallet gratuite, un seul geste suffit.",
   "aw.saved": "Clé enregistrée ! Apple Wallet est à un geste.",
   "add.auto": "Automatique (recommandé)",
-  "add.more": "Options avancées"
+  "add.more": "Options avancées",
+  "aw.howTo": "Comment faire ?",
+  "aw.guideTitle": "Ta clé gratuite en 3 étapes",
+  "aw.g1": "Ouvre le site WalletWallet et tape ton e-mail. C'est gratuit et sans carte bancaire.",
+  "aw.g2": "Sous 24 heures, tu reçois un e-mail avec ta clé : elle commence par « ww_live_ ».",
+  "aw.g3": "Copie la clé de l'e-mail et colle-la ici.",
+  "aw.paste": "Coller",
+  "aw.badFmt": "Ça ne ressemble pas à une clé WalletWallet : elle doit commencer par « ww_live_ » suivi de 32 lettres et chiffres.",
+  "aw.keyLocal": "La clé reste uniquement sur cet appareil : Ottoteca s'en sert seulement pour demander les cartes à WalletWallet.",
+  "aw.shared": "Les cartes gratuites partagées de ce mois sont épuisées. Avec ta propre clé gratuite, tu continues tout de suite.",
+  "aw.slow": "Trop de cartes d'affilée : attends une minute et réessaie.",
+  "aw.keyHintShared": "Apple Wallet marche déjà en un geste grâce aux cartes gratuites partagées. Si elles s'épuisent, ajoute ta propre clé gratuite (1 000 cartes par mois, rien que pour toi)."
 }

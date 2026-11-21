@@ -253,8 +253,19 @@
   "aw.badKey": "WalletWallet atslēga nav derīga: pārbaudi to iestatījumos.",
   "aw.limit": "Sasniegts bezmaksas karšu mēneša limits: tas atjaunojas 1. datumā.",
   "aw.fail": "Neizdevās izveidot karti: pamēģini manuālos soļus.",
-  "aw.oneTap": "Padoms: ar bezmaksas WalletWallet atslēgu (iestatījumos) pietiek ar vienu pieskārienu.",
+  "aw.oneTap": "Padoms: ar savu bezmaksas WalletWallet atslēgu pietiek ar vienu pieskārienu.",
   "aw.saved": "Atslēga saglabāta! Apple Wallet tagad ir viena pieskāriena attālumā.",
   "add.auto": "Automātiski (ieteicams)",
-  "add.more": "Papildu iespējas"
+  "add.more": "Papildu iespējas",
+  "aw.howTo": "Kā to izdarīt?",
+  "aw.guideTitle": "Tava bezmaksas atslēga 3 soļos",
+  "aw.g1": "Atver WalletWallet vietni un ieraksti savu e-pastu. Bez maksas, bez kartes.",
+  "aw.g2": "24 stundu laikā saņemsi e-pastu ar atslēgu: tā sākas ar “ww_live_”.",
+  "aw.g3": "Nokopē atslēgu no e-pasta un ielīmē šeit.",
+  "aw.paste": "Ielīmēt",
+  "aw.badFmt": "Tas neizskatās pēc WalletWallet atslēgas: tai jāsākas ar “ww_live_”, kam seko 32 burti un cipari.",
+  "aw.keyLocal": "Atslēga paliek tikai šajā ierīcē: Ottoteca to izmanto tikai, lai pieprasītu kartes no WalletWallet.",
+  "aw.shared": "Šī mēneša kopīgās bezmaksas kartes ir beigušās. Ar savu bezmaksas atslēgu turpini uzreiz.",
+  "aw.slow": "Pārāk daudz karšu pēc kārtas: pagaidi minūti un mēģini vēlreiz.",
+  "aw.keyHintShared": "Apple Wallet jau darbojas ar vienu pieskārienu, pateicoties kopīgām bezmaksas kartēm. Ja tās beigsies, pievieno savu bezmaksas atslēgu (1000 karšu mēnesī, tikai tev)."
 }

@@ -253,8 +253,19 @@
   "aw.badKey": "La clave de WalletWallet no es válida: revísala en Ajustes.",
   "aw.limit": "Límite mensual de pases gratuitos alcanzado: se reinicia el día 1.",
   "aw.fail": "No se pudo crear el pase: prueba los pasos manuales.",
-  "aw.oneTap": "Consejo: con una clave gratuita de WalletWallet (en Ajustes) basta un toque.",
+  "aw.oneTap": "Consejo: con tu propia clave gratuita de WalletWallet basta un toque.",
   "aw.saved": "¡Clave guardada! Apple Wallet está a un toque.",
   "add.auto": "Automático (recomendado)",
-  "add.more": "Opciones avanzadas"
+  "add.more": "Opciones avanzadas",
+  "aw.howTo": "¿Cómo se hace?",
+  "aw.guideTitle": "Tu clave gratis en 3 pasos",
+  "aw.g1": "Abre la web de WalletWallet y escribe tu email. Es gratis y no pide tarjeta.",
+  "aw.g2": "En 24 horas te llega un email con la clave: empieza por «ww_live_».",
+  "aw.g3": "Copia la clave del email y pégala aquí.",
+  "aw.paste": "Pegar",
+  "aw.badFmt": "No parece una clave de WalletWallet: debe empezar por «ww_live_» seguida de 32 letras y números.",
+  "aw.keyLocal": "La clave se queda solo en este dispositivo: Ottoteca solo la usa para pedir los pases a WalletWallet.",
+  "aw.shared": "Los pases gratuitos compartidos de este mes se han acabado. Con tu propia clave gratuita sigues al momento.",
+  "aw.slow": "Demasiados pases seguidos: espera un minuto y vuelve a intentarlo.",
+  "aw.keyHintShared": "Apple Wallet ya funciona con un toque gracias a los pases gratuitos compartidos. Si se acaban, añade tu propia clave gratuita (1000 pases al mes, solo para ti)."
 }

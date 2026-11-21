@@ -253,8 +253,19 @@
   "aw.badKey": "Níl an eochair WalletWallet bailí: seiceáil sna Socruithe í.",
   "aw.limit": "Sroicheadh teorainn mhíosúil na bpasanna saor in aisce: athshocraítear ar an 1ú.",
   "aw.fail": "Níorbh fhéidir an pas a chruthú: bain triail as na céimeanna láimhe.",
-  "aw.oneTap": "Leid: le heochair WalletWallet saor in aisce (sna Socruithe) is leor tapáil amháin.",
+  "aw.oneTap": "Leid: le d'eochair WalletWallet féin saor in aisce is leor tapáil amháin.",
   "aw.saved": "Eochair sábháilte! Tá Apple Wallet tapáil amháin uait anois.",
   "add.auto": "Uathoibríoch (molta)",
-  "add.more": "Ardroghanna"
+  "add.more": "Ardroghanna",
+  "aw.howTo": "Conas a dhéantar é?",
+  "aw.guideTitle": "D'eochair saor in aisce i 3 chéim",
+  "aw.g1": "Oscail suíomh WalletWallet agus scríobh do ríomhphost. Saor in aisce, gan chárta.",
+  "aw.g2": "Laistigh de 24 uair gheobhaidh tú ríomhphost leis an eochair: tosaíonn sí le “ww_live_”.",
+  "aw.g3": "Cóipeáil an eochair ón ríomhphost agus greamaigh anseo í.",
+  "aw.paste": "Greamaigh",
+  "aw.badFmt": "Ní cosúil le heochair WalletWallet é sin: caithfidh sí tosú le “ww_live_” agus 32 litir agus uimhir ina dhiaidh.",
+  "aw.keyLocal": "Fanann an eochair ar an ngléas seo amháin: ní úsáideann Ottoteca í ach chun pasanna a iarraidh ar WalletWallet.",
+  "aw.shared": "Tá pasanna comhroinnte saor in aisce na míosa seo ídithe. Le d'eochair féin saor in aisce leanann tú ar aghaidh láithreach.",
+  "aw.slow": "An iomarca pasanna i ndiaidh a chéile: fan nóiméad agus bain triail eile as.",
+  "aw.keyHintShared": "Oibríonn Apple Wallet le tapáil amháin cheana féin, a bhuíochas le pasanna comhroinnte saor in aisce. Má ritheann siad amach, cuir d'eochair féin saor in aisce leis (1,000 pas sa mhí, duitse amháin)."
 }

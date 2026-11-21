@@ -253,8 +253,19 @@
   "aw.badKey": "Çelësi WalletWallet nuk është i vlefshëm: kontrolloje te Cilësimet.",
   "aw.limit": "U arrit kufiri mujor i kartave falas: rinis më 1.",
   "aw.fail": "Karta nuk u krijua: provo hapat manualë.",
-  "aw.oneTap": "Këshillë: me një çelës falas WalletWallet (te Cilësimet) mjafton një prekje.",
+  "aw.oneTap": "Këshillë: me çelësin tënd falas WalletWallet mjafton një prekje.",
   "aw.saved": "Çelësi u ruajt! Apple Wallet tani është një prekje larg.",
   "add.auto": "Automatik (rekomandohet)",
-  "add.more": "Opsione të avancuara"
+  "add.more": "Opsione të avancuara",
+  "aw.howTo": "Si bëhet?",
+  "aw.guideTitle": "Çelësi yt falas në 3 hapa",
+  "aw.g1": "Hap faqen e WalletWallet dhe shkruaj email-in tënd. Falas, pa kartë.",
+  "aw.g2": "Brenda 24 orësh të vjen një email me çelësin: fillon me «ww_live_».",
+  "aw.g3": "Kopjo çelësin nga email-i dhe ngjite këtu.",
+  "aw.paste": "Ngjit",
+  "aw.badFmt": "Nuk duket si çelës WalletWallet: duhet të fillojë me «ww_live_» dhe pastaj 32 shkronja e numra.",
+  "aw.keyLocal": "Çelësi mbetet vetëm në këtë pajisje: Ottoteca e përdor vetëm për t'i kërkuar karta WalletWallet-it.",
+  "aw.shared": "Kartat falas të përbashkëta të këtij muaji mbaruan. Me çelësin tënd falas vazhdon menjëherë.",
+  "aw.slow": "Shumë karta njëra pas tjetrës: prit një minutë dhe provo sërish.",
+  "aw.keyHintShared": "Apple Wallet punon tashmë me një prekje falë kartave falas të përbashkëta. Nëse mbarojnë, shto çelësin tënd falas (1000 karta në muaj, vetëm për ty)."
 }

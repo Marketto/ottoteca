@@ -668,6 +668,8 @@ body{overflow-x:clip}
 #addCode{margin:0 0 16px}
 .dlg details.adv{margin-top:10px}
 .dlg details.adv summary{cursor:pointer;font-weight:800;min-height:44px;display:flex;align-items:center;color:var(--muted)}
+.guide-otto{width:96px;height:96px;margin:0 auto 6px}
+.wsteps input{width:100%;font-family:ui-monospace,monospace;margin:6px 0}
 #awKey{width:100%;font-family:ui-monospace,monospace}
 #awCard .row-btns{margin-top:10px}
 .addsrc{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:6px}

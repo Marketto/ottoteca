@@ -1,0 +1,23 @@
+// Prova del Worker del wallet con fetch simulato
+import w from "../worker/src/index.js";
+let fails = 0; const ok = (c, m) => { console.log((c ? "✓ " : "✗ ") + m); if (!c) fails++; };
+let sent = null;
+globalThis.fetch = async (url, init) => { sent = { url, init }; return new Response("PK", { status: 200 }); };
+const env = { WW_KEY: "ww_live_secret", ALLOWED_ORIGINS: "https://marketto.github.io", PER_PERSON: { limit: async () => ({ success: true }) } };
+const req = (origin, body, method = "POST", path = "/pkpass") => new Request("https://x.workers.dev" + path, { method, headers: { Origin: origin, "Content-Type": "application/json" }, body: body ? JSON.stringify(body) : undefined });
+let r = await w.fetch(req("https://evil.example", { barcodeValue: "1" }), env);
+ok(r.status === 403, "altri siti rifiutati");
+r = await w.fetch(req("https://marketto.github.io", { barcodeValue: "ABC", barcodeFormat: "Code128", title: "Tessera", color: "#fff", logoURL: "x" }), env);
+const b = JSON.parse(sent.init.body);
+ok(r.status === 200 && r.headers.get("Access-Control-Allow-Origin") === "https://marketto.github.io", "pass creato con CORS");
+ok(sent.init.headers.Authorization === "Bearer ww_live_secret" && b.barcodeFormat === "Code128" && !("logoURL" in b) && !("color" in b), "chiave aggiunta dal Worker, campi non ammessi tolti");
+r = await w.fetch(req("https://marketto.github.io", { barcodeValue: "" }), env);
+ok(r.status === 400, "codice vuoto rifiutato");
+r = await w.fetch(req("https://marketto.github.io", { barcodeValue: "1" }), { ...env, PER_PERSON: { limit: async () => ({ success: false }) } });
+ok(r.status === 429 && (await r.json()).scope === "person", "limite per persona");
+globalThis.fetch = async () => new Response(JSON.stringify({ error: "limit", resetDate: "2026-12-01" }), { status: 429 });
+r = await w.fetch(req("https://marketto.github.io", { barcodeValue: "1" }), env);
+ok(r.status === 429 && (await r.json()).scope === "month", "pass del mese finiti");
+r = await w.fetch(req("https://marketto.github.io", null, "OPTIONS"), env);
+ok(r.status === 204, "preflight CORS");
+if (fails) process.exit(1);

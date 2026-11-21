@@ -253,8 +253,19 @@
   "aw.badKey": "Cheia WalletWallet nu este validă: verific-o în Setări.",
   "aw.limit": "Limita lunară de carduri gratuite a fost atinsă: se resetează pe 1.",
   "aw.fail": "Nu am putut crea cardul: încearcă pașii manuali.",
-  "aw.oneTap": "Sfat: cu o cheie WalletWallet gratuită (în Setări) e nevoie de o singură atingere.",
+  "aw.oneTap": "Sfat: cu propria cheie WalletWallet gratuită e nevoie de o singură atingere.",
   "aw.saved": "Cheie salvată! Apple Wallet e acum la o atingere.",
   "add.auto": "Automat (recomandat)",
-  "add.more": "Opțiuni avansate"
+  "add.more": "Opțiuni avansate",
+  "aw.howTo": "Cum se face?",
+  "aw.guideTitle": "Cheia ta gratuită în 3 pași",
+  "aw.g1": "Deschide site-ul WalletWallet și scrie-ți e-mailul. E gratuit, fără card.",
+  "aw.g2": "În 24 de ore primești un e-mail cu cheia: începe cu „ww_live_”.",
+  "aw.g3": "Copiază cheia din e-mail și lipește-o aici.",
+  "aw.paste": "Lipește",
+  "aw.badFmt": "Nu pare o cheie WalletWallet: trebuie să înceapă cu „ww_live_” urmat de 32 de litere și cifre.",
+  "aw.keyLocal": "Cheia rămâne doar pe acest dispozitiv: Ottoteca o folosește doar ca să ceară carduri de la WalletWallet.",
+  "aw.shared": "Cardurile gratuite comune din luna asta s-au terminat. Cu propria cheie gratuită continui imediat.",
+  "aw.slow": "Prea multe carduri la rând: așteaptă un minut și încearcă din nou.",
+  "aw.keyHintShared": "Apple Wallet merge deja dintr-o atingere datorită cardurilor gratuite comune. Dacă se termină, adaugă propria cheie gratuită (1000 de carduri pe lună, doar pentru tine)."
 }

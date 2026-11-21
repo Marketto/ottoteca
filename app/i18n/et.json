@@ -253,8 +253,19 @@
   "aw.badKey": "WalletWalleti võti ei kehti: kontrolli seda seadetes.",
   "aw.limit": "Tasuta passide kuulimiit täis: see nullitakse kuu 1. päeval.",
   "aw.fail": "Passi ei õnnestunud luua: proovi käsitsi samme.",
-  "aw.oneTap": "Vihje: tasuta WalletWalleti võtmega (seadetes) piisab ühest puudutusest.",
+  "aw.oneTap": "Vihje: oma tasuta WalletWalleti võtmega piisab ühest puudutusest.",
   "aw.saved": "Võti salvestatud! Apple Wallet on nüüd ühe puudutuse kaugusel.",
   "add.auto": "Automaatne (soovitatav)",
-  "add.more": "Täpsemad valikud"
+  "add.more": "Täpsemad valikud",
+  "aw.howTo": "Kuidas seda teha?",
+  "aw.guideTitle": "Sinu tasuta võti 3 sammuga",
+  "aw.g1": "Ava WalletWalleti sait ja kirjuta oma e-post. Tasuta, kaarti ei küsita.",
+  "aw.g2": "24 tunni jooksul saad e-kirja võtmega: see algab „ww_live_“.",
+  "aw.g3": "Kopeeri võti e-kirjast ja kleebi siia.",
+  "aw.paste": "Kleebi",
+  "aw.badFmt": "See ei näe välja nagu WalletWalleti võti: see peab algama „ww_live_“ ja järgnema 32 tähte ja numbrit.",
+  "aw.keyLocal": "Võti jääb ainult sellesse seadmesse: Ottoteca kasutab seda ainult passide küsimiseks WalletWalletilt.",
+  "aw.shared": "Selle kuu ühised tasuta passid on otsas. Oma tasuta võtmega jätkad kohe.",
+  "aw.slow": "Liiga palju passe järjest: oota minut ja proovi uuesti.",
+  "aw.keyHintShared": "Apple Wallet töötab juba ühe puudutusega tänu ühistele tasuta passidele. Kui need saavad otsa, lisa oma tasuta võti (1000 passi kuus, ainult sulle)."
 }

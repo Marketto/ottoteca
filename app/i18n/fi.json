@@ -253,8 +253,19 @@
   "aw.badKey": "WalletWallet-avain ei kelpaa: tarkista se asetuksista.",
   "aw.limit": "Ilmaisten passien kuukausiraja täynnä: se nollautuu kuun 1. päivä.",
   "aw.fail": "Passia ei voitu luoda: kokeile käsin tehtäviä vaiheita.",
-  "aw.oneTap": "Vinkki: ilmaisella WalletWallet-avaimella (asetuksissa) riittää yksi napautus.",
+  "aw.oneTap": "Vinkki: omalla ilmaisella WalletWallet-avaimella riittää yksi napautus.",
   "aw.saved": "Avain tallennettu! Apple Wallet on nyt yhden napautuksen päässä.",
   "add.auto": "Automaattinen (suositus)",
-  "add.more": "Lisäasetukset"
+  "add.more": "Lisäasetukset",
+  "aw.howTo": "Miten se tehdään?",
+  "aw.guideTitle": "Ilmainen avaimesi 3 vaiheessa",
+  "aw.g1": "Avaa WalletWalletin sivusto ja kirjoita sähköpostisi. Ilmainen, ei korttia.",
+  "aw.g2": "24 tunnin kuluessa saat sähköpostin, jossa on avaimesi: se alkaa ”ww_live_”.",
+  "aw.g3": "Kopioi avain sähköpostista ja liitä se tähän.",
+  "aw.paste": "Liitä",
+  "aw.badFmt": "Tämä ei näytä WalletWallet-avaimelta: sen pitää alkaa ”ww_live_” ja sitten 32 kirjainta ja numeroa.",
+  "aw.keyLocal": "Avain pysyy vain tällä laitteella: Ottoteca käyttää sitä vain passien pyytämiseen WalletWalletilta.",
+  "aw.shared": "Tämän kuun jaetut ilmaiset passit on käytetty. Omalla ilmaisella avaimella jatkat heti.",
+  "aw.slow": "Liian monta passia peräkkäin: odota minuutti ja yritä uudelleen.",
+  "aw.keyHintShared": "Apple Wallet toimii jo yhdellä napautuksella yhteisten ilmaisten passien ansiosta. Jos ne loppuvat, lisää oma ilmainen avain (1 000 passia kuussa, vain sinulle)."
 }

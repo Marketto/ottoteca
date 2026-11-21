@@ -253,8 +253,19 @@
   "aw.badKey": "WalletWallet-nøkkelen er ugyldig: sjekk den i Innstillinger.",
   "aw.limit": "Månedsgrensen for gratis kort er nådd: den nullstilles den 1.",
   "aw.fail": "Klarte ikke å lage kortet: prøv de manuelle trinnene.",
-  "aw.oneTap": "Tips: med en gratis WalletWallet-nøkkel (i Innstillinger) holder det med ett trykk.",
+  "aw.oneTap": "Tips: med din egen gratis WalletWallet-nøkkel holder det med ett trykk.",
   "aw.saved": "Nøkkel lagret! Apple Wallet er nå ett trykk unna.",
   "add.auto": "Automatisk (anbefalt)",
-  "add.more": "Avanserte alternativer"
+  "add.more": "Avanserte alternativer",
+  "aw.howTo": "Hvordan gjør man det?",
+  "aw.guideTitle": "Din gratis nøkkel i 3 trinn",
+  "aw.g1": "Åpne nettstedet til WalletWallet og skriv inn e-posten din. Gratis, uten kort.",
+  "aw.g2": "Innen 24 timer får du en e-post med nøkkelen: den begynner med «ww_live_».",
+  "aw.g3": "Kopier nøkkelen fra e-posten og lim den inn her.",
+  "aw.paste": "Lim inn",
+  "aw.badFmt": "Det ser ikke ut som en WalletWallet-nøkkel: den skal begynne med «ww_live_» fulgt av 32 bokstaver og tall.",
+  "aw.keyLocal": "Nøkkelen blir bare på denne enheten: Ottoteca bruker den bare til å bestille kort hos WalletWallet.",
+  "aw.shared": "Månedens delte gratiskort er brukt opp. Med din egen gratis nøkkel fortsetter du med en gang.",
+  "aw.slow": "For mange kort på rad: vent et minutt og prøv igjen.",
+  "aw.keyHintShared": "Apple Wallet fungerer allerede med ett trykk takket være delte gratiskort. Går de tomme, legg til din egen gratis nøkkel (1000 kort i måneden, bare for deg)."
 }

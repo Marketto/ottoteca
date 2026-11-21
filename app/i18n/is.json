@@ -253,8 +253,19 @@
   "aw.badKey": "WalletWallet-lykillinn er ógildur: athugaðu hann í Stillingum.",
   "aw.limit": "Mánaðarhámarki ókeypis passa náð: það núllstillist þann 1.",
   "aw.fail": "Ekki tókst að búa til passann: prófaðu handvirku skrefin.",
-  "aw.oneTap": "Ábending: með ókeypis WalletWallet-lykli (í Stillingum) dugar ein snerting.",
+  "aw.oneTap": "Ábending: með eigin ókeypis WalletWallet-lykli dugar ein snerting.",
   "aw.saved": "Lykill vistaður! Apple Wallet er nú í einni snertingu.",
   "add.auto": "Sjálfvirkt (mælt með)",
-  "add.more": "Ítarlegri valkostir"
+  "add.more": "Ítarlegri valkostir",
+  "aw.howTo": "Hvernig geri ég það?",
+  "aw.guideTitle": "Ókeypis lykillinn þinn í 3 skrefum",
+  "aw.g1": "Opnaðu vef WalletWallet og skrifaðu netfangið þitt. Ókeypis, ekkert kort.",
+  "aw.g2": "Innan sólarhrings færðu tölvupóst með lyklinum: hann byrjar á „ww_live_“.",
+  "aw.g3": "Afritaðu lykilinn úr tölvupóstinum og límdu hann hér.",
+  "aw.paste": "Líma",
+  "aw.badFmt": "Þetta lítur ekki út eins og WalletWallet-lykill: hann á að byrja á „ww_live_“ og svo 32 stafir og tölur.",
+  "aw.keyLocal": "Lykillinn er aðeins á þessu tæki: Ottoteca notar hann aðeins til að biðja WalletWallet um passa.",
+  "aw.shared": "Sameiginlegu ókeypis passar mánaðarins eru búnir. Með þínum eigin ókeypis lykli heldurðu strax áfram.",
+  "aw.slow": "Of margir passar í röð: bíddu í mínútu og reyndu aftur.",
+  "aw.keyHintShared": "Apple Wallet virkar nú þegar með einni snertingu þökk sé sameiginlegum ókeypis pössum. Ef þeir klárast skaltu bæta við eigin ókeypis lykli (1.000 passar á mánuði, bara fyrir þig)."
 }

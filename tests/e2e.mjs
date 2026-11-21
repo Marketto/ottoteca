@@ -276,6 +276,22 @@ try {
   const axe6 = await new AxeBuilder({ page: fp }).withTags(["wcag2a", "wcag2aa", "wcag21aa"]).analyze();
   ok(!axe6.violations.length, "axe impostazioni: " + axe6.violations.map(v => v.id).join(", "));
   axe6.violations.forEach(v => console.log("   ", v.id, v.nodes.slice(0, 3).map(n => n.target.join(" ")).join(" | ")));
+  // guida per la chiave WalletWallet
+  await fp.click("#awGuide");
+  ok(await fp.locator("#dlg .wsteps li").count() === 3, "guida alla chiave in 3 passi");
+  await fp.fill("#gKey", "abc");
+  await fp.locator("#dlg button[value=ok]").click();
+  await fp.waitForSelector("#gKey");
+  ok(!(await fp.evaluate(() => localStorage.getItem("otto.awkey"))), "chiave sbagliata non salvata");
+  await fp.waitForTimeout(1000);
+  const axeG = await new AxeBuilder({ page: fp }).withTags(["wcag2a", "wcag2aa", "wcag21aa"]).analyze();
+  ok(!axeG.violations.length, "axe guida chiave: " + axeG.violations.map(v => v.id).join(", "));
+  axeG.violations.forEach(v => console.log("   ", v.id, v.nodes.slice(0, 3).map(n => n.target.join(" ")).join(" | ")));
+  await fp.fill("#gKey", "ww_live_" + "a1".repeat(16));
+  await fp.locator("#dlg button[value=ok]").click();
+  await fp.waitForFunction(() => localStorage.getItem("otto.awkey"));
+  ok((await fp.inputValue("#awKey")).startsWith("ww_live_"), "chiave salvata dalla guida");
+  await fp.evaluate(() => localStorage.removeItem("otto.awkey"));
 
   // iPhone (Safari: niente File System Access): «Trova i miei PDF» apre la scelta di una cartella e copia i PDF
   const ix = await browser.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true, deviceScaleFactor: 2, locale: "it-IT", serviceWorkers: "block",

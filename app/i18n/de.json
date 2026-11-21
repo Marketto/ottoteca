@@ -253,8 +253,19 @@
   "aw.badKey": "Der WalletWallet-Schlüssel ist ungültig: Prüfe ihn in den Einstellungen.",
   "aw.limit": "Monatliches Limit kostenloser Pässe erreicht: Es setzt sich am 1. zurück.",
   "aw.fail": "Pass konnte nicht erstellt werden: Versuch die manuellen Schritte.",
-  "aw.oneTap": "Tipp: Mit einem kostenlosen WalletWallet-Schlüssel (in den Einstellungen) reicht ein Tipp.",
+  "aw.oneTap": "Tipp: Mit deinem eigenen kostenlosen WalletWallet-Schlüssel reicht ein Tipp.",
   "aw.saved": "Schlüssel gespeichert! Apple Wallet ist jetzt nur einen Tipp entfernt.",
   "add.auto": "Automatisch (empfohlen)",
-  "add.more": "Erweiterte Optionen"
+  "add.more": "Erweiterte Optionen",
+  "aw.howTo": "Wie geht das?",
+  "aw.guideTitle": "Dein kostenloser Schlüssel in 3 Schritten",
+  "aw.g1": "Öffne die WalletWallet-Website und gib deine E-Mail ein. Kostenlos, ohne Karte.",
+  "aw.g2": "Innerhalb von 24 Stunden bekommst du eine E-Mail mit dem Schlüssel: Er beginnt mit „ww_live_“.",
+  "aw.g3": "Kopiere den Schlüssel aus der E-Mail und füge ihn hier ein.",
+  "aw.paste": "Einfügen",
+  "aw.badFmt": "Das sieht nicht nach einem WalletWallet-Schlüssel aus: Er beginnt mit „ww_live_“ und 32 Buchstaben und Ziffern.",
+  "aw.keyLocal": "Der Schlüssel bleibt nur auf diesem Gerät: Ottoteca nutzt ihn nur, um Pässe bei WalletWallet anzufordern.",
+  "aw.shared": "Die gemeinsamen kostenlosen Pässe für diesen Monat sind aufgebraucht. Mit deinem eigenen kostenlosen Schlüssel geht es sofort weiter.",
+  "aw.slow": "Zu viele Pässe hintereinander: Warte eine Minute und versuch es erneut.",
+  "aw.keyHintShared": "Apple Wallet klappt schon mit einem Tipp, dank gemeinsam genutzter kostenloser Pässe. Sind sie aufgebraucht, füge deinen eigenen kostenlosen Schlüssel hinzu (1.000 Pässe im Monat, nur für dich)."
 }
