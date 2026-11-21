@@ -3,6 +3,7 @@ import * as db from "./db.js";
 import { LANGS, detect, setLang, lang, t, apply, size, date, collator } from "./i18n.js";
 import { mountOttos, mood, confetti } from "./otto.js";
 import { mountHabitat } from "./habitat.js";
+import { classify, KINDS, KIND_ICON } from "./kinds.js";
 import { analyze, openPdf, isPasswordError, renderToCanvas, pdfjs, closePdf } from "./pdf.js";
 import { scanDoc, codeSVG, formatName } from "./codes.js";
 
@@ -28,7 +29,7 @@ const el = (tag, attrs = {}, ...kids) => {
 const ic = n => el("span", { class: "ic ic-" + n, "aria-hidden": "true" });
 
 const S = { docs: [], cats: [], passes: [], roots: [], filter: "all", q: "", sort: localStorage.getItem("otto.sort") || "added", selecting: false, sel: new Set(),
-  mode: localStorage.getItem("otto.mode") || "grid", basis: localStorage.getItem("otto.basis") || "added", folder: null };
+  mode: localStorage.getItem("otto.mode") || "grid", kind: null, basis: localStorage.getItem("otto.basis") || "added", folder: null };
 const thumbURLs = new Map();
 function thumbURL(d) {
   if (!d.thumb) return null;
@@ -148,6 +149,11 @@ addEventListener("pointerdown", e => { if (!menu.hidden && !menu.contains(e.targ
 async function loadAll() {
   [S.docs, S.cats, S.passes, S.roots] = await Promise.all([db.all("docs"), db.all("cats"), db.all("passes"), db.all("roots")]);
   S.cats.sort((a, b) => a.order - b.order);
+  for (const d of S.docs) { // tipo riconosciuto anche per i PDF già in libreria
+    if (d.kindManual !== undefined || d.pending) continue;
+    const k = classify(d.text, d.name);
+    if (k !== (d.kind ?? null)) { d.kind = k; db.put("docs", d); }
+  }
 }
 const docById = id => S.docs.find(d => d.id === id);
 const catById = id => S.cats.find(c => c.id === id);
@@ -200,6 +206,7 @@ async function importFiles(files) {
       added: Date.now(), opened: 0, cats: fold ? [fold] : []
     };
     await db.addDoc(doc, new Blob([buf], { type: "application/pdf" }));
+    doc.kind = classify(doc.text, doc.name);
     S.docs.push(doc); added++; lastId = doc.id;
     if (f.size > HEAVY) heavy = doc;
   }
@@ -221,10 +228,11 @@ async function importFiles(files) {
 function visibleDocs() {
   const q = S.q.trim().toLowerCase();
   let list;
-  if (S.mode === "folders") list = q ? S.docs.slice() : S.docs.filter(d => S.folder ? d.cats.includes(S.folder) : !d.cats.length);
+  if (S.mode === "folders") list = (q || S.kind) ? S.docs.slice() : S.docs.filter(d => S.folder ? d.cats.includes(S.folder) : !d.cats.length);
   else if (S.filter === "all") list = S.docs.slice();
   else if (S.filter === "none") list = S.docs.filter(d => !d.cats.length);
   else { const ids = new Set([S.filter, ...descendants(S.filter)]); list = S.docs.filter(d => d.cats.some(c => ids.has(c))); }
+  if (S.kind) list = list.filter(d => d.kind === S.kind);
   if (q) {
     const words = q.split(/\s+/);
     list = list.filter(d => { const h = (d.name + " " + (d.text || "")).toLowerCase(); return words.every(w => h.includes(w)); });
@@ -266,10 +274,11 @@ function docCard(d, i, showTime) {
   if (u) thumb.append(el("img", { src: u, alt: "", loading: "lazy", decoding: "async" }));
   else thumb.append(ic("pdf"));
   if (d.pending) thumb.append(el("span", { class: "loading", "aria-hidden": "true" }));
+  if (d.kind) thumb.append(el("span", { class: "kind-badge k-" + d.kind, title: t("kind." + d.kind), "aria-hidden": "true" }, ic(KIND_ICON[d.kind])));
   if (d.size > HEAVY) thumb.append(el("span", { class: "badge-heavy", "aria-hidden": "true" }, size(d.size)));
   const cats = d.cats.map(catById).filter(Boolean);
   const meta = [d.pages ? t("meta.pages", { n: d.pages }) : null, size(d.size)].filter(Boolean).join(" · ");
-  const label = [d.name, meta, cats.length ? t("cat.manage") + ": " + cats.map(c => c.name).join(", ") : ""].filter(Boolean).join(". ");
+  const label = [d.name, d.kind ? t("kind." + d.kind) : "", meta, cats.length ? t("cat.manage") + ": " + cats.map(c => c.name).join(", ") : ""].filter(Boolean).join(". ");
   const btn = el("button", { class: "doc", type: "button", "aria-label": label, "aria-pressed": S.selecting ? String(sel) : null,
     onclick: () => S.selecting ? toggleSel(d.id, li, btn) : openViewer(d.id) },
     thumb,
@@ -294,6 +303,7 @@ function docMenu(d) {
   return [
     { icon: "eye", label: t("doc.open"), fn: () => openViewer(d.id) },
     { icon: "tag", label: t("doc.categories"), fn: () => assignCats([d.id]) },
+    { icon: d.kind ? KIND_ICON[d.kind] : "flower", label: t("kind.change"), fn: () => changeKind(d) },
     { icon: "edit", label: t("doc.rename"), fn: () => renameDoc(d) },
     { icon: "qr", label: t("doc.codes"), fn: () => openViewer(d.id, true) },
     { icon: "squash", label: t("squash.short"), fn: () => squashDialog(d) },
@@ -340,6 +350,28 @@ function folderTile(c, i) {
   });
   return li;
 }
+// Filtri per tipo riconosciuto (fatture, scontrini, viaggi, spettacoli): compaiono solo se ce ne sono
+function renderKinds() {
+  const box = $("#kinds"); box.replaceChildren();
+  const counts = Object.fromEntries(KINDS.map(k => [k, S.docs.filter(d => d.kind === k).length]));
+  if (S.kind && !counts[S.kind]) S.kind = null;
+  for (const k of KINDS) if (counts[k]) box.append(el("button", { type: "button", class: "chip kind-chip k-" + k, "aria-pressed": String(S.kind === k),
+    onclick: () => { S.kind = S.kind === k ? null : k; renderLibrary(); if (S.kind) mood("happy", 1200); } },
+    el("span", { class: "kind-dot", "aria-hidden": "true" }, ic(KIND_ICON[k])), t("kind." + k + "s"), el("span", { class: "n" }, String(counts[k]))));
+  box.hidden = !box.childElementCount;
+}
+async function changeKind(d) {
+  const opts = [["auto", t("theme.auto")], ...KINDS.map(k => [k, t("kind." + k)]), ["none", t("kind.none")]];
+  const cur = d.kindManual === undefined ? "auto" : (d.kindManual || "none");
+  const list = el("ul", { class: "checklist" }, opts.map(([v, l]) => el("li", {}, el("label", {}, el("input", { type: "radio", name: "kind", value: v, checked: v === cur ? true : null }),
+    v !== "auto" && v !== "none" ? el("span", { class: "kind-dot k-" + v, "aria-hidden": "true" }, ic(KIND_ICON[v])) : null, l))));
+  const r = await dialog({ title: t("kind.change"), body: [el("p", { class: "muted" }, t("kind.hint")), list], actions: [{ label: t("common.cancel"), value: "cancel" }, { label: t("common.save"), value: "ok", cls: "btn-primary" }] });
+  if (r !== "ok") return;
+  const v = list.querySelector("input:checked")?.value || "auto";
+  if (v === "auto") { delete d.kindManual; d.kind = classify(d.text, d.name); }
+  else { d.kindManual = v === "none" ? null : v; d.kind = d.kindManual; }
+  await db.put("docs", d); renderLibrary(d.id); mood("love", 1500);
+}
 function renderLibrary(focusId) {
   const mode = S.mode, grid = $("#grid"), empty = !S.docs.length && !S.cats.length;
   document.querySelectorAll("input[name=vmode]").forEach(r => r.checked = r.value === mode);
@@ -353,12 +385,13 @@ function renderLibrary(focusId) {
   $(".modebar").hidden = empty;
   $("#selectBtn").hidden = empty;
   if (mode !== "folders") renderChips(); else renderCrumbs();
+  renderKinds();
   const list = visibleDocs();
   grid.classList.toggle("selecting", S.selecting);
   $("#timeline").classList.toggle("selecting", S.selecting);
   // cartelle
   const fl = $("#folders"); fl.replaceChildren();
-  const showFolders = mode === "folders" && !S.q.trim() && !empty;
+  const showFolders = mode === "folders" && !S.q.trim() && !S.kind && !empty;
   fl.hidden = !showFolders;
   if (showFolders) {
     let i = 0;
@@ -498,7 +531,7 @@ async function deleteDocs(ids) {
 async function getBlob(d) {
   if (d.src !== "fs") return db.get("files", d.id);
   const root = S.roots.find(r => r.id === d.rootId);
-  if (root && !(await askPerm(root, true))) throw new Error("perm");
+  if (!(await askPerm(root || d, true))) throw new Error("perm");
   try { return await d.handle.getFile(); } catch { throw new Error("missing"); }
 }
 const fileOf = async d => new File([await getBlob(d)], d.name + ".pdf", { type: "application/pdf" });
@@ -889,7 +922,8 @@ document.querySelectorAll(".tabs a").forEach(a => a.addEventListener("click", ()
 
 /* ================= eventi della libreria ================= */
 const pick = () => $("#fileInput").click();
-$("#scanBtn").onclick = $("#emptyScan").onclick = $("#rootAdd").onclick = () => linkFolder();
+$("#scanBtn").onclick = $("#emptyScan").onclick = () => chooseSource();
+$("#rootAdd").onclick = () => linkFolder();
 $("#emptyDir").onclick = () => $("#dirInput").click();
 $("#permBtn").onclick = async () => { for (const r of S.roots) if (await askPerm(r, true)) await scanRoot(r, true); updatePermBar(); };
 $("#addDirBtn").onclick = () => $("#dirInput").click();
@@ -946,6 +980,47 @@ async function* walk(dir, path = "", depth = 0) {
     if (h.kind === "directory") { if (!/^(android|node_modules|\$recycle\.bin|system volume information|thumbnails|cache)$/i.test(name)) yield* walk(h, path + name + "/", depth + 1); }
     else if (/\.pdf$/i.test(name)) yield { handle: h, path: path + name, name };
   }
+}
+// Una sola domanda semplice: «Dove sono i tuoi PDF?» → i PDF (anche tutti quelli di Download) o una cartella.
+async function chooseSource() {
+  if (!CAN_LINK) return pick();
+  const opt = (icon, title, hint, value, primary) => el("button", { type: "submit", value, class: "source" + (primary ? " primary" : "") },
+    el("span", { class: "ic ic-" + icon, "aria-hidden": "true" }), el("span", {}, el("b", {}, title), el("small", {}, hint)));
+  const v = await dialog({
+    title: t("pick.title"),
+    body: [el("div", { class: "sources" },
+      opt("file-plus", t("scan.add"), IS_ANDROID ? t("pick.filesAndroid") : t("pick.files"), "files", true),
+      opt("folder-plus", t("pick.folder"), t("pick.folderHint"), "folder")),
+      el("p", { class: "muted tip" }, el("span", { class: "ic ic-share", "aria-hidden": "true" }), " ", t("pick.share"))],
+    actions: [{ label: t("common.cancel"), value: "cancel" }],
+    onOpen: d => d.querySelector(".source.primary")?.focus()
+  });
+  if (v === "files") return pickHandles();
+  if (v === "folder") return linkFolder();
+}
+// PDF scelti uno per uno (o «Seleziona tutto» in Download): si tengono i riferimenti, niente copie.
+async function pickHandles() {
+  let hs;
+  try { hs = await showOpenFilePicker({ id: "otto-pdf", multiple: true, startIn: "downloads", types: [{ description: "PDF", accept: { "application/pdf": [".pdf"] } }], excludeAcceptAllOption: false }); }
+  catch (e) { if (e?.name !== "AbortError") pick(); return; }
+  let added = 0, last;
+  for (const h of hs) {
+    let f; try { f = await h.getFile(); } catch { continue; }
+    if (!/\.pdf$/i.test(f.name) && f.type !== "application/pdf") { toast(t("import.notPdf", { name: f.name })); continue; }
+    const dup = S.docs.find(d => d.src === "fs" && !d.rootId && d.path === f.name && d.size === f.size);
+    if (dup) { dup.handle = h; await db.put("docs", dup); continue; }
+    const tgt = importTarget();
+    const d = { id: db.uid(), src: "fs", rootId: null, path: f.name, handle: h, name: f.name.replace(/\.pdf$/i, ""), size: f.size, mtime: f.lastModified,
+      pages: 0, thumb: null, text: "", added: Date.now(), opened: 0, cats: tgt ? [tgt] : [], pending: true };
+    await db.put("docs", d); S.docs.push(d); enqueue(d); added++; last = d.id;
+  }
+  if (!added) return;
+  if (location.hash !== "#/" && location.hash !== "") location.hash = "#/";
+  renderLibrary(last);
+  const r = $("#buddyBtn").getBoundingClientRect(); confetti(r.left + r.width / 2, r.top, 30);
+  say(t(added > 3 ? "ev.scan" : "ev.import"), "happy");
+  toast(t("import.done", { n: added }));
+  if (!persistAsked && navigator.storage?.persist) { persistAsked = true; navigator.storage.persist().catch(() => {}); }
 }
 async function linkFolder() {
   if (!CAN_LINK) return pick();
@@ -1019,6 +1094,7 @@ async function work() {
     try {
       const buf = await (await d.handle.getFile()).arrayBuffer();
       try { Object.assign(d, await analyze(buf), { locked: false }); } catch (e) { if (isPasswordError(e)) d.locked = true; }
+      if (d.kindManual === undefined) d.kind = classify(d.text, d.name);
     } catch {}
     d.pending = false;
     if (S.docs.includes(d)) { await db.put("docs", d); updateCard(d); }

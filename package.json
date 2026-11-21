@@ -6,7 +6,7 @@
     "check": "node tools/i18n-check.mjs",
     "build": "node tools/build.mjs",
     "vendor": "node tools/vendor.mjs",
-    "test": "node tools/build.mjs && node tests/e2e.mjs",
+    "test": "node tools/build.mjs && node tests/kinds.test.mjs && node tests/e2e.mjs",
     "start": "python3 -m http.server 8080 -d app"
   },
   "license": "MIT",

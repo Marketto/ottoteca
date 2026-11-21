@@ -540,6 +540,27 @@ main{padding-top:30px}
 .roots .rname small{color:var(--muted)}
 .roots .btn{min-height:40px;padding:6px 12px}
 
+.sources{display:flex;flex-direction:column;gap:12px}
+.source{display:flex;align-items:center;gap:14px;width:100%;text-align:start;padding:14px 16px;border-radius:var(--r);border:var(--bw) solid var(--ink);background:var(--surface);box-shadow:0 4px 0 var(--ink);cursor:pointer;color:var(--text);font:inherit;transition:transform .15s,box-shadow .15s}
+.source:hover{transform:translateY(-2px);box-shadow:0 6px 0 var(--ink)}
+.source:active{transform:translateY(3px);box-shadow:0 1px 0 var(--ink)}
+.source.primary{background:var(--grad);color:var(--on-primary)}
+.source>.ic{font-size:36px;flex:none}
+.source b{display:block;font-size:1.08rem}
+.source small{display:block;font-size:.9rem;line-height:1.35;margin-top:2px}
+.tip{display:flex;gap:6px;align-items:flex-start;margin-top:14px}
+/* ---------- tipi di documento riconosciuti ---------- */
+.k-invoice{--k:#7fb8ff}.k-receipt{--k:#8fe08a}.k-travel{--k:#7fe3ff}.k-event{--k:#ff9fd0}
+.kinds{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.kind-chip{background:var(--surface)}
+.kind-chip[aria-pressed="true"]{background:var(--k);color:#2b1d4a}
+.kind-dot{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--k);border:2px solid var(--ink);color:#2b1d4a;font-size:16px;flex:none}
+.kind-dot .ic{font-size:16px}
+.kind-badge{position:absolute;inset-inline-start:8px;top:8px;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:var(--k);color:#2b1d4a;border:var(--bw) solid var(--ink);box-shadow:0 3px 0 var(--ink);font-size:20px;animation:pop .5s cubic-bezier(.3,1.8,.5,1) both;animation-delay:calc(var(--i,0) * 35ms + .2s)}
+.kind-badge .ic{font-size:20px}
+.doc:hover .kind-badge{animation:wiggle .6s ease-in-out}
+.selecting .kind-badge{display:none}
+.checklist .kind-dot{width:26px;height:26px}
 /* ---------- movimento ridotto ---------- */
 @media (prefers-reduced-motion:reduce){
   :root:not([data-motion="full"]) *,:root:not([data-motion="full"]) *::before,:root:not([data-motion="full"]) *::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}

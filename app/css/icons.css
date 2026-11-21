@@ -10,6 +10,7 @@
 .ic-down::before{content:'\e906'}
 .ic-download::before{content:'\e907'}
 .ic-edit::before{content:'\e908'}
+.ic-event::before{content:'\e921'}
 .ic-eye::before{content:'\e909'}
 .ic-file-plus::before{content:'\e90a'}
 .ic-fit::before{content:'\e90b'}
@@ -19,11 +20,14 @@
 .ic-gear::before{content:'\e90f'}
 .ic-grid::before{content:'\e910'}
 .ic-heart::before{content:'\e911'}
+.ic-invoice::before{content:'\e922'}
 .ic-minus::before{content:'\e912'}
 .ic-pdf::before{content:'\e913'}
 .ic-phone-search::before{content:'\e914'}
+.ic-plane::before{content:'\e923'}
 .ic-plus::before{content:'\e915'}
 .ic-qr::before{content:'\e916'}
+.ic-receipt::before{content:'\e924'}
 .ic-refresh::before{content:'\e917'}
 .ic-search::before{content:'\e918'}
 .ic-share::before{content:'\e919'}

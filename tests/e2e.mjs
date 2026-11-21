@@ -148,6 +148,32 @@ try {
   ok(!axe5.violations.length, "axe telefono: " + axe5.violations.map(v => v.id).join(", "));
   axe5.violations.forEach(v => console.log("   ", v.id, v.nodes.slice(0, 3).map(n => n.target.join(" ") + " " + (n.any[0]?.message || "")).join(" | ")));
 
+  // tipi riconosciuti: fattura, scontrino, viaggio, spettacolo, con filtro
+  const kx = await browser.newContext({ viewport: { width: 1200, height: 860 }, locale: "it-IT", serviceWorkers: "block" });
+  const kp = await kx.newPage();
+  kp.on("pageerror", e => errors.push(e.message));
+  await kp.goto(BASE);
+  await kp.setInputFiles("#fileInput", ["tests/fixtures/biglietto.pdf", "tests/fixtures/manuale.pdf", "tests/fixtures/fattura.pdf", "tests/fixtures/scontrino.pdf", "tests/fixtures/concerto.pdf"]);
+  await kp.waitForFunction(() => document.querySelectorAll("#grid .card-doc").length === 5, null, { timeout: 30000 });
+  const badges = await kp.evaluate(() => [...document.querySelectorAll("#grid .card-doc")].map(c => c.querySelector(".doc-name").textContent + ":" + ([...(c.querySelector(".kind-badge")?.classList || [])].find(x => x.startsWith("k-")) || "-")).sort().join(" "));
+  ok(badges === "biglietto:k-travel concerto:k-event fattura:k-invoice manuale:- scontrino:k-receipt", "simboli dei tipi: " + badges);
+  ok(await kp.locator("#kinds .kind-chip").count() === 4, "filtri per tipo");
+  await kp.locator("#kinds .kind-chip.k-invoice").click();
+  ok(await kp.locator("#grid .card-doc").count() === 1, "filtro Fatture");
+  await kp.locator("#kinds .kind-chip.k-invoice").click();
+  if (shots) { await kp.waitForTimeout(1200); await kp.screenshot({ path: "tests/shots/13-tipi.png" }); }
+  const mcard = kp.locator("#grid .card-doc", { hasText: "manuale" });
+  await mcard.locator(".doc-more").click();
+  await kp.locator("#menu button").nth(2).click();
+  await kp.locator('#dlg input[value="receipt"]').check();
+  await kp.locator("#dlg button[value=ok]").click();
+  await kp.locator("#kinds .kind-chip.k-receipt").click();
+  ok(await kp.locator("#grid .card-doc").count() === 2, "tipo cambiato a mano");
+  await kp.waitForTimeout(1200);
+  const axe7 = await new AxeBuilder({ page: kp }).withTags(["wcag2a", "wcag2aa", "wcag21aa"]).analyze();
+  ok(!axe7.violations.length, "axe tipi: " + axe7.violations.map(v => v.id).join(", "));
+  axe7.violations.forEach(v => console.log("   ", v.id, v.nodes.slice(0, 3).map(n => n.target.join(" ") + " " + (n.any[0]?.message || "")).join(" | ")));
+
   // cartelle del dispositivo (showDirectoryPicker simulato con il file system privato del browser)
   const fsx = await browser.newContext({ viewport: { width: 1100, height: 800 }, locale: "it-IT", serviceWorkers: "block" });
   const fp = await fsx.newPage();
@@ -166,6 +192,7 @@ try {
   await fp.reload();
   ok(!!(await fp.waitForSelector("#emptyScan:not([hidden])")), "pulsante «Trova i PDF nel dispositivo»");
   await fp.click("#emptyScan");
+  await fp.locator('#dlg button[value="folder"]').click();
   await fp.waitForFunction(() => document.querySelectorAll("#grid .card-doc").length === 2, null, { timeout: 20000 });
   await fp.waitForFunction(() => document.querySelectorAll("#grid .thumb img").length === 2, null, { timeout: 20000 });
   ok(true, "cartella collegata: 2 PDF trovati con miniature, il .txt ignorato");

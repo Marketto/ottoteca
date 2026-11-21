@@ -18,7 +18,7 @@ Colour follows `currentColor`; size follows `font-size` (1.25em of the parent by
 - Add the drawing to `tools/icon-src.py`, run it, then `python3 tools/build-icons.py` (needs `picosvg skia-pathops fonttools brotli`).
   Codepoints are stored in `design/icons/codepoints.json` and never change.
 
-## Catalogue (33 icons)
+## Catalogue (37 icons)
 | Icon | Name | Codepoint |
 |:-:|---|---|
 | ![back](../design/icons/back.svg) | `back` | `\e900` |
@@ -30,6 +30,7 @@ Colour follows `currentColor`; size follows `font-size` (1.25em of the parent by
 | ![down](../design/icons/down.svg) | `down` | `\e906` |
 | ![download](../design/icons/download.svg) | `download` | `\e907` |
 | ![edit](../design/icons/edit.svg) | `edit` | `\e908` |
+| ![event](../design/icons/event.svg) | `event` | `\e921` |
 | ![eye](../design/icons/eye.svg) | `eye` | `\e909` |
 | ![file-plus](../design/icons/file-plus.svg) | `file-plus` | `\e90a` |
 | ![fit](../design/icons/fit.svg) | `fit` | `\e90b` |
@@ -39,11 +40,14 @@ Colour follows `currentColor`; size follows `font-size` (1.25em of the parent by
 | ![gear](../design/icons/gear.svg) | `gear` | `\e90f` |
 | ![grid](../design/icons/grid.svg) | `grid` | `\e910` |
 | ![heart](../design/icons/heart.svg) | `heart` | `\e911` |
+| ![invoice](../design/icons/invoice.svg) | `invoice` | `\e922` |
 | ![minus](../design/icons/minus.svg) | `minus` | `\e912` |
 | ![pdf](../design/icons/pdf.svg) | `pdf` | `\e913` |
 | ![phone-search](../design/icons/phone-search.svg) | `phone-search` | `\e914` |
+| ![plane](../design/icons/plane.svg) | `plane` | `\e923` |
 | ![plus](../design/icons/plus.svg) | `plus` | `\e915` |
 | ![qr](../design/icons/qr.svg) | `qr` | `\e916` |
+| ![receipt](../design/icons/receipt.svg) | `receipt` | `\e924` |
 | ![refresh](../design/icons/refresh.svg) | `refresh` | `\e917` |
 | ![search](../design/icons/search.svg) | `search` | `\e918` |
 | ![share](../design/icons/share.svg) | `share` | `\e919` |
