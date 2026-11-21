@@ -111,9 +111,14 @@ export function mountOttos(root = document) {
   });
 }
 
-const STATES = ["happy", "wiggle", "spin", "think", "love", "sleep", "sad", "wave", "juggle", "pet", "hug", "dizzy", "surprised", "yawn"];
+const STATES = ["happy", "wiggle", "flip", "roll", "ball", "think", "love", "sleep", "sad", "wave", "juggle", "pet", "hug", "dizzy", "surprised", "yawn"];
+// «trick»: a turno salto all'indietro, rotolata, pallottola (durate come in app.css)
+const TRICKS = [["flip", 1700], ["roll", 2700], ["ball", 2900]];
+let trickIdx = 0;
 export function mood(state, ms = 2200, scope = document) {
+  if (state === "trick") { [state, ms] = TRICKS[trickIdx++ % TRICKS.length]; }
   scope.querySelectorAll(".otto").forEach(svg => {
+    if (state === "roll") { const r = svg.getBoundingClientRect(); svg.style.setProperty("--dir", r.left + r.width / 2 > innerWidth / 2 ? -1 : 1); }
     STATES.forEach(s => svg.classList.remove("is-" + s));
     if (!state) return;
     void svg.getBoundingClientRect();
@@ -189,5 +194,6 @@ export function startOttoLife() {
     else if (r < .45) mood("juggle", 3200);
     else if (r < .55) mood("yawn", 2000);
     else if (r < .65) mood("wave", 2000);
+    else if (r < .75) mood("trick");
   }, 9000);
 }

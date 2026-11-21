@@ -8,7 +8,7 @@ import { analyze, openPdf, isPasswordError, renderToCanvas, pdfjs, closePdf } fr
 import { scanDoc, codeSVG, formatName, readImage } from "./codes.js";
 import { WALLET_PROXY } from "./config.js";
 
-export const VERSION = "1.4.0";
+export const VERSION = "1.5.0";
 const HEAVY = 5 * 1024 * 1024;                     // oltre questa soglia si suggerisce Schiaccia PDF
 const SQUASH_URL = "https://marketto.github.io/pdf-tiny-tools/";
 const COLORS = ["#e5637a", "#f29e4c", "#e8c547", "#7cc46b", "#3fb5a9", "#4f9ae0", "#8f7ae5", "#d06fc0", "#a07b62", "#7d8796"];
@@ -73,7 +73,7 @@ function say(msg, state = "happy", { live = true, ms = 5200 } = {}) {
 }
 function cheer(live = true) {
   cheerIdx = (cheerIdx + 1) % 12;
-  say(t("cheer." + (cheerIdx + 1)), ["happy", "wiggle", "love", "spin"][cheerIdx % 4], { live });
+  say(t("cheer." + (cheerIdx + 1)), ["happy", "wiggle", "love", "trick"][cheerIdx % 4], { live });
 }
 // Otto interattivo: tocco = reazione a sorpresa, tieni premuto = abbraccio, strofina = coccole, tanti tocchi = gira la testa
 {
@@ -83,7 +83,7 @@ function cheer(live = true) {
     () => { cheer(true); mood("happy"); },
     () => { say(t("ev.wave"), "wave"); },
     () => { say(t("ev.juggle"), "juggle", { ms: 3500 }); mood("juggle", 3200); },
-    () => { cheer(true); mood("spin", 1000); },
+    () => { cheer(true); mood("trick"); },
     () => { cheer(true); mood("love"); }
   ];
   let ri = 0;
@@ -1095,7 +1095,7 @@ async function renderSettings() {
   try { const e = await navigator.storage?.estimate(); if (e) $("#storageInfo").textContent = t("set.storage", { used: size(e.usage || 0) }); } catch {}
 }
 $("#langSel").onchange = async e => { localStorage.setItem("otto.lang", e.target.value); await setLang(e.target.value); afterLang(); say(t("ev.lang"), "happy"); };
-document.querySelectorAll("input[name=theme]").forEach(r => r.onchange = () => { localStorage.setItem("otto.theme", r.value); applyTheme(); mood("spin", 1000); });
+document.querySelectorAll("input[name=theme]").forEach(r => r.onchange = () => { localStorage.setItem("otto.theme", r.value); applyTheme(); mood("trick"); });
 document.querySelectorAll("input[name=textsize]").forEach(r => r.onchange = () => { localStorage.setItem("otto.text", r.value); applyTextSize(); mood("happy", 1200); });
 // Guida per la chiave WalletWallet personale: 3 passi con Otto, incolla e salva
 const KEY_RE = /^ww_live_[0-9a-f]{32}$/i;
