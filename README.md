@@ -11,7 +11,8 @@ PWA per tenere i PDF in ordine, con **Otto la lontra** come mascotte. Tutto rest
 - **Cartelle virtuali**: un PDF può stare in più cartelle insieme, nessun file viene spostato. Si creano, rinominano, colorano e annidano; si trascinano i PDF sulle cartelle. «Importa cartella» ricrea la struttura delle cartelle del dispositivo.
 - **Visore**: tutte le pagine, zoom (pulsanti, Ctrl+rotella, pizzico), miniature delle pagine, testo selezionabile e leggibile dai lettori di schermo, tastiera (PagSu/PagGiù, +/−, Esc).
 - **Codici e portafoglio**: «Trova codici» legge QR, Aztec, PDF417, Data Matrix e codici a barre (zxing-cpp) e i codici di prenotazione nel testo (PNR, codice prenotazione… in molte lingue). Il portafoglio li ridisegna nitidi a schermo intero, tiene lo schermo acceso e li salva come immagine.
-  - Apple Wallet e Google Wallet accettano solo pass **firmati dall'emittente** (certificato Apple / account emittente Google, lato server): un'app statica su GitHub Pages non può crearli. Se il PDF contiene il pulsante ufficiale «Aggiungi a Wallet», Ottoteca lo mostra.
+  - «Aggiungi un codice»: qualsiasi QR o codice a barre (biglietti, carte fedeltà) scritto a mano, dalla fotocamera o da uno screenshot.
+  - Apple Wallet: Ottoteca copia il codice e apre WalletWallet (gratuito, firma i pass); il codice esce dall'app. Google Wallet: 3 passi con l'immagine del codice («Tutto il resto» / «Foto»). Se il PDF contiene il pulsante ufficiale «Aggiungi a Wallet», Ottoteca lo mostra.
 - **Schiaccia PDF**: per i PDF oltre 5 MB l'app lo suggerisce (badge, Otto e un avviso); il pulsante «Comprimi» è sempre nel visore e nel menu.
 - **Otto**: sbatte gli occhi, galleggia, salta, festeggia con coriandoli, si addormenta se non lo tocchi, e dice frasi motivazionali (12) e commenti a ogni azione.
 - **37 lingue**: tutte le europee + russo, coreano, giapponese, cinese e arabo (da destra a sinistra).

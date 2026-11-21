@@ -665,6 +665,11 @@ body{overflow-x:clip}
 .chip{max-width:min(100%,280px)}
 .modebar .seg{flex-wrap:nowrap;max-width:100%}
 @media (max-width:420px){.modebar .seg label>span{padding:7px 10px;font-size:.92rem;gap:4px}}
+#addCode{margin:0 0 16px}
+.addsrc{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:6px}
+.dlg .select{width:100%}
+.dlg label.check{display:flex;align-items:center;gap:8px;margin-top:12px;font-weight:800;min-height:44px}
+.dlg label.check input{width:22px;height:22px;accent-color:var(--primary)}
 /* ---------- movimento ridotto ---------- */
 @media (prefers-reduced-motion:reduce){
   :root:not([data-motion="full"]) *,:root:not([data-motion="full"]) *::before,:root:not([data-motion="full"]) *::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}

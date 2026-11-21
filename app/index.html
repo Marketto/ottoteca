@@ -116,6 +116,9 @@
   <section id="view-wallet" class="view" aria-labelledby="walletTitle" hidden>
     <h1 id="walletTitle" class="view-title" data-i18n="wallet.title">Wallet</h1>
     <p class="note" data-i18n="wallet.note"></p>
+    <button class="btn btn-primary btn-lg" id="addCode"><span class="ic ic-plus" aria-hidden="true"></span><span data-i18n="wallet.add">Add a code</span></button>
+    <input type="file" id="codePhoto" accept="image/*" capture="environment" hidden>
+    <input type="file" id="codeImage" accept="image/*" hidden>
     <ul class="passes" id="passes"></ul>
     <div class="empty" id="walletEmpty" hidden>
       <div class="otto-big" data-otto="big" aria-hidden="true"></div>

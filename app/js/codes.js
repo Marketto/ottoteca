@@ -92,6 +92,15 @@ export async function scanDoc(doc, onProgress) {
   return { codes: found, links };
 }
 
+// Legge un codice da una foto o da uno screenshot (inserimento manuale nel portafoglio)
+export async function readImage(blob) {
+  const Z = await loadZX();
+  const res = await Z.readBarcodes(blob, { tryHarder: true, maxNumberOfSymbols: 4, formats: [] });
+  const r = res.find(x => x.isValid);
+  if (!r) return null;
+  const bin = r.contentType === "Binary" || r.contentType === "Mixed";
+  return { format: r.format, text: bin ? "" : r.text, bytes: bin ? b64(r.bytes) : null };
+}
 const WRITE = { QRCode: "QRCode", MicroQRCode: "QRCode", RMQRCode: "QRCode", Aztec: "Aztec", PDF417: "PDF417", CompactPDF417: "PDF417", DataMatrix: "DataMatrix", Code128: "Code128", Code39: "Code39", Code93: "Code93", EAN13: "EAN13", EAN8: "EAN8", UPCA: "UPCA", UPCE: "UPCE", ITF: "ITF", Codabar: "Codabar" };
 // Ridisegna il codice come SVG nitido (per il portafoglio e lo schermo intero).
 export async function codeSVG(pass) {

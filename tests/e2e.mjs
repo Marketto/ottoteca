@@ -113,10 +113,25 @@ try {
   await page.goto(BASE + "#/wallet");
   await page.waitForSelector("#passes .pass .mini svg");
   ok(await page.locator("#passes .pass").count() === 1, "pass nel portafoglio");
-  await page.locator("#passes .pass .btn", { hasText: "Wallet del telefono" }).click();
+  await page.locator("#passes .pass .btn", { hasText: "Google Wallet" }).click();
   ok(await page.locator("#dlg .wsteps li").count() === 3, "istruzioni per Google Wallet");
   if (shots) await page.screenshot({ path: "tests/shots/16-google-wallet.png" });
   await page.keyboard.press("Escape");
+  await page.locator("#passes .pass .btn", { hasText: "Apple Wallet" }).click();
+  ok(await page.locator("#dlg .wsteps li").count() === 3 && await page.locator('#dlg a[href*="walletwallet"]').count() === 1, "istruzioni per Apple Wallet");
+  if (shots) await page.screenshot({ path: "tests/shots/17-apple-wallet.png" });
+  await page.keyboard.press("Escape");
+  // carta fedeltà inserita a mano
+  await page.click("#addCode");
+  await page.fill("#acName", "Supermercato");
+  await page.fill("#acValue", "8001234567897");
+  await page.selectOption("#acFmt", "EAN13");
+  await page.check("#acLoyal");
+  if (shots) await page.screenshot({ path: "tests/shots/18-aggiungi-codice.png" });
+  await page.locator("#dlg button[value=ok]").click();
+  await page.waitForFunction(() => document.querySelectorAll("#passes .pass").length === 2);
+  await page.waitForSelector("#passes .pass:first-child .mini svg");
+  ok((await page.textContent("#passes .pass:first-child")).includes("Supermercato"), "carta fedeltà aggiunta a mano");
   if (shots) await page.screenshot({ path: "tests/shots/07-portafoglio.png" });
   await page.waitForTimeout(1200);
   const axe3 = await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21aa"]).analyze();

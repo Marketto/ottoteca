@@ -5,9 +5,9 @@ import { mountOttos, mood, confetti, sparkle, startOttoLife } from "./otto.js";
 import { mountHabitat } from "./habitat.js";
 import { classify, KINDS, KIND_ICON } from "./kinds.js";
 import { analyze, openPdf, isPasswordError, renderToCanvas, pdfjs, closePdf } from "./pdf.js";
-import { scanDoc, codeSVG, formatName } from "./codes.js";
+import { scanDoc, codeSVG, formatName, readImage } from "./codes.js";
 
-export const VERSION = "1.1.0";
+export const VERSION = "1.2.0";
 const HEAVY = 5 * 1024 * 1024;                     // oltre questa soglia si suggerisce Schiaccia PDF
 const SQUASH_URL = "https://marketto.github.io/pdf-tiny-tools/";
 const COLORS = ["#e5637a", "#f29e4c", "#e8c547", "#7cc46b", "#3fb5a9", "#4f9ae0", "#8f7ae5", "#d06fc0", "#a07b62", "#7d8796"];
@@ -920,12 +920,13 @@ function renderWallet() {
     const mini = el("div", { class: "mini" }, p.kind === "booking" ? el("span", { class: "code-txt" }, p.text) : ic("qr"));
     if (p.kind !== "booking") codeSVG(p).then(svg => { if (svg) { mini.innerHTML = svg; mini.firstElementChild?.setAttribute("aria-hidden", "true"); } else mini.replaceChildren(el("span", { class: "code-txt" }, p.text || "?")); });
     const doc = docById(p.docId);
-    const sub = (p.kind === "booking" ? t("codes.bookingShort") : formatName(p.format)) + (doc ? " · " + t("wallet.from", { name: doc.name }) : "");
+    const sub = (p.loyalty ? t("add.loyalty") + " · " : "") + (p.kind === "booking" ? t("codes.bookingShort") : formatName(p.format)) + (doc ? " · " + t("wallet.from", { name: doc.name }) : "");
     const li = el("li", { class: "pass", style: `--p1:${c1};--p2:${c2};--i:${i}` },
       el("h3", {}, p.title), el("p", { class: "from" }, sub), mini,
       el("div", { class: "row" },
         el("button", { type: "button", class: "btn", onclick: () => showPass(p) }, ic("eye"), t("wallet.show")),
-        p.kind !== "booking" ? el("button", { type: "button", class: "btn", onclick: () => toPhoneWallet(p) }, ic("wallet"), t("gw.btn")) : null,
+        p.kind !== "booking" ? el("button", { type: "button", class: "btn", onclick: () => toAppleWallet(p) }, ic("wallet"), "Apple Wallet") : null,
+        p.kind !== "booking" ? el("button", { type: "button", class: "btn", onclick: () => toPhoneWallet(p) }, ic("wallet"), "Google Wallet") : null,
         doc ? el("button", { type: "button", class: "btn", onclick: () => openViewer(doc.id) }, ic("pdf"), t("wallet.openPdf")) : null,
         el("button", { type: "button", class: "icon-btn", "aria-label": t("doc.rename") + ": " + p.title, title: t("doc.rename"), onclick: async () => { const v = await promptBox(t("doc.rename"), t("wallet.name"), p.title); if (v) { p.title = v; await db.put("passes", p); renderWallet(); } } }, ic("edit")),
         el("button", { type: "button", class: "icon-btn", "aria-label": t("wallet.delete") + ": " + p.title, title: t("wallet.delete"), onclick: async () => { if (await confirmBox(t("wallet.delete"), p.title, t("common.delete"))) { await db.del("passes", p.id); S.passes = S.passes.filter(x => x.id !== p.id); renderWallet(); say(t("ev.delete"), "wiggle"); } } }, ic("trash"))));
@@ -975,8 +976,62 @@ async function toPhoneWallet(p) {
     el("li", {}, el("span", {}, t("gw.step1")), el("button", { type: "button", class: "btn btn-primary", onclick: async ev => { const b = ev.currentTarget; downloadFile(await passImage(p)); b.replaceChildren(ic("check"), t("codes.added")); } }, ic("download"), t("gw.save"))),
     el("li", {}, el("span", {}, t("gw.step2")), el("a", { class: "btn btn-soft", href: IS_ANDROID ? "intent://#Intent;package=com.google.android.apps.walletnfcrel;S.browser_fallback_url=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.google.android.apps.walletnfcrel;end" : "https://wallet.google.com/", target: "_blank", rel: "noopener" }, ic("wallet"), t("gw.open"))),
     el("li", {}, el("span", {}, t("gw.step3"))));
-  await dialog({ title: t("gw.title"), body: [steps, el("p", { class: "muted tip" }, t("gw.apple"))] });
+  await dialog({ title: t("gw.title"), body: steps });
 }
+// Apple Wallet vuole pass firmati: li firma WalletWallet (servizio gratuito con certificato Apple). Il codice va a loro.
+const AW_FMT = { QRCode: "QR", MicroQRCode: "QR", Aztec: "Aztec", PDF417: "PDF417", CompactPDF417: "PDF417", Code128: "Code 128" };
+async function toAppleWallet(p) {
+  const fmt = AW_FMT[p.format] || "QR";
+  const value = p.text || "";
+  const steps = el("ol", { class: "wsteps" },
+    el("li", {}, el("span", {}, t("aw.step1")), value
+      ? el("button", { type: "button", class: "btn btn-primary", onclick: async ev => { const b = ev.currentTarget; try { await navigator.clipboard.writeText(value); b.replaceChildren(ic("check"), t("codes.copied")); } catch { b.replaceChildren(value); } } }, ic("copy"), t("aw.copy"))
+      : el("button", { type: "button", class: "btn btn-primary", onclick: async ev => { const b = ev.currentTarget; downloadFile(await passImage(p)); b.replaceChildren(ic("check"), t("codes.added")); } }, ic("download"), t("gw.save"))),
+    el("li", {}, el("span", {}, t("aw.step2")), el("a", { class: "btn btn-soft", href: "https://walletwallet.alen.ro/", target: "_blank", rel: "noopener" }, ic("wallet"), t("aw.open"))),
+    el("li", {}, el("span", {}, t("aw.step3", { f: fmt }))));
+  await dialog({ title: t("aw.title"), body: [steps, el("p", { class: "muted tip" }, t("aw.privacy"))] });
+}
+// Inserimento manuale: qualsiasi QR o codice a barre (biglietti, carte fedeltà), da fotocamera, immagine o a mano
+const MANUAL_FMT = [["QRCode", "QR"], ["Code128", "Code 128"], ["EAN13", "EAN-13"], ["EAN8", "EAN-8"], ["Code39", "Code 39"], ["PDF417", "PDF417"], ["Aztec", "Aztec"], ["DataMatrix", "Data Matrix"]];
+async function addCodeDialog(pre = {}) {
+  const name = el("input", { type: "text", id: "acName", value: pre.title || "", maxlength: 80, autocomplete: "off" });
+  const value = el("input", { type: "text", id: "acValue", value: pre.text || "", autocomplete: "off", inputmode: "text" });
+  const fmt = el("select", { id: "acFmt", class: "select" }, MANUAL_FMT.map(([v, l]) => el("option", { value: v, selected: v === (pre.format || "QRCode") ? true : null }, l)));
+  const loyalty = el("input", { type: "checkbox", id: "acLoyal", checked: pre.loyalty ? true : null });
+  const fromCam = el("button", { type: "button", class: "btn btn-soft", onclick: () => { $("#dlg").close("cam"); } }, ic("qr"), t("add.scan"));
+  const fromImg = el("button", { type: "button", class: "btn btn-soft", onclick: () => { $("#dlg").close("img"); } }, ic("file-plus"), t("add.fromImg"));
+  const v = await dialog({
+    title: t("wallet.add"),
+    body: [el("div", { class: "addsrc" }, fromCam, fromImg),
+      el("label", { class: "lbl", for: "acName" }, t("wallet.name")), name,
+      el("label", { class: "lbl", for: "acValue" }, t("add.value")), value,
+      el("label", { class: "lbl", for: "acFmt" }, t("add.format")), fmt,
+      el("label", { class: "check" }, loyalty, " ", t("add.loyalty"))],
+    actions: [{ label: t("common.cancel"), value: "cancel" }, { label: t("common.save"), value: "ok", cls: "btn-primary" }]
+  });
+  const draft = { title: name.value.trim(), text: value.value.trim(), format: fmt.value, loyalty: loyalty.checked };
+  if (v === "cam" || v === "img") {
+    const input = $(v === "cam" ? "#codePhoto" : "#codeImage");
+    input.onchange = async () => {
+      const f = input.files[0]; input.value = "";
+      if (!f) return addCodeDialog(draft);
+      mood("think", 0);
+      let r = null; try { r = await readImage(f); } catch {}
+      mood(null);
+      if (r) { say(t("add.found"), "happy"); addCodeDialog({ ...draft, ...r, title: draft.title || f.name.replace(/\.[^.]+$/, "") }); }
+      else { toast(t("add.notFound")); mood("sad", 1200); addCodeDialog(draft); }
+    };
+    input.click(); return;
+  }
+  if (v !== "ok") return;
+  if (!draft.text && !pre.bytes) { toast(t("add.value")); return addCodeDialog(draft); }
+  const pass = { id: db.uid(), docId: null, title: draft.title || t(draft.loyalty ? "add.loyalty" : "kind.event"), kind: "barcode", format: draft.format, text: draft.text, bytes: draft.text ? null : pre.bytes || null, loyalty: draft.loyalty, added: Date.now() };
+  if (!(await codeSVG(pass))) { toast(t("add.bad")); return addCodeDialog(draft); }
+  await db.put("passes", pass); S.passes.push(pass);
+  renderWallet(); say(t("ev.wallet"), "love");
+  const r = $("#buddyBtn").getBoundingClientRect(); confetti(r.left + r.width / 2, r.top, 26);
+}
+$("#addCode").onclick = () => addCodeDialog();
 /* ================= impostazioni ================= */
 function renderRoots() {
   const ul = $("#rootsList"); ul.replaceChildren();
