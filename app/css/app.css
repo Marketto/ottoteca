@@ -13,6 +13,10 @@
   --b1:#ffc7e0; --b2:#c9ecff; --b3:#e2d6ff; --b4:#fff0b3;
   --otto:#c8865a; --otto-dark:#9a5b38; --otto-light:#eab07e; --otto-cream:#fff1dc; --cream-dark:#f0cfa9; --cheek:#ff8fb1;
   --eye:#24123f; --iris:#5b3cc4; --iris-light:#8fd3ff;
+  --sky1:#aee6ff; --sky2:#e9f7ff; --sky3:#fff1f8; --cloud:#ffffff;
+  --hill1:#c6efb0; --hill2:#9fe08f; --tree:#7cd37a; --leaf:#7fd77a; --stem:#4fae5a; --reed:#5aa95e;
+  --water1:#9ee6f2; --water2:#6fd2e8; --water3:#4cbcdc; --pad:#76d46f; --pad-dark:#3f9c4c;
+  --sun-op:1; --moon-op:0; --star-op:0;
   --shadow:4px 5px 0 var(--ink); --shadow-lg:6px 8px 0 var(--ink); --bw:2.5px;
   --r:22px; --r-sm:14px; --focus:#1b5fd0;
   --font:"Nunito",ui-rounded,"Hiragino Maru Gothic ProN","Yu Gothic UI","Apple SD Gothic Neo","Malgun Gothic","PingFang SC","Microsoft YaHei","Noto Sans","Segoe UI",system-ui,sans-serif;
@@ -24,7 +28,11 @@
   --accent:#6ee7d8; --accent-soft:#1f4a55; --danger:#ff9a94; --danger-soft:#4a2230;
   --b1:#4a2160; --b2:#173f63; --b3:#33276b; --b4:#4a3a1c;
   --otto:#c8865a; --otto-dark:#8f5232; --otto-light:#eab07e; --otto-cream:#fff1dc; --cream-dark:#e8c39a;
-  --focus:#9cc2ff; color-scheme:dark;
+  --focus:#9cc2ff; --sky1:#1a1446; --sky2:#2b2266; --sky3:#4a3384; --cloud:#5b4f96;
+  --hill1:#2c5a5e; --hill2:#23494f; --tree:#2f7a62; --leaf:#3f9a6a; --stem:#2f7a52; --reed:#3a7f58;
+  --water1:#2a5f95; --water2:#1f4f84; --water3:#173f70; --pad:#2f8a5e; --pad-dark:#1f6444;
+  --sun-op:0; --moon-op:1; --star-op:1;
+  color-scheme:dark;
 }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]):not([data-theme="dark"]){
@@ -32,16 +40,17 @@
     --text:#fbf5ff; --muted:#d0c5ef; --primary:#ff8ab4; --on-primary:#1b1235; --primary-soft:#4d2a5e; --on-soft:#ffd3e6;
     --accent:#6ee7d8; --accent-soft:#1f4a55; --danger:#ff9a94; --danger-soft:#4a2230;
     --b1:#4a2160; --b2:#173f63; --b3:#33276b; --b4:#4a3a1c;
-    --otto-dark:#8f5232; --cream-dark:#e8c39a; --focus:#9cc2ff; color-scheme:dark;
+    --otto-dark:#8f5232; --cream-dark:#e8c39a; --focus:#9cc2ff; --sky1:#1a1446; --sky2:#2b2266; --sky3:#4a3384; --cloud:#5b4f96;
+  --hill1:#2c5a5e; --hill2:#23494f; --tree:#2f7a62; --leaf:#3f9a6a; --stem:#2f7a52; --reed:#3a7f58;
+  --water1:#2a5f95; --water2:#1f4f84; --water3:#173f70; --pad:#2f8a5e; --pad-dark:#1f6444;
+  --sun-op:0; --moon-op:1; --star-op:1; color-scheme:dark;
   }
 }
 
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 body{margin:0;font-family:var(--font);font-size:1rem;line-height:1.5;color:var(--text);background:var(--bg);
-  background-image:radial-gradient(color-mix(in srgb,var(--ink) 9%,transparent) 1.2px,transparent 1.6px),radial-gradient(circle at 8% 4%,var(--b1) 0,transparent 32%),radial-gradient(circle at 96% 20%,var(--b2) 0,transparent 30%),radial-gradient(circle at 20% 96%,var(--b4) 0,transparent 30%),radial-gradient(circle at 88% 92%,var(--b3) 0,transparent 34%);
-  background-size:22px 22px,auto,auto,auto,auto;
-  background-attachment:fixed;min-height:100vh;min-height:100dvh;padding-bottom:env(safe-area-inset-bottom)}
+  background:linear-gradient(180deg,var(--sky1) 0%,var(--sky2) 38%,var(--sky3) 70%) fixed;min-height:100vh;min-height:100dvh;padding-bottom:env(safe-area-inset-bottom)}
 :lang(ar){--font:"Segoe UI","Noto Naskh Arabic","Geeza Pro",Tahoma,system-ui,sans-serif}
 :lang(el){--font:"Nunito","Noto Sans","Segoe UI",system-ui,sans-serif}
 h1,h2,h3{line-height:1.2;margin:0 0 .5em;font-weight:900;letter-spacing:-.01em}
@@ -453,12 +462,96 @@ progress::-moz-progress-bar{background:var(--grad)}
 @keyframes sparkle{0%,100%{opacity:.25;transform:scale(.7) rotate(0)}50%{opacity:1;transform:scale(1.1) rotate(20deg)}}
 .otto .o-eye{transform-box:fill-box;transform-origin:center}
 @media (max-width:720px){
-  .toast{top:calc(74px + env(safe-area-inset-top))}
+  .toast{top:calc(var(--hh,120px) + 22px)}
+  .h-land{height:50vh;bottom:calc(62px + env(safe-area-inset-bottom))}
   .lbl-sm{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
   .toolbar{gap:8px}
   .toolbar .btn,.toolbar .select{font-size:.95rem}
   .empty .otto-big{width:180px;height:190px}
 }
+
+/* ---------- habitat di Otto: cielo, colline fiorite, fiume con ninfee ---------- */
+.habitat{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.h-land{position:absolute;left:0;right:0;bottom:0;width:100%;height:min(48vh,460px)}
+.h-sun{position:absolute;top:84px;inset-inline-end:5%;width:clamp(90px,12vw,150px);height:auto}
+.h-rays{transform-box:fill-box;transform-origin:center;animation:spinSlow 40s linear infinite;opacity:var(--sun-op)}
+.h-sunface{opacity:var(--sun-op)}
+.h-sunface{transform-box:fill-box;transform-origin:center;animation:sunBob 5s ease-in-out infinite}
+.h-moon{opacity:var(--moon-op)}
+@keyframes spinSlow{to{transform:rotate(360deg)}}
+@keyframes sunBob{0%,100%{transform:scale(1)}50%{transform:scale(1.05) rotate(-4deg)}}
+.h-stars{position:absolute;inset:0;opacity:var(--star-op)}
+.h-stars i{position:absolute;width:6px;height:6px;background:#fff6c8;border-radius:50%;box-shadow:0 0 8px #fff3a0;animation:twinkle 2.6s ease-in-out infinite;animation-delay:var(--d)}
+.h-cloud{position:absolute;width:clamp(120px,16vw,220px);animation:drift linear infinite}
+.h-cloud.c1{top:110px;animation-duration:70s;animation-delay:-10s}
+.h-cloud.c2{top:200px;width:clamp(90px,11vw,150px);animation-duration:95s;animation-delay:-50s;opacity:.95}
+.h-cloud.c3{top:150px;width:clamp(70px,9vw,120px);animation-duration:120s;animation-delay:-80s;opacity:.9}
+@keyframes drift{from{transform:translateX(-260px)}to{transform:translateX(calc(100vw + 40px))}}
+:dir(rtl) .h-cloud{animation-direction:reverse}
+.h-fly{position:absolute;width:44px;animation:flyPath 26s ease-in-out infinite}
+.h-fly.f1{top:34vh;left:8%}
+.h-fly.f2{top:26vh;left:62%;width:36px;animation-duration:32s;animation-delay:-12s}
+.h-wing{transform-box:fill-box;transform-origin:right center;animation:flap .35s ease-in-out infinite alternate}
+.h-wing.r{transform-origin:left center}
+@keyframes flap{to{transform:scaleX(.35)}}
+@keyframes flyPath{0%,100%{transform:translate(0,0) rotate(-6deg)}25%{transform:translate(18vw,-6vh) rotate(8deg)}50%{transform:translate(30vw,4vh) rotate(-4deg)}75%{transform:translate(12vw,10vh) rotate(6deg)}}
+.h-flower{animation:sway 3.6s ease-in-out infinite;animation-delay:var(--d)}
+.h-tree{animation:sway 6s ease-in-out infinite}
+.h-reed{animation:sway 4.4s ease-in-out infinite;animation-delay:var(--d)}
+@keyframes sway{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+.h-wave{animation:waveMove 14s linear infinite}
+.h-wave.w2{animation-duration:9s;animation-direction:reverse}
+@keyframes waveMove{to{transform:translateX(-1440px)}}
+.h-glint{animation:twinkle 2.2s ease-in-out infinite}
+.h-pad{animation:padBob 4s ease-in-out infinite;animation-delay:var(--d)}
+@keyframes padBob{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+.h-petals i{position:absolute;top:-30px;width:14px;height:12px;background:var(--c);border:2px solid var(--ink);border-radius:80% 0 80% 0;animation:petalFall var(--t) linear infinite;animation-delay:calc(var(--d) * -1);opacity:.9}
+@keyframes petalFall{0%{transform:translate(0,0) rotate(0)}50%{transform:translate(var(--x),55vh) rotate(200deg)}100%{transform:translate(calc(var(--x) * -.5),110vh) rotate(420deg)}}
+:root[data-theme="dark"] .h-petals i{width:7px;height:7px;border:0;border-radius:50%;background:#fff3a0;box-shadow:0 0 10px 3px rgba(255,236,120,.7)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .h-petals i{width:7px;height:7px;border:0;border-radius:50%;background:#fff3a0;box-shadow:0 0 10px 3px rgba(255,236,120,.7)}}
+
+/* intestazione con bordo a festoni come una tenda da picnic, fiori sui pulsanti */
+.topbar{border-bottom:0}
+.topwave{position:absolute;left:0;right:0;top:100%;height:14px;filter:drop-shadow(0 2.5px 0 var(--ink));pointer-events:none}
+.topwave::before{content:"";position:absolute;inset:0;background:var(--surface);
+  -webkit-mask:radial-gradient(circle at 14px 0,#000 13px,transparent 13.5px) 0 0/28px 14px repeat-x;mask:radial-gradient(circle at 14px 0,#000 13px,transparent 13.5px) 0 0/28px 14px repeat-x}
+.topwave::after{content:"";position:absolute;left:0;right:0;top:-3px;height:3px;background:var(--surface)}
+@media (max-width:720px){.tabs{border-top:var(--bw) solid var(--ink)}}
+main{padding-top:30px}
+.view-title::before,.empty h2::before{content:"";display:inline-block;width:1.1em;height:1.1em;margin-inline-end:.35em;vertical-align:-.15em;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cg stroke='%232b1d4a' stroke-width='2.4'%3E%3Ccircle cx='20' cy='9' r='7' fill='%23ff8fb8'/%3E%3Ccircle cx='30.5' cy='16.6' r='7' fill='%23ff8fb8'/%3E%3Ccircle cx='26.5' cy='29' r='7' fill='%23ff8fb8'/%3E%3Ccircle cx='13.5' cy='29' r='7' fill='%23ff8fb8'/%3E%3Ccircle cx='9.5' cy='16.6' r='7' fill='%23ff8fb8'/%3E%3Ccircle cx='20' cy='20' r='6' fill='%23ffd166'/%3E%3C/g%3E%3C/svg%3E") center/contain no-repeat;
+  animation:spinSlow 12s linear infinite}
+.view-title{display:inline-block;background:var(--surface);border:var(--bw) solid var(--ink);border-radius:999px;padding:6px 20px;box-shadow:var(--shadow)}
+/* adesivi a fiore sulle schede */
+.doc-info{position:relative;padding-inline-end:38px}
+.doc-info::after{content:"";position:absolute;inset-inline-end:8px;bottom:8px;width:24px;height:24px;background:var(--flower) center/contain no-repeat;transition:transform .4s cubic-bezier(.3,1.8,.5,1)}
+.doc:hover .doc-info::after{transform:rotate(72deg) scale(1.2)}
+.card-doc{--flower:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cg stroke='%232b1d4a' stroke-width='2.4'%3E%3Ccircle cx='20' cy='9' r='7' fill='%23ff8fb8'/%3E%3Ccircle cx='30.5' cy='16.6' r='7' fill='%23ff8fb8'/%3E%3Ccircle cx='26.5' cy='29' r='7' fill='%23ff8fb8'/%3E%3Ccircle cx='13.5' cy='29' r='7' fill='%23ff8fb8'/%3E%3Ccircle cx='9.5' cy='16.6' r='7' fill='%23ff8fb8'/%3E%3Ccircle cx='20' cy='20' r='6' fill='%23ffd166'/%3E%3C/g%3E%3C/svg%3E")}
+.card-doc:nth-child(4n+2){--flower:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cg stroke='%232b1d4a' stroke-width='2.4'%3E%3Ccircle cx='20' cy='9' r='7' fill='%23ffd166'/%3E%3Ccircle cx='30.5' cy='16.6' r='7' fill='%23ffd166'/%3E%3Ccircle cx='26.5' cy='29' r='7' fill='%23ffd166'/%3E%3Ccircle cx='13.5' cy='29' r='7' fill='%23ffd166'/%3E%3Ccircle cx='9.5' cy='16.6' r='7' fill='%23ffd166'/%3E%3Ccircle cx='20' cy='20' r='6' fill='%23ff8f5a'/%3E%3C/g%3E%3C/svg%3E")}
+.card-doc:nth-child(4n+3){--flower:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cg stroke='%232b1d4a' stroke-width='2.4'%3E%3Ccircle cx='20' cy='9' r='7' fill='%23b9a2ff'/%3E%3Ccircle cx='30.5' cy='16.6' r='7' fill='%23b9a2ff'/%3E%3Ccircle cx='26.5' cy='29' r='7' fill='%23b9a2ff'/%3E%3Ccircle cx='13.5' cy='29' r='7' fill='%23b9a2ff'/%3E%3Ccircle cx='9.5' cy='16.6' r='7' fill='%23b9a2ff'/%3E%3Ccircle cx='20' cy='20' r='6' fill='%23ffd166'/%3E%3C/g%3E%3C/svg%3E")}
+.card-doc:nth-child(4n){--flower:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cg stroke='%232b1d4a' stroke-width='2.4' stroke-linejoin='round'%3E%3Cpath d='M20 36C6 30 4 14 20 4c16 10 14 26 0 32z' fill='%237fd77a'/%3E%3Cpath d='M20 34V10' fill='none'/%3E%3C/g%3E%3C/svg%3E")}
+.chip .dot{border:0;width:18px;height:18px;border-radius:0;background:var(--c);
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cg%3E%3Ccircle cx='20' cy='9' r='8'/%3E%3Ccircle cx='30.5' cy='16.6' r='8'/%3E%3Ccircle cx='26.5' cy='29' r='8'/%3E%3Ccircle cx='13.5' cy='29' r='8'/%3E%3Ccircle cx='9.5' cy='16.6' r='8'/%3E%3C/g%3E%3C/svg%3E") center/contain no-repeat;
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cg%3E%3Ccircle cx='20' cy='9' r='8'/%3E%3Ccircle cx='30.5' cy='16.6' r='8'/%3E%3Ccircle cx='26.5' cy='29' r='8'/%3E%3Ccircle cx='13.5' cy='29' r='8'/%3E%3Ccircle cx='9.5' cy='16.6' r='8'/%3E%3C/g%3E%3C/svg%3E") center/contain no-repeat}
+.count{display:inline-block;background:color-mix(in srgb,var(--surface) 80%,transparent);padding:2px 12px;border-radius:999px;color:var(--text);font-weight:750}
+.count:empty{display:none}
+/* Otto sulla ninfea, con cerchi d'acqua */
+.buddy-btn{position:relative}
+.buddy-btn::before{content:"";position:absolute;left:-14%;right:-14%;bottom:-8px;height:26px;border-radius:50%;background:var(--pad);border:var(--bw) solid var(--ink);z-index:-1;
+  -webkit-mask:conic-gradient(from 160deg,transparent 0 22deg,#000 22deg);mask:conic-gradient(from 160deg,transparent 0 22deg,#000 22deg)}
+.buddy-btn::after{content:"";position:absolute;left:-30%;right:-30%;bottom:-14px;height:38px;border-radius:50%;border:3px solid color-mix(in srgb,var(--water3) 80%,#fff);z-index:-2;animation:ripple 2.6s ease-out infinite}
+@keyframes ripple{0%{transform:scale(.6);opacity:.9}100%{transform:scale(1.3);opacity:0}}
+.empty .otto-big{position:relative}
+.empty .otto-big::before{content:"";position:absolute;left:4%;right:4%;bottom:-6px;height:44px;border-radius:50%;background:var(--pad);border:var(--bw) solid var(--ink);z-index:-1}
+.empty .otto-big::after{content:"";position:absolute;left:-20%;right:-20%;bottom:-18px;height:70px;border-radius:50%;border:3px solid color-mix(in srgb,var(--water3) 80%,#fff);z-index:-2;animation:ripple 3s ease-out infinite}
+.empty{isolation:isolate;background:color-mix(in srgb,var(--surface) 82%,transparent);border:var(--bw) solid var(--ink);border-radius:32px;box-shadow:var(--shadow);max-width:560px;margin:10px auto;padding:30px 20px 26px}
+.none{background:var(--surface);border:var(--bw) solid var(--ink);border-radius:var(--r);box-shadow:var(--shadow);max-width:420px;margin:20px auto;color:var(--text)}
+.bubble::after{content:"";position:absolute;bottom:-10px;inset-inline-end:18px;width:16px;height:16px;background:var(--surface);border-inline-end:var(--bw) solid var(--ink);border-bottom:var(--bw) solid var(--ink);transform:rotate(45deg) skew(8deg,8deg)}
+.bubble{position:relative}
+/* coriandoli: petali e fiori */
+.fx i.petal{border-radius:80% 0 80% 0;border:2px solid #2b1d4a;width:14px;height:12px}
+.fx i.flower{width:18px;height:18px;border-radius:0;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cg%3E%3Ccircle cx='20' cy='9' r='8'/%3E%3Ccircle cx='30.5' cy='16.6' r='8'/%3E%3Ccircle cx='26.5' cy='29' r='8'/%3E%3Ccircle cx='13.5' cy='29' r='8'/%3E%3Ccircle cx='9.5' cy='16.6' r='8'/%3E%3C/g%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cg%3E%3Ccircle cx='20' cy='9' r='8'/%3E%3Ccircle cx='30.5' cy='16.6' r='8'/%3E%3Ccircle cx='26.5' cy='29' r='8'/%3E%3Ccircle cx='13.5' cy='29' r='8'/%3E%3Ccircle cx='9.5' cy='16.6' r='8'/%3E%3C/g%3E%3C/svg%3E") center/contain no-repeat}
+.viewer{background:linear-gradient(180deg,var(--sky1),var(--sky2) 60%,var(--water1))}
 
 /* ---------- movimento ridotto ---------- */
 @media (prefers-reduced-motion:reduce){

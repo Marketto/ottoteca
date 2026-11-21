@@ -2,6 +2,7 @@
 import * as db from "./db.js";
 import { LANGS, detect, setLang, lang, t, apply, size, date, collator } from "./i18n.js";
 import { mountOttos, mood, confetti } from "./otto.js";
+import { mountHabitat } from "./habitat.js";
 import { analyze, openPdf, isPasswordError, renderToCanvas, pdfjs, closePdf } from "./pdf.js";
 import { scanDoc, codeSVG, formatName } from "./codes.js";
 
@@ -931,6 +932,9 @@ function afterLang() {
 }
 (async function init() {
   applyTheme();
+  mountHabitat();
+  const setHH = () => document.documentElement.style.setProperty("--hh", $(".topbar").offsetHeight + "px");
+  setHH(); addEventListener("resize", setHH);
   matchMedia("(prefers-color-scheme: dark)").addEventListener?.("change", applyTheme);
   matchMedia("(prefers-reduced-motion: reduce)").addEventListener?.("change", applyTheme);
   await setLang(detect());

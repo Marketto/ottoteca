@@ -100,10 +100,10 @@ export function mood(state, ms = 2200, scope = document) {
 export function confetti(x = innerWidth / 2, y = innerHeight / 2, n = 28) {
   if (document.documentElement.dataset.motionEff === "reduced") return;
   const fx = document.getElementById("fx");
-  const colors = ["#ff5c8a", "#ffd166", "#4fd8c4", "#8b7cff", "#ff9f43", "#7fe3ff"];
+  const colors = ["#ff8fb8", "#ffd166", "#4fd8c4", "#b9a2ff", "#ffb37a", "#7fe3ff", "#8fe08a"];
   for (let i = 0; i < n; i++) {
     const s = document.createElement("i");
-    if (i % 3 === 0) s.className = "star";
+    s.className = ["star", "petal", "flower", ""][i % 4];
     const a = Math.random() * Math.PI * 2, d = 80 + Math.random() * 160;
     s.style.cssText = `left:${x}px;top:${y}px;--c:${colors[i % colors.length]};--x:${Math.cos(a) * d}px;--y:${Math.sin(a) * d + 120}px;--r:${(Math.random() * 720 - 360) | 0}deg;--d:${1 + Math.random() * .8}s`;
     fx.appendChild(s);

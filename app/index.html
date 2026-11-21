@@ -15,9 +15,11 @@
 <meta name="apple-mobile-web-app-title" content="Ottoteca">
 <link rel="stylesheet" href="css/app.css">
 <link rel="modulepreload" href="js/app.js">
+<link rel="modulepreload" href="js/habitat.js">
 </head>
 <body>
 <a class="skip" href="#main" data-i18n="a11y.skip">Skip to content</a>
+<div class="habitat" id="habitat" aria-hidden="true"></div>
 
 <header class="topbar">
   <a class="brand" href="#/" aria-label="Ottoteca">
@@ -29,6 +31,7 @@
     <a href="#/wallet" data-tab="wallet"><span class="ic ic-wallet" aria-hidden="true"></span><span data-i18n="nav.wallet">Wallet</span></a>
     <a href="#/settings" data-tab="settings"><span class="ic ic-gear" aria-hidden="true"></span><span data-i18n="nav.settings">Settings</span></a>
   </nav>
+  <div class="topwave" aria-hidden="true"></div>
   <button class="btn btn-soft install-btn" id="installBtn" hidden><span class="ic ic-download" aria-hidden="true"></span><span data-i18n="install.btn">Install app</span></button>
 </header>
 
