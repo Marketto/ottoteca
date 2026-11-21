@@ -1,0 +1,30 @@
+{
+  "name": "Ottoteca",
+  "short_name": "Ottoteca",
+  "description": "Your PDFs with thumbnails, virtual folders and a wallet for QR and booking codes. Everything stays on your device.",
+  "id": "./",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone"],
+  "background_color": "#fff6ec",
+  "theme_color": "#fff6ec",
+  "categories": ["productivity", "utilities"],
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ],
+  "file_handlers": [{ "action": "./", "accept": { "application/pdf": [".pdf"] } }],
+  "launch_handler": { "client_mode": "focus-existing" },
+  "share_target": {
+    "action": "./share-target",
+    "method": "POST",
+    "enctype": "multipart/form-data",
+    "params": { "files": [{ "name": "pdf", "accept": ["application/pdf", ".pdf"] }] }
+  },
+  "shortcuts": [
+    { "name": "Wallet", "url": "./#/wallet", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] }
+  ]
+}

@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ottoteca</title>
+<meta name="description" content="Ottoteca: your PDFs with thumbnails, virtual categories and a wallet for QR codes. Everything stays on your device.">
+<meta name="theme-color" content="#fff6ec" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1d1a24" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Ottoteca">
+<link rel="stylesheet" href="css/app.css">
+<link rel="modulepreload" href="js/app.js">
+</head>
+<body>
+<a class="skip" href="#main" data-i18n="a11y.skip">Skip to content</a>
+
+<header class="topbar">
+  <a class="brand" href="#/" aria-label="Ottoteca">
+    <span class="brand-otto" aria-hidden="true" data-otto="mini"></span>
+    <span class="brand-name">Ottoteca</span>
+  </a>
+  <nav class="tabs" aria-label="Ottoteca">
+    <a href="#/" data-tab="library"><span class="ic ic-books" aria-hidden="true"></span><span data-i18n="nav.library">Library</span></a>
+    <a href="#/wallet" data-tab="wallet"><span class="ic ic-wallet" aria-hidden="true"></span><span data-i18n="nav.wallet">Wallet</span></a>
+    <a href="#/settings" data-tab="settings"><span class="ic ic-gear" aria-hidden="true"></span><span data-i18n="nav.settings">Settings</span></a>
+  </nav>
+  <button class="btn btn-soft install-btn" id="installBtn" hidden><span class="ic ic-download" aria-hidden="true"></span><span data-i18n="install.btn">Install app</span></button>
+</header>
+
+<main id="main" tabindex="-1">
+  <!-- LIBRERIA -->
+  <section id="view-library" class="view" aria-labelledby="libTitle">
+    <h1 id="libTitle" class="sr-only" data-i18n="nav.library">Library</h1>
+    <div class="modebar">
+      <div class="seg" role="radiogroup" data-i18n-label="view.mode">
+        <label><input type="radio" name="vmode" value="grid"><span><span class="ic ic-grid" aria-hidden="true"></span> <span data-i18n="mode.grid">Grid</span></span></label>
+        <label><input type="radio" name="vmode" value="date"><span><span class="ic ic-clock" aria-hidden="true"></span> <span data-i18n="mode.date">By date</span></span></label>
+        <label><input type="radio" name="vmode" value="folders"><span><span class="ic ic-folder" aria-hidden="true"></span> <span data-i18n="mode.folders">Folders</span></span></label>
+      </div>
+      <div class="seg seg-sm" id="basisSeg" role="radiogroup" data-i18n-label="tl.basis" hidden>
+        <label><input type="radio" name="basis" value="added"><span data-i18n="tl.added">Added</span></label>
+        <label><input type="radio" name="basis" value="opened"><span data-i18n="tl.opened">Opened</span></label>
+      </div>
+    </div>
+    <div class="toolbar">
+      <div class="search">
+        <span class="ic ic-search" aria-hidden="true"></span>
+        <label class="sr-only" for="q" data-i18n="lib.search">Search PDFs</label>
+        <input id="q" type="search" autocomplete="off" data-i18n-ph="lib.search" placeholder="Search PDFs">
+      </div>
+      <label class="sr-only" for="sort" data-i18n="lib.sort">Sort</label>
+      <select id="sort" class="select">
+        <option value="added" data-i18n="sort.recent">Recently added</option>
+        <option value="opened" data-i18n="sort.opened">Recently opened</option>
+        <option value="name" data-i18n="sort.name">Name</option>
+        <option value="size" data-i18n="sort.size">Size</option>
+      </select>
+      <button class="btn btn-ghost" id="selectBtn" aria-pressed="false"><span class="ic ic-check" aria-hidden="true"></span><span data-i18n="sel.select">Select</span></button>
+      <button class="btn btn-primary" id="addBtn"><span class="ic ic-plus" aria-hidden="true"></span><span data-i18n="lib.add">Add PDF</span></button>
+      <button class="btn btn-soft" id="addDirBtn"><span class="ic ic-folder" aria-hidden="true"></span><span data-i18n="folder.import">Import folder</span></button>
+      <input type="file" id="fileInput" accept="application/pdf,.pdf" multiple hidden>
+      <input type="file" id="dirInput" webkitdirectory multiple hidden>
+    </div>
+
+    <div class="cats" role="group" aria-labelledby="catsLbl">
+      <span id="catsLbl" class="sr-only" data-i18n="lib.filter">Filter by category</span>
+      <div class="chips" id="chips"></div>
+      <button class="chip chip-add" id="newCatBtn"><span class="ic ic-plus" aria-hidden="true"></span><span data-i18n="cat.new">New category</span></button>
+    </div>
+
+    <div class="selbar" id="selbar" hidden>
+      <span id="selCount" aria-live="polite"></span>
+      <button class="btn btn-soft" id="selCats"><span class="ic ic-tag" aria-hidden="true"></span><span data-i18n="sel.assign">Categories</span></button>
+      <button class="btn btn-danger-soft" id="selDel"><span class="ic ic-trash" aria-hidden="true"></span><span data-i18n="sel.delete">Delete</span></button>
+      <button class="btn btn-ghost" id="selDone" data-i18n="sel.done">Done</button>
+    </div>
+
+    <nav class="crumbs" id="crumbs" data-i18n-label="folder.path" hidden><ol id="crumbList"></ol></nav>
+    <p class="count" id="libCount" aria-live="polite"></p>
+    <ul class="folders" id="folders" hidden></ul>
+    <div id="timeline"></div>
+    <ul class="grid" id="grid" aria-labelledby="libTitle"></ul>
+
+    <div class="empty" id="empty" hidden>
+      <div class="otto-big" data-otto="big" aria-hidden="true"></div>
+      <h2 data-i18n="lib.emptyTitle">No PDFs yet</h2>
+      <p data-i18n="lib.emptyText">Add your first PDF: it stays only on this device.</p>
+      <button class="btn btn-primary btn-lg" id="emptyAdd"><span class="ic ic-plus" aria-hidden="true"></span><span data-i18n="lib.add">Add PDF</span></button>
+      <p class="hint" data-i18n="lib.dropHint">…or drop PDFs here</p>
+    </div>
+    <p class="none" id="noResults" hidden data-i18n="lib.noResults">Nothing found</p>
+  </section>
+
+  <!-- PORTAFOGLIO -->
+  <section id="view-wallet" class="view" aria-labelledby="walletTitle" hidden>
+    <h1 id="walletTitle" class="view-title" data-i18n="wallet.title">Wallet</h1>
+    <p class="note" data-i18n="wallet.note"></p>
+    <ul class="passes" id="passes"></ul>
+    <div class="empty" id="walletEmpty" hidden>
+      <div class="otto-big" data-otto="big" aria-hidden="true"></div>
+      <p data-i18n="wallet.empty"></p>
+    </div>
+  </section>
+
+  <!-- IMPOSTAZIONI -->
+  <section id="view-settings" class="view" aria-labelledby="setTitle" hidden>
+    <h1 id="setTitle" class="view-title" data-i18n="set.title">Settings</h1>
+    <div class="card form">
+      <div class="field">
+        <label for="langSel" data-i18n="set.lang">Language</label>
+        <select id="langSel" class="select"></select>
+      </div>
+      <fieldset class="field">
+        <legend data-i18n="set.theme">Theme</legend>
+        <div class="seg">
+          <label><input type="radio" name="theme" value="auto"><span data-i18n="theme.auto">Automatic</span></label>
+          <label><input type="radio" name="theme" value="light"><span data-i18n="theme.light">Light</span></label>
+          <label><input type="radio" name="theme" value="dark"><span data-i18n="theme.dark">Dark</span></label>
+        </div>
+      </fieldset>
+      <fieldset class="field">
+        <legend data-i18n="set.motion">Animations</legend>
+        <div class="seg">
+          <label><input type="radio" name="motion" value="auto"><span data-i18n="theme.auto">Automatic</span></label>
+          <label><input type="radio" name="motion" value="full"><span data-i18n="motion.full">Full</span></label>
+          <label><input type="radio" name="motion" value="reduced"><span data-i18n="motion.reduced">Reduced</span></label>
+        </div>
+      </fieldset>
+    </div>
+    <div class="card">
+      <h2 data-i18n="set.about">About</h2>
+      <p data-i18n="set.privacy"></p>
+      <p id="storageInfo" class="muted"></p>
+      <p class="muted" id="versionInfo"></p>
+      <p class="muted"><a href="https://github.com/Marketto/ottoteca" rel="noopener" target="_blank">GitHub</a> · pdf.js (Apache-2.0) · zxing-cpp / zxing-wasm (Apache-2.0 / MIT) · Nunito (OFL)</p>
+      <button class="btn btn-danger-soft" id="clearAll"><span class="ic ic-trash" aria-hidden="true"></span><span data-i18n="set.clear">Delete all data</span></button>
+    </div>
+  </section>
+</main>
+
+<!-- VISORE -->
+<div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-labelledby="vTitle" hidden>
+  <div class="vbar">
+    <button class="icon-btn" id="vClose" data-i18n-label="view.close"><span class="ic ic-back" aria-hidden="true"></span></button>
+    <h2 id="vTitle" class="vtitle"></h2>
+    <div class="vtools">
+      <button class="icon-btn" id="vThumbs" aria-pressed="false" data-i18n-label="view.thumbs"><span class="ic ic-grid" aria-hidden="true"></span></button>
+      <button class="icon-btn" id="vZoomOut" data-i18n-label="view.zoomOut"><span class="ic ic-minus" aria-hidden="true"></span></button>
+      <output id="vZoom" class="zoomval" aria-live="off">100%</output>
+      <button class="icon-btn" id="vZoomIn" data-i18n-label="view.zoomIn"><span class="ic ic-plus" aria-hidden="true"></span></button>
+      <button class="icon-btn" id="vFit" data-i18n-label="view.fit"><span class="ic ic-fit" aria-hidden="true"></span></button>
+      <button class="btn btn-soft" id="vCodes"><span class="ic ic-qr" aria-hidden="true"></span><span data-i18n="doc.codes">Find codes</span></button>
+      <button class="btn btn-squash" id="vSquash"><span class="ic ic-squash" aria-hidden="true"></span><span data-i18n="squash.short">Compress</span></button>
+      <button class="icon-btn" id="vMore" aria-haspopup="menu" aria-expanded="false" data-i18n-label="doc.moreShort"><span class="ic ic-dots" aria-hidden="true"></span></button>
+    </div>
+  </div>
+  <div class="vbody">
+    <nav class="vside" id="vSide" data-i18n-label="view.thumbs" hidden><ol id="vThumbList"></ol></nav>
+    <div class="vpages" id="vPages" tabindex="0" data-i18n-label="view.pages"></div>
+  </div>
+  <div class="vfoot">
+    <button class="icon-btn" id="vPrev" data-i18n-label="view.prev"><span class="ic ic-up" aria-hidden="true"></span></button>
+    <span id="vPageInfo" aria-live="polite"></span>
+    <button class="icon-btn" id="vNext" data-i18n-label="view.next"><span class="ic ic-down" aria-hidden="true"></span></button>
+  </div>
+</div>
+
+<!-- MENU CONTESTUALE -->
+<div class="menu" id="menu" role="menu" hidden></div>
+
+<!-- DIALOGHI -->
+<dialog id="dlg" class="dlg" aria-labelledby="dlgTitle">
+  <form method="dialog" id="dlgForm">
+    <h2 id="dlgTitle"></h2>
+    <div id="dlgBody"></div>
+    <div class="dlg-actions" id="dlgActions"></div>
+  </form>
+</dialog>
+
+<!-- PASS A SCHERMO INTERO -->
+<dialog id="passDlg" class="passdlg" aria-labelledby="passTitle">
+  <div class="passcard">
+    <h2 id="passTitle"></h2>
+    <div class="passcode" id="passCode"></div>
+    <p class="passtext" id="passText"></p>
+    <p class="muted" data-i18n="wallet.brightness"></p>
+    <div class="dlg-actions">
+      <button class="btn btn-soft" id="passSave"><span class="ic ic-download" aria-hidden="true"></span><span data-i18n="wallet.saveImg">Save as image</span></button>
+      <button class="btn btn-primary" id="passClose" data-i18n="common.close">Close</button>
+    </div>
+  </div>
+</dialog>
+
+<!-- MASCOTTE -->
+<aside class="buddy" id="buddy" aria-label="Otto">
+  <div class="bubble" id="bubble" role="status" aria-live="polite" aria-atomic="true"></div>
+  <button class="buddy-btn" id="buddyBtn" data-i18n-label="mascot.label"><span data-otto="buddy" aria-hidden="true"></span></button>
+</aside>
+
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+<div class="dropzone" id="dropzone" hidden><div><div data-otto="big" aria-hidden="true"></div><p data-i18n="lib.dropHint"></p></div></div>
+<div class="fx" id="fx" aria-hidden="true"></div>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
