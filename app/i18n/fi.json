@@ -246,5 +246,13 @@
   "aw.step2": "Avaa WalletWallet, ilmainen palvelu, joka allekirjoittaa passit Apple Walletille.",
   "aw.open": "Avaa WalletWallet",
   "aw.step3": "Liitä koodi, valitse ”{f}”, anna nimi ja napauta ”Add to Apple Wallet”.",
-  "aw.privacy": "Apple Wallet hyväksyy vain allekirjoitetut passit: sen luomiseksi koodi ja nimi lähetetään WalletWalletiin, Ottotecan ulkopuolelle."
+  "aw.privacy": "Apple Wallet hyväksyy vain allekirjoitetut passit: sen luomiseksi koodi ja nimi lähetetään WalletWalletiin, Ottotecan ulkopuolelle.",
+  "aw.keyHint": "Ilmainen ja yhdellä napautuksella: luo ilmainen WalletWallet-avain (1 000 passia kuussa, ei korttia), liitä se tähän, niin Apple Wallet -painike lisää passin suoraan. Avain pysyy tällä laitteella.",
+  "aw.key": "WalletWallet-avain",
+  "aw.getKey": "Hae ilmainen avain",
+  "aw.badKey": "WalletWallet-avain ei kelpaa: tarkista se asetuksista.",
+  "aw.limit": "Ilmaisten passien kuukausiraja täynnä: se nollautuu kuun 1. päivä.",
+  "aw.fail": "Passia ei voitu luoda: kokeile käsin tehtäviä vaiheita.",
+  "aw.oneTap": "Vinkki: ilmaisella WalletWallet-avaimella (asetuksissa) riittää yksi napautus.",
+  "aw.saved": "Avain tallennettu! Apple Wallet on nyt yhden napautuksen päässä."
 }

@@ -246,5 +246,13 @@
   "aw.step2": "Atver WalletWallet – bezmaksas pakalpojumu, kas paraksta Apple Wallet kartes.",
   "aw.open": "Atvērt WalletWallet",
   "aw.step3": "Ielīmē kodu, izvēlies “{f}”, piešķir nosaukumu un pieskaries “Add to Apple Wallet”.",
-  "aw.privacy": "Apple Wallet pieņem tikai parakstītas kartes: lai to izveidotu, kods un nosaukums tiek nosūtīti uz WalletWallet, ārpus Ottotecas."
+  "aw.privacy": "Apple Wallet pieņem tikai parakstītas kartes: lai to izveidotu, kods un nosaukums tiek nosūtīti uz WalletWallet, ārpus Ottotecas.",
+  "aw.keyHint": "Bez maksas un ar vienu pieskārienu: izveido bezmaksas WalletWallet atslēgu (1000 karšu mēnesī, bez maksājumu kartes), ielīmē to šeit, un Apple Wallet poga pievienos karti uzreiz. Atslēga paliek šajā ierīcē.",
+  "aw.key": "WalletWallet atslēga",
+  "aw.getKey": "Iegūt bezmaksas atslēgu",
+  "aw.badKey": "WalletWallet atslēga nav derīga: pārbaudi to iestatījumos.",
+  "aw.limit": "Sasniegts bezmaksas karšu mēneša limits: tas atjaunojas 1. datumā.",
+  "aw.fail": "Neizdevās izveidot karti: pamēģini manuālos soļus.",
+  "aw.oneTap": "Padoms: ar bezmaksas WalletWallet atslēgu (iestatījumos) pietiek ar vienu pieskārienu.",
+  "aw.saved": "Atslēga saglabāta! Apple Wallet tagad ir viena pieskāriena attālumā."
 }

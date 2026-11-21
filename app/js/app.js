@@ -7,7 +7,7 @@ import { classify, KINDS, KIND_ICON } from "./kinds.js";
 import { analyze, openPdf, isPasswordError, renderToCanvas, pdfjs, closePdf } from "./pdf.js";
 import { scanDoc, codeSVG, formatName, readImage } from "./codes.js";
 
-export const VERSION = "1.2.0";
+export const VERSION = "1.3.0";
 const HEAVY = 5 * 1024 * 1024;                     // oltre questa soglia si suggerisce Schiaccia PDF
 const SQUASH_URL = "https://marketto.github.io/pdf-tiny-tools/";
 const COLORS = ["#e5637a", "#f29e4c", "#e8c547", "#7cc46b", "#3fb5a9", "#4f9ae0", "#8f7ae5", "#d06fc0", "#a07b62", "#7d8796"];
@@ -979,9 +979,34 @@ async function toPhoneWallet(p) {
   await dialog({ title: t("gw.title"), body: steps });
 }
 // Apple Wallet vuole pass firmati: li firma WalletWallet (servizio gratuito con certificato Apple). Il codice va a loro.
-const AW_FMT = { QRCode: "QR", MicroQRCode: "QR", Aztec: "Aztec", PDF417: "PDF417", CompactPDF417: "PDF417", Code128: "Code 128" };
+// Con una chiave gratuita (1000 pass al mese) dell'utente il pass si crea con un tocco; la chiave resta nel dispositivo.
+const AW_API = { QRCode: "QR", MicroQRCode: "QR", RMQRCode: "QR", DataMatrix: "QR", Aztec: "Aztec", PDF417: "PDF417", CompactPDF417: "PDF417" };
+const awFmt = f => AW_API[f] || "Code128"; // i codici a barre lineari (EAN, Code 39…) diventano Code 128 con lo stesso numero
+const AW_COLOR = ["blue", "red", "green", "purple", "orange", "dark"];
+async function appleDirect(p, key) {
+  mood("think", 0);
+  try {
+    const body = { barcodeValue: p.text.slice(0, 512), barcodeFormat: awFmt(p.format), title: (p.title || "Ottoteca").slice(0, 64), logoText: (p.title || "Ottoteca").slice(0, 64), organizationName: "Ottoteca", description: (p.title || "Pass").slice(0, 128), colorPreset: AW_COLOR[parseInt(p.id.slice(-2), 36) % AW_COLOR.length || 0], sharingProhibited: false };
+    const r = await fetch("https://api.walletwallet.dev/api/pkpass", { method: "POST", headers: { "Content-Type": "application/json", Authorization: "Bearer " + key }, body: JSON.stringify(body) });
+    if (!r.ok) { let m = ""; try { m = (await r.json()).error || ""; } catch {} throw new Error(r.status + (m ? " " + m : "")); }
+    const blob = new Blob([await r.blob()], { type: "application/vnd.apple.pkpass" });
+    const url = URL.createObjectURL(blob);
+    const a = el("a", { href: url, download: (p.title || "pass").replace(/[^\w.-]+/g, "_").slice(0, 40) + ".pkpass" });
+    if (IS_IOS) a.removeAttribute("download"); // Safari apre «Aggiungi a Wallet»
+    document.body.append(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 60000);
+    mood(null); say(t("ev.wallet"), "love");
+    return true;
+  } catch (e) {
+    mood("sad", 1500);
+    toast(t(String(e.message).startsWith("401") ? "aw.badKey" : String(e.message).startsWith("429") ? "aw.limit" : "aw.fail"));
+    return false;
+  }
+}
 async function toAppleWallet(p) {
-  const fmt = AW_FMT[p.format] || "QR";
+  const key = (localStorage.getItem("otto.awkey") || "").trim();
+  if (key && p.text && await appleDirect(p, key)) return;
+  const fmt = { QR: "QR", PDF417: "PDF417", Aztec: "Aztec", Code128: "Code 128" }[awFmt(p.format)];
   const value = p.text || "";
   const steps = el("ol", { class: "wsteps" },
     el("li", {}, el("span", {}, t("aw.step1")), value
@@ -989,7 +1014,7 @@ async function toAppleWallet(p) {
       : el("button", { type: "button", class: "btn btn-primary", onclick: async ev => { const b = ev.currentTarget; downloadFile(await passImage(p)); b.replaceChildren(ic("check"), t("codes.added")); } }, ic("download"), t("gw.save"))),
     el("li", {}, el("span", {}, t("aw.step2")), el("a", { class: "btn btn-soft", href: "https://walletwallet.alen.ro/", target: "_blank", rel: "noopener" }, ic("wallet"), t("aw.open"))),
     el("li", {}, el("span", {}, t("aw.step3", { f: fmt }))));
-  await dialog({ title: t("aw.title"), body: [steps, el("p", { class: "muted tip" }, t("aw.privacy"))] });
+  await dialog({ title: t("aw.title"), body: [steps, el("p", { class: "muted tip" }, t("aw.privacy")), key ? null : el("p", { class: "muted tip" }, t("aw.oneTap"))].filter(Boolean) });
 }
 // Inserimento manuale: qualsiasi QR o codice a barre (biglietti, carte fedeltà), da fotocamera, immagine o a mano
 const MANUAL_FMT = [["QRCode", "QR"], ["Code128", "Code 128"], ["EAN13", "EAN-13"], ["EAN8", "EAN-8"], ["Code39", "Code 39"], ["PDF417", "PDF417"], ["Aztec", "Aztec"], ["DataMatrix", "Data Matrix"]];
@@ -1055,6 +1080,8 @@ async function renderSettings() {
 $("#langSel").onchange = async e => { localStorage.setItem("otto.lang", e.target.value); await setLang(e.target.value); afterLang(); say(t("ev.lang"), "happy"); };
 document.querySelectorAll("input[name=theme]").forEach(r => r.onchange = () => { localStorage.setItem("otto.theme", r.value); applyTheme(); mood("spin", 1000); });
 document.querySelectorAll("input[name=textsize]").forEach(r => r.onchange = () => { localStorage.setItem("otto.text", r.value); applyTextSize(); mood("happy", 1200); });
+$("#awKey").value = localStorage.getItem("otto.awkey") || "";
+$("#awKey").onchange = e => { const v = e.target.value.trim(); if (v) localStorage.setItem("otto.awkey", v); else localStorage.removeItem("otto.awkey"); if (v) say(t("aw.saved"), "happy"); };
 document.querySelectorAll("input[name=motion]").forEach(r => r.onchange = () => { localStorage.setItem("otto.motion", r.value); applyTheme(); });
 $("#clearAll").onclick = async () => {
   if (!(await confirmBox(t("set.clear"), t("set.clearConfirm"), t("common.delete")))) return;

@@ -246,5 +246,13 @@
   "aw.step2": "Deschide WalletWallet, un serviciu gratuit care semnează carduri pentru Apple Wallet.",
   "aw.open": "Deschide WalletWallet",
   "aw.step3": "Lipește codul, alege „{f}”, dă-i un nume și atinge „Add to Apple Wallet”.",
-  "aw.privacy": "Apple Wallet acceptă doar carduri semnate: pentru a-l crea, codul și numele ajung la WalletWallet, în afara Ottoteca."
+  "aw.privacy": "Apple Wallet acceptă doar carduri semnate: pentru a-l crea, codul și numele ajung la WalletWallet, în afara Ottoteca.",
+  "aw.keyHint": "Gratuit și dintr-o atingere: creează o cheie WalletWallet gratuită (1000 de carduri pe lună, fără card bancar), lipește-o aici și butonul Apple Wallet adaugă cardul direct. Cheia rămâne pe acest dispozitiv.",
+  "aw.key": "Cheie WalletWallet",
+  "aw.getKey": "Obține o cheie gratuită",
+  "aw.badKey": "Cheia WalletWallet nu este validă: verific-o în Setări.",
+  "aw.limit": "Limita lunară de carduri gratuite a fost atinsă: se resetează pe 1.",
+  "aw.fail": "Nu am putut crea cardul: încearcă pașii manuali.",
+  "aw.oneTap": "Sfat: cu o cheie WalletWallet gratuită (în Setări) e nevoie de o singură atingere.",
+  "aw.saved": "Cheie salvată! Apple Wallet e acum la o atingere."
 }

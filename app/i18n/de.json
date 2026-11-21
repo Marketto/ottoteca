@@ -246,5 +246,13 @@
   "aw.step2": "Öffne WalletWallet, einen kostenlosen Dienst, der Pässe für Apple Wallet signiert.",
   "aw.open": "WalletWallet öffnen",
   "aw.step3": "Füge den Code ein, wähle „{f}“, gib einen Namen ein und tippe auf „Add to Apple Wallet“.",
-  "aw.privacy": "Apple Wallet nimmt nur signierte Pässe an: Dafür gehen Code und Name an WalletWallet, außerhalb von Ottoteca."
+  "aw.privacy": "Apple Wallet nimmt nur signierte Pässe an: Dafür gehen Code und Name an WalletWallet, außerhalb von Ottoteca.",
+  "aw.keyHint": "Kostenlos und mit einem Tipp: Erstelle einen kostenlosen WalletWallet-Schlüssel (1.000 Pässe im Monat, ohne Karte), füge ihn hier ein, und der Apple-Wallet-Knopf fügt den Pass direkt hinzu. Der Schlüssel bleibt auf diesem Gerät.",
+  "aw.key": "WalletWallet-Schlüssel",
+  "aw.getKey": "Kostenlosen Schlüssel holen",
+  "aw.badKey": "Der WalletWallet-Schlüssel ist ungültig: Prüfe ihn in den Einstellungen.",
+  "aw.limit": "Monatliches Limit kostenloser Pässe erreicht: Es setzt sich am 1. zurück.",
+  "aw.fail": "Pass konnte nicht erstellt werden: Versuch die manuellen Schritte.",
+  "aw.oneTap": "Tipp: Mit einem kostenlosen WalletWallet-Schlüssel (in den Einstellungen) reicht ein Tipp.",
+  "aw.saved": "Schlüssel gespeichert! Apple Wallet ist jetzt nur einen Tipp entfernt."
 }

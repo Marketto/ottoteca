@@ -246,5 +246,13 @@
   "aw.step2": "Ouvre WalletWallet, un service gratuit qui signe les cartes pour Apple Wallet.",
   "aw.open": "Ouvrir WalletWallet",
   "aw.step3": "Colle le code, choisis « {f} », donne-lui un nom et touche « Add to Apple Wallet ».",
-  "aw.privacy": "Apple Wallet n'accepte que des cartes signées : pour la créer, le code et le nom partent chez WalletWallet, hors d'Ottoteca."
+  "aw.privacy": "Apple Wallet n'accepte que des cartes signées : pour la créer, le code et le nom partent chez WalletWallet, hors d'Ottoteca.",
+  "aw.keyHint": "Gratuit et en un geste : crée une clé WalletWallet gratuite (1 000 cartes par mois, sans carte bancaire), colle-la ici et le bouton Apple Wallet ajoute la carte directement. La clé reste sur cet appareil.",
+  "aw.key": "Clé WalletWallet",
+  "aw.getKey": "Obtenir une clé gratuite",
+  "aw.badKey": "La clé WalletWallet n'est pas valide : vérifie-la dans les Réglages.",
+  "aw.limit": "Limite mensuelle de cartes gratuites atteinte : elle repart le 1er.",
+  "aw.fail": "Impossible de créer la carte : essaie les étapes manuelles.",
+  "aw.oneTap": "Astuce : avec une clé WalletWallet gratuite (dans les Réglages), un seul geste suffit.",
+  "aw.saved": "Clé enregistrée ! Apple Wallet est à un geste."
 }

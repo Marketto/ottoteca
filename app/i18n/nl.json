@@ -246,5 +246,13 @@
   "aw.step2": "Open WalletWallet, een gratis dienst die passen voor Apple Wallet ondertekent.",
   "aw.open": "WalletWallet openen",
   "aw.step3": "Plak de code, kies ‘{f}’, geef een naam en tik op ‘Add to Apple Wallet’.",
-  "aw.privacy": "Apple Wallet accepteert alleen ondertekende passen: om er een te maken gaan de code en de naam naar WalletWallet, buiten Ottoteca."
+  "aw.privacy": "Apple Wallet accepteert alleen ondertekende passen: om er een te maken gaan de code en de naam naar WalletWallet, buiten Ottoteca.",
+  "aw.keyHint": "Gratis en met één tik: maak een gratis WalletWallet-sleutel (1000 passen per maand, zonder kaart), plak hem hier en de Apple Wallet-knop voegt de pas direct toe. De sleutel blijft op dit apparaat.",
+  "aw.key": "WalletWallet-sleutel",
+  "aw.getKey": "Gratis sleutel halen",
+  "aw.badKey": "De WalletWallet-sleutel is ongeldig: controleer hem in Instellingen.",
+  "aw.limit": "Maandlimiet voor gratis passen bereikt: die begint opnieuw op de 1e.",
+  "aw.fail": "Kon de pas niet maken: probeer de handmatige stappen.",
+  "aw.oneTap": "Tip: met een gratis WalletWallet-sleutel (in Instellingen) is het één tik.",
+  "aw.saved": "Sleutel opgeslagen! Apple Wallet is nu één tik ver."
 }

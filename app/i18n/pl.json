@@ -246,5 +246,13 @@
   "aw.step2": "Otwórz WalletWallet, darmową usługę, która podpisuje karty dla Apple Wallet.",
   "aw.open": "Otwórz WalletWallet",
   "aw.step3": "Wklej kod, wybierz „{f}”, nadaj nazwę i stuknij „Add to Apple Wallet”.",
-  "aw.privacy": "Apple Wallet przyjmuje tylko podpisane karty: aby ją utworzyć, kod i nazwa trafiają do WalletWallet, poza Ottotekę."
+  "aw.privacy": "Apple Wallet przyjmuje tylko podpisane karty: aby ją utworzyć, kod i nazwa trafiają do WalletWallet, poza Ottotekę.",
+  "aw.keyHint": "Za darmo i jednym stuknięciem: utwórz darmowy klucz WalletWallet (1000 kart miesięcznie, bez karty płatniczej), wklej go tutaj, a przycisk Apple Wallet doda kartę od razu. Klucz zostaje na tym urządzeniu.",
+  "aw.key": "Klucz WalletWallet",
+  "aw.getKey": "Zdobądź darmowy klucz",
+  "aw.badKey": "Klucz WalletWallet jest nieprawidłowy: sprawdź go w Ustawieniach.",
+  "aw.limit": "Osiągnięto miesięczny limit darmowych kart: odnowi się 1. dnia miesiąca.",
+  "aw.fail": "Nie udało się utworzyć karty: spróbuj kroków ręcznych.",
+  "aw.oneTap": "Wskazówka: z darmowym kluczem WalletWallet (w Ustawieniach) wystarczy jedno stuknięcie.",
+  "aw.saved": "Klucz zapisany! Apple Wallet jest teraz o jedno stuknięcie."
 }

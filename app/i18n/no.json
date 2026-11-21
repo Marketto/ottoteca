@@ -246,5 +246,13 @@
   "aw.step2": "Åpne WalletWallet, en gratis tjeneste som signerer kort for Apple Wallet.",
   "aw.open": "Åpne WalletWallet",
   "aw.step3": "Lim inn koden, velg «{f}», gi den et navn og trykk «Add to Apple Wallet».",
-  "aw.privacy": "Apple Wallet godtar bare signerte kort: for å lage det sendes koden og navnet til WalletWallet, utenfor Ottoteca."
+  "aw.privacy": "Apple Wallet godtar bare signerte kort: for å lage det sendes koden og navnet til WalletWallet, utenfor Ottoteca.",
+  "aw.keyHint": "Gratis og med ett trykk: lag en gratis WalletWallet-nøkkel (1000 kort i måneden, uten betalingskort), lim den inn her, så legger Apple Wallet-knappen til kortet direkte. Nøkkelen blir på denne enheten.",
+  "aw.key": "WalletWallet-nøkkel",
+  "aw.getKey": "Få en gratis nøkkel",
+  "aw.badKey": "WalletWallet-nøkkelen er ugyldig: sjekk den i Innstillinger.",
+  "aw.limit": "Månedsgrensen for gratis kort er nådd: den nullstilles den 1.",
+  "aw.fail": "Klarte ikke å lage kortet: prøv de manuelle trinnene.",
+  "aw.oneTap": "Tips: med en gratis WalletWallet-nøkkel (i Innstillinger) holder det med ett trykk.",
+  "aw.saved": "Nøkkel lagret! Apple Wallet er nå ett trykk unna."
 }

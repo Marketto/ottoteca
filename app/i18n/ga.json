@@ -246,5 +246,13 @@
   "aw.step2": "Oscail WalletWallet, seirbhís saor in aisce a shíníonn pasanna do Apple Wallet.",
   "aw.open": "Oscail WalletWallet",
   "aw.step3": "Greamaigh an cód, roghnaigh “{f}”, tabhair ainm dó agus tapáil “Add to Apple Wallet”.",
-  "aw.privacy": "Ní ghlacann Apple Wallet ach le pasanna sínithe: chun é a chruthú, téann an cód agus an t-ainm chuig WalletWallet, lasmuigh de Ottoteca."
+  "aw.privacy": "Ní ghlacann Apple Wallet ach le pasanna sínithe: chun é a chruthú, téann an cód agus an t-ainm chuig WalletWallet, lasmuigh de Ottoteca.",
+  "aw.keyHint": "Saor in aisce agus le tapáil amháin: cruthaigh eochair WalletWallet saor in aisce (1,000 pas sa mhí, gan chárta), greamaigh anseo í agus cuirfidh an cnaipe Apple Wallet an pas leis go díreach. Fanann an eochair ar an ngléas seo.",
+  "aw.key": "Eochair WalletWallet",
+  "aw.getKey": "Faigh eochair saor in aisce",
+  "aw.badKey": "Níl an eochair WalletWallet bailí: seiceáil sna Socruithe í.",
+  "aw.limit": "Sroicheadh teorainn mhíosúil na bpasanna saor in aisce: athshocraítear ar an 1ú.",
+  "aw.fail": "Níorbh fhéidir an pas a chruthú: bain triail as na céimeanna láimhe.",
+  "aw.oneTap": "Leid: le heochair WalletWallet saor in aisce (sna Socruithe) is leor tapáil amháin.",
+  "aw.saved": "Eochair sábháilte! Tá Apple Wallet tapáil amháin uait anois."
 }

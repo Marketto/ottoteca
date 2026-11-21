@@ -246,5 +246,13 @@
   "aw.step2": "Opnaðu WalletWallet, ókeypis þjónustu sem undirritar passa fyrir Apple Wallet.",
   "aw.open": "Opna WalletWallet",
   "aw.step3": "Límdu kóðann, veldu „{f}“, gefðu honum nafn og ýttu á „Add to Apple Wallet“.",
-  "aw.privacy": "Apple Wallet tekur aðeins við undirrituðum pössum: til að búa hann til fara kóðinn og nafnið til WalletWallet, utan Ottoteca."
+  "aw.privacy": "Apple Wallet tekur aðeins við undirrituðum pössum: til að búa hann til fara kóðinn og nafnið til WalletWallet, utan Ottoteca.",
+  "aw.keyHint": "Ókeypis og með einni snertingu: búðu til ókeypis WalletWallet-lykil (1.000 passar á mánuði, ekkert kort), límdu hann hér og Apple Wallet-hnappurinn bætir passanum beint við. Lykillinn helst á þessu tæki.",
+  "aw.key": "WalletWallet-lykill",
+  "aw.getKey": "Fá ókeypis lykil",
+  "aw.badKey": "WalletWallet-lykillinn er ógildur: athugaðu hann í Stillingum.",
+  "aw.limit": "Mánaðarhámarki ókeypis passa náð: það núllstillist þann 1.",
+  "aw.fail": "Ekki tókst að búa til passann: prófaðu handvirku skrefin.",
+  "aw.oneTap": "Ábending: með ókeypis WalletWallet-lykli (í Stillingum) dugar ein snerting.",
+  "aw.saved": "Lykill vistaður! Apple Wallet er nú í einni snertingu."
 }

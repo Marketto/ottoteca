@@ -246,5 +246,13 @@
   "aw.step2": "Nyisd meg a WalletWalletet, egy ingyenes szolgáltatást, amely aláírja a kártyákat az Apple Wallethez.",
   "aw.open": "WalletWallet megnyitása",
   "aw.step3": "Illeszd be a kódot, válaszd a(z) „{f}” típust, adj neki nevet, és koppints az „Add to Apple Wallet” gombra.",
-  "aw.privacy": "Az Apple Wallet csak aláírt kártyát fogad el: ehhez a kód és a név a WalletWallethez kerül, az Ottotecán kívülre."
+  "aw.privacy": "Az Apple Wallet csak aláírt kártyát fogad el: ehhez a kód és a név a WalletWallethez kerül, az Ottotecán kívülre.",
+  "aw.keyHint": "Ingyen és egy koppintással: hozz létre ingyenes WalletWallet-kulcsot (havi 1000 kártya, bankkártya nélkül), illeszd be ide, és az Apple Wallet gomb közvetlenül hozzáadja a kártyát. A kulcs ezen az eszközön marad.",
+  "aw.key": "WalletWallet-kulcs",
+  "aw.getKey": "Ingyenes kulcs kérése",
+  "aw.badKey": "A WalletWallet-kulcs érvénytelen: ellenőrizd a Beállításokban.",
+  "aw.limit": "Elérted az ingyenes kártyák havi korlátját: 1-jén nullázódik.",
+  "aw.fail": "Nem sikerült létrehozni a kártyát: próbáld a kézi lépéseket.",
+  "aw.oneTap": "Tipp: ingyenes WalletWallet-kulccsal (a Beállításokban) egy koppintás elég.",
+  "aw.saved": "Kulcs mentve! Az Apple Wallet most egy koppintásnyira van."
 }

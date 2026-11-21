@@ -246,5 +246,13 @@
   "aw.step2": "Atidaryk WalletWallet – nemokamą paslaugą, kuri pasirašo Apple Wallet korteles.",
   "aw.open": "Atidaryti WalletWallet",
   "aw.step3": "Įklijuok kodą, pasirink „{f}“, suteik pavadinimą ir paliesk „Add to Apple Wallet“.",
-  "aw.privacy": "Apple Wallet priima tik pasirašytas korteles: kad ji būtų sukurta, kodas ir pavadinimas siunčiami WalletWallet, už Ottotecos ribų."
+  "aw.privacy": "Apple Wallet priima tik pasirašytas korteles: kad ji būtų sukurta, kodas ir pavadinimas siunčiami WalletWallet, už Ottotecos ribų.",
+  "aw.keyHint": "Nemokamai ir vienu palietimu: susikurk nemokamą WalletWallet raktą (1000 kortelių per mėnesį, be mokėjimo kortelės), įklijuok jį čia, ir Apple Wallet mygtukas iškart pridės kortelę. Raktas lieka šiame įrenginyje.",
+  "aw.key": "WalletWallet raktas",
+  "aw.getKey": "Gauti nemokamą raktą",
+  "aw.badKey": "WalletWallet raktas negalioja: patikrink jį nustatymuose.",
+  "aw.limit": "Pasiektas mėnesio nemokamų kortelių limitas: jis atsinaujins 1 dieną.",
+  "aw.fail": "Nepavyko sukurti kortelės: pabandyk rankinius veiksmus.",
+  "aw.oneTap": "Patarimas: su nemokamu WalletWallet raktu (nustatymuose) užtenka vieno palietimo.",
+  "aw.saved": "Raktas išsaugotas! Apple Wallet dabar per vieną palietimą."
 }

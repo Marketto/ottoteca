@@ -246,5 +246,13 @@
   "aw.step2": "Hap WalletWallet, një shërbim falas që nënshkruan karta për Apple Wallet.",
   "aw.open": "Hap WalletWallet",
   "aw.step3": "Ngjit kodin, zgjidh «{f}», jepi një emër dhe prek «Add to Apple Wallet».",
-  "aw.privacy": "Apple Wallet pranon vetëm karta të nënshkruara: për ta krijuar, kodi dhe emri shkojnë te WalletWallet, jashtë Ottoteca-s."
+  "aw.privacy": "Apple Wallet pranon vetëm karta të nënshkruara: për ta krijuar, kodi dhe emri shkojnë te WalletWallet, jashtë Ottoteca-s.",
+  "aw.keyHint": "Falas dhe me një prekje: krijo një çelës falas WalletWallet (1000 karta në muaj, pa kartë bankare), ngjite këtu dhe butoni Apple Wallet e shton kartën drejtpërdrejt. Çelësi mbetet në këtë pajisje.",
+  "aw.key": "Çelësi WalletWallet",
+  "aw.getKey": "Merr një çelës falas",
+  "aw.badKey": "Çelësi WalletWallet nuk është i vlefshëm: kontrolloje te Cilësimet.",
+  "aw.limit": "U arrit kufiri mujor i kartave falas: rinis më 1.",
+  "aw.fail": "Karta nuk u krijua: provo hapat manualë.",
+  "aw.oneTap": "Këshillë: me një çelës falas WalletWallet (te Cilësimet) mjafton një prekje.",
+  "aw.saved": "Çelësi u ruajt! Apple Wallet tani është një prekje larg."
 }

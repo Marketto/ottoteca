@@ -246,5 +246,13 @@
   "aw.step2": "Otvori WalletWallet, besplatnu uslugu koja potpisuje propusnice za Apple Wallet.",
   "aw.open": "Otvori WalletWallet",
   "aw.step3": "Zalijepi kod, odaberi „{f}”, daj mu naziv i dodirni „Add to Apple Wallet”.",
-  "aw.privacy": "Apple Wallet prihvaća samo potpisane propusnice: za izradu se kod i naziv šalju WalletWalletu, izvan Ottoteke."
+  "aw.privacy": "Apple Wallet prihvaća samo potpisane propusnice: za izradu se kod i naziv šalju WalletWalletu, izvan Ottoteke.",
+  "aw.keyHint": "Besplatno i jednim dodirom: napravi besplatan WalletWallet ključ (1000 propusnica mjesečno, bez kartice), zalijepi ga ovdje i gumb Apple Wallet izravno dodaje propusnicu. Ključ ostaje na ovom uređaju.",
+  "aw.key": "WalletWallet ključ",
+  "aw.getKey": "Nabavi besplatan ključ",
+  "aw.badKey": "WalletWallet ključ nije valjan: provjeri ga u Postavkama.",
+  "aw.limit": "Dosegnut je mjesečni limit besplatnih propusnica: poništava se 1. u mjesecu.",
+  "aw.fail": "Nije uspjelo stvaranje propusnice: probaj ručne korake.",
+  "aw.oneTap": "Savjet: s besplatnim WalletWallet ključem (u Postavkama) dovoljan je jedan dodir.",
+  "aw.saved": "Ključ spremljen! Apple Wallet je sada na jedan dodir."
 }

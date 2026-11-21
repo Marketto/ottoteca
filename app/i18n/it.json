@@ -246,5 +246,13 @@
   "aw.step2": "Apri WalletWallet, un servizio gratuito che firma i pass per Apple Wallet.",
   "aw.open": "Apri WalletWallet",
   "aw.step3": "Incolla il codice, scegli «{f}», dai un nome e tocca «Add to Apple Wallet».",
-  "aw.privacy": "Apple Wallet accetta solo pass firmati: per crearlo, il codice e il nome vanno a WalletWallet, fuori da Ottoteca."
+  "aw.privacy": "Apple Wallet accetta solo pass firmati: per crearlo, il codice e il nome vanno a WalletWallet, fuori da Ottoteca.",
+  "aw.keyHint": "Gratis e con un tocco: crea una chiave WalletWallet gratuita (1000 pass al mese, senza carta), incollala qui e il pulsante Apple Wallet aggiunge il pass direttamente. La chiave resta su questo dispositivo.",
+  "aw.key": "Chiave WalletWallet",
+  "aw.getKey": "Prendi una chiave gratis",
+  "aw.badKey": "La chiave WalletWallet non è valida: controllala nelle Impostazioni.",
+  "aw.limit": "Limite mensile di pass gratuiti raggiunto: si azzera il giorno 1.",
+  "aw.fail": "Non sono riuscito a creare il pass: prova i passi manuali.",
+  "aw.oneTap": "Consiglio: con una chiave WalletWallet gratuita (nelle Impostazioni) basta un tocco.",
+  "aw.saved": "Chiave salvata! Ora Apple Wallet è a un tocco."
 }

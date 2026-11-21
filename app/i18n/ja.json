@@ -246,5 +246,13 @@
   "aw.step2": "WalletWallet（Apple Wallet用のパスに署名する無料サービス）を開きます。",
   "aw.open": "WalletWalletを開く",
   "aw.step3": "コードを貼り付け、「{f}」を選び、名前を付けて「Add to Apple Wallet」をタップ。",
-  "aw.privacy": "Apple Walletは署名付きのパスしか受け付けないため、作成のためにコードと名前がOttotecaの外のWalletWalletに送られます。"
+  "aw.privacy": "Apple Walletは署名付きのパスしか受け付けないため、作成のためにコードと名前がOttotecaの外のWalletWalletに送られます。",
+  "aw.keyHint": "無料でワンタップ：無料のWalletWalletキー（月1,000枚、カード不要）を作ってここに貼り付けると、Apple Walletボタンでパスを直接追加できます。キーはこの端末にだけ保存されます。",
+  "aw.key": "WalletWalletキー",
+  "aw.getKey": "無料キーを取得",
+  "aw.badKey": "WalletWalletキーが無効です。設定で確認してね。",
+  "aw.limit": "今月の無料パスの上限に達しました。1日にリセットされます。",
+  "aw.fail": "パスを作れませんでした。手動の手順を試してね。",
+  "aw.oneTap": "ヒント：設定に無料のWalletWalletキーを入れればワンタップです。",
+  "aw.saved": "キーを保存したよ！Apple Walletにワンタップで追加できます。"
 }

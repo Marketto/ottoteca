@@ -246,5 +246,13 @@
   "aw.step2": "Ava WalletWallet, tasuta teenus, mis allkirjastab Apple Walleti passe.",
   "aw.open": "Ava WalletWallet",
   "aw.step3": "Kleebi kood, vali „{f}“, anna nimi ja puuduta „Add to Apple Wallet“.",
-  "aw.privacy": "Apple Wallet võtab vastu ainult allkirjastatud passe: selle loomiseks lähevad kood ja nimi WalletWalletile, Ottotecast väljapoole."
+  "aw.privacy": "Apple Wallet võtab vastu ainult allkirjastatud passe: selle loomiseks lähevad kood ja nimi WalletWalletile, Ottotecast väljapoole.",
+  "aw.keyHint": "Tasuta ja ühe puudutusega: loo tasuta WalletWalleti võti (1000 passi kuus, ilma kaardita), kleebi see siia ja Apple Walleti nupp lisab passi otse. Võti jääb sellesse seadmesse.",
+  "aw.key": "WalletWalleti võti",
+  "aw.getKey": "Hangi tasuta võti",
+  "aw.badKey": "WalletWalleti võti ei kehti: kontrolli seda seadetes.",
+  "aw.limit": "Tasuta passide kuulimiit täis: see nullitakse kuu 1. päeval.",
+  "aw.fail": "Passi ei õnnestunud luua: proovi käsitsi samme.",
+  "aw.oneTap": "Vihje: tasuta WalletWalleti võtmega (seadetes) piisab ühest puudutusest.",
+  "aw.saved": "Võti salvestatud! Apple Wallet on nüüd ühe puudutuse kaugusel."
 }

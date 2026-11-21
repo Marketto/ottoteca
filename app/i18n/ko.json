@@ -246,5 +246,13 @@
   "aw.step2": "Apple Wallet용 패스에 서명해 주는 무료 서비스 WalletWallet을 여세요.",
   "aw.open": "WalletWallet 열기",
   "aw.step3": "코드를 붙여 넣고 ‘{f}’를 고른 뒤 이름을 정하고 ‘Add to Apple Wallet’을 누르세요.",
-  "aw.privacy": "Apple Wallet은 서명된 패스만 받아요. 패스를 만들기 위해 코드와 이름이 Ottoteca 밖의 WalletWallet으로 보내져요."
+  "aw.privacy": "Apple Wallet은 서명된 패스만 받아요. 패스를 만들기 위해 코드와 이름이 Ottoteca 밖의 WalletWallet으로 보내져요.",
+  "aw.keyHint": "무료로, 한 번의 탭으로: 무료 WalletWallet 키(월 1,000장, 카드 불필요)를 만들어 여기에 붙여 넣으면 Apple Wallet 버튼이 패스를 바로 추가해요. 키는 이 기기에만 저장돼요.",
+  "aw.key": "WalletWallet 키",
+  "aw.getKey": "무료 키 받기",
+  "aw.badKey": "WalletWallet 키가 올바르지 않아요. 설정에서 확인하세요.",
+  "aw.limit": "이번 달 무료 패스 한도에 도달했어요. 1일에 초기화돼요.",
+  "aw.fail": "패스를 만들지 못했어요. 수동 단계를 시도해 보세요.",
+  "aw.oneTap": "팁: 설정에 무료 WalletWallet 키를 넣으면 한 번의 탭이면 돼요.",
+  "aw.saved": "키 저장 완료! 이제 Apple Wallet에 한 번에 추가돼요."
 }

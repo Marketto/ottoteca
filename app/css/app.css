@@ -666,6 +666,8 @@ body{overflow-x:clip}
 .modebar .seg{flex-wrap:nowrap;max-width:100%}
 @media (max-width:420px){.modebar .seg label>span{padding:7px 10px;font-size:.92rem;gap:4px}}
 #addCode{margin:0 0 16px}
+#awKey{width:100%;font-family:ui-monospace,monospace}
+#awCard .row-btns{margin-top:10px}
 .addsrc{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:6px}
 .dlg .select{width:100%}
 .dlg label.check{display:flex;align-items:center;gap:8px;margin-top:12px;font-weight:800;min-height:44px}

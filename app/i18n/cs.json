@@ -246,5 +246,13 @@
   "aw.step2": "Otevři WalletWallet, bezplatnou službu, která podepisuje karty pro Apple Wallet.",
   "aw.open": "Otevřít WalletWallet",
   "aw.step3": "Vlož kód, vyber „{f}“, pojmenuj ho a klepni na „Add to Apple Wallet“.",
-  "aw.privacy": "Apple Wallet přijímá jen podepsané karty: k jejímu vytvoření se kód a název pošlou do WalletWallet, mimo Ottoteku."
+  "aw.privacy": "Apple Wallet přijímá jen podepsané karty: k jejímu vytvoření se kód a název pošlou do WalletWallet, mimo Ottoteku.",
+  "aw.keyHint": "Zdarma a jedním klepnutím: vytvoř si bezplatný klíč WalletWallet (1000 karet měsíčně, bez platební karty), vlož ho sem a tlačítko Apple Wallet přidá kartu rovnou. Klíč zůstane v tomto zařízení.",
+  "aw.key": "Klíč WalletWallet",
+  "aw.getKey": "Získat klíč zdarma",
+  "aw.badKey": "Klíč WalletWallet není platný: zkontroluj ho v Nastavení.",
+  "aw.limit": "Měsíční limit karet zdarma vyčerpán: obnoví se 1. dne.",
+  "aw.fail": "Kartu se nepodařilo vytvořit: zkus ruční postup.",
+  "aw.oneTap": "Tip: s bezplatným klíčem WalletWallet (v Nastavení) stačí jedno klepnutí.",
+  "aw.saved": "Klíč uložen! Apple Wallet je teď na jedno klepnutí."
 }

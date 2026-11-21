@@ -246,5 +246,13 @@
   "aw.step2": "Odpri WalletWallet, brezplačno storitev, ki podpisuje kartice za Apple Wallet.",
   "aw.open": "Odpri WalletWallet",
   "aw.step3": "Prilepi kodo, izberi »{f}«, jo poimenuj in tapni »Add to Apple Wallet«.",
-  "aw.privacy": "Apple Wallet sprejme le podpisane kartice: za izdelavo gresta koda in ime k WalletWallet, zunaj Ottoteke."
+  "aw.privacy": "Apple Wallet sprejme le podpisane kartice: za izdelavo gresta koda in ime k WalletWallet, zunaj Ottoteke.",
+  "aw.keyHint": "Brezplačno in z enim dotikom: ustvari brezplačen ključ WalletWallet (1000 kartic na mesec, brez plačilne kartice), ga prilepi sem in gumb Apple Wallet kartico doda neposredno. Ključ ostane v tej napravi.",
+  "aw.key": "Ključ WalletWallet",
+  "aw.getKey": "Pridobi brezplačen ključ",
+  "aw.badKey": "Ključ WalletWallet ni veljaven: preveri ga v Nastavitvah.",
+  "aw.limit": "Dosežena mesečna omejitev brezplačnih kartic: ponastavi se 1. v mesecu.",
+  "aw.fail": "Kartice ni bilo mogoče ustvariti: poskusi ročne korake.",
+  "aw.oneTap": "Namig: z brezplačnim ključem WalletWallet (v Nastavitvah) zadošča en dotik.",
+  "aw.saved": "Ključ shranjen! Apple Wallet je zdaj oddaljen en dotik."
 }

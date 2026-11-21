@@ -246,5 +246,13 @@
   "aw.step2": "Iftaħ WalletWallet, servizz b'xejn li jiffirma passes għal Apple Wallet.",
   "aw.open": "Iftaħ WalletWallet",
   "aw.step3": "Waħħal il-kodiċi, agħżel “{f}”, agħtih isem u agħfas “Add to Apple Wallet”.",
-  "aw.privacy": "Apple Wallet jaċċetta biss passes iffirmati: biex jinħoloq, il-kodiċi u l-isem imorru għand WalletWallet, barra minn Ottoteca."
+  "aw.privacy": "Apple Wallet jaċċetta biss passes iffirmati: biex jinħoloq, il-kodiċi u l-isem imorru għand WalletWallet, barra minn Ottoteca.",
+  "aw.keyHint": "B'xejn u b'tapp wieħed: oħloq ċavetta WalletWallet b'xejn (1,000 pass fix-xahar, bla karta), waħħalha hawn u l-buttuna Apple Wallet iżżid il-pass dirett. Iċ-ċavetta tibqa' fuq dan l-apparat.",
+  "aw.key": "Ċavetta WalletWallet",
+  "aw.getKey": "Ikseb ċavetta b'xejn",
+  "aw.badKey": "Iċ-ċavetta WalletWallet mhix valida: iċċekkjaha fl-Issettjar.",
+  "aw.limit": "Intlaħaq il-limitu ta' kull xahar tal-passes b'xejn: jerġa' jibda fl-1.",
+  "aw.fail": "Ma rnexxilix noħloq il-pass: ipprova l-passi manwali.",
+  "aw.oneTap": "Parir: b'ċavetta WalletWallet b'xejn (fl-Issettjar) tapp wieħed biżżejjed.",
+  "aw.saved": "Ċavetta ssejvjata! Apple Wallet issa tapp wieħed 'il bogħod."
 }

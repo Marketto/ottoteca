@@ -246,5 +246,13 @@
   "aw.step2": "打开 WalletWallet，一个为 Apple 钱包签名卡券的免费服务。",
   "aw.open": "打开 WalletWallet",
   "aw.step3": "粘贴码，选择“{f}”，起个名字，然后点“Add to Apple Wallet”。",
-  "aw.privacy": "Apple 钱包只接受签名的卡券：为了生成卡券，码和名称会发送到 Ottoteca 之外的 WalletWallet。"
+  "aw.privacy": "Apple 钱包只接受签名的卡券：为了生成卡券，码和名称会发送到 Ottoteca 之外的 WalletWallet。",
+  "aw.keyHint": "免费且一键：创建一个免费的 WalletWallet 密钥（每月 1000 张卡券，无需银行卡），粘贴到这里，Apple 钱包按钮就会直接添加卡券。密钥只保存在本设备上。",
+  "aw.key": "WalletWallet 密钥",
+  "aw.getKey": "免费获取密钥",
+  "aw.badKey": "WalletWallet 密钥无效：请在设置中检查。",
+  "aw.limit": "本月免费卡券已达上限：每月 1 日重置。",
+  "aw.fail": "无法创建卡券：请试试手动步骤。",
+  "aw.oneTap": "提示：在设置中填入免费的 WalletWallet 密钥，只需轻点一下。",
+  "aw.saved": "密钥已保存！现在一键添加到 Apple 钱包。"
 }
