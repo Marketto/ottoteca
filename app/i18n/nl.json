@@ -214,5 +214,9 @@
   "ev.juggle": "Kijk, ik jongleer met kiezeltjes!",
   "share.app": "Ottoteca delen",
   "share.text": "Ottoteca: je PDF's knus en netjes, met Otto de otter!",
-  "share.copied": "Link gekopieerd: plak hem waar je maar wilt!"
+  "share.copied": "Link gekopieerd: plak hem waar je maar wilt!",
+  "find.btn": "Mijn PDF's vinden",
+  "find.more": "Andere manieren om PDF's toe te voegen",
+  "find.ios": "Kies ‘Op mijn iPhone’ of iCloud Drive: Ottoteca neemt alle PDF's, ook uit submappen, en bewaart een kopie. Tik opnieuw om bij te werken.",
+  "find.android": "Kies het telefoongeheugen (de bovenste map): Ottoteca neemt alle PDF's, ook uit submappen, en bewaart een kopie. Tik opnieuw om bij te werken."
 }

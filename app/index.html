@@ -36,7 +36,7 @@
     <a href="#/settings" data-tab="settings"><span class="ic ic-gear" aria-hidden="true"></span><span data-i18n="nav.settings">Settings</span></a>
   </nav>
   <div class="topwave" aria-hidden="true"></div>
-  <button class="btn btn-soft install-btn" id="installBtn" hidden><span class="ic ic-download" aria-hidden="true"></span><span data-i18n="install.btn">Install app</span></button>
+  <button class="btn btn-soft install-btn" id="installBtn" data-i18n-label="install.btn" hidden><span class="ic ic-download" aria-hidden="true"></span><span class="lbl-sm" data-i18n="install.btn">Install app</span></button>
 </header>
 
 <main id="main" tabindex="-1">
@@ -68,8 +68,8 @@
         <option value="size" data-i18n="sort.size">Size</option>
       </select>
       <button class="btn btn-ghost" id="selectBtn" aria-pressed="false"><span class="ic ic-check" aria-hidden="true"></span><span data-i18n="sel.select">Select</span></button>
-      <button class="btn btn-primary" id="scanBtn" hidden><span class="ic ic-phone-search" aria-hidden="true"></span><span data-i18n="scan.btn">Find PDFs on the device</span></button>
-      <button class="btn btn-soft" id="addBtn" data-i18n-label="scan.add"><span class="ic ic-file-plus" aria-hidden="true"></span><span class="lbl-sm" data-i18n="scan.add">Choose PDFs</span></button>
+      <button class="btn btn-primary" id="scanBtn"><span class="ic ic-phone-search" aria-hidden="true"></span><span data-i18n="find.btn">Find my PDFs</span></button>
+      <button class="btn btn-soft" id="addBtn" data-i18n-label="find.more"><span class="ic ic-file-plus" aria-hidden="true"></span><span class="lbl-sm" data-i18n="find.more">Other ways</span></button>
       <button class="btn btn-soft" id="addDirBtn" data-i18n-label="folder.import" hidden><span class="ic ic-folder-plus" aria-hidden="true"></span><span class="lbl-sm" data-i18n="folder.import">Import folder</span></button>
       <input type="file" id="fileInput" accept="application/pdf,.pdf" multiple hidden>
       <input type="file" id="dirInput" webkitdirectory multiple hidden>
@@ -102,13 +102,11 @@
     <div class="empty" id="empty" hidden>
       <div class="otto-big" data-otto="big" aria-hidden="true"></div>
       <h2 data-i18n="lib.emptyTitle">No PDFs yet</h2>
-      <p class="scan-hint" id="scanHint" data-i18n="scan.hint"></p>
       <div class="empty-actions">
-        <button class="btn btn-primary btn-lg" id="emptyScan" hidden><span class="ic ic-phone-search" aria-hidden="true"></span><span data-i18n="scan.btn">Find PDFs on the device</span></button>
-        <button class="btn btn-soft btn-lg" id="emptyAdd"><span class="ic ic-file-plus" aria-hidden="true"></span><span data-i18n="scan.add">Choose PDFs</span></button>
-        <button class="btn btn-soft btn-lg" id="emptyDir" hidden><span class="ic ic-folder-plus" aria-hidden="true"></span><span data-i18n="folder.import">Import folder</span></button>
+        <button class="btn btn-primary btn-lg" id="emptyScan"><span class="ic ic-phone-search" aria-hidden="true"></span><span data-i18n="find.btn">Find my PDFs</span></button>
       </div>
-      <p class="hint" id="scanNote"></p>
+      <p class="scan-hint" id="scanNote"></p>
+      <button class="linkish" id="emptyAdd"><span data-i18n="find.more">Other ways</span></button>
       <p class="hint" data-i18n="lib.dropHint">…or drop PDFs here</p>
     </div>
     <p class="none" id="noResults" hidden data-i18n="lib.noResults">Nothing found</p>

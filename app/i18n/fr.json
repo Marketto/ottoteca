@@ -214,5 +214,9 @@
   "ev.juggle": "Regarde, je jongle avec des cailloux !",
   "share.app": "Partager Ottoteca",
   "share.text": "Ottoteca : tes PDF au chaud et bien rangés, avec Otto la loutre !",
-  "share.copied": "Lien copié : colle-le où tu veux !"
+  "share.copied": "Lien copié : colle-le où tu veux !",
+  "find.btn": "Trouver mes PDF",
+  "find.more": "Autres façons d'ajouter des PDF",
+  "find.ios": "Choisis « Sur mon iPhone » ou iCloud Drive : Ottoteca prend tous les PDF, sous-dossiers compris, et en garde une copie. Touche à nouveau pour mettre à jour.",
+  "find.android": "Choisis la mémoire du téléphone (le premier dossier) : Ottoteca prend tous les PDF, sous-dossiers compris, et en garde une copie. Touche à nouveau pour mettre à jour."
 }

@@ -214,5 +214,9 @@
   "ev.juggle": "Look, I can juggle pebbles!",
   "share.app": "Share Ottoteca",
   "share.text": "Ottoteca: your PDFs cosy and tidy, with Otto the otter!",
-  "share.copied": "Link copied: paste it wherever you like!"
+  "share.copied": "Link copied: paste it wherever you like!",
+  "find.btn": "Find my PDFs",
+  "find.more": "Other ways to add PDFs",
+  "find.ios": "Choose “On My iPhone” or iCloud Drive: Ottoteca takes every PDF, subfolders too, and keeps a copy. Tap again to update.",
+  "find.android": "Choose the phone's memory (the first folder): Ottoteca takes every PDF, subfolders too, and keeps a copy. Tap again to update."
 }

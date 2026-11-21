@@ -214,5 +214,9 @@
   "ev.juggle": "Ara, qed nilgħab biż-żrar!",
   "share.app": "Aqsam Ottoteca",
   "share.text": "Ottoteca: il-PDFs tiegħek sħan u f'ordni, ma' Otto l-lontra!",
-  "share.copied": "Ħolqa kkupjata: waħħalha fejn trid!"
+  "share.copied": "Ħolqa kkupjata: waħħalha fejn trid!",
+  "find.btn": "Sib il-PDFs tiegħi",
+  "find.more": "Modi oħra biex iżżid PDFs",
+  "find.ios": "Agħżel “Fuq l-iPhone tiegħi” jew iCloud Drive: Ottoteca tieħu l-PDFs kollha, anke mis-subfolders, u żżomm kopja. Agħfas mill-ġdid biex taġġorna.",
+  "find.android": "Agħżel il-memorja tat-telefon (l-ewwel folder): Ottoteca tieħu l-PDFs kollha, anke mis-subfolders, u żżomm kopja. Agħfas mill-ġdid biex taġġorna."
 }

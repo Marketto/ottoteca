@@ -214,5 +214,9 @@
   "ev.juggle": "Patrz, żongluję kamyczkami!",
   "share.app": "Udostępnij Ottotekę",
   "share.text": "Ottoteka: twoje PDF-y przytulnie i w porządku, z wydrą Otto!",
-  "share.copied": "Link skopiowany: wklej go, gdzie chcesz!"
+  "share.copied": "Link skopiowany: wklej go, gdzie chcesz!",
+  "find.btn": "Znajdź moje PDF-y",
+  "find.more": "Inne sposoby dodania PDF-ów",
+  "find.ios": "Wybierz „Na moim iPhonie” lub iCloud Drive: Ottoteka weźmie wszystkie PDF-y, także z podfolderów, i zachowa kopię. Stuknij ponownie, aby odświeżyć.",
+  "find.android": "Wybierz pamięć telefonu (pierwszy folder): Ottoteka weźmie wszystkie PDF-y, także z podfolderów, i zachowa kopię. Stuknij ponownie, aby odświeżyć."
 }

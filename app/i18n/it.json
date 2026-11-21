@@ -214,5 +214,9 @@
   "ev.juggle": "Guarda, faccio il giocoliere coi sassolini!",
   "share.app": "Condividi Ottoteca",
   "share.text": "Ottoteca: i tuoi PDF al calduccio e in ordine, con Otto la lontra!",
-  "share.copied": "Link copiato: incollalo dove vuoi!"
+  "share.copied": "Link copiato: incollalo dove vuoi!",
+  "find.btn": "Trova i miei PDF",
+  "find.more": "Altri modi per aggiungere PDF",
+  "find.ios": "Scegli «Sul mio iPhone» o iCloud Drive: Ottoteca prende tutti i PDF, anche nelle sottocartelle, e ne tiene una copia. Tocca di nuovo per aggiornare.",
+  "find.android": "Scegli la memoria del telefono (la prima cartella): Ottoteca prende tutti i PDF, anche nelle sottocartelle, e ne tiene una copia. Tocca di nuovo per aggiornare."
 }

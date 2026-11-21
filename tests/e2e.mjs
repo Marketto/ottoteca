@@ -212,7 +212,6 @@ try {
   await fp.reload();
   ok(!!(await fp.waitForSelector("#emptyScan:not([hidden])")), "pulsante «Trova i PDF nel dispositivo»");
   await fp.click("#emptyScan");
-  await fp.locator('#dlg button[value="folder"]').click();
   await fp.waitForFunction(() => document.querySelectorAll("#grid .card-doc").length === 2, null, { timeout: 20000 });
   await fp.waitForFunction(() => document.querySelectorAll("#grid .thumb img").length === 2, null, { timeout: 20000 });
   ok(true, "cartella collegata: 2 PDF trovati con miniature, il .txt ignorato");
@@ -238,6 +237,21 @@ try {
   const axe6 = await new AxeBuilder({ page: fp }).withTags(["wcag2a", "wcag2aa", "wcag21aa"]).analyze();
   ok(!axe6.violations.length, "axe impostazioni: " + axe6.violations.map(v => v.id).join(", "));
   axe6.violations.forEach(v => console.log("   ", v.id, v.nodes.slice(0, 3).map(n => n.target.join(" ")).join(" | ")));
+
+  // iPhone (Safari: niente File System Access): «Trova i miei PDF» apre la scelta di una cartella e copia i PDF
+  const ix = await browser.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true, deviceScaleFactor: 2, locale: "it-IT", serviceWorkers: "block",
+    userAgent: "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1" });
+  const ip = await ix.newPage();
+  ip.on("pageerror", e => errors.push(e.message));
+  await ip.addInitScript(() => { delete window.showDirectoryPicker; delete window.showOpenFilePicker; delete Window.prototype.showDirectoryPicker; delete Window.prototype.showOpenFilePicker; });
+  await ip.goto(BASE);
+  await ip.waitForSelector("#emptyScan");
+  ok((await ip.textContent("#scanNote")).includes("iPhone"), "iPhone: spiegazione «Sul mio iPhone»");
+  const [chooser] = await Promise.all([ip.waitForEvent("filechooser"), ip.click("#emptyScan")]);
+  await chooser.setFiles("tests/fixtures/iphone");
+  await ip.waitForFunction(() => document.querySelectorAll("#grid .card-doc").length === 2, null, { timeout: 20000 });
+  ok(true, "iPhone: cartella scelta, 2 PDF presi anche dalle sottocartelle");
+  if (shots) { await ip.waitForTimeout(1200); await ip.screenshot({ path: "tests/shots/15-iphone.png" }); }
 
   // offline con il service worker
   const off = await browser.newContext({ viewport: { width: 1000, height: 800 }, locale: "de-DE" });

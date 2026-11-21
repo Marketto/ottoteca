@@ -214,5 +214,9 @@
   "ev.juggle": "Vaata, žongleerin kividega!",
   "share.app": "Jaga Ottotecat",
   "share.text": "Ottoteca: su PDF-id hubaselt korras, koos saarmas Ottoga!",
-  "share.copied": "Link kopeeritud: kleebi see kuhu tahad!"
+  "share.copied": "Link kopeeritud: kleebi see kuhu tahad!",
+  "find.btn": "Leia minu PDF-id",
+  "find.more": "Teised viisid PDF-ide lisamiseks",
+  "find.ios": "Vali „Minu iPhone'is“ või iCloud Drive: Ottoteca võtab kõik PDF-id, ka alamkaustadest, ja hoiab koopiat. Uuendamiseks puuduta uuesti.",
+  "find.android": "Vali telefoni mälu (kõige ülemine kaust): Ottoteca võtab kõik PDF-id, ka alamkaustadest, ja hoiab koopiat. Uuendamiseks puuduta uuesti."
 }

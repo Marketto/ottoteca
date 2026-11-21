@@ -214,5 +214,9 @@
   "ev.juggle": "Skaties, es žonglēju ar oļiem!",
   "share.app": "Kopīgot Ottotecu",
   "share.text": "Ottoteca: tavi PDF siltumā un kārtībā, kopā ar ūdru Oto!",
-  "share.copied": "Saite nokopēta: ielīmē to, kur vēlies!"
+  "share.copied": "Saite nokopēta: ielīmē to, kur vēlies!",
+  "find.btn": "Atrast manus PDF",
+  "find.more": "Citi veidi, kā pievienot PDF",
+  "find.ios": "Izvēlies “Manā iPhone” vai iCloud Drive: Ottoteca paņems visus PDF, arī no apakšmapēm, un saglabās kopiju. Lai atjauninātu, pieskaries vēlreiz.",
+  "find.android": "Izvēlies tālruņa atmiņu (pirmo mapi): Ottoteca paņems visus PDF, arī no apakšmapēm, un saglabās kopiju. Lai atjauninātu, pieskaries vēlreiz."
 }

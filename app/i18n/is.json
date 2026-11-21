@@ -214,5 +214,9 @@
   "ev.juggle": "Sjáðu, ég leik mér með steinvölur!",
   "share.app": "Deila Ottoteca",
   "share.text": "Ottoteca: PDF-skjölin þín hlý og snyrtileg, með Otto otrinum!",
-  "share.copied": "Tengill afritaður: límdu hann hvar sem er!"
+  "share.copied": "Tengill afritaður: límdu hann hvar sem er!",
+  "find.btn": "Finna PDF-skjölin mín",
+  "find.more": "Aðrar leiðir til að bæta við PDF",
+  "find.ios": "Veldu „Á iPhone“ eða iCloud Drive: Ottoteca tekur öll PDF-skjöl, líka úr undirmöppum, og geymir afrit. Ýttu aftur til að uppfæra.",
+  "find.android": "Veldu minni símans (efstu möppuna): Ottoteca tekur öll PDF-skjöl, líka úr undirmöppum, og geymir afrit. Ýttu aftur til að uppfæra."
 }

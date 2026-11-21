@@ -214,5 +214,9 @@
   "ev.juggle": "Uite, jonglez cu pietricele!",
   "share.app": "Distribuie Ottoteca",
   "share.text": "Ottoteca: PDF-urile tale la căldurică și în ordine, cu vidra Otto!",
-  "share.copied": "Link copiat: lipește-l unde vrei!"
+  "share.copied": "Link copiat: lipește-l unde vrei!",
+  "find.btn": "Găsește PDF-urile mele",
+  "find.more": "Alte moduri de a adăuga PDF-uri",
+  "find.ios": "Alege „Pe iPhone-ul meu” sau iCloud Drive: Ottoteca ia toate PDF-urile, inclusiv din subdosare, și păstrează o copie. Atinge din nou pentru actualizare.",
+  "find.android": "Alege memoria telefonului (primul dosar): Ottoteca ia toate PDF-urile, inclusiv din subdosare, și păstrează o copie. Atinge din nou pentru actualizare."
 }

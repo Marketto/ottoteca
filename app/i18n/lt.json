@@ -214,5 +214,9 @@
   "ev.juggle": "Žiūrėk, žongliruoju akmenėliais!",
   "share.app": "Bendrinti Ottotecą",
   "share.text": "Ottoteca: tavo PDF jaukiai ir tvarkingai, su ūdra Otu!",
-  "share.copied": "Nuoroda nukopijuota: įklijuok, kur nori!"
+  "share.copied": "Nuoroda nukopijuota: įklijuok, kur nori!",
+  "find.btn": "Rasti mano PDF",
+  "find.more": "Kiti būdai pridėti PDF",
+  "find.ios": "Pasirink „Mano iPhone“ arba iCloud Drive: Ottoteca paims visus PDF, ir iš poaplankių, ir išsaugos kopiją. Atnaujinti – paliesk dar kartą.",
+  "find.android": "Pasirink telefono atmintį (pirmą aplanką): Ottoteca paims visus PDF, ir iš poaplankių, ir išsaugos kopiją. Atnaujinti – paliesk dar kartą."
 }

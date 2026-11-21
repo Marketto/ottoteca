@@ -214,5 +214,9 @@
   "ev.juggle": "¡Mira, hago malabares con piedrecitas!",
   "share.app": "Compartir Ottoteca",
   "share.text": "Ottoteca: tus PDF calentitos y ordenados, ¡con Otto la nutria!",
-  "share.copied": "Enlace copiado: ¡pégalo donde quieras!"
+  "share.copied": "Enlace copiado: ¡pégalo donde quieras!",
+  "find.btn": "Buscar mis PDF",
+  "find.more": "Otras formas de añadir PDF",
+  "find.ios": "Elige «En mi iPhone» o iCloud Drive: Ottoteca toma todos los PDF, también de las subcarpetas, y guarda una copia. Toca de nuevo para actualizar.",
+  "find.android": "Elige la memoria del teléfono (la primera carpeta): Ottoteca toma todos los PDF, también de las subcarpetas, y guarda una copia. Toca de nuevo para actualizar."
 }

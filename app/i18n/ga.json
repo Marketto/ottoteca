@@ -214,5 +214,9 @@
   "ev.juggle": "Féach, táim ag lámhchleasaíocht le méaróga!",
   "share.app": "Comhroinn Ottoteca",
   "share.text": "Ottoteca: do PDFanna te teolaí agus néata, le Otto an madra uisce!",
-  "share.copied": "Nasc cóipeáilte: greamaigh é áit ar bith!"
+  "share.copied": "Nasc cóipeáilte: greamaigh é áit ar bith!",
+  "find.btn": "Aimsigh mo PDFanna",
+  "find.more": "Bealaí eile chun PDFanna a chur leis",
+  "find.ios": "Roghnaigh “Ar mo iPhone” nó iCloud Drive: tógann Ottoteca gach PDF, fofhillteáin san áireamh, agus coinníonn sé cóip. Tapáil arís chun nuashonrú.",
+  "find.android": "Roghnaigh cuimhne an fhóin (an chéad fhillteán): tógann Ottoteca gach PDF, fofhillteáin san áireamh, agus coinníonn sé cóip. Tapáil arís chun nuashonrú."
 }

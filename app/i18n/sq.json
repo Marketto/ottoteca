@@ -214,5 +214,9 @@
   "ev.juggle": "Shiko, luaj me guralecë!",
   "share.app": "Ndaj Ottoteca-n",
   "share.text": "Ottoteca: PDF-të e tua ngrohtë e në rregull, me lundërzën Otto!",
-  "share.copied": "Lidhja u kopjua: ngjite ku të duash!"
+  "share.copied": "Lidhja u kopjua: ngjite ku të duash!",
+  "find.btn": "Gjej PDF-të e mia",
+  "find.more": "Mënyra të tjera për të shtuar PDF",
+  "find.ios": "Zgjidh «Në iPhone-in tim» ose iCloud Drive: Ottoteca merr të gjitha PDF-të, edhe nga nëndosjet, dhe mban një kopje. Prek sërish për ta përditësuar.",
+  "find.android": "Zgjidh memorien e telefonit (dosjen e parë): Ottoteca merr të gjitha PDF-të, edhe nga nëndosjet, dhe mban një kopje. Prek sërish për ta përditësuar."
 }

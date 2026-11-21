@@ -320,7 +320,7 @@ function renderChips() {
   const box = $("#chips"); box.replaceChildren();
   const mk = (id, label, n, color) => {
     const b = el("button", { class: "chip", type: "button", "aria-pressed": String(S.filter === id), "data-cat": id, onclick: () => { S.filter = id; renderLibrary(); } },
-      color ? el("span", { class: "dot", style: `--c:${color}`, "aria-hidden": "true" }) : null, label, el("span", { class: "n" }, String(n)));
+      color ? el("span", { class: "dot", style: `--c:${color}`, "aria-hidden": "true" }) : null, el("span", { class: "lbl" }, label), el("span", { class: "n" }, String(n)));
     if (color) {
       b.addEventListener("dragover", e => { if (e.dataTransfer.types.includes("text/otto-doc")) { e.preventDefault(); b.classList.add("drop-over"); } });
       b.addEventListener("dragleave", () => b.classList.remove("drop-over"));
@@ -996,16 +996,15 @@ document.querySelectorAll(".tabs a").forEach(a => a.addEventListener("click", ()
 
 /* ================= eventi della libreria ================= */
 const pick = () => $("#fileInput").click();
-$("#scanBtn").onclick = $("#emptyScan").onclick = () => chooseSource();
+$("#scanBtn").onclick = $("#emptyScan").onclick = () => smartFind();
 $("#rootAdd").onclick = () => linkFolder();
-$("#emptyDir").onclick = () => $("#dirInput").click();
 $("#permBtn").onclick = async () => { for (const r of S.roots) if (await askPerm(r, true)) await scanRoot(r, true); updatePermBar(); };
 $("#addDirBtn").onclick = () => $("#dirInput").click();
-$("#dirInput").onchange = async e => { const fs = [...e.target.files].filter(f => /\.pdf$/i.test(f.name)); e.target.value = ""; if (fs.length) { await importFiles(fs); } else toast(t("folder.noPdf")); };
+$("#dirInput").onchange = async e => { const fs = [...e.target.files].filter(f => /\.pdf$/i.test(f.name) && !/(^|\/)(\.|android\/(data|obb)\/)/i.test(f.webkitRelativePath || "")); e.target.value = ""; if (fs.length) { await importFiles(fs); } else toast(t("folder.noPdf")); };
 document.querySelectorAll("input[name=vmode]").forEach(r => r.onchange = () => { S.mode = r.value; localStorage.setItem("otto.mode", r.value); if (S.selecting) setSelecting(false); else renderLibrary(); mood("wiggle", 900); });
 document.querySelectorAll("input[name=basis]").forEach(r => r.onchange = () => { S.basis = r.value; localStorage.setItem("otto.basis", r.value); renderLibrary(); });
 S.folder = localStorage.getItem("otto.folder") || null;
-$("#addBtn").onclick = pick; $("#emptyAdd").onclick = pick;
+$("#addBtn").onclick = $("#emptyAdd").onclick = () => chooseSource();
 $("#fileInput").onchange = e => { importFiles(e.target.files); e.target.value = ""; };
 let qT; $("#q").addEventListener("input", e => { clearTimeout(qT); qT = setTimeout(() => { S.q = e.target.value; renderLibrary(); }, 140); });
 $("#sort").value = S.sort; $("#sort").onchange = e => { S.sort = e.target.value; localStorage.setItem("otto.sort", S.sort); renderLibrary(); };
@@ -1035,6 +1034,7 @@ addEventListener("keydown", e => {
 // tutti i PDF dentro (anche nelle sottocartelle) senza copiarli e li ricontrolla a ogni apertura.
 const CAN_LINK = "showDirectoryPicker" in window;
 const IS_ANDROID = /android/i.test(navigator.userAgent);
+const IS_IOS = /iphone|ipad|ipod/i.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
 async function askPerm(root, ask) {
   try {
     if ((await root.handle.queryPermission({ mode: "read" })) === "granted") return true;
@@ -1056,20 +1056,37 @@ async function* walk(dir, path = "", depth = 0) {
   }
 }
 // Una sola domanda semplice: «Dove sono i tuoi PDF?» → i PDF (anche tutti quelli di Download) o una cartella.
+// Un solo tocco: apre la scelta migliore per il dispositivo (il browser non permette di leggere da solo)
+const IOS_VER = (() => { const m = navigator.userAgent.match(/OS (\d+)_(\d+)/) || navigator.userAgent.match(/Version\/(\d+)\.(\d+)/); return m ? +m[1] + +m[2] / 100 : 0; })();
+const CAN_DIR_INPUT = "webkitdirectory" in document.createElement("input") && (!IS_IOS || IOS_VER >= 18.04);
+function findHint() {
+  if (IS_ANDROID && CAN_DIR_INPUT) return t("find.android");
+  if (IS_ANDROID && CAN_LINK) return t("pick.filesAndroid");
+  if (IS_IOS) return CAN_DIR_INPUT ? t("find.ios") : t("scan.noApi");
+  return CAN_LINK ? t("pick.folderHint") : t("scan.noApi");
+}
+function smartFind() {
+  if (IS_ANDROID && CAN_DIR_INPUT) return $("#dirInput").click(); // come Schiaccia PDF: si può scegliere anche tutta la memoria
+  if (IS_ANDROID && CAN_LINK) return pickHandles();
+  if (CAN_LINK) return linkFolder();
+  if (CAN_DIR_INPUT) return $("#dirInput").click();
+  return pick();
+}
 async function chooseSource() {
-  if (!CAN_LINK) return pick();
   const opt = (icon, title, hint, value, primary) => el("button", { type: "submit", value, class: "source" + (primary ? " primary" : "") },
     el("span", { class: "ic ic-" + icon, "aria-hidden": "true" }), el("span", {}, el("b", {}, title), el("small", {}, hint)));
   const v = await dialog({
     title: t("pick.title"),
     body: [el("div", { class: "sources" },
-      opt("file-plus", t("scan.add"), IS_ANDROID ? t("pick.filesAndroid") : t("pick.files"), "files", true),
-      opt("folder-plus", t("pick.folder"), t("pick.folderHint"), "folder")),
+      IS_ANDROID && CAN_DIR_INPUT ? opt("phone-search", t("find.btn"), t("find.android"), "dir", true) : null,
+      opt("file-plus", t("scan.add"), CAN_LINK ? (IS_ANDROID ? t("pick.filesAndroid") : t("pick.files")) : t("scan.noApi"), "files", !(IS_ANDROID && CAN_DIR_INPUT)),
+      CAN_LINK ? opt("folder-plus", t("pick.folder"), t("pick.folderHint"), "folder") : CAN_DIR_INPUT ? opt("folder-plus", t("folder.import"), t("find.ios"), "dir") : null),
       el("p", { class: "muted tip" }, el("span", { class: "ic ic-share", "aria-hidden": "true" }), " ", t("pick.share"))],
     actions: [{ label: t("common.cancel"), value: "cancel" }],
     onOpen: d => d.querySelector(".source.primary")?.focus()
   });
-  if (v === "files") return pickHandles();
+  if (v === "files") return CAN_LINK ? pickHandles() : pick();
+  if (v === "dir") return $("#dirInput").click();
   if (v === "folder") return linkFolder();
 }
 // PDF scelti uno per uno (o «Seleziona tutto» in Download): si tengono i riferimenti, niente copie.
@@ -1185,10 +1202,7 @@ function updateCard(d) {
   old.replaceWith(n);
 }
 async function setupDevice() {
-  $("#scanBtn").hidden = $("#emptyScan").hidden = !CAN_LINK;
-  $("#addDirBtn").hidden = $("#emptyDir").hidden = CAN_LINK;
-  $("#scanNote").textContent = CAN_LINK ? (IS_ANDROID ? t("scan.android") : "") : t("scan.noApi");
-  $("#scanHint").hidden = !CAN_LINK;
+  $("#scanNote").textContent = findHint();
   if (!CAN_LINK || !S.roots.length) return;
   await updatePermBar();
   for (const r of S.roots) if (await askPerm(r, false)) await scanRoot(r, true);
@@ -1230,7 +1244,7 @@ async function inbox() {
 /* ================= avvio ================= */
 function afterLang() {
   apply();
-  if ($("#scanNote")) $("#scanNote").textContent = CAN_LINK ? (IS_ANDROID ? t("scan.android") : "") : t("scan.noApi");
+  if ($("#scanNote")) $("#scanNote").textContent = findHint();
   renderLibrary(); route();
   $("#sort").value = S.sort;
 }

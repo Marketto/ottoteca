@@ -214,5 +214,9 @@
   "ev.juggle": "Koukej, žongluju s oblázky!",
   "share.app": "Sdílet Ottoteku",
   "share.text": "Ottoteka: tvoje PDF v teple a v pořádku, s vydrou Ottem!",
-  "share.copied": "Odkaz zkopírován: vlož ho, kam chceš!"
+  "share.copied": "Odkaz zkopírován: vlož ho, kam chceš!",
+  "find.btn": "Najít moje PDF",
+  "find.more": "Další způsoby přidání PDF",
+  "find.ios": "Vyber „Na mém iPhonu“ nebo iCloud Drive: Ottoteka vezme všechna PDF, i z podsložek, a ponechá si kopii. Pro aktualizaci klepni znovu.",
+  "find.android": "Vyber paměť telefonu (první složku): Ottoteka vezme všechna PDF, i z podsložek, a ponechá si kopii. Pro aktualizaci klepni znovu."
 }

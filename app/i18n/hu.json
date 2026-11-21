@@ -214,5 +214,9 @@
   "ev.juggle": "Nézd, kavicsokkal zsonglőrködöm!",
   "share.app": "Ottoteca megosztása",
   "share.text": "Ottoteca: a PDF-jeid melegben és rendben, Otto vidrával!",
-  "share.copied": "Link másolva: illeszd be, ahová szeretnéd!"
+  "share.copied": "Link másolva: illeszd be, ahová szeretnéd!",
+  "find.btn": "PDF-jeim keresése",
+  "find.more": "PDF-ek hozzáadásának más módjai",
+  "find.ios": "Válaszd a „Saját iPhone-on” vagy az iCloud Drive lehetőséget: az Ottoteca az összes PDF-et átveszi, az almappákból is, és megőriz egy másolatot. Frissítéshez koppints újra.",
+  "find.android": "Válaszd a telefon tárhelyét (a legfelső mappát): az Ottoteca az összes PDF-et átveszi, az almappákból is, és megőriz egy másolatot. Frissítéshez koppints újra."
 }

@@ -214,5 +214,9 @@
   "ev.juggle": "看，我会抛小石子！",
   "share.app": "分享 Ottoteca",
   "share.text": "Ottoteca：和水獭小欧一起，让你的 PDF 暖暖的、整整齐齐！",
-  "share.copied": "链接已复制：粘贴到任何地方吧！"
+  "share.copied": "链接已复制：粘贴到任何地方吧！",
+  "find.btn": "查找我的 PDF",
+  "find.more": "添加 PDF 的其他方式",
+  "find.ios": "选择“我的 iPhone”或 iCloud 云盘：Ottoteca 会取出所有 PDF（包括子文件夹）并保存副本。再点一次即可更新。",
+  "find.android": "选择手机存储（最外层文件夹）：Ottoteca 会取出所有 PDF（包括子文件夹）并保存副本。再点一次即可更新。"
 }

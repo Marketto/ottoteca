@@ -214,5 +214,9 @@
   "ev.juggle": "Katso, jongleeraan kivillä!",
   "share.app": "Jaa Ottoteca",
   "share.text": "Ottoteca: PDF-tiedostosi lämpimästi järjestyksessä, saukko Oton kanssa!",
-  "share.copied": "Linkki kopioitu: liitä se minne haluat!"
+  "share.copied": "Linkki kopioitu: liitä se minne haluat!",
+  "find.btn": "Etsi PDF-tiedostoni",
+  "find.more": "Muita tapoja lisätä PDF-tiedostoja",
+  "find.ios": "Valitse ”Omassa iPhonessa” tai iCloud Drive: Ottoteca ottaa kaikki PDF:t, myös alikansioista, ja säilyttää kopion. Napauta uudelleen päivittääksesi.",
+  "find.android": "Valitse puhelimen muisti (ylin kansio): Ottoteca ottaa kaikki PDF:t, myös alikansioista, ja säilyttää kopion. Napauta uudelleen päivittääksesi."
 }

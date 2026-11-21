@@ -214,5 +214,9 @@
   "ev.juggle": "봐요, 조약돌로 저글링해요!",
   "share.app": "Ottoteca 공유",
   "share.text": "Ottoteca: 수달 오토와 함께 PDF를 포근하고 깔끔하게!",
-  "share.copied": "링크를 복사했어요. 원하는 곳에 붙여 넣으세요!"
+  "share.copied": "링크를 복사했어요. 원하는 곳에 붙여 넣으세요!",
+  "find.btn": "내 PDF 찾기",
+  "find.more": "PDF를 추가하는 다른 방법",
+  "find.ios": "‘나의 iPhone’이나 iCloud Drive를 고르세요. 하위 폴더까지 모든 PDF를 가져와 사본을 보관해요. 다시 누르면 업데이트돼요.",
+  "find.android": "휴대폰 저장공간(맨 위 폴더)을 고르세요. 하위 폴더까지 모든 PDF를 가져와 사본을 보관해요. 다시 누르면 업데이트돼요."
 }

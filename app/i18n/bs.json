@@ -214,5 +214,9 @@
   "ev.juggle": "Gledaj, žongliram kamenčićima!",
   "share.app": "Podijeli Ottoteku",
   "share.text": "Ottoteka: tvoji PDF-ovi na toplom i uredni, s vidrom Ottom!",
-  "share.copied": "Link kopiran: zalijepi ga gdje želiš!"
+  "share.copied": "Link kopiran: zalijepi ga gdje želiš!",
+  "find.btn": "Pronađi moje PDF-ove",
+  "find.more": "Drugi načini dodavanja PDF-ova",
+  "find.ios": "Odaberi „Na mom iPhoneu” ili iCloud Drive: Ottoteka uzima sve PDF-ove, i iz podfoldera, i čuva kopiju. Za ažuriranje dodirni ponovo.",
+  "find.android": "Odaberi memoriju telefona (prvi folder): Ottoteka uzima sve PDF-ove, i iz podfoldera, i čuva kopiju. Za ažuriranje dodirni ponovo."
 }

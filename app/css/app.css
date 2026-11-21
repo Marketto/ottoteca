@@ -646,6 +646,12 @@ main{padding-top:30px}
 @keyframes toastBar{to{transform:scaleX(0)}}
 .toast:hover .toast-bar{animation-play-state:paused}
 
+.linkish{border:0;background:none;color:var(--accent);font:inherit;font-weight:800;text-decoration:underline;text-underline-offset:3px;cursor:pointer;min-height:44px;padding:6px 12px}
+.scan-hint{font-weight:700}
+.chip{max-width:100%}
+.chip .lbl{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+.chip{white-space:nowrap}
+@media (max-width:720px){.topbar{flex-wrap:nowrap}.brand-name{font-size:1.1rem}.install-btn{padding:8px 10px}}
 /* ---------- movimento ridotto ---------- */
 @media (prefers-reduced-motion:reduce){
   :root:not([data-motion="full"]) *,:root:not([data-motion="full"]) *::before,:root:not([data-motion="full"]) *::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}

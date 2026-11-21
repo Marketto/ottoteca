@@ -214,5 +214,9 @@
   "ev.juggle": "Se, jeg jonglerer med småsten!",
   "share.app": "Del Ottoteca",
   "share.text": "Ottoteca: dine PDF'er hyggelige og ryddelige, med odderen Otto!",
-  "share.copied": "Link kopieret: indsæt det, hvor du vil!"
+  "share.copied": "Link kopieret: indsæt det, hvor du vil!",
+  "find.btn": "Find mine PDF'er",
+  "find.more": "Andre måder at tilføje PDF'er på",
+  "find.ios": "Vælg »På min iPhone« eller iCloud Drive: Ottoteca tager alle PDF'er, også i undermapper, og gemmer en kopi. Tryk igen for at opdatere.",
+  "find.android": "Vælg telefonens hukommelse (den øverste mappe): Ottoteca tager alle PDF'er, også i undermapper, og gemmer en kopi. Tryk igen for at opdatere."
 }
