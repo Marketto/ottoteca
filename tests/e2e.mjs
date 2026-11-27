@@ -304,6 +304,16 @@ try {
   await fp.waitForFunction(() => localStorage.getItem("otto.awkey") === "ww_live_Kx9-Pq_7ZtR2mN8bVc4LwYh3");
   ok(true, "chiave con un formato diverso accettata con Salva");
   await fp.evaluate(() => localStorage.removeItem("otto.awkey"));
+  await fp.click("#awGuide");
+  await fp.locator("#gKey").pressSequentially("ww_live_" + "c0".repeat(16), { delay: 2 });
+  await fp.keyboard.press("Escape");
+  await fp.waitForFunction(() => localStorage.getItem("otto.awkey") === "ww_live_" + "c0".repeat(16));
+  ok(true, "finestra chiusa con Indietro: la chiave scritta viene salvata lo stesso");
+  await fp.evaluate(() => localStorage.removeItem("otto.awkey"));
+  await fp.fill("#awKey", "ww_live_" + "d1".repeat(16));
+  await fp.click("#awSave");
+  ok(await fp.evaluate(() => localStorage.getItem("otto.awkey")) === "ww_live_" + "d1".repeat(16), "pulsante Salva nelle Impostazioni");
+  await fp.evaluate(() => localStorage.removeItem("otto.awkey"));
 
   // iPhone (Safari: niente File System Access): «Trova i miei PDF» apre la scelta di una cartella e copia i PDF
   const ix = await browser.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true, deviceScaleFactor: 2, locale: "it-IT", serviceWorkers: "block",

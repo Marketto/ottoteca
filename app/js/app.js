@@ -8,7 +8,7 @@ import { analyze, openPdf, isPasswordError, renderToCanvas, pdfjs, closePdf } fr
 import { scanDoc, codeSVG, formatName, readImage } from "./codes.js";
 import { WALLET_PROXY } from "./config.js";
 
-export const VERSION = "1.6.2";
+export const VERSION = "1.6.3";
 const HEAVY = 5 * 1024 * 1024;                     // oltre questa soglia si suggerisce Schiaccia PDF
 const SQUASH_URL = "https://marketto.github.io/pdf-tiny-tools/";
 const COLORS = ["#e5637a", "#f29e4c", "#e8c547", "#7cc46b", "#3fb5a9", "#4f9ae0", "#8f7ae5", "#d06fc0", "#a07b62", "#7d8796"];
@@ -1138,7 +1138,7 @@ document.querySelectorAll("input[name=textsize]").forEach(r => r.onchange = () =
 // formato largo: le chiavi vere possono essere più lunghe o con altri caratteri di «ww_live_» + 32 esadecimali
 const KEY_RE = /^ww_[a-z]+_[A-Za-z0-9_-]{16,200}$/;
 function saveKey(v, quiet) {
-  v = (v || "").replace(/[\s\u200B-\u200D\u2060\uFEFF]+/g, "");
+  v = cleanKey(v);
   if (v && !KEY_RE.test(v)) { if (!quiet) toast(t("aw.badFmt")); return false; }
   if (v) localStorage.setItem("otto.awkey", v); else localStorage.removeItem("otto.awkey");
   $("#awKey").value = v;
@@ -1148,45 +1148,55 @@ function saveKey(v, quiet) {
 // Il sito della chiave non si può leggere da qui (altro sito, protetto dall'accesso): l'utente copia, l'app fa il resto.
 const KEY_FIND = /ww_[a-z]+_[A-Za-z0-9_-]{16,200}/;
 let keyWatch = null;
-async function keyGuide(bad) {
+// Si aspetta la chiave anche se la finestra si chiude (tasto Indietro, cambio app, ricarica): il segno resta in localStorage.
+const cleanKey = v => (v || "").replace(/[\s\u200B-\u200D\u2060\uFEFF]+/g, "");
+const waitingKey = () => { const w = +localStorage.getItem("otto.awWait") || 0; return w && Date.now() - w < 30 * 60000 && !localStorage.getItem("otto.awkey"); };
+async function keyFromClipboard(ask) {
+  let granted = false;
+  try { granted = (await navigator.permissions.query({ name: "clipboard-read" })).state === "granted"; } catch {}
+  if (!granted && !ask) return false;
+  try { const m = (await navigator.clipboard.readText() || "").match(KEY_FIND); if (m && saveKey(m[0], true)) { localStorage.removeItem("otto.awWait"); return true; } } catch {}
+  return false;
+}
+document.addEventListener("visibilitychange", async () => {
+  if (document.hidden || !waitingKey()) return;
+  if (await keyFromClipboard(false)) { if ($("#dlg").open && $("#gKey")) $("#dlg").close("saved"); return; }
+  if (!($("#dlg").open && $("#gKey"))) keyGuide(null, true);
+  else { const pb = $("#gPaste"); pb?.classList.replace("btn-soft", "btn-primary"); pb?.focus(); say(t("aw.back"), "wave", { ms: 5000 }); }
+});
+async function keyGuide(bad, back) {
   const d = $("#dlg");
   const inp = el("input", { type: "text", id: "gKey", autocomplete: "off", spellcheck: "false", placeholder: "ww_live_…", value: localStorage.getItem("otto.awkey") || "" });
   const done = v => { inp.value = v; d.close("ok"); };
   const tryText = txt => { const m = (txt || "").match(KEY_FIND); if (m) { done(m[0]); return true; } return false; };
-  const readClip = async () => { try { return tryText(await navigator.clipboard.readText()); } catch { return false; } };
-  const paste = el("button", { type: "button", class: "btn btn-soft", id: "gPaste", onclick: async () => { if (!(await readClip())) { try { inp.value = (await navigator.clipboard.readText()).trim(); } catch {} inp.focus(); } } }, ic("copy"), t("aw.paste"));
+  const paste = el("button", { type: "button", class: back ? "btn btn-primary" : "btn btn-soft", id: "gPaste", onclick: async () => { let txt = ""; try { txt = await navigator.clipboard.readText(); } catch {} if (!tryText(txt)) { if (txt) inp.value = txt.trim(); inp.focus(); } } }, ic("copy"), t("aw.paste"));
   // solo quando la chiave arriva tutta insieme (incolla/riempimento), mai mentre si scrive a mano: si salverebbe a metà
   let prevLen = inp.value.length;
   inp.addEventListener("input", e => { const jump = inp.value.length - prevLen; prevLen = inp.value.length; if (jump > 8 || /^insertFrom/.test(e.inputType || "")) tryText(inp.value); });
   inp.addEventListener("paste", e => { if (tryText(e.clipboardData?.getData("text"))) e.preventDefault(); });
-  let away = false;
   const steps = el("ol", { class: "wsteps" },
-    el("li", {}, el("span", {}, t("aw.g1")), el("a", { class: "btn btn-primary", href: "https://walletwallet.dev/signup/", target: "_blank", rel: "noopener", onclick: () => { away = true; } }, ic("wallet"), t("aw.getKey"))),
+    el("li", {}, el("span", {}, t("aw.g1")), el("a", { class: "btn btn-primary", href: "https://walletwallet.dev/signup/", target: "_blank", rel: "noopener", onclick: () => localStorage.setItem("otto.awWait", Date.now()) }, ic("wallet"), t("aw.getKey"))),
     el("li", {}, el("span", {}, t("aw.g2"))),
     el("li", {}, el("span", {}, t("aw.g3")), el("label", { class: "lbl", for: "gKey" }, t("aw.key")), inp, paste));
-  // al ritorno nell'app: se il permesso c'è già legge da sola, altrimenti mette in evidenza «Incolla» (basta un tocco)
-  keyWatch = async () => {
-    if (document.hidden || !away || !d.open) return;
-    away = false;
-    let granted = false;
-    try { granted = (await navigator.permissions.query({ name: "clipboard-read" })).state === "granted"; } catch {}
-    if (granted && await readClip()) return;
-    paste.classList.replace("btn-soft", "btn-primary"); paste.focus();
-    say(t("aw.back"), "wave", { ms: 5000 });
-  };
-  document.addEventListener("visibilitychange", keyWatch);
   const otto = el("div", { class: "guide-otto", "data-otto": "", "aria-hidden": "true" });
   if (typeof bad !== "string") bad = null;
   if (bad) inp.value = bad.trim();
   const err = bad ? el("p", { class: "form-err", role: "alert" }, t("aw.badFmt")) : null;
-  const v = await dialog({ title: t("aw.guideTitle"), body: [otto, steps, err, el("p", { class: "muted tip" }, t("aw.keyLocal"))].filter(Boolean), onOpen: dd => { mountOttos(dd); mood("wave", 1600, dd); },
+  const v = await dialog({ title: t("aw.guideTitle"), body: [otto, steps, err, el("p", { class: "muted tip" }, t("aw.keyLocal"))].filter(Boolean),
+    onOpen: dd => { mountOttos(dd); mood("wave", 1600, dd); if (back) { paste.focus(); say(t("aw.back"), "wave", { ms: 5000 }); } },
     actions: [{ label: t("common.cancel"), value: "cancel" }, { label: t("common.save"), value: "ok", cls: "btn-primary" }] });
-  document.removeEventListener("visibilitychange", keyWatch); keyWatch = null;
-  if (v === "ok" && !saveKey(inp.value, true)) return keyGuide(inp.value || " ");
+  if (v === "saved") return;
+  const val = cleanKey(inp.value);
+  // anche se la finestra si chiude in altro modo, una chiave valida già scritta non va persa
+  if (v !== "ok") { if (val && KEY_RE.test(val) && val !== localStorage.getItem("otto.awkey")) { saveKey(val); localStorage.removeItem("otto.awWait"); } return; }
+  if (!saveKey(val, true)) return keyGuide(inp.value || " ");
+  localStorage.removeItem("otto.awWait");
 }
 $("#awGuide").onclick = () => keyGuide();
 $("#awKey").value = localStorage.getItem("otto.awkey") || "";
 $("#awKey").onchange = e => saveKey(e.target.value);
+$("#awKey").addEventListener("paste", e => { const m = (e.clipboardData?.getData("text") || "").match(KEY_FIND); if (m) { e.preventDefault(); saveKey(m[0]); } });
+$("#awSave").onclick = () => saveKey($("#awKey").value);
 if (WALLET_PROXY) $("#awHint").dataset.i18n = "aw.keyHintShared";
 document.querySelectorAll("input[name=motion]").forEach(r => r.onchange = () => { localStorage.setItem("otto.motion", r.value); applyTheme(); });
 $("#clearAll").onclick = async () => {
