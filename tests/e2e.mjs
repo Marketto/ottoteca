@@ -288,7 +288,7 @@ try {
   await fp.fill("#gKey", "abc");
   await fp.locator("#dlg button[value=ok]").click();
   await fp.waitForSelector("#gKey");
-  ok(!(await fp.evaluate(() => localStorage.getItem("otto.awkey"))), "chiave sbagliata non salvata");
+  ok(!(await fp.evaluate(() => localStorage.getItem("otto.awkey"))) && await fp.locator("#dlg .form-err").isVisible(), "chiave sbagliata non salvata, errore visibile nella finestra");
   await fp.waitForTimeout(1000);
   const axeG = await new AxeBuilder({ page: fp }).withTags(["wcag2a", "wcag2aa", "wcag21aa"]).analyze();
   ok(!axeG.violations.length, "axe guida chiave: " + axeG.violations.map(v => v.id).join(", "));
@@ -296,6 +296,13 @@ try {
   await fp.fill("#gKey", "chiave: ww_live_" + "a1".repeat(16) + " ");
   await fp.waitForFunction(() => localStorage.getItem("otto.awkey"));
   ok((await fp.inputValue("#awKey")).startsWith("ww_live_"), "chiave riconosciuta e salvata da sola (senza premere Salva)");
+  await fp.evaluate(() => localStorage.removeItem("otto.awkey"));
+  await fp.click("#awGuide");
+  await fp.locator("#gKey").pressSequentially("ww_live_Kx9-Pq_7ZtR2mN8bVc4LwYh3", { delay: 5 });
+  ok(!(await fp.evaluate(() => localStorage.getItem("otto.awkey"))), "scrivendo a mano non salva a metà");
+  await fp.locator("#dlg button[value=ok]").click();
+  await fp.waitForFunction(() => localStorage.getItem("otto.awkey") === "ww_live_Kx9-Pq_7ZtR2mN8bVc4LwYh3");
+  ok(true, "chiave con un formato diverso accettata con Salva");
   await fp.evaluate(() => localStorage.removeItem("otto.awkey"));
 
   // iPhone (Safari: niente File System Access): «Trova i miei PDF» apre la scelta di una cartella e copia i PDF

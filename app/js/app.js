@@ -8,7 +8,7 @@ import { analyze, openPdf, isPasswordError, renderToCanvas, pdfjs, closePdf } fr
 import { scanDoc, codeSVG, formatName, readImage } from "./codes.js";
 import { WALLET_PROXY } from "./config.js";
 
-export const VERSION = "1.6.1";
+export const VERSION = "1.6.2";
 const HEAVY = 5 * 1024 * 1024;                     // oltre questa soglia si suggerisce Schiaccia PDF
 const SQUASH_URL = "https://marketto.github.io/pdf-tiny-tools/";
 const COLORS = ["#e5637a", "#f29e4c", "#e8c547", "#7cc46b", "#3fb5a9", "#4f9ae0", "#8f7ae5", "#d06fc0", "#a07b62", "#7d8796"];
@@ -1135,26 +1135,29 @@ $("#langSel").onchange = async e => { localStorage.setItem("otto.lang", e.target
 document.querySelectorAll("input[name=theme]").forEach(r => r.onchange = () => { localStorage.setItem("otto.theme", r.value); applyTheme(); mood("trick"); });
 document.querySelectorAll("input[name=textsize]").forEach(r => r.onchange = () => { localStorage.setItem("otto.text", r.value); applyTextSize(); mood("happy", 1200); });
 // Guida per la chiave WalletWallet personale: 3 passi con Otto, incolla e salva
-const KEY_RE = /^ww_live_[0-9a-f]{32}$/i;
-function saveKey(v) {
-  v = (v || "").trim().replace(/\s+/g, "");
-  if (v && !KEY_RE.test(v)) { toast(t("aw.badFmt")); return false; }
+// formato largo: le chiavi vere possono essere più lunghe o con altri caratteri di «ww_live_» + 32 esadecimali
+const KEY_RE = /^ww_[a-z]+_[A-Za-z0-9_-]{16,200}$/;
+function saveKey(v, quiet) {
+  v = (v || "").replace(/[\s\u200B-\u200D\u2060\uFEFF]+/g, "");
+  if (v && !KEY_RE.test(v)) { if (!quiet) toast(t("aw.badFmt")); return false; }
   if (v) localStorage.setItem("otto.awkey", v); else localStorage.removeItem("otto.awkey");
   $("#awKey").value = v;
   if (v) { say(t("aw.saved"), "love"); const r = $("#buddyBtn").getBoundingClientRect(); confetti(r.left + r.width / 2, r.top, 20); }
   return true;
 }
 // Il sito della chiave non si può leggere da qui (altro sito, protetto dall'accesso): l'utente copia, l'app fa il resto.
-const KEY_FIND = /ww_live_[0-9a-f]{32}/i;
+const KEY_FIND = /ww_[a-z]+_[A-Za-z0-9_-]{16,200}/;
 let keyWatch = null;
-async function keyGuide() {
+async function keyGuide(bad) {
   const d = $("#dlg");
   const inp = el("input", { type: "text", id: "gKey", autocomplete: "off", spellcheck: "false", placeholder: "ww_live_…", value: localStorage.getItem("otto.awkey") || "" });
   const done = v => { inp.value = v; d.close("ok"); };
   const tryText = txt => { const m = (txt || "").match(KEY_FIND); if (m) { done(m[0]); return true; } return false; };
   const readClip = async () => { try { return tryText(await navigator.clipboard.readText()); } catch { return false; } };
-  const paste = el("button", { type: "button", class: "btn btn-soft", id: "gPaste", onclick: async () => { if (!(await readClip())) { toast(t("aw.badFmt")); inp.focus(); } } }, ic("copy"), t("aw.paste"));
-  inp.addEventListener("input", () => tryText(inp.value));
+  const paste = el("button", { type: "button", class: "btn btn-soft", id: "gPaste", onclick: async () => { if (!(await readClip())) { try { inp.value = (await navigator.clipboard.readText()).trim(); } catch {} inp.focus(); } } }, ic("copy"), t("aw.paste"));
+  // solo quando la chiave arriva tutta insieme (incolla/riempimento), mai mentre si scrive a mano: si salverebbe a metà
+  let prevLen = inp.value.length;
+  inp.addEventListener("input", e => { const jump = inp.value.length - prevLen; prevLen = inp.value.length; if (jump > 8 || /^insertFrom/.test(e.inputType || "")) tryText(inp.value); });
   inp.addEventListener("paste", e => { if (tryText(e.clipboardData?.getData("text"))) e.preventDefault(); });
   let away = false;
   const steps = el("ol", { class: "wsteps" },
@@ -1173,12 +1176,15 @@ async function keyGuide() {
   };
   document.addEventListener("visibilitychange", keyWatch);
   const otto = el("div", { class: "guide-otto", "data-otto": "", "aria-hidden": "true" });
-  const v = await dialog({ title: t("aw.guideTitle"), body: [otto, steps, el("p", { class: "muted tip" }, t("aw.keyLocal"))], onOpen: dd => { mountOttos(dd); mood("wave", 1600, dd); },
+  if (typeof bad !== "string") bad = null;
+  if (bad) inp.value = bad.trim();
+  const err = bad ? el("p", { class: "form-err", role: "alert" }, t("aw.badFmt")) : null;
+  const v = await dialog({ title: t("aw.guideTitle"), body: [otto, steps, err, el("p", { class: "muted tip" }, t("aw.keyLocal"))].filter(Boolean), onOpen: dd => { mountOttos(dd); mood("wave", 1600, dd); },
     actions: [{ label: t("common.cancel"), value: "cancel" }, { label: t("common.save"), value: "ok", cls: "btn-primary" }] });
   document.removeEventListener("visibilitychange", keyWatch); keyWatch = null;
-  if (v === "ok" && !saveKey(inp.value)) return keyGuide();
+  if (v === "ok" && !saveKey(inp.value, true)) return keyGuide(inp.value || " ");
 }
-$("#awGuide").onclick = keyGuide;
+$("#awGuide").onclick = () => keyGuide();
 $("#awKey").value = localStorage.getItem("otto.awkey") || "";
 $("#awKey").onchange = e => saveKey(e.target.value);
 if (WALLET_PROXY) $("#awHint").dataset.i18n = "aw.keyHintShared";

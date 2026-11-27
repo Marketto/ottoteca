@@ -666,6 +666,7 @@ body{overflow-x:clip}
 #addCode{margin:0 0 16px}
 .dlg details.adv{margin-top:10px}
 .dlg details.adv summary{cursor:pointer;font-weight:800;min-height:44px;display:flex;align-items:center;color:var(--muted)}
+.form-err{margin:10px 0 0;padding:8px 12px;border-radius:12px;background:var(--danger-soft,#ffe3e8);color:var(--danger,#a1123a);font-weight:700}
 .guide-otto{width:96px;height:96px;margin:0 auto 6px}
 .wsteps input{width:100%;font-family:ui-monospace,monospace;margin:6px 0}
 #awKey{width:100%;font-family:ui-monospace,monospace}
