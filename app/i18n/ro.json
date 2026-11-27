@@ -267,5 +267,8 @@
   "aw.keyLocal": "Cheia rămâne doar pe acest dispozitiv: Ottoteca o folosește doar ca să ceară carduri de la WalletWallet.",
   "aw.shared": "Cardurile gratuite comune din luna asta s-au terminat. Cu propria cheie gratuită continui imediat.",
   "aw.slow": "Prea multe carduri la rând: așteaptă un minut și încearcă din nou.",
-  "aw.keyHintShared": "Apple Wallet merge deja dintr-o atingere datorită cardurilor gratuite comune. Dacă se termină, adaugă propria cheie gratuită (1000 de carduri pe lună, doar pentru tine)."
+  "aw.keyHintShared": "Apple Wallet merge deja dintr-o atingere datorită cardurilor gratuite comune. Dacă se termină, adaugă propria cheie gratuită (1000 de carduri pe lună, doar pentru tine).",
+  "gw.ready": "Cardul e gata! Atinge ca să-l adaugi în Google Wallet.",
+  "gw.addNow": "Adaugă în Google Wallet",
+  "gw.oneTap": "Sfat: cu propria cheie WalletWallet gratuită, Google Wallet merge dintr-o atingere, fără poze."
 }

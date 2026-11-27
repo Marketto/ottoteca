@@ -20,4 +20,8 @@ r = await w.fetch(req("https://marketto.github.io", { barcodeValue: "1" }), env)
 ok(r.status === 429 && (await r.json()).scope === "month", "pass del mese finiti");
 r = await w.fetch(req("https://marketto.github.io", null, "OPTIONS"), env);
 ok(r.status === 204, "preflight CORS");
+globalThis.fetch = async (u) => { sent = { url: u }; return new Response(JSON.stringify({ applePass: "UEs=", googleSaveUrl: "https://pay.google.com/gp/v/save/x", serialNumber: "s", shareUrl: "u" }), { status: 200 }); };
+r = await w.fetch(req("https://marketto.github.io", { barcodeValue: "1", barcodeFormat: "QR" }, "POST", "/passes"), env);
+const j = await r.json();
+ok(sent.url.endsWith("/api/passes") && j.googleSaveUrl.startsWith("https://pay.google.com/") && j.applePass && !j.shareUrl, "Apple + Google in una chiamata");
 if (fails) process.exit(1);

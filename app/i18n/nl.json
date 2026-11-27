@@ -267,5 +267,8 @@
   "aw.keyLocal": "De sleutel blijft alleen op dit apparaat: Ottoteca gebruikt hem alleen om passen bij WalletWallet aan te vragen.",
   "aw.shared": "De gedeelde gratis passen van deze maand zijn op. Met je eigen gratis sleutel ga je meteen verder.",
   "aw.slow": "Te veel passen achter elkaar: wacht een minuut en probeer opnieuw.",
-  "aw.keyHintShared": "Apple Wallet werkt al met één tik dankzij gedeelde gratis passen. Zijn ze op, voeg dan je eigen gratis sleutel toe (1000 passen per maand, alleen voor jou)."
+  "aw.keyHintShared": "Apple Wallet werkt al met één tik dankzij gedeelde gratis passen. Zijn ze op, voeg dan je eigen gratis sleutel toe (1000 passen per maand, alleen voor jou).",
+  "gw.ready": "Pas klaar! Tik om hem aan Google Wallet toe te voegen.",
+  "gw.addNow": "Toevoegen aan Google Wallet",
+  "gw.oneTap": "Tip: met je eigen gratis WalletWallet-sleutel werkt Google Wallet met één tik, zonder foto's."
 }

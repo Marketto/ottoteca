@@ -1,6 +1,6 @@
 // Ottoteca Wallet: crea pass Apple Wallet con la chiave WalletWallet gratuita del proprietario, tenuta segreta qui.
 // L'app chiama POST /pkpass; il Worker accetta solo Ottoteca, limita le richieste per persona e inoltra solo i campi ammessi.
-const API = "https://api.walletwallet.dev/api/pkpass";
+const API = "https://api.walletwallet.dev/api/";
 const FORMATS = ["QR", "PDF417", "Aztec", "Code128"];
 const COLORS = ["dark", "blue", "green", "red", "purple", "orange"];
 
@@ -25,7 +25,8 @@ export default {
     const url = new URL(req.url);
     if (req.method === "OPTIONS") return new Response(null, { status: 204, headers: h });
     if (url.pathname === "/" && req.method === "GET") return json(200, { ok: true, service: "ottoteca-wallet" }, h);
-    if (url.pathname !== "/pkpass" || req.method !== "POST") return json(404, { error: "not found" }, h);
+    const route = url.pathname === "/passes" ? "passes" : url.pathname === "/pkpass" ? "pkpass" : null;
+    if (!route || req.method !== "POST") return json(404, { error: "not found" }, h);
     if (!allowed.includes(origin)) return json(403, { error: "origin" }, h);
     if (!env.WW_KEY) return json(503, { error: "not configured" }, h);
 
@@ -40,6 +41,7 @@ export default {
     const body = {
       barcodeValue: str(b.barcodeValue, 512),
       barcodeFormat: FORMATS.includes(b.barcodeFormat) ? b.barcodeFormat : "QR",
+      barcodeAltText: route === "passes" ? str(b.barcodeAltText, 128) : undefined,
       title: str(b.title, 64) || "Ottoteca",
       logoText: str(b.logoText, 64),
       description: str(b.description, 128),
@@ -49,12 +51,17 @@ export default {
     };
     if (!body.barcodeValue) return json(400, { error: "barcodeValue" }, h);
 
-    const r = await fetch(API, { method: "POST", headers: { "Content-Type": "application/json", Authorization: "Bearer " + env.WW_KEY, "User-Agent": "ottoteca-wallet" }, body: JSON.stringify(body) });
+    const r = await fetch(API + route, { method: "POST", headers: { "Content-Type": "application/json", Authorization: "Bearer " + env.WW_KEY, "User-Agent": "ottoteca-wallet" }, body: JSON.stringify(body) });
     if (!r.ok) {
       let e = {}; try { e = await r.json(); } catch {}
       // 401 = chiave del proprietario non valida, 429 = finiti i pass gratuiti del mese: per l'app è «servizio condiviso esaurito»
       return json(r.status === 429 ? 429 : r.status === 400 ? 400 : 502, { error: e.error || "upstream " + r.status, scope: r.status === 429 ? "month" : undefined, resetDate: e.resetDate }, h);
     }
-    return new Response(r.body, { status: 200, headers: { ...h, "Content-Type": "application/vnd.apple.pkpass", "Content-Disposition": 'attachment; filename="ottoteca.pkpass"', "Cache-Control": "no-store" } });
+    if (route === "passes") {
+      const j = await r.json(); // solo i campi utili all'app
+      return json(200, { applePass: j.applePass, googleSaveUrl: j.googleSaveUrl }, { ...h, "Cache-Control": "no-store" });
+    }
+    const g = r.headers.get("X-Google-Save-Url");
+    return new Response(r.body, { status: 200, headers: { ...h, "Content-Type": "application/vnd.apple.pkpass", "Content-Disposition": 'attachment; filename="ottoteca.pkpass"', "Cache-Control": "no-store", ...(g ? { "X-Google-Save-Url": g, "Access-Control-Expose-Headers": "X-Google-Save-Url" } : {}) } });
   }
 };

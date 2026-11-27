@@ -267,5 +267,8 @@
   "aw.keyLocal": "Avain pysyy vain tällä laitteella: Ottoteca käyttää sitä vain passien pyytämiseen WalletWalletilta.",
   "aw.shared": "Tämän kuun jaetut ilmaiset passit on käytetty. Omalla ilmaisella avaimella jatkat heti.",
   "aw.slow": "Liian monta passia peräkkäin: odota minuutti ja yritä uudelleen.",
-  "aw.keyHintShared": "Apple Wallet toimii jo yhdellä napautuksella yhteisten ilmaisten passien ansiosta. Jos ne loppuvat, lisää oma ilmainen avain (1 000 passia kuussa, vain sinulle)."
+  "aw.keyHintShared": "Apple Wallet toimii jo yhdellä napautuksella yhteisten ilmaisten passien ansiosta. Jos ne loppuvat, lisää oma ilmainen avain (1 000 passia kuussa, vain sinulle).",
+  "gw.ready": "Passi valmis! Napauta lisätäksesi sen Google Walletiin.",
+  "gw.addNow": "Lisää Google Walletiin",
+  "gw.oneTap": "Vinkki: omalla ilmaisella WalletWallet-avaimella Google Wallet toimii yhdellä napautuksella, ilman kuvia."
 }

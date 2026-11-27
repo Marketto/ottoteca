@@ -267,5 +267,8 @@
   "aw.keyLocal": "Ključ ostaje samo na ovom uređaju: Ottoteka ga koristi samo za traženje propusnica od WalletWalleta.",
   "aw.shared": "Zajedničke besplatne propusnice za ovaj mjesec su potrošene. Sa svojim besplatnim ključem nastavljaš odmah.",
   "aw.slow": "Previše propusnica zaredom: pričekaj minutu i pokušaj ponovno.",
-  "aw.keyHintShared": "Apple Wallet već radi jednim dodirom zahvaljujući zajedničkim besplatnim propusnicama. Ako ih nestane, dodaj svoj besplatni ključ (1000 propusnica mjesečno, samo za tebe)."
+  "aw.keyHintShared": "Apple Wallet već radi jednim dodirom zahvaljujući zajedničkim besplatnim propusnicama. Ako ih nestane, dodaj svoj besplatni ključ (1000 propusnica mjesečno, samo za tebe).",
+  "gw.ready": "Propusnica je spremna! Dodirni da je dodaš u Google Wallet.",
+  "gw.addNow": "Dodaj u Google Wallet",
+  "gw.oneTap": "Savjet: sa svojim besplatnim WalletWallet ključem Google Wallet radi jednim dodirom, bez fotografija."
 }

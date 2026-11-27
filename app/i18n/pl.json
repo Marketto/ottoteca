@@ -267,5 +267,8 @@
   "aw.keyLocal": "Klucz zostaje tylko na tym urządzeniu: Ottoteka używa go wyłącznie do zamawiania kart w WalletWallet.",
   "aw.shared": "Wspólne darmowe karty na ten miesiąc się skończyły. Z własnym darmowym kluczem działasz od razu dalej.",
   "aw.slow": "Za dużo kart naraz: poczekaj minutę i spróbuj ponownie.",
-  "aw.keyHintShared": "Apple Wallet działa już jednym stuknięciem dzięki wspólnym darmowym kartom. Gdy się skończą, dodaj własny darmowy klucz (1000 kart miesięcznie, tylko dla ciebie)."
+  "aw.keyHintShared": "Apple Wallet działa już jednym stuknięciem dzięki wspólnym darmowym kartom. Gdy się skończą, dodaj własny darmowy klucz (1000 kart miesięcznie, tylko dla ciebie).",
+  "gw.ready": "Karta gotowa! Stuknij, aby dodać ją do Portfela Google.",
+  "gw.addNow": "Dodaj do Portfela Google",
+  "gw.oneTap": "Wskazówka: z własnym darmowym kluczem WalletWallet Portfel Google działa jednym stuknięciem, bez zdjęć."
 }

@@ -267,5 +267,8 @@
   "aw.keyLocal": "키는 이 기기에만 저장되고, WalletWallet에 패스를 요청할 때만 쓰여요.",
   "aw.shared": "이번 달 공용 무료 패스가 모두 소진됐어요. 내 무료 키가 있으면 바로 계속할 수 있어요.",
   "aw.slow": "연속으로 너무 많이 만들었어요. 1분 뒤에 다시 시도하세요.",
-  "aw.keyHintShared": "모두가 함께 쓰는 무료 패스 덕분에 Apple Wallet이 이미 한 번의 탭으로 돼요. 다 떨어지면 내 무료 키(월 1,000장, 나만 사용)를 추가하세요."
+  "aw.keyHintShared": "모두가 함께 쓰는 무료 패스 덕분에 Apple Wallet이 이미 한 번의 탭으로 돼요. 다 떨어지면 내 무료 키(월 1,000장, 나만 사용)를 추가하세요.",
+  "gw.ready": "패스 준비 완료! 눌러서 Google 월렛에 추가하세요.",
+  "gw.addNow": "Google 월렛에 추가",
+  "gw.oneTap": "팁: 내 무료 WalletWallet 키가 있으면 사진 없이 한 번의 탭으로 Google 월렛에 추가돼요."
 }

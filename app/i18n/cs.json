@@ -267,5 +267,8 @@
   "aw.keyLocal": "Klíč zůstává jen v tomto zařízení: Ottoteka ho používá jen k žádosti o karty u WalletWallet.",
   "aw.shared": "Sdílené karty zdarma na tento měsíc došly. S vlastním klíčem zdarma pokračuješ hned.",
   "aw.slow": "Příliš mnoho karet za sebou: počkej minutu a zkus to znovu.",
-  "aw.keyHintShared": "Apple Wallet už funguje jedním klepnutím díky sdíleným kartám zdarma. Když dojdou, přidej si vlastní klíč zdarma (1000 karet měsíčně, jen pro tebe)."
+  "aw.keyHintShared": "Apple Wallet už funguje jedním klepnutím díky sdíleným kartám zdarma. Když dojdou, přidej si vlastní klíč zdarma (1000 karet měsíčně, jen pro tebe).",
+  "gw.ready": "Karta je hotová! Klepni a přidej ji do Google Wallet.",
+  "gw.addNow": "Přidat do Google Wallet",
+  "gw.oneTap": "Tip: s vlastním klíčem WalletWallet zdarma funguje Google Wallet jedním klepnutím, bez fotek."
 }

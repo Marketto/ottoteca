@@ -267,5 +267,8 @@
   "aw.keyLocal": "Fanann an eochair ar an ngléas seo amháin: ní úsáideann Ottoteca í ach chun pasanna a iarraidh ar WalletWallet.",
   "aw.shared": "Tá pasanna comhroinnte saor in aisce na míosa seo ídithe. Le d'eochair féin saor in aisce leanann tú ar aghaidh láithreach.",
   "aw.slow": "An iomarca pasanna i ndiaidh a chéile: fan nóiméad agus bain triail eile as.",
-  "aw.keyHintShared": "Oibríonn Apple Wallet le tapáil amháin cheana féin, a bhuíochas le pasanna comhroinnte saor in aisce. Má ritheann siad amach, cuir d'eochair féin saor in aisce leis (1,000 pas sa mhí, duitse amháin)."
+  "aw.keyHintShared": "Oibríonn Apple Wallet le tapáil amháin cheana féin, a bhuíochas le pasanna comhroinnte saor in aisce. Má ritheann siad amach, cuir d'eochair féin saor in aisce leis (1,000 pas sa mhí, duitse amháin).",
+  "gw.ready": "Tá an pas réidh! Tapáil chun é a chur le Google Wallet.",
+  "gw.addNow": "Cuir le Google Wallet",
+  "gw.oneTap": "Leid: le d'eochair WalletWallet féin saor in aisce, oibríonn Google Wallet le tapáil amháin, gan grianghraif."
 }

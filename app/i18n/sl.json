@@ -267,5 +267,8 @@
   "aw.keyLocal": "Ključ ostane samo v tej napravi: Ottoteka ga uporablja samo za naročanje kartic pri WalletWallet.",
   "aw.shared": "Skupne brezplačne kartice za ta mesec so porabljene. S svojim brezplačnim ključem nadaljuješ takoj.",
   "aw.slow": "Preveč kartic zapored: počakaj minuto in poskusi znova.",
-  "aw.keyHintShared": "Apple Wallet že deluje z enim dotikom zaradi skupnih brezplačnih kartic. Če zmanjka, dodaj svoj brezplačni ključ (1000 kartic na mesec, samo zate)."
+  "aw.keyHintShared": "Apple Wallet že deluje z enim dotikom zaradi skupnih brezplačnih kartic. Če zmanjka, dodaj svoj brezplačni ključ (1000 kartic na mesec, samo zate).",
+  "gw.ready": "Kartica je pripravljena! Tapni, da jo dodaš v Google Wallet.",
+  "gw.addNow": "Dodaj v Google Wallet",
+  "gw.oneTap": "Namig: s svojim brezplačnim ključem WalletWallet Google Wallet deluje z enim dotikom, brez fotografij."
 }

@@ -267,5 +267,8 @@
   "aw.keyLocal": "Nyckeln stannar bara på den här enheten: Ottoteca använder den bara för att beställa kort hos WalletWallet.",
   "aw.shared": "Månadens delade gratiskort är slut. Med din egen gratisnyckel fortsätter du direkt.",
   "aw.slow": "För många kort i rad: vänta en minut och försök igen.",
-  "aw.keyHintShared": "Apple Wallet fungerar redan med ett tryck tack vare delade gratiskort. Tar de slut, lägg till din egen gratisnyckel (1 000 kort i månaden, bara för dig)."
+  "aw.keyHintShared": "Apple Wallet fungerar redan med ett tryck tack vare delade gratiskort. Tar de slut, lägg till din egen gratisnyckel (1 000 kort i månaden, bara för dig).",
+  "gw.ready": "Kortet är klart! Tryck för att lägga till det i Google Wallet.",
+  "gw.addNow": "Lägg till i Google Wallet",
+  "gw.oneTap": "Tips: med din egen gratis WalletWallet-nyckel fungerar Google Wallet med ett tryck, utan foton."
 }

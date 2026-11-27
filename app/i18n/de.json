@@ -267,5 +267,8 @@
   "aw.keyLocal": "Der Schlüssel bleibt nur auf diesem Gerät: Ottoteca nutzt ihn nur, um Pässe bei WalletWallet anzufordern.",
   "aw.shared": "Die gemeinsamen kostenlosen Pässe für diesen Monat sind aufgebraucht. Mit deinem eigenen kostenlosen Schlüssel geht es sofort weiter.",
   "aw.slow": "Zu viele Pässe hintereinander: Warte eine Minute und versuch es erneut.",
-  "aw.keyHintShared": "Apple Wallet klappt schon mit einem Tipp, dank gemeinsam genutzter kostenloser Pässe. Sind sie aufgebraucht, füge deinen eigenen kostenlosen Schlüssel hinzu (1.000 Pässe im Monat, nur für dich)."
+  "aw.keyHintShared": "Apple Wallet klappt schon mit einem Tipp, dank gemeinsam genutzter kostenloser Pässe. Sind sie aufgebraucht, füge deinen eigenen kostenlosen Schlüssel hinzu (1.000 Pässe im Monat, nur für dich).",
+  "gw.ready": "Pass fertig! Tippe, um ihn zu Google Wallet hinzuzufügen.",
+  "gw.addNow": "Zu Google Wallet hinzufügen",
+  "gw.oneTap": "Tipp: Mit deinem eigenen kostenlosen WalletWallet-Schlüssel klappt Google Wallet mit einem Tipp, ohne Fotos."
 }

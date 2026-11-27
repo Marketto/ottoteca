@@ -267,5 +267,8 @@
   "aw.keyLocal": "A kulcs csak ezen az eszközön marad: az Ottoteca csak arra használja, hogy kártyát kérjen a WalletWallettől.",
   "aw.shared": "Elfogytak a hónap közös ingyenes kártyái. Saját ingyenes kulccsal azonnal folytathatod.",
   "aw.slow": "Túl sok kártya egymás után: várj egy percet, és próbáld újra.",
-  "aw.keyHintShared": "Az Apple Wallet már egy koppintással megy a közös ingyenes kártyáknak köszönhetően. Ha elfogynak, adj meg saját ingyenes kulcsot (havi 1000 kártya, csak neked)."
+  "aw.keyHintShared": "Az Apple Wallet már egy koppintással megy a közös ingyenes kártyáknak köszönhetően. Ha elfogynak, adj meg saját ingyenes kulcsot (havi 1000 kártya, csak neked).",
+  "gw.ready": "Kész a kártya! Koppints, hogy hozzáadd a Google Wallethez.",
+  "gw.addNow": "Hozzáadás a Google Wallethez",
+  "gw.oneTap": "Tipp: saját ingyenes WalletWallet-kulccsal a Google Wallet egy koppintással megy, fotó nélkül."
 }

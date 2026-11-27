@@ -134,13 +134,19 @@ try {
   ok((await page.textContent("#passes .pass:first-child .from")).includes("EAN-13"), "tipo di codice riconosciuto da solo (EAN-13)");
   // Apple Wallet con un tocco (chiave gratuita WalletWallet, API simulata)
   let sent = null;
-  await page.route("https://api.walletwallet.dev/api/pkpass", r => { sent = { auth: r.request().headers().authorization, body: JSON.parse(r.request().postData()) }; r.fulfill({ status: 200, contentType: "application/vnd.apple.pkpass", body: "PK" }); });
+  await page.route("https://api.walletwallet.dev/api/passes", r => { sent = { auth: r.request().headers().authorization, body: JSON.parse(r.request().postData()) }; r.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify({ applePass: "UEs=", googleSaveUrl: "https://pay.google.com/gp/v/save/test", serialNumber: "s" }) }); });
   await page.evaluate(() => localStorage.setItem("otto.awkey", "ww_live_test"));
   await page.locator("#passes .pass:first-child .btn", { hasText: "Apple Wallet" }).click();
   await page.waitForFunction(() => true);
   await page.waitForTimeout(800);
   ok(sent && sent.auth === "Bearer ww_live_test" && sent.body.barcodeValue === "8001234567897" && sent.body.barcodeFormat === "Code128", "Apple Wallet con un tocco (chiave WalletWallet)");
   ok(!(await page.locator("#dlg[open]").count()), "nessun passo manuale con la chiave");
+  sent = null;
+  await page.evaluate(() => { window.__opened = []; window.open = u => { window.__opened.push(u); return null; }; });
+  await page.locator("#passes .pass:first-child .btn", { hasText: "Google Wallet" }).click();
+  await page.waitForTimeout(500);
+  ok(sent === null && !(await page.locator("#dlg[open]").count()), "Google Wallet con un tocco, senza rifare il pass (link già salvato)");
+  ok((await page.evaluate(() => window.__opened[0])) === "https://pay.google.com/gp/v/save/test", "apre il link ufficiale di Google Wallet");
   await page.evaluate(() => localStorage.removeItem("otto.awkey"));
   if (shots) await page.screenshot({ path: "tests/shots/07-portafoglio.png" });
   await page.waitForTimeout(1200);

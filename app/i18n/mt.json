@@ -267,5 +267,8 @@
   "aw.keyLocal": "Iċ-ċavetta tibqa' biss fuq dan l-apparat: Ottoteca tużaha biss biex titlob passes minn WalletWallet.",
   "aw.shared": "Il-passes b'xejn kondiviżi ta' dan ix-xahar spiċċaw. Biċ-ċavetta tiegħek b'xejn tkompli minnufih.",
   "aw.slow": "Wisq passes wara xulxin: stenna minuta u erġa' pprova.",
-  "aw.keyHintShared": "Apple Wallet diġà jaħdem b'tapp wieħed grazzi għall-passes b'xejn kondiviżi. Jekk jispiċċaw, żid iċ-ċavetta tiegħek b'xejn (1,000 pass fix-xahar, għalik biss)."
+  "aw.keyHintShared": "Apple Wallet diġà jaħdem b'tapp wieħed grazzi għall-passes b'xejn kondiviżi. Jekk jispiċċaw, żid iċ-ċavetta tiegħek b'xejn (1,000 pass fix-xahar, għalik biss).",
+  "gw.ready": "Il-pass lest! Agħfas biex iżżidu ma' Google Wallet.",
+  "gw.addNow": "Żid ma' Google Wallet",
+  "gw.oneTap": "Parir: biċ-ċavetta WalletWallet tiegħek b'xejn, Google Wallet jaħdem b'tapp wieħed, bla ritratti."
 }

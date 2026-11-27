@@ -267,5 +267,8 @@
   "aw.keyLocal": "La clave se queda solo en este dispositivo: Ottoteca solo la usa para pedir los pases a WalletWallet.",
   "aw.shared": "Los pases gratuitos compartidos de este mes se han acabado. Con tu propia clave gratuita sigues al momento.",
   "aw.slow": "Demasiados pases seguidos: espera un minuto y vuelve a intentarlo.",
-  "aw.keyHintShared": "Apple Wallet ya funciona con un toque gracias a los pases gratuitos compartidos. Si se acaban, añade tu propia clave gratuita (1000 pases al mes, solo para ti)."
+  "aw.keyHintShared": "Apple Wallet ya funciona con un toque gracias a los pases gratuitos compartidos. Si se acaban, añade tu propia clave gratuita (1000 pases al mes, solo para ti).",
+  "gw.ready": "¡Pase listo! Toca para añadirlo a Google Wallet.",
+  "gw.addNow": "Añadir a Google Wallet",
+  "gw.oneTap": "Consejo: con tu propia clave gratuita de WalletWallet, Google Wallet funciona con un toque, sin fotos."
 }

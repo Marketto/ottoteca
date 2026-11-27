@@ -267,5 +267,8 @@
   "aw.keyLocal": "Raktas lieka tik šiame įrenginyje: Ottoteca jį naudoja tik kortelėms iš WalletWallet užsakyti.",
   "aw.shared": "Šio mėnesio bendros nemokamos kortelės baigėsi. Su savo nemokamu raktu tęsi iškart.",
   "aw.slow": "Per daug kortelių iš eilės: palauk minutę ir bandyk vėl.",
-  "aw.keyHintShared": "Apple Wallet jau veikia vienu palietimu dėl bendrų nemokamų kortelių. Jei jos baigsis, pridėk savo nemokamą raktą (1000 kortelių per mėnesį, tik tau)."
+  "aw.keyHintShared": "Apple Wallet jau veikia vienu palietimu dėl bendrų nemokamų kortelių. Jei jos baigsis, pridėk savo nemokamą raktą (1000 kortelių per mėnesį, tik tau).",
+  "gw.ready": "Kortelė paruošta! Paliesk, kad pridėtum ją į Google Wallet.",
+  "gw.addNow": "Pridėti į Google Wallet",
+  "gw.oneTap": "Patarimas: su savo nemokamu WalletWallet raktu Google Wallet veikia vienu palietimu, be nuotraukų."
 }

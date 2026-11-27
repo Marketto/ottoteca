@@ -267,5 +267,8 @@
   "aw.keyLocal": "The key stays only on this device: Ottoteca doesn't send it anywhere except to WalletWallet to create your passes.",
   "aw.shared": "The free shared passes for this month are used up. With your own free key you can keep going right away.",
   "aw.slow": "Too many passes in a row: wait a minute and try again.",
-  "aw.keyHintShared": "Apple Wallet already works with one tap, thanks to free passes shared by everyone. If they run out, add your own free key (1,000 passes a month, just for you)."
+  "aw.keyHintShared": "Apple Wallet already works with one tap, thanks to free passes shared by everyone. If they run out, add your own free key (1,000 passes a month, just for you).",
+  "gw.ready": "Pass ready! Tap to add it to Google Wallet.",
+  "gw.addNow": "Add to Google Wallet",
+  "gw.oneTap": "Tip: with your own free WalletWallet key, Google Wallet works with one tap, no photos."
 }

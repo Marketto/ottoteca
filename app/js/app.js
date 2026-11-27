@@ -8,7 +8,7 @@ import { analyze, openPdf, isPasswordError, renderToCanvas, pdfjs, closePdf } fr
 import { scanDoc, codeSVG, formatName, readImage } from "./codes.js";
 import { WALLET_PROXY } from "./config.js";
 
-export const VERSION = "1.5.0";
+export const VERSION = "1.6.0";
 const HEAVY = 5 * 1024 * 1024;                     // oltre questa soglia si suggerisce Schiaccia PDF
 const SQUASH_URL = "https://marketto.github.io/pdf-tiny-tools/";
 const COLORS = ["#e5637a", "#f29e4c", "#e8c547", "#7cc46b", "#3fb5a9", "#4f9ae0", "#8f7ae5", "#d06fc0", "#a07b62", "#7d8796"];
@@ -929,7 +929,7 @@ function renderWallet() {
         p.kind !== "booking" ? el("button", { type: "button", class: "btn", onclick: () => toAppleWallet(p) }, ic("wallet"), "Apple Wallet") : null,
         p.kind !== "booking" ? el("button", { type: "button", class: "btn", onclick: () => toPhoneWallet(p) }, ic("wallet"), "Google Wallet") : null,
         doc ? el("button", { type: "button", class: "btn", onclick: () => openViewer(doc.id) }, ic("pdf"), t("wallet.openPdf")) : null,
-        el("button", { type: "button", class: "icon-btn", "aria-label": t("doc.rename") + ": " + p.title, title: t("doc.rename"), onclick: async () => { const v = await promptBox(t("doc.rename"), t("wallet.name"), p.title); if (v) { p.title = v; await db.put("passes", p); renderWallet(); } } }, ic("edit")),
+        el("button", { type: "button", class: "icon-btn", "aria-label": t("doc.rename") + ": " + p.title, title: t("doc.rename"), onclick: async () => { const v = await promptBox(t("doc.rename"), t("wallet.name"), p.title); if (v) { p.title = v; delete p.pk; delete p.gUrl; await db.put("passes", p); renderWallet(); } } }, ic("edit")),
         el("button", { type: "button", class: "icon-btn", "aria-label": t("wallet.delete") + ": " + p.title, title: t("wallet.delete"), onclick: async () => { if (await confirmBox(t("wallet.delete"), p.title, t("common.delete"))) { await db.del("passes", p.id); S.passes = S.passes.filter(x => x.id !== p.id); renderWallet(); say(t("ev.delete"), "wiggle"); } } }, ic("trash"))));
     ul.append(li);
   });
@@ -973,44 +973,81 @@ async function savePassImage(p, svg) {
 // Wallet del telefono: Google Wallet accetta passi creati da una foto del codice («Tutto il resto» / «Foto»).
 // Apple Wallet accetta solo pass firmati dall'emittente: niente modo manuale.
 async function toPhoneWallet(p) {
+  if (p.gUrl || wwReady(p)) { if (await googleDirect(p, wwKey() || null)) return; }
   const steps = el("ol", { class: "wsteps" },
     el("li", {}, el("span", {}, t("gw.step1")), el("button", { type: "button", class: "btn btn-primary", onclick: async ev => { const b = ev.currentTarget; downloadFile(await passImage(p)); b.replaceChildren(ic("check"), t("codes.added")); } }, ic("download"), t("gw.save"))),
     el("li", {}, el("span", {}, t("gw.step2")), el("a", { class: "btn btn-soft", href: IS_ANDROID ? "intent://#Intent;package=com.google.android.apps.walletnfcrel;S.browser_fallback_url=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.google.android.apps.walletnfcrel;end" : "https://wallet.google.com/", target: "_blank", rel: "noopener" }, ic("wallet"), t("gw.open"))),
     el("li", {}, el("span", {}, t("gw.step3"))));
-  await dialog({ title: t("gw.title"), body: steps });
+  const key = wwKey();
+  await dialog({ title: t("gw.title"), body: [steps, key ? null : el("p", { class: "muted tip" }, t("gw.oneTap"), " ", el("button", { type: "button", class: "linkish", onclick: () => { $("#dlg").close(); keyGuide(); } }, t("aw.howTo")))].filter(Boolean) });
 }
 // Apple Wallet vuole pass firmati: li firma WalletWallet (servizio gratuito con certificato Apple). Il codice va a loro.
 // Con una chiave gratuita (1000 pass al mese) dell'utente il pass si crea con un tocco; la chiave resta nel dispositivo.
 const AW_API = { QRCode: "QR", MicroQRCode: "QR", RMQRCode: "QR", DataMatrix: "QR", Aztec: "Aztec", PDF417: "PDF417", CompactPDF417: "PDF417" };
 const awFmt = f => AW_API[f] || "Code128"; // i codici a barre lineari (EAN, Code 39…) diventano Code 128 con lo stesso numero
 const AW_COLOR = ["blue", "red", "green", "purple", "orange", "dark"];
-async function appleDirect(p, key) { // key = chiave personale; senza, usa il Worker condiviso di Ottoteca
+// Un'unica chiamata a WalletWallet crea il pass per entrambi i wallet: .pkpass (Apple) + link «Salva in Google Wallet».
+// Il risultato si conserva nella carta (p.pk, p.gUrl) così non si consuma altra quota.
+const b64blob = (b64, type) => new Blob([Uint8Array.from(atob(b64), c => c.charCodeAt(0))], { type });
+async function wwCall(path, body, key) {
+  const base = key ? "https://api.walletwallet.dev/api" : WALLET_PROXY.replace(/\/$/, "");
+  return fetch(base + path, { method: "POST", headers: { "Content-Type": "application/json", ...(key ? { Authorization: "Bearer " + key } : {}) }, body: JSON.stringify(body) });
+}
+async function makePass(p, key) {
+  if (p.pk || p.gUrl) return { pk: p.pk || null, gUrl: p.gUrl || null };
+  const body = { barcodeValue: p.text.slice(0, 512), barcodeFormat: awFmt(p.format), barcodeAltText: p.text.length <= 40 ? p.text : undefined, title: (p.title || "Ottoteca").slice(0, 64), logoText: (p.title || "Ottoteca").slice(0, 64), organizationName: "Ottoteca", description: (p.title || "Pass").slice(0, 128), colorPreset: AW_COLOR[parseInt(p.id.slice(-2), 36) % AW_COLOR.length || 0], sharingProhibited: false };
+  let r = await wwCall("/passes", body, key), pk = null, gUrl = null;
+  if (r.status === 404 || r.status === 405) { // servizio senza /passes: vecchio /pkpass, il link Google arriva nell'intestazione
+    delete body.barcodeAltText;
+    r = await wwCall("/pkpass", body, key);
+    if (r.ok) { gUrl = r.headers.get("X-Google-Save-Url"); pk = new Blob([await r.blob()], { type: "application/vnd.apple.pkpass" }); }
+  } else if (r.ok) {
+    const j = await r.json();
+    if (j.applePass) pk = b64blob(j.applePass, "application/vnd.apple.pkpass");
+    gUrl = j.googleSaveUrl || null;
+  }
+  if (!r.ok) { let m = ""; try { m = (await r.json()).error || ""; } catch {} throw new Error(r.status + (m ? " " + m : "")); }
+  p.pk = pk; p.gUrl = gUrl && /^https:\/\/pay\.google\.com\//.test(gUrl) ? gUrl : null;
+  await db.put("passes", p);
+  return { pk: p.pk, gUrl: p.gUrl };
+}
+function wwError(e, key) {
+  mood("sad", 1500);
+  const m = String(e.message);
+  if (!key && m.startsWith("429")) toast(t(m.includes("slow") ? "aw.slow" : "aw.shared"), m.includes("slow") ? null : { label: t("aw.howTo"), fn: keyGuide });
+  else toast(t(m.startsWith("401") ? "aw.badKey" : m.startsWith("429") ? "aw.limit" : "aw.fail"));
+}
+const wwKey = () => (localStorage.getItem("otto.awkey") || "").trim();
+const wwReady = p => p.text && (wwKey() || WALLET_PROXY);
+async function appleDirect(p, key) {
   mood("think", 0);
   try {
-    const body = { barcodeValue: p.text.slice(0, 512), barcodeFormat: awFmt(p.format), title: (p.title || "Ottoteca").slice(0, 64), logoText: (p.title || "Ottoteca").slice(0, 64), organizationName: "Ottoteca", description: (p.title || "Pass").slice(0, 128), colorPreset: AW_COLOR[parseInt(p.id.slice(-2), 36) % AW_COLOR.length || 0], sharingProhibited: false };
-    const r = key
-      ? await fetch("https://api.walletwallet.dev/api/pkpass", { method: "POST", headers: { "Content-Type": "application/json", Authorization: "Bearer " + key }, body: JSON.stringify(body) })
-      : await fetch(WALLET_PROXY.replace(/\/$/, "") + "/pkpass", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
-    if (!r.ok) { let m = ""; try { m = (await r.json()).error || ""; } catch {} throw new Error(r.status + (m ? " " + m : "")); }
-    const blob = new Blob([await r.blob()], { type: "application/vnd.apple.pkpass" });
-    const url = URL.createObjectURL(blob);
+    const { pk } = await makePass(p, key);
+    if (!pk) throw new Error("500");
+    const url = URL.createObjectURL(pk);
     const a = el("a", { href: url, download: (p.title || "pass").replace(/[^\w.-]+/g, "_").slice(0, 40) + ".pkpass" });
     if (IS_IOS) a.removeAttribute("download"); // Safari apre «Aggiungi a Wallet»
     document.body.append(a); a.click(); a.remove();
     setTimeout(() => URL.revokeObjectURL(url), 60000);
     mood(null); say(t("ev.wallet"), "love");
     return true;
-  } catch (e) {
-    mood("sad", 1500);
-    const m = String(e.message);
-    if (!key && m.startsWith("429")) toast(t(m.includes("slow") ? "aw.slow" : "aw.shared"), m.includes("slow") ? null : { label: t("aw.howTo"), fn: keyGuide });
-    else toast(t(m.startsWith("401") ? "aw.badKey" : m.startsWith("429") ? "aw.limit" : "aw.fail"));
-    return false;
-  }
+  } catch (e) { wwError(e, key); return false; }
+}
+// Google Wallet automatico: il link ufficiale «Salva in Google Wallet» (va aperto con un tocco, non da solo)
+async function googleDirect(p, key) {
+  if (p.gUrl) { open(p.gUrl, "_blank", "noopener"); say(t("ev.wallet"), "love"); return true; }
+  mood("think", 0);
+  try {
+    const { gUrl } = await makePass(p, key);
+    mood(null);
+    if (!gUrl) return false;
+    toast(t("gw.ready"), { label: t("gw.addNow"), fn: () => { open(gUrl, "_blank", "noopener"); say(t("ev.wallet"), "love"); } });
+    return true;
+  } catch (e) { wwError(e, key); return false; }
 }
 async function toAppleWallet(p) {
-  const key = (localStorage.getItem("otto.awkey") || "").trim();
-  if (p.text && (key || WALLET_PROXY) && await appleDirect(p, key || null)) return;
+  const key = wwKey();
+  if ((p.pk || wwReady(p)) && await appleDirect(p, key || null)) return;
   const fmt = { QR: "QR", PDF417: "PDF417", Aztec: "Aztec", Code128: "Code 128" }[awFmt(p.format)];
   const value = p.text || "";
   const steps = el("ol", { class: "wsteps" },

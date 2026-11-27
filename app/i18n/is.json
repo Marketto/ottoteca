@@ -267,5 +267,8 @@
   "aw.keyLocal": "Lykillinn er aðeins á þessu tæki: Ottoteca notar hann aðeins til að biðja WalletWallet um passa.",
   "aw.shared": "Sameiginlegu ókeypis passar mánaðarins eru búnir. Með þínum eigin ókeypis lykli heldurðu strax áfram.",
   "aw.slow": "Of margir passar í röð: bíddu í mínútu og reyndu aftur.",
-  "aw.keyHintShared": "Apple Wallet virkar nú þegar með einni snertingu þökk sé sameiginlegum ókeypis pössum. Ef þeir klárast skaltu bæta við eigin ókeypis lykli (1.000 passar á mánuði, bara fyrir þig)."
+  "aw.keyHintShared": "Apple Wallet virkar nú þegar með einni snertingu þökk sé sameiginlegum ókeypis pössum. Ef þeir klárast skaltu bæta við eigin ókeypis lykli (1.000 passar á mánuði, bara fyrir þig).",
+  "gw.ready": "Passinn er tilbúinn! Ýttu til að bæta honum í Google Wallet.",
+  "gw.addNow": "Bæta í Google Wallet",
+  "gw.oneTap": "Ábending: með eigin ókeypis WalletWallet-lykli virkar Google Wallet með einni snertingu, án mynda."
 }

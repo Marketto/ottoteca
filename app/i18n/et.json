@@ -267,5 +267,8 @@
   "aw.keyLocal": "Võti jääb ainult sellesse seadmesse: Ottoteca kasutab seda ainult passide küsimiseks WalletWalletilt.",
   "aw.shared": "Selle kuu ühised tasuta passid on otsas. Oma tasuta võtmega jätkad kohe.",
   "aw.slow": "Liiga palju passe järjest: oota minut ja proovi uuesti.",
-  "aw.keyHintShared": "Apple Wallet töötab juba ühe puudutusega tänu ühistele tasuta passidele. Kui need saavad otsa, lisa oma tasuta võti (1000 passi kuus, ainult sulle)."
+  "aw.keyHintShared": "Apple Wallet töötab juba ühe puudutusega tänu ühistele tasuta passidele. Kui need saavad otsa, lisa oma tasuta võti (1000 passi kuus, ainult sulle).",
+  "gw.ready": "Pass on valmis! Puuduta, et lisada see Google Walletisse.",
+  "gw.addNow": "Lisa Google Walletisse",
+  "gw.oneTap": "Vihje: oma tasuta WalletWalleti võtmega töötab Google Wallet ühe puudutusega, ilma fotodeta."
 }

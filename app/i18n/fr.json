@@ -267,5 +267,8 @@
   "aw.keyLocal": "La clé reste uniquement sur cet appareil : Ottoteca s'en sert seulement pour demander les cartes à WalletWallet.",
   "aw.shared": "Les cartes gratuites partagées de ce mois sont épuisées. Avec ta propre clé gratuite, tu continues tout de suite.",
   "aw.slow": "Trop de cartes d'affilée : attends une minute et réessaie.",
-  "aw.keyHintShared": "Apple Wallet marche déjà en un geste grâce aux cartes gratuites partagées. Si elles s'épuisent, ajoute ta propre clé gratuite (1 000 cartes par mois, rien que pour toi)."
+  "aw.keyHintShared": "Apple Wallet marche déjà en un geste grâce aux cartes gratuites partagées. Si elles s'épuisent, ajoute ta propre clé gratuite (1 000 cartes par mois, rien que pour toi).",
+  "gw.ready": "Carte prête ! Touche pour l'ajouter à Google Wallet.",
+  "gw.addNow": "Ajouter à Google Wallet",
+  "gw.oneTap": "Astuce : avec ta propre clé WalletWallet gratuite, Google Wallet marche en un geste, sans photo."
 }

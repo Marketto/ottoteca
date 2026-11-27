@@ -267,5 +267,8 @@
   "aw.keyLocal": "Çelësi mbetet vetëm në këtë pajisje: Ottoteca e përdor vetëm për t'i kërkuar karta WalletWallet-it.",
   "aw.shared": "Kartat falas të përbashkëta të këtij muaji mbaruan. Me çelësin tënd falas vazhdon menjëherë.",
   "aw.slow": "Shumë karta njëra pas tjetrës: prit një minutë dhe provo sërish.",
-  "aw.keyHintShared": "Apple Wallet punon tashmë me një prekje falë kartave falas të përbashkëta. Nëse mbarojnë, shto çelësin tënd falas (1000 karta në muaj, vetëm për ty)."
+  "aw.keyHintShared": "Apple Wallet punon tashmë me një prekje falë kartave falas të përbashkëta. Nëse mbarojnë, shto çelësin tënd falas (1000 karta në muaj, vetëm për ty).",
+  "gw.ready": "Karta është gati! Prek për ta shtuar në Google Wallet.",
+  "gw.addNow": "Shto në Google Wallet",
+  "gw.oneTap": "Këshillë: me çelësin tënd falas WalletWallet, Google Wallet punon me një prekje, pa foto."
 }

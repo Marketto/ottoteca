@@ -267,5 +267,8 @@
   "aw.keyLocal": "密钥只保存在本设备上：Ottoteca 只用它向 WalletWallet 申请卡券。",
   "aw.shared": "本月共享的免费卡券已用完。用你自己的免费密钥可以马上继续。",
   "aw.slow": "连续生成太多卡券：请等一分钟再试。",
-  "aw.keyHintShared": "有了大家共享的免费卡券，Apple 钱包已经可以一键添加。如果用完了，就添加你自己的免费密钥（每月 1000 张，仅你使用）。"
+  "aw.keyHintShared": "有了大家共享的免费卡券，Apple 钱包已经可以一键添加。如果用完了，就添加你自己的免费密钥（每月 1000 张，仅你使用）。",
+  "gw.ready": "卡券已就绪！点一下添加到 Google 钱包。",
+  "gw.addNow": "添加到 Google 钱包",
+  "gw.oneTap": "提示：使用你自己的免费 WalletWallet 密钥，Google 钱包一键添加，无需照片。"
 }
