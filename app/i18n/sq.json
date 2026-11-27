@@ -259,9 +259,9 @@
   "add.more": "Opsione të avancuara",
   "aw.howTo": "Si bëhet?",
   "aw.guideTitle": "Çelësi yt falas në 3 hapa",
-  "aw.g1": "Hap faqen e WalletWallet dhe shkruaj email-in tënd. Falas, pa kartë.",
-  "aw.g2": "Brenda 24 orësh të vjen një email me çelësin: fillon me «ww_live_».",
-  "aw.g3": "Kopjo çelësin nga email-i dhe ngjite këtu.",
+  "aw.g1": "Hap WalletWallet dhe hyr me Google (vetëm herën e parë; mund të të kërkojë të konfirmosh që nuk je robot).",
+  "aw.g2": "Kopjo çelësin që sheh: fillon me «ww_live_».",
+  "aw.g3": "Kthehu këtu: Ottoteca e gjen vetë çelësin, ose prek «Ngjit».",
   "aw.paste": "Ngjit",
   "aw.badFmt": "Nuk duket si çelës WalletWallet: duhet të fillojë me «ww_live_» dhe pastaj 32 shkronja e numra.",
   "aw.keyLocal": "Çelësi mbetet vetëm në këtë pajisje: Ottoteca e përdor vetëm për t'i kërkuar karta WalletWallet-it.",
@@ -270,5 +270,6 @@
   "aw.keyHintShared": "Apple Wallet punon tashmë me një prekje falë kartave falas të përbashkëta. Nëse mbarojnë, shto çelësin tënd falas (1000 karta në muaj, vetëm për ty).",
   "gw.ready": "Karta është gati! Prek për ta shtuar në Google Wallet.",
   "gw.addNow": "Shto në Google Wallet",
-  "gw.oneTap": "Këshillë: me çelësin tënd falas WalletWallet, Google Wallet punon me një prekje, pa foto."
+  "gw.oneTap": "Këshillë: me çelësin tënd falas WalletWallet, Google Wallet punon me një prekje, pa foto.",
+  "aw.back": "Mirë se u ktheve! E kopjove çelësin? Prek «Ngjit» dhe mbaroi."
 }

@@ -259,9 +259,9 @@
   "add.more": "Pokročilé možnosti",
   "aw.howTo": "Jak na to?",
   "aw.guideTitle": "Tvůj klíč zdarma ve 3 krocích",
-  "aw.g1": "Otevři web WalletWallet a napiš svůj e-mail. Zdarma, bez karty.",
-  "aw.g2": "Do 24 hodin ti přijde e-mail s klíčem: začíná „ww_live_“.",
-  "aw.g3": "Zkopíruj klíč z e-mailu a vlož ho sem.",
+  "aw.g1": "Otevři WalletWallet a přihlas se přes Google (jen poprvé; může chtít potvrzení, že nejsi robot).",
+  "aw.g2": "Zkopíruj klíč, který vidíš: začíná „ww_live_“.",
+  "aw.g3": "Vrať se sem: Ottoteka klíč najde sama, nebo klepni na „Vložit“.",
   "aw.paste": "Vložit",
   "aw.badFmt": "To nevypadá jako klíč WalletWallet: musí začínat „ww_live_“ a pak 32 písmen a číslic.",
   "aw.keyLocal": "Klíč zůstává jen v tomto zařízení: Ottoteka ho používá jen k žádosti o karty u WalletWallet.",
@@ -270,5 +270,6 @@
   "aw.keyHintShared": "Apple Wallet už funguje jedním klepnutím díky sdíleným kartám zdarma. Když dojdou, přidej si vlastní klíč zdarma (1000 karet měsíčně, jen pro tebe).",
   "gw.ready": "Karta je hotová! Klepni a přidej ji do Google Wallet.",
   "gw.addNow": "Přidat do Google Wallet",
-  "gw.oneTap": "Tip: s vlastním klíčem WalletWallet zdarma funguje Google Wallet jedním klepnutím, bez fotek."
+  "gw.oneTap": "Tip: s vlastním klíčem WalletWallet zdarma funguje Google Wallet jedním klepnutím, bez fotek.",
+  "aw.back": "Vítej zpět! Zkopíroval(a) jsi klíč? Klepni na „Vložit“ a je hotovo."
 }

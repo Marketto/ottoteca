@@ -259,9 +259,9 @@
   "add.more": "Papildu iespējas",
   "aw.howTo": "Kā to izdarīt?",
   "aw.guideTitle": "Tava bezmaksas atslēga 3 soļos",
-  "aw.g1": "Atver WalletWallet vietni un ieraksti savu e-pastu. Bez maksas, bez kartes.",
-  "aw.g2": "24 stundu laikā saņemsi e-pastu ar atslēgu: tā sākas ar “ww_live_”.",
-  "aw.g3": "Nokopē atslēgu no e-pasta un ielīmē šeit.",
+  "aw.g1": "Atver WalletWallet un pieslēdzies ar Google (tikai pirmajā reizē; var lūgt apstiprināt, ka neesi robots).",
+  "aw.g2": "Nokopē redzamo atslēgu: tā sākas ar “ww_live_”.",
+  "aw.g3": "Atgriezies šeit: Ottoteca atslēgu atradīs pati, vai pieskaries “Ielīmēt”.",
   "aw.paste": "Ielīmēt",
   "aw.badFmt": "Tas neizskatās pēc WalletWallet atslēgas: tai jāsākas ar “ww_live_”, kam seko 32 burti un cipari.",
   "aw.keyLocal": "Atslēga paliek tikai šajā ierīcē: Ottoteca to izmanto tikai, lai pieprasītu kartes no WalletWallet.",
@@ -270,5 +270,6 @@
   "aw.keyHintShared": "Apple Wallet jau darbojas ar vienu pieskārienu, pateicoties kopīgām bezmaksas kartēm. Ja tās beigsies, pievieno savu bezmaksas atslēgu (1000 karšu mēnesī, tikai tev).",
   "gw.ready": "Karte ir gatava! Pieskaries, lai to pievienotu Google Wallet.",
   "gw.addNow": "Pievienot Google Wallet",
-  "gw.oneTap": "Padoms: ar savu bezmaksas WalletWallet atslēgu Google Wallet darbojas ar vienu pieskārienu, bez fotoattēliem."
+  "gw.oneTap": "Padoms: ar savu bezmaksas WalletWallet atslēgu Google Wallet darbojas ar vienu pieskārienu, bez fotoattēliem.",
+  "aw.back": "Laipni lūgts atpakaļ! Nokopēji atslēgu? Pieskaries “Ielīmēt”, un viss."
 }

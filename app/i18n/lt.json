@@ -259,9 +259,9 @@
   "add.more": "Išplėstinės parinktys",
   "aw.howTo": "Kaip tai padaryti?",
   "aw.guideTitle": "Tavo nemokamas raktas per 3 žingsnius",
-  "aw.g1": "Atidaryk WalletWallet svetainę ir įrašyk savo el. paštą. Nemokamai, be kortelės.",
-  "aw.g2": "Per 24 valandas gausi laišką su raktu: jis prasideda „ww_live_“.",
-  "aw.g3": "Nukopijuok raktą iš laiško ir įklijuok čia.",
+  "aw.g1": "Atidaryk WalletWallet ir prisijunk su Google (tik pirmą kartą; gali tekti patvirtinti, kad nesi robotas).",
+  "aw.g2": "Nukopijuok matomą raktą: jis prasideda „ww_live_“.",
+  "aw.g3": "Grįžk čia: Ottoteca raktą ras pati arba paliesk „Įklijuoti“.",
   "aw.paste": "Įklijuoti",
   "aw.badFmt": "Tai nepanašu į WalletWallet raktą: jis turi prasidėti „ww_live_“ ir toliau 32 raidės bei skaičiai.",
   "aw.keyLocal": "Raktas lieka tik šiame įrenginyje: Ottoteca jį naudoja tik kortelėms iš WalletWallet užsakyti.",
@@ -270,5 +270,6 @@
   "aw.keyHintShared": "Apple Wallet jau veikia vienu palietimu dėl bendrų nemokamų kortelių. Jei jos baigsis, pridėk savo nemokamą raktą (1000 kortelių per mėnesį, tik tau).",
   "gw.ready": "Kortelė paruošta! Paliesk, kad pridėtum ją į Google Wallet.",
   "gw.addNow": "Pridėti į Google Wallet",
-  "gw.oneTap": "Patarimas: su savo nemokamu WalletWallet raktu Google Wallet veikia vienu palietimu, be nuotraukų."
+  "gw.oneTap": "Patarimas: su savo nemokamu WalletWallet raktu Google Wallet veikia vienu palietimu, be nuotraukų.",
+  "aw.back": "Sveikas sugrįžęs! Nukopijavai raktą? Paliesk „Įklijuoti“ ir baigta."
 }

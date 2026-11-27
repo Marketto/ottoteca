@@ -259,9 +259,9 @@
   "add.more": "Napredne možnosti",
   "aw.howTo": "Kako se to naredi?",
   "aw.guideTitle": "Tvoj brezplačni ključ v 3 korakih",
-  "aw.g1": "Odpri spletno stran WalletWallet in vpiši svoj e-poštni naslov. Brezplačno, brez kartice.",
-  "aw.g2": "V 24 urah dobiš e-pošto s ključem: začne se z »ww_live_«.",
-  "aw.g3": "Kopiraj ključ iz e-pošte in ga prilepi sem.",
+  "aw.g1": "Odpri WalletWallet in se prijavi z Googlom (samo prvič; morda boš moral potrditi, da nisi robot).",
+  "aw.g2": "Kopiraj ključ, ki ga vidiš: začne se z »ww_live_«.",
+  "aw.g3": "Vrni se sem: Ottoteka ključ najde sama, ali tapni »Prilepi«.",
   "aw.paste": "Prilepi",
   "aw.badFmt": "To ni videti kot ključ WalletWallet: začeti se mora z »ww_live_«, nato 32 črk in številk.",
   "aw.keyLocal": "Ključ ostane samo v tej napravi: Ottoteka ga uporablja samo za naročanje kartic pri WalletWallet.",
@@ -270,5 +270,6 @@
   "aw.keyHintShared": "Apple Wallet že deluje z enim dotikom zaradi skupnih brezplačnih kartic. Če zmanjka, dodaj svoj brezplačni ključ (1000 kartic na mesec, samo zate).",
   "gw.ready": "Kartica je pripravljena! Tapni, da jo dodaš v Google Wallet.",
   "gw.addNow": "Dodaj v Google Wallet",
-  "gw.oneTap": "Namig: s svojim brezplačnim ključem WalletWallet Google Wallet deluje z enim dotikom, brez fotografij."
+  "gw.oneTap": "Namig: s svojim brezplačnim ključem WalletWallet Google Wallet deluje z enim dotikom, brez fotografij.",
+  "aw.back": "Dobrodošel nazaj! Si kopiral ključ? Tapni »Prilepi« in končano."
 }

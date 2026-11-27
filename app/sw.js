@@ -1,5 +1,5 @@
 // Service worker di Ottoteca (generato da tools/build.mjs: non modificare app/sw.js a mano).
-const VERSION = "c206db65827b";
+const VERSION = "63e5c79a5366";
 const CORE = "otto-core-" + VERSION, VENDOR = "otto-vendor-ccbeab29";
 const CORE_FILES = ["./","./css/app.css","./css/icons.css","./fonts/OFL.txt","./fonts/nunito-cyrillic-ext-wght-normal.woff2","./fonts/nunito-cyrillic-wght-normal.woff2","./fonts/nunito-latin-ext-wght-normal.woff2","./fonts/nunito-latin-wght-normal.woff2","./fonts/ottoteca-icons.woff2","./icons/apple-touch-icon.png","./icons/icon-192.png","./icons/icon-512.png","./icons/icon.svg","./icons/maskable-512.png","./index.html","./js/app.js","./js/codes.js","./js/config.js","./js/db.js","./js/habitat.js","./js/i18n.js","./js/kinds.js","./js/otto.js","./js/pdf.js","./manifest.webmanifest","./i18n/en.json"];
 self.addEventListener("install", e => { e.waitUntil(caches.open(CORE).then(c => c.addAll(CORE_FILES))); });

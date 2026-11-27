@@ -259,9 +259,9 @@
   "add.more": "Täpsemad valikud",
   "aw.howTo": "Kuidas seda teha?",
   "aw.guideTitle": "Sinu tasuta võti 3 sammuga",
-  "aw.g1": "Ava WalletWalleti sait ja kirjuta oma e-post. Tasuta, kaarti ei küsita.",
-  "aw.g2": "24 tunni jooksul saad e-kirja võtmega: see algab „ww_live_“.",
-  "aw.g3": "Kopeeri võti e-kirjast ja kleebi siia.",
+  "aw.g1": "Ava WalletWallet ja logi sisse Google'iga (ainult esimesel korral; võib-olla pead kinnitama, et sa pole robot).",
+  "aw.g2": "Kopeeri nähtav võti: see algab „ww_live_“.",
+  "aw.g3": "Tule tagasi siia: Ottoteca leiab võtme ise, või puuduta „Kleebi“.",
   "aw.paste": "Kleebi",
   "aw.badFmt": "See ei näe välja nagu WalletWalleti võti: see peab algama „ww_live_“ ja järgnema 32 tähte ja numbrit.",
   "aw.keyLocal": "Võti jääb ainult sellesse seadmesse: Ottoteca kasutab seda ainult passide küsimiseks WalletWalletilt.",
@@ -270,5 +270,6 @@
   "aw.keyHintShared": "Apple Wallet töötab juba ühe puudutusega tänu ühistele tasuta passidele. Kui need saavad otsa, lisa oma tasuta võti (1000 passi kuus, ainult sulle).",
   "gw.ready": "Pass on valmis! Puuduta, et lisada see Google Walletisse.",
   "gw.addNow": "Lisa Google Walletisse",
-  "gw.oneTap": "Vihje: oma tasuta WalletWalleti võtmega töötab Google Wallet ühe puudutusega, ilma fotodeta."
+  "gw.oneTap": "Vihje: oma tasuta WalletWalleti võtmega töötab Google Wallet ühe puudutusega, ilma fotodeta.",
+  "aw.back": "Tere tulemast tagasi! Kas kopeerisid võtme? Puuduta „Kleebi“ ja valmis."
 }

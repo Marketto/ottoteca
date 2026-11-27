@@ -259,9 +259,9 @@
   "add.more": "Erweiterte Optionen",
   "aw.howTo": "Wie geht das?",
   "aw.guideTitle": "Dein kostenloser Schlüssel in 3 Schritten",
-  "aw.g1": "Öffne die WalletWallet-Website und gib deine E-Mail ein. Kostenlos, ohne Karte.",
-  "aw.g2": "Innerhalb von 24 Stunden bekommst du eine E-Mail mit dem Schlüssel: Er beginnt mit „ww_live_“.",
-  "aw.g3": "Kopiere den Schlüssel aus der E-Mail und füge ihn hier ein.",
+  "aw.g1": "Öffne WalletWallet und melde dich mit Google an (nur beim ersten Mal; eventuell musst du bestätigen, dass du kein Roboter bist).",
+  "aw.g2": "Kopiere den angezeigten Schlüssel: Er beginnt mit „ww_live_“.",
+  "aw.g3": "Komm hierher zurück: Ottoteca findet den Schlüssel selbst, oder tippe auf „Einfügen“.",
   "aw.paste": "Einfügen",
   "aw.badFmt": "Das sieht nicht nach einem WalletWallet-Schlüssel aus: Er beginnt mit „ww_live_“ und 32 Buchstaben und Ziffern.",
   "aw.keyLocal": "Der Schlüssel bleibt nur auf diesem Gerät: Ottoteca nutzt ihn nur, um Pässe bei WalletWallet anzufordern.",
@@ -270,5 +270,6 @@
   "aw.keyHintShared": "Apple Wallet klappt schon mit einem Tipp, dank gemeinsam genutzter kostenloser Pässe. Sind sie aufgebraucht, füge deinen eigenen kostenlosen Schlüssel hinzu (1.000 Pässe im Monat, nur für dich).",
   "gw.ready": "Pass fertig! Tippe, um ihn zu Google Wallet hinzuzufügen.",
   "gw.addNow": "Zu Google Wallet hinzufügen",
-  "gw.oneTap": "Tipp: Mit deinem eigenen kostenlosen WalletWallet-Schlüssel klappt Google Wallet mit einem Tipp, ohne Fotos."
+  "gw.oneTap": "Tipp: Mit deinem eigenen kostenlosen WalletWallet-Schlüssel klappt Google Wallet mit einem Tipp, ohne Fotos.",
+  "aw.back": "Willkommen zurück! Schlüssel kopiert? Tippe auf „Einfügen“ und fertig."
 }

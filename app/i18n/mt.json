@@ -259,9 +259,9 @@
   "add.more": "Għażliet avvanzati",
   "aw.howTo": "Kif isir?",
   "aw.guideTitle": "Iċ-ċavetta tiegħek b'xejn fi 3 passi",
-  "aw.g1": "Iftaħ is-sit ta' WalletWallet u ikteb l-email tiegħek. B'xejn, bla karta.",
-  "aw.g2": "Fi żmien 24 siegħa jaslek email biċ-ċavetta: tibda b'“ww_live_”.",
-  "aw.g3": "Ikkopja ċ-ċavetta mill-email u waħħalha hawn.",
+  "aw.g1": "Iftaħ WalletWallet u idħol b'Google (l-ewwel darba biss; jista' jitolbok tikkonferma li m'intix robot).",
+  "aw.g2": "Ikkopja ċ-ċavetta li tara: tibda b'“ww_live_”.",
+  "aw.g3": "Erġa' lura hawn: Ottoteca issib iċ-ċavetta waħedha, jew agħfas “Waħħal”.",
   "aw.paste": "Waħħal",
   "aw.badFmt": "Ma tidhirx ċavetta WalletWallet: trid tibda b'“ww_live_” u warajha 32 ittra u numru.",
   "aw.keyLocal": "Iċ-ċavetta tibqa' biss fuq dan l-apparat: Ottoteca tużaha biss biex titlob passes minn WalletWallet.",
@@ -270,5 +270,6 @@
   "aw.keyHintShared": "Apple Wallet diġà jaħdem b'tapp wieħed grazzi għall-passes b'xejn kondiviżi. Jekk jispiċċaw, żid iċ-ċavetta tiegħek b'xejn (1,000 pass fix-xahar, għalik biss).",
   "gw.ready": "Il-pass lest! Agħfas biex iżżidu ma' Google Wallet.",
   "gw.addNow": "Żid ma' Google Wallet",
-  "gw.oneTap": "Parir: biċ-ċavetta WalletWallet tiegħek b'xejn, Google Wallet jaħdem b'tapp wieħed, bla ritratti."
+  "gw.oneTap": "Parir: biċ-ċavetta WalletWallet tiegħek b'xejn, Google Wallet jaħdem b'tapp wieħed, bla ritratti.",
+  "aw.back": "Merħba lura! Ikkopjajt iċ-ċavetta? Agħfas “Waħħal” u lest."
 }

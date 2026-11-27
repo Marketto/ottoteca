@@ -259,9 +259,9 @@
   "add.more": "Opțiuni avansate",
   "aw.howTo": "Cum se face?",
   "aw.guideTitle": "Cheia ta gratuită în 3 pași",
-  "aw.g1": "Deschide site-ul WalletWallet și scrie-ți e-mailul. E gratuit, fără card.",
-  "aw.g2": "În 24 de ore primești un e-mail cu cheia: începe cu „ww_live_”.",
-  "aw.g3": "Copiază cheia din e-mail și lipește-o aici.",
+  "aw.g1": "Deschide WalletWallet și intră cu Google (doar prima dată; poate cere să confirmi că nu ești robot).",
+  "aw.g2": "Copiază cheia pe care o vezi: începe cu „ww_live_”.",
+  "aw.g3": "Revino aici: Ottoteca găsește singură cheia, sau atinge „Lipește”.",
   "aw.paste": "Lipește",
   "aw.badFmt": "Nu pare o cheie WalletWallet: trebuie să înceapă cu „ww_live_” urmat de 32 de litere și cifre.",
   "aw.keyLocal": "Cheia rămâne doar pe acest dispozitiv: Ottoteca o folosește doar ca să ceară carduri de la WalletWallet.",
@@ -270,5 +270,6 @@
   "aw.keyHintShared": "Apple Wallet merge deja dintr-o atingere datorită cardurilor gratuite comune. Dacă se termină, adaugă propria cheie gratuită (1000 de carduri pe lună, doar pentru tine).",
   "gw.ready": "Cardul e gata! Atinge ca să-l adaugi în Google Wallet.",
   "gw.addNow": "Adaugă în Google Wallet",
-  "gw.oneTap": "Sfat: cu propria cheie WalletWallet gratuită, Google Wallet merge dintr-o atingere, fără poze."
+  "gw.oneTap": "Sfat: cu propria cheie WalletWallet gratuită, Google Wallet merge dintr-o atingere, fără poze.",
+  "aw.back": "Bine ai revenit! Ai copiat cheia? Atinge „Lipește” și gata."
 }

@@ -259,9 +259,9 @@
   "add.more": "고급 옵션",
   "aw.howTo": "어떻게 하나요?",
   "aw.guideTitle": "3단계로 무료 키 받기",
-  "aw.g1": "WalletWallet 사이트를 열고 이메일을 입력하세요. 무료이고 카드가 필요 없어요.",
-  "aw.g2": "24시간 안에 키가 담긴 이메일이 와요. 키는 ‘ww_live_’로 시작해요.",
-  "aw.g3": "이메일의 키를 복사해서 여기에 붙여 넣으세요.",
+  "aw.g1": "WalletWallet을 열고 Google로 로그인하세요(처음 한 번만, 로봇이 아님을 확인할 수 있어요).",
+  "aw.g2": "보이는 키를 복사하세요: ‘ww_live_’로 시작해요.",
+  "aw.g3": "여기로 돌아오세요: Ottoteca가 키를 알아서 찾거나, ‘붙여넣기’를 누르면 돼요.",
   "aw.paste": "붙여넣기",
   "aw.badFmt": "WalletWallet 키처럼 보이지 않아요. ‘ww_live_’ 뒤에 영문자와 숫자 32자가 와야 해요.",
   "aw.keyLocal": "키는 이 기기에만 저장되고, WalletWallet에 패스를 요청할 때만 쓰여요.",
@@ -270,5 +270,6 @@
   "aw.keyHintShared": "모두가 함께 쓰는 무료 패스 덕분에 Apple Wallet이 이미 한 번의 탭으로 돼요. 다 떨어지면 내 무료 키(월 1,000장, 나만 사용)를 추가하세요.",
   "gw.ready": "패스 준비 완료! 눌러서 Google 월렛에 추가하세요.",
   "gw.addNow": "Google 월렛에 추가",
-  "gw.oneTap": "팁: 내 무료 WalletWallet 키가 있으면 사진 없이 한 번의 탭으로 Google 월렛에 추가돼요."
+  "gw.oneTap": "팁: 내 무료 WalletWallet 키가 있으면 사진 없이 한 번의 탭으로 Google 월렛에 추가돼요.",
+  "aw.back": "다시 오셨네요! 키를 복사했나요? ‘붙여넣기’를 누르면 끝이에요."
 }

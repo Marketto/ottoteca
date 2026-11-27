@@ -259,9 +259,9 @@
   "add.more": "Napredne opcije",
   "aw.howTo": "Kako se to radi?",
   "aw.guideTitle": "Tvoj besplatni ključ u 3 koraka",
-  "aw.g1": "Otvori stranicu WalletWallet i upiši svoj e-mail. Besplatno, bez kartice.",
-  "aw.g2": "U roku od 24 sata stiže ti e-mail s ključem: počinje s „ww_live_”.",
-  "aw.g3": "Kopiraj ključ iz e-maila i zalijepi ga ovdje.",
+  "aw.g1": "Otvori WalletWallet i prijavi se Googleom (samo prvi put; možda ćeš morati potvrditi da nisi robot).",
+  "aw.g2": "Kopiraj ključ koji vidiš: počinje s „ww_live_”.",
+  "aw.g3": "Vrati se ovamo: Ottoteka sama pronalazi ključ, ili dodirni „Zalijepi”.",
   "aw.paste": "Zalijepi",
   "aw.badFmt": "To ne izgleda kao WalletWallet ključ: mora počinjati s „ww_live_” i zatim 32 slova i brojke.",
   "aw.keyLocal": "Ključ ostaje samo na ovom uređaju: Ottoteka ga koristi samo za traženje propusnica od WalletWalleta.",
@@ -270,5 +270,6 @@
   "aw.keyHintShared": "Apple Wallet već radi jednim dodirom zahvaljujući zajedničkim besplatnim propusnicama. Ako ih nestane, dodaj svoj besplatni ključ (1000 propusnica mjesečno, samo za tebe).",
   "gw.ready": "Propusnica je spremna! Dodirni da je dodaš u Google Wallet.",
   "gw.addNow": "Dodaj u Google Wallet",
-  "gw.oneTap": "Savjet: sa svojim besplatnim WalletWallet ključem Google Wallet radi jednim dodirom, bez fotografija."
+  "gw.oneTap": "Savjet: sa svojim besplatnim WalletWallet ključem Google Wallet radi jednim dodirom, bez fotografija.",
+  "aw.back": "Dobro došao natrag! Jesi li kopirao ključ? Dodirni „Zalijepi” i gotovo."
 }

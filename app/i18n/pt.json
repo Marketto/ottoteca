@@ -259,9 +259,9 @@
   "add.more": "Opções avançadas",
   "aw.howTo": "Como se faz?",
   "aw.guideTitle": "A tua chave grátis em 3 passos",
-  "aw.g1": "Abre o site do WalletWallet e escreve o teu email. É grátis e não pede cartão.",
-  "aw.g2": "Em 24 horas recebes um email com a chave: começa por «ww_live_».",
-  "aw.g3": "Copia a chave do email e cola-a aqui.",
+  "aw.g1": "Abre o WalletWallet e entra com o Google (só da primeira vez; pode pedir-te para confirmar que não és um robô).",
+  "aw.g2": "Copia a chave que vês: começa por «ww_live_».",
+  "aw.g3": "Volta aqui: a Ottoteca encontra a chave sozinha, ou toca em «Colar».",
   "aw.paste": "Colar",
   "aw.badFmt": "Não parece uma chave do WalletWallet: deve começar por «ww_live_» seguido de 32 letras e números.",
   "aw.keyLocal": "A chave fica só neste dispositivo: a Ottoteca só a usa para pedir os passes ao WalletWallet.",
@@ -270,5 +270,6 @@
   "aw.keyHintShared": "A Apple Wallet já funciona com um toque, graças aos passes gratuitos partilhados. Se acabarem, adiciona a tua própria chave gratuita (1000 passes por mês, só para ti).",
   "gw.ready": "Passe pronto! Toca para o adicionar ao Google Wallet.",
   "gw.addNow": "Adicionar ao Google Wallet",
-  "gw.oneTap": "Dica: com a tua própria chave gratuita do WalletWallet, o Google Wallet funciona com um toque, sem fotos."
+  "gw.oneTap": "Dica: com a tua própria chave gratuita do WalletWallet, o Google Wallet funciona com um toque, sem fotos.",
+  "aw.back": "Bem-vindo de volta! Copiaste a chave? Toca em «Colar» e está feito."
 }

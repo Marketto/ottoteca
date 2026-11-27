@@ -259,9 +259,9 @@
   "add.more": "Opcje zaawansowane",
   "aw.howTo": "Jak to zrobić?",
   "aw.guideTitle": "Twój darmowy klucz w 3 krokach",
-  "aw.g1": "Otwórz stronę WalletWallet i wpisz swój e-mail. Za darmo, bez karty.",
-  "aw.g2": "W ciągu 24 godzin dostaniesz e-mail z kluczem: zaczyna się od „ww_live_”.",
-  "aw.g3": "Skopiuj klucz z e-maila i wklej go tutaj.",
+  "aw.g1": "Otwórz WalletWallet i zaloguj się przez Google (tylko za pierwszym razem; może poprosić o potwierdzenie, że nie jesteś robotem).",
+  "aw.g2": "Skopiuj widoczny klucz: zaczyna się od „ww_live_”.",
+  "aw.g3": "Wróć tutaj: Ottoteka sama znajdzie klucz albo stuknij „Wklej”.",
   "aw.paste": "Wklej",
   "aw.badFmt": "To nie wygląda na klucz WalletWallet: musi zaczynać się od „ww_live_” i mieć dalej 32 litery i cyfry.",
   "aw.keyLocal": "Klucz zostaje tylko na tym urządzeniu: Ottoteka używa go wyłącznie do zamawiania kart w WalletWallet.",
@@ -270,5 +270,6 @@
   "aw.keyHintShared": "Apple Wallet działa już jednym stuknięciem dzięki wspólnym darmowym kartom. Gdy się skończą, dodaj własny darmowy klucz (1000 kart miesięcznie, tylko dla ciebie).",
   "gw.ready": "Karta gotowa! Stuknij, aby dodać ją do Portfela Google.",
   "gw.addNow": "Dodaj do Portfela Google",
-  "gw.oneTap": "Wskazówka: z własnym darmowym kluczem WalletWallet Portfel Google działa jednym stuknięciem, bez zdjęć."
+  "gw.oneTap": "Wskazówka: z własnym darmowym kluczem WalletWallet Portfel Google działa jednym stuknięciem, bez zdjęć.",
+  "aw.back": "Witaj z powrotem! Skopiowany klucz? Stuknij „Wklej” i gotowe."
 }

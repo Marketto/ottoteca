@@ -259,9 +259,9 @@
   "add.more": "Speciális beállítások",
   "aw.howTo": "Hogyan kell?",
   "aw.guideTitle": "Ingyenes kulcsod 3 lépésben",
-  "aw.g1": "Nyisd meg a WalletWallet oldalát, és írd be az e-mail-címed. Ingyenes, bankkártya nélkül.",
-  "aw.g2": "24 órán belül kapsz egy e-mailt a kulccsal: „ww_live_” kezdetű.",
-  "aw.g3": "Másold ki a kulcsot az e-mailből, és illeszd be ide.",
+  "aw.g1": "Nyisd meg a WalletWalletet, és lépj be Google-lel (csak először; kérheti, hogy igazold, nem vagy robot).",
+  "aw.g2": "Másold ki a látható kulcsot: „ww_live_” kezdetű.",
+  "aw.g3": "Gyere vissza ide: az Ottoteca magától megtalálja a kulcsot, vagy koppints a „Beillesztés” gombra.",
   "aw.paste": "Beillesztés",
   "aw.badFmt": "Ez nem tűnik WalletWallet-kulcsnak: „ww_live_” kezdetű, utána 32 betű és szám.",
   "aw.keyLocal": "A kulcs csak ezen az eszközön marad: az Ottoteca csak arra használja, hogy kártyát kérjen a WalletWallettől.",
@@ -270,5 +270,6 @@
   "aw.keyHintShared": "Az Apple Wallet már egy koppintással megy a közös ingyenes kártyáknak köszönhetően. Ha elfogynak, adj meg saját ingyenes kulcsot (havi 1000 kártya, csak neked).",
   "gw.ready": "Kész a kártya! Koppints, hogy hozzáadd a Google Wallethez.",
   "gw.addNow": "Hozzáadás a Google Wallethez",
-  "gw.oneTap": "Tipp: saját ingyenes WalletWallet-kulccsal a Google Wallet egy koppintással megy, fotó nélkül."
+  "gw.oneTap": "Tipp: saját ingyenes WalletWallet-kulccsal a Google Wallet egy koppintással megy, fotó nélkül.",
+  "aw.back": "Üdv újra! Kimásoltad a kulcsot? Koppints a „Beillesztés” gombra, és kész."
 }

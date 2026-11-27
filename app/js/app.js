@@ -8,7 +8,7 @@ import { analyze, openPdf, isPasswordError, renderToCanvas, pdfjs, closePdf } fr
 import { scanDoc, codeSVG, formatName, readImage } from "./codes.js";
 import { WALLET_PROXY } from "./config.js";
 
-export const VERSION = "1.6.0";
+export const VERSION = "1.6.1";
 const HEAVY = 5 * 1024 * 1024;                     // oltre questa soglia si suggerisce Schiaccia PDF
 const SQUASH_URL = "https://marketto.github.io/pdf-tiny-tools/";
 const COLORS = ["#e5637a", "#f29e4c", "#e8c547", "#7cc46b", "#3fb5a9", "#4f9ae0", "#8f7ae5", "#d06fc0", "#a07b62", "#7d8796"];
@@ -1144,16 +1144,38 @@ function saveKey(v) {
   if (v) { say(t("aw.saved"), "love"); const r = $("#buddyBtn").getBoundingClientRect(); confetti(r.left + r.width / 2, r.top, 20); }
   return true;
 }
+// Il sito della chiave non si può leggere da qui (altro sito, protetto dall'accesso): l'utente copia, l'app fa il resto.
+const KEY_FIND = /ww_live_[0-9a-f]{32}/i;
+let keyWatch = null;
 async function keyGuide() {
+  const d = $("#dlg");
   const inp = el("input", { type: "text", id: "gKey", autocomplete: "off", spellcheck: "false", placeholder: "ww_live_…", value: localStorage.getItem("otto.awkey") || "" });
-  const paste = el("button", { type: "button", class: "btn btn-soft", onclick: async () => { try { inp.value = (await navigator.clipboard.readText()).trim(); inp.focus(); } catch { inp.focus(); } } }, ic("copy"), t("aw.paste"));
+  const done = v => { inp.value = v; d.close("ok"); };
+  const tryText = txt => { const m = (txt || "").match(KEY_FIND); if (m) { done(m[0]); return true; } return false; };
+  const readClip = async () => { try { return tryText(await navigator.clipboard.readText()); } catch { return false; } };
+  const paste = el("button", { type: "button", class: "btn btn-soft", id: "gPaste", onclick: async () => { if (!(await readClip())) { toast(t("aw.badFmt")); inp.focus(); } } }, ic("copy"), t("aw.paste"));
+  inp.addEventListener("input", () => tryText(inp.value));
+  inp.addEventListener("paste", e => { if (tryText(e.clipboardData?.getData("text"))) e.preventDefault(); });
+  let away = false;
   const steps = el("ol", { class: "wsteps" },
-    el("li", {}, el("span", {}, t("aw.g1")), el("a", { class: "btn btn-primary", href: "https://walletwallet.dev/signup/", target: "_blank", rel: "noopener" }, ic("wallet"), t("aw.getKey"))),
+    el("li", {}, el("span", {}, t("aw.g1")), el("a", { class: "btn btn-primary", href: "https://walletwallet.dev/signup/", target: "_blank", rel: "noopener", onclick: () => { away = true; } }, ic("wallet"), t("aw.getKey"))),
     el("li", {}, el("span", {}, t("aw.g2"))),
     el("li", {}, el("span", {}, t("aw.g3")), el("label", { class: "lbl", for: "gKey" }, t("aw.key")), inp, paste));
+  // al ritorno nell'app: se il permesso c'è già legge da sola, altrimenti mette in evidenza «Incolla» (basta un tocco)
+  keyWatch = async () => {
+    if (document.hidden || !away || !d.open) return;
+    away = false;
+    let granted = false;
+    try { granted = (await navigator.permissions.query({ name: "clipboard-read" })).state === "granted"; } catch {}
+    if (granted && await readClip()) return;
+    paste.classList.replace("btn-soft", "btn-primary"); paste.focus();
+    say(t("aw.back"), "wave", { ms: 5000 });
+  };
+  document.addEventListener("visibilitychange", keyWatch);
   const otto = el("div", { class: "guide-otto", "data-otto": "", "aria-hidden": "true" });
-  const v = await dialog({ title: t("aw.guideTitle"), body: [otto, steps, el("p", { class: "muted tip" }, t("aw.keyLocal"))], onOpen: d => { mountOttos(d); mood("wave", 1600, d); },
+  const v = await dialog({ title: t("aw.guideTitle"), body: [otto, steps, el("p", { class: "muted tip" }, t("aw.keyLocal"))], onOpen: dd => { mountOttos(dd); mood("wave", 1600, dd); },
     actions: [{ label: t("common.cancel"), value: "cancel" }, { label: t("common.save"), value: "ok", cls: "btn-primary" }] });
+  document.removeEventListener("visibilitychange", keyWatch); keyWatch = null;
   if (v === "ok" && !saveKey(inp.value)) return keyGuide();
 }
 $("#awGuide").onclick = keyGuide;

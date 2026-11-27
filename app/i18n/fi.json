@@ -259,9 +259,9 @@
   "add.more": "Lisäasetukset",
   "aw.howTo": "Miten se tehdään?",
   "aw.guideTitle": "Ilmainen avaimesi 3 vaiheessa",
-  "aw.g1": "Avaa WalletWalletin sivusto ja kirjoita sähköpostisi. Ilmainen, ei korttia.",
-  "aw.g2": "24 tunnin kuluessa saat sähköpostin, jossa on avaimesi: se alkaa ”ww_live_”.",
-  "aw.g3": "Kopioi avain sähköpostista ja liitä se tähän.",
+  "aw.g1": "Avaa WalletWallet ja kirjaudu Googlella (vain ensimmäisellä kerralla; voit joutua vahvistamaan, ettet ole robotti).",
+  "aw.g2": "Kopioi näkyvä avain: se alkaa ”ww_live_”.",
+  "aw.g3": "Palaa tänne: Ottoteca löytää avaimen itse, tai napauta ”Liitä”.",
   "aw.paste": "Liitä",
   "aw.badFmt": "Tämä ei näytä WalletWallet-avaimelta: sen pitää alkaa ”ww_live_” ja sitten 32 kirjainta ja numeroa.",
   "aw.keyLocal": "Avain pysyy vain tällä laitteella: Ottoteca käyttää sitä vain passien pyytämiseen WalletWalletilta.",
@@ -270,5 +270,6 @@
   "aw.keyHintShared": "Apple Wallet toimii jo yhdellä napautuksella yhteisten ilmaisten passien ansiosta. Jos ne loppuvat, lisää oma ilmainen avain (1 000 passia kuussa, vain sinulle).",
   "gw.ready": "Passi valmis! Napauta lisätäksesi sen Google Walletiin.",
   "gw.addNow": "Lisää Google Walletiin",
-  "gw.oneTap": "Vinkki: omalla ilmaisella WalletWallet-avaimella Google Wallet toimii yhdellä napautuksella, ilman kuvia."
+  "gw.oneTap": "Vinkki: omalla ilmaisella WalletWallet-avaimella Google Wallet toimii yhdellä napautuksella, ilman kuvia.",
+  "aw.back": "Tervetuloa takaisin! Kopioitko avaimen? Napauta ”Liitä”, niin olet valmis."
 }

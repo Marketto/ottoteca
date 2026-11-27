@@ -259,9 +259,9 @@
   "add.more": "Avancerede indstillinger",
   "aw.howTo": "Hvordan gør man?",
   "aw.guideTitle": "Din gratis nøgle i 3 trin",
-  "aw.g1": "Åbn WalletWallets websted, og skriv din e-mail. Gratis, intet kort.",
-  "aw.g2": "Inden for 24 timer får du en e-mail med nøglen: Den starter med »ww_live_«.",
-  "aw.g3": "Kopiér nøglen fra e-mailen, og indsæt den her.",
+  "aw.g1": "Åbn WalletWallet, og log ind med Google (kun første gang; du skal måske bekræfte, at du ikke er en robot).",
+  "aw.g2": "Kopiér den nøgle, du ser: Den starter med »ww_live_«.",
+  "aw.g3": "Kom tilbage hertil: Ottoteca finder selv nøglen, eller tryk på »Indsæt«.",
   "aw.paste": "Indsæt",
   "aw.badFmt": "Det ligner ikke en WalletWallet-nøgle: Den skal starte med »ww_live_« efterfulgt af 32 bogstaver og tal.",
   "aw.keyLocal": "Nøglen bliver kun på denne enhed: Ottoteca bruger den kun til at bestille kort hos WalletWallet.",
@@ -270,5 +270,6 @@
   "aw.keyHintShared": "Apple Wallet virker allerede med ét tryk takket være delte gratis kort. Hvis de slipper op, så tilføj din egen gratis nøgle (1.000 kort om måneden, kun til dig).",
   "gw.ready": "Kortet er klar! Tryk for at føje det til Google Wallet.",
   "gw.addNow": "Føj til Google Wallet",
-  "gw.oneTap": "Tip: Med din egen gratis WalletWallet-nøgle virker Google Wallet med ét tryk, uden fotos."
+  "gw.oneTap": "Tip: Med din egen gratis WalletWallet-nøgle virker Google Wallet med ét tryk, uden fotos.",
+  "aw.back": "Velkommen tilbage! Har du kopieret nøglen? Tryk på »Indsæt«, så er du færdig."
 }

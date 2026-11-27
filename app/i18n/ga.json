@@ -259,9 +259,9 @@
   "add.more": "Ardroghanna",
   "aw.howTo": "Conas a dhéantar é?",
   "aw.guideTitle": "D'eochair saor in aisce i 3 chéim",
-  "aw.g1": "Oscail suíomh WalletWallet agus scríobh do ríomhphost. Saor in aisce, gan chárta.",
-  "aw.g2": "Laistigh de 24 uair gheobhaidh tú ríomhphost leis an eochair: tosaíonn sí le “ww_live_”.",
-  "aw.g3": "Cóipeáil an eochair ón ríomhphost agus greamaigh anseo í.",
+  "aw.g1": "Oscail WalletWallet agus logáil isteach le Google (an chéad uair amháin; seans go n-iarrfaidh sé ort a dhearbhú nach róbat thú).",
+  "aw.g2": "Cóipeáil an eochair a fheiceann tú: tosaíonn sí le “ww_live_”.",
+  "aw.g3": "Fill anseo: aimsíonn Ottoteca an eochair léi féin, nó tapáil “Greamaigh”.",
   "aw.paste": "Greamaigh",
   "aw.badFmt": "Ní cosúil le heochair WalletWallet é sin: caithfidh sí tosú le “ww_live_” agus 32 litir agus uimhir ina dhiaidh.",
   "aw.keyLocal": "Fanann an eochair ar an ngléas seo amháin: ní úsáideann Ottoteca í ach chun pasanna a iarraidh ar WalletWallet.",
@@ -270,5 +270,6 @@
   "aw.keyHintShared": "Oibríonn Apple Wallet le tapáil amháin cheana féin, a bhuíochas le pasanna comhroinnte saor in aisce. Má ritheann siad amach, cuir d'eochair féin saor in aisce leis (1,000 pas sa mhí, duitse amháin).",
   "gw.ready": "Tá an pas réidh! Tapáil chun é a chur le Google Wallet.",
   "gw.addNow": "Cuir le Google Wallet",
-  "gw.oneTap": "Leid: le d'eochair WalletWallet féin saor in aisce, oibríonn Google Wallet le tapáil amháin, gan grianghraif."
+  "gw.oneTap": "Leid: le d'eochair WalletWallet féin saor in aisce, oibríonn Google Wallet le tapáil amháin, gan grianghraif.",
+  "aw.back": "Fáilte ar ais! Ar chóipeáil tú an eochair? Tapáil “Greamaigh” agus tá sé déanta."
 }

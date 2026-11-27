@@ -293,10 +293,9 @@ try {
   const axeG = await new AxeBuilder({ page: fp }).withTags(["wcag2a", "wcag2aa", "wcag21aa"]).analyze();
   ok(!axeG.violations.length, "axe guida chiave: " + axeG.violations.map(v => v.id).join(", "));
   axeG.violations.forEach(v => console.log("   ", v.id, v.nodes.slice(0, 3).map(n => n.target.join(" ")).join(" | ")));
-  await fp.fill("#gKey", "ww_live_" + "a1".repeat(16));
-  await fp.locator("#dlg button[value=ok]").click();
+  await fp.fill("#gKey", "chiave: ww_live_" + "a1".repeat(16) + " ");
   await fp.waitForFunction(() => localStorage.getItem("otto.awkey"));
-  ok((await fp.inputValue("#awKey")).startsWith("ww_live_"), "chiave salvata dalla guida");
+  ok((await fp.inputValue("#awKey")).startsWith("ww_live_"), "chiave riconosciuta e salvata da sola (senza premere Salva)");
   await fp.evaluate(() => localStorage.removeItem("otto.awkey"));
 
   // iPhone (Safari: niente File System Access): «Trova i miei PDF» apre la scelta di una cartella e copia i PDF

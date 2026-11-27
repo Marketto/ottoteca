@@ -259,9 +259,9 @@
   "add.more": "Options avancées",
   "aw.howTo": "Comment faire ?",
   "aw.guideTitle": "Ta clé gratuite en 3 étapes",
-  "aw.g1": "Ouvre le site WalletWallet et tape ton e-mail. C'est gratuit et sans carte bancaire.",
-  "aw.g2": "Sous 24 heures, tu reçois un e-mail avec ta clé : elle commence par « ww_live_ ».",
-  "aw.g3": "Copie la clé de l'e-mail et colle-la ici.",
+  "aw.g1": "Ouvre WalletWallet et connecte-toi avec Google (seulement la première fois ; il peut te demander de confirmer que tu n'es pas un robot).",
+  "aw.g2": "Copie la clé affichée : elle commence par « ww_live_ ».",
+  "aw.g3": "Reviens ici : Ottoteca trouve la clé toute seule, ou touche « Coller ».",
   "aw.paste": "Coller",
   "aw.badFmt": "Ça ne ressemble pas à une clé WalletWallet : elle doit commencer par « ww_live_ » suivi de 32 lettres et chiffres.",
   "aw.keyLocal": "La clé reste uniquement sur cet appareil : Ottoteca s'en sert seulement pour demander les cartes à WalletWallet.",
@@ -270,5 +270,6 @@
   "aw.keyHintShared": "Apple Wallet marche déjà en un geste grâce aux cartes gratuites partagées. Si elles s'épuisent, ajoute ta propre clé gratuite (1 000 cartes par mois, rien que pour toi).",
   "gw.ready": "Carte prête ! Touche pour l'ajouter à Google Wallet.",
   "gw.addNow": "Ajouter à Google Wallet",
-  "gw.oneTap": "Astuce : avec ta propre clé WalletWallet gratuite, Google Wallet marche en un geste, sans photo."
+  "gw.oneTap": "Astuce : avec ta propre clé WalletWallet gratuite, Google Wallet marche en un geste, sans photo.",
+  "aw.back": "Te revoilà ! Tu as copié la clé ? Touche « Coller » et c'est fini."
 }

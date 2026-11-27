@@ -259,9 +259,9 @@
   "add.more": "Geavanceerde opties",
   "aw.howTo": "Hoe doe ik dat?",
   "aw.guideTitle": "Je gratis sleutel in 3 stappen",
-  "aw.g1": "Open de WalletWallet-site en vul je e-mail in. Gratis, zonder kaart.",
-  "aw.g2": "Binnen 24 uur krijg je een e-mail met je sleutel: die begint met ‘ww_live_’.",
-  "aw.g3": "Kopieer de sleutel uit de e-mail en plak hem hier.",
+  "aw.g1": "Open WalletWallet en log in met Google (alleen de eerste keer; mogelijk moet je bevestigen dat je geen robot bent).",
+  "aw.g2": "Kopieer de sleutel die je ziet: die begint met ‘ww_live_’.",
+  "aw.g3": "Kom hier terug: Ottoteca vindt de sleutel zelf, of tik op ‘Plakken’.",
   "aw.paste": "Plakken",
   "aw.badFmt": "Dat lijkt geen WalletWallet-sleutel: die begint met ‘ww_live_’ gevolgd door 32 letters en cijfers.",
   "aw.keyLocal": "De sleutel blijft alleen op dit apparaat: Ottoteca gebruikt hem alleen om passen bij WalletWallet aan te vragen.",
@@ -270,5 +270,6 @@
   "aw.keyHintShared": "Apple Wallet werkt al met één tik dankzij gedeelde gratis passen. Zijn ze op, voeg dan je eigen gratis sleutel toe (1000 passen per maand, alleen voor jou).",
   "gw.ready": "Pas klaar! Tik om hem aan Google Wallet toe te voegen.",
   "gw.addNow": "Toevoegen aan Google Wallet",
-  "gw.oneTap": "Tip: met je eigen gratis WalletWallet-sleutel werkt Google Wallet met één tik, zonder foto's."
+  "gw.oneTap": "Tip: met je eigen gratis WalletWallet-sleutel werkt Google Wallet met één tik, zonder foto's.",
+  "aw.back": "Welkom terug! Sleutel gekopieerd? Tik op ‘Plakken’ en klaar."
 }
