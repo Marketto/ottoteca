@@ -8,7 +8,7 @@ import { analyze, openPdf, isPasswordError, renderToCanvas, pdfjs, closePdf } fr
 import { scanDoc, codeSVG, formatName, readImage } from "./codes.js";
 import { WALLET_PROXY } from "./config.js";
 
-export const VERSION = "1.6.3";
+export const VERSION = "1.7.0";
 const HEAVY = 5 * 1024 * 1024;                     // oltre questa soglia si suggerisce Schiaccia PDF
 const SQUASH_URL = "https://marketto.github.io/pdf-tiny-tools/";
 const COLORS = ["#e5637a", "#f29e4c", "#e8c547", "#7cc46b", "#3fb5a9", "#4f9ae0", "#8f7ae5", "#d06fc0", "#a07b62", "#7d8796"];
@@ -289,7 +289,8 @@ async function importFiles(files) {
       id: db.uid(), hash, name: f.name.replace(/\.pdf$/i, ""), size: f.size, pages: info.pages, thumb: info.thumb, text: info.text, locked: info.locked, ratio: info.ratio,
       added: Date.now(), opened: 0, cats: fold ? [fold] : []
     };
-    await db.addDoc(doc, new Blob([buf], { type: "application/pdf" }));
+    if (NO_COPY()) { doc.src = "ref"; doc.path = f.webkitRelativePath || f.name; doc.mtime = f.lastModified; await db.put("docs", doc); refBlobs.set(doc.id, f); } // solo riferimento: il PDF resta dov'è
+    else await db.addDoc(doc, new Blob([buf], { type: "application/pdf" }));
     doc.kind = classify(doc.text, doc.name);
     S.docs.push(doc); added++; lastId = doc.id;
     if (f.size > HEAVY) heavy = doc;
@@ -612,8 +613,32 @@ async function deleteDocs(ids) {
   setTimeout(() => { if (S.selecting) setSelecting(false); else renderLibrary(); }, 320);
   say(t("ev.delete"), "wiggle");
 }
-// Il PDF vero: copia interna (IndexedDB) o file nella cartella del dispositivo collegata (senza copiarlo).
+// Il PDF vero: copia interna (IndexedDB), file collegato con handle (senza copia) o solo riferimento (src "ref": si sceglie di nuovo il file).
+const NO_COPY = () => localStorage.getItem("otto.nocopy") === "1";
+const refBlobs = new Map(); // file riscelti in questa sessione
+async function relinkDoc(d) {
+  const pickOne = async () => {
+    if (CAN_LINK) {
+      try { const [h] = await showOpenFilePicker({ id: "otto-pdf", multiple: false, types: [{ description: "PDF", accept: { "application/pdf": [".pdf"] } }] }); return { h, f: await h.getFile() }; } catch { return null; }
+    }
+    return new Promise(res => { const i = el("input", { type: "file", accept: "application/pdf,.pdf", hidden: true }); i.onchange = () => { res(i.files[0] ? { f: i.files[0] } : null); i.remove(); }; i.addEventListener("cancel", () => { res(null); i.remove(); }); document.body.append(i); i.click(); });
+  };
+  for (;;) {
+    let got = null;
+    const v = await dialog({ title: t("ref.title"), body: el("p", {}, t("ref.body", { name: d.name, path: d.path || d.name })),
+      actions: [{ label: t("common.cancel"), value: "cancel" }, { label: t("ref.pick"), value: "pick", cls: "btn-primary" }],
+      init: dd => dd.querySelector("button[value=pick]").addEventListener("click", e => { e.preventDefault(); got = pickOne(); dd.close("pick"); }) });
+    if (v !== "pick" || !got) throw new Error("ref");
+    const r = await got; if (!r) throw new Error("ref");
+    const same = r.f.size === d.size && (!d.hash || (await sha(await r.f.arrayBuffer())) === d.hash);
+    if (!same) { toast(t("ref.wrong", { name: d.name })); continue; }
+    if (r.h) { Object.assign(d, { src: "fs", handle: r.h, rootId: null, path: r.f.name }); await db.put("docs", d); } // ora collegato: non lo chiederà più
+    else refBlobs.set(d.id, r.f);
+    return r.f;
+  }
+}
 async function getBlob(d) {
+  if (d.src === "ref") return refBlobs.get(d.id) || relinkDoc(d);
   if (d.src !== "fs") return db.get("files", d.id);
   const root = S.roots.find(r => r.id === d.rootId);
   if (!(await askPerm(root || d, true))) throw new Error("perm");
@@ -662,7 +687,7 @@ async function openViewer(id, scan = false) {
   let data;
   try { data = new Uint8Array(await (await getBlob(d)).arrayBuffer()); }
   catch (e) {
-    vp.replaceChildren(el("div", { class: "vmsg" }, el("div", { "data-otto": "e", "aria-hidden": "true" }), el("p", {}, t(e.message === "perm" ? "scan.perm" : "scan.missing"))));
+    vp.replaceChildren(el("div", { class: "vmsg" }, el("div", { "data-otto": "e", "aria-hidden": "true" }), el("p", {}, t(e.message === "perm" ? "scan.perm" : e.message === "ref" ? "ref.need" : "scan.missing"))));
     mountOttos(vp); mood("sad", 1500, vp); return;
   }
   let pdf, pw;
@@ -1198,6 +1223,8 @@ $("#awKey").onchange = e => saveKey(e.target.value);
 $("#awKey").addEventListener("paste", e => { const m = (e.clipboardData?.getData("text") || "").match(KEY_FIND); if (m) { e.preventDefault(); saveKey(m[0]); } });
 $("#awSave").onclick = () => saveKey($("#awKey").value);
 if (WALLET_PROXY) $("#awHint").dataset.i18n = "aw.keyHintShared";
+$("#noCopy").checked = NO_COPY();
+$("#noCopy").onchange = e => { localStorage.setItem("otto.nocopy", e.target.checked ? "1" : "0"); say(t(e.target.checked ? "nocopy.on" : "nocopy.off"), "happy"); };
 document.querySelectorAll("input[name=motion]").forEach(r => r.onchange = () => { localStorage.setItem("otto.motion", r.value); applyTheme(); });
 $("#clearAll").onclick = async () => {
   if (!(await confirmBox(t("set.clear"), t("set.clearConfirm"), t("common.delete")))) return;
@@ -1293,8 +1320,8 @@ function findHint() {
   return CAN_LINK ? t("pick.folderHint") : t("scan.noApi");
 }
 function smartFind() {
-  if (IS_ANDROID && CAN_DIR_INPUT) return $("#dirInput").click(); // come Schiaccia PDF: si può scegliere anche tutta la memoria
-  if (IS_ANDROID && CAN_LINK) return pickHandles();
+  if (IS_ANDROID && CAN_LINK) return pickHandles(); // senza copia (Android non collega tutta la memoria: per quella c'è «Altri modi»)
+  if (IS_ANDROID && CAN_DIR_INPUT) return $("#dirInput").click();
   if (CAN_LINK) return linkFolder();
   if (CAN_DIR_INPUT) return $("#dirInput").click();
   return pick();
@@ -1305,8 +1332,8 @@ async function chooseSource() {
   const v = await dialog({
     title: t("pick.title"),
     body: [el("div", { class: "sources" },
-      IS_ANDROID && CAN_DIR_INPUT ? opt("phone-search", t("find.btn"), t("find.android"), "dir", true) : null,
-      opt("file-plus", t("scan.add"), CAN_LINK ? (IS_ANDROID ? t("pick.filesAndroid") : t("pick.files")) : t("scan.noApi"), "files", !(IS_ANDROID && CAN_DIR_INPUT)),
+      opt("file-plus", t("scan.add"), CAN_LINK ? (IS_ANDROID ? t("pick.filesAndroid") : t("pick.files")) : t("scan.noApi"), "files", true),
+      IS_ANDROID && CAN_DIR_INPUT ? opt("phone-search", t("find.all"), t(NO_COPY() ? "find.allRef" : "find.allCopy"), "dir") : null,
       CAN_LINK ? opt("folder-plus", t("pick.folder"), t("pick.folderHint"), "folder") : CAN_DIR_INPUT ? opt("folder-plus", t("folder.import"), t("find.ios"), "dir") : null),
       el("p", { class: "muted tip" }, el("span", { class: "ic ic-share", "aria-hidden": "true" }), " ", t("pick.share"))],
     actions: [{ label: t("common.cancel"), value: "cancel" }],
@@ -1321,6 +1348,10 @@ async function pickHandles() {
   let hs;
   try { hs = await showOpenFilePicker({ id: "otto-pdf", multiple: true, startIn: "downloads", types: [{ description: "PDF", accept: { "application/pdf": [".pdf"] } }], excludeAcceptAllOption: false }); }
   catch (e) { if (e?.name !== "AbortError") pick(); return; }
+  return addHandles(hs);
+}
+// PDF con handle (scelti o aperti con «Apri con»): si tiene solo il collegamento, mai una copia
+async function addHandles(hs) {
   let added = 0, last;
   for (const h of hs) {
     let f; try { f = await h.getFile(); } catch { continue; }
@@ -1460,7 +1491,7 @@ function registerSW() {
 }
 // file aperti con "Apri con" (file_handlers) e condivisi verso l'app (share_target)
 async function inbox() {
-  if ("launchQueue" in window) launchQueue.setConsumer(async p => { if (p.files?.length) importFiles(await Promise.all(p.files.map(h => h.getFile()))); });
+  if ("launchQueue" in window) launchQueue.setConsumer(async p => { if (p.files?.length) addHandles(p.files); });
   if (!new URLSearchParams(location.search).has("shared") || !("caches" in window)) return;
   const c = await caches.open("otto-inbox"), keys = await c.keys(), files = [];
   for (const k of keys) { const r = await c.match(k); files.push(new File([await r.blob()], decodeURIComponent(r.headers.get("x-name") || "shared.pdf"), { type: "application/pdf" })); await c.delete(k); }

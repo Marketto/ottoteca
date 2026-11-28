@@ -271,5 +271,17 @@
   "gw.ready": "Passinn er tilbúinn! Ýttu til að bæta honum í Google Wallet.",
   "gw.addNow": "Bæta í Google Wallet",
   "gw.oneTap": "Ábending: með eigin ókeypis WalletWallet-lykli virkar Google Wallet með einni snertingu, án mynda.",
-  "aw.back": "Velkomin(n) aftur! Afritaðirðu lykilinn? Ýttu á „Líma“ og þá er það komið."
+  "aw.back": "Velkomin(n) aftur! Afritaðirðu lykilinn? Ýttu á „Líma“ og þá er það komið.",
+  "ref.title": "Veldu PDF-skjalið aftur",
+  "ref.body": "Ottoteca geymir ekki afrit af „{name}“ ({path}). Veldu það aftur til að opna það.",
+  "ref.pick": "Velja skrána",
+  "ref.wrong": "Þetta er ekki „{name}“: veldu sömu skrá.",
+  "ref.need": "Til að opna það skaltu velja skrána aftur.",
+  "find.all": "Allur síminn",
+  "find.allCopy": "Afritar PDF-skjölin í Ottoteca: eina leiðin til að leita í öllu minninu.",
+  "find.allRef": "Man bara nöfn og slóðir: til að opna PDF velurðu það aftur.",
+  "nocopy.label": "Ekki afrita PDF-skjöl",
+  "nocopy.hint": "Ottoteca geymir aðeins nafn, slóð, forskoðun, texta fyrir leit og kóða. Þar sem síminn leyfir það (Android, tölva) er geymdur tengill á skrána; annars biður appið þig að velja PDF-skjalið aftur til að opna það.",
+  "nocopy.on": "Komið! Héðan í frá afrita ég ekki PDF-skjölin þín.",
+  "nocopy.off": "Allt í lagi, ég geymi afrit af PDF-skjölum sem ekki er hægt að tengja."
 }

@@ -271,5 +271,17 @@
   "gw.ready": "Tá an pas réidh! Tapáil chun é a chur le Google Wallet.",
   "gw.addNow": "Cuir le Google Wallet",
   "gw.oneTap": "Leid: le d'eochair WalletWallet féin saor in aisce, oibríonn Google Wallet le tapáil amháin, gan grianghraif.",
-  "aw.back": "Fáilte ar ais! Ar chóipeáil tú an eochair? Tapáil “Greamaigh” agus tá sé déanta."
+  "aw.back": "Fáilte ar ais! Ar chóipeáil tú an eochair? Tapáil “Greamaigh” agus tá sé déanta.",
+  "ref.title": "Roghnaigh an PDF arís",
+  "ref.body": "Ní choinníonn Ottoteca cóip de “{name}” ({path}). Roghnaigh arís é chun é a oscailt.",
+  "ref.pick": "Roghnaigh an comhad",
+  "ref.wrong": "Ní hé sin “{name}”: roghnaigh an comhad céanna.",
+  "ref.need": "Chun é a oscailt, roghnaigh an comhad arís.",
+  "find.all": "An fón ar fad",
+  "find.allCopy": "Cóipeálann sé na PDFanna chuig Ottoteca: an t-aon bhealach chun an chuimhne ar fad a chuardach.",
+  "find.allRef": "Ní chuimhníonn sé ach ar ainmneacha agus cosáin: chun PDF a oscailt roghnóidh tú arís é.",
+  "nocopy.label": "Ná cóipeáil PDFanna",
+  "nocopy.hint": "Ní choinníonn Ottoteca ach an t-ainm, an chosán, réamhamharc, téacs le cuardach agus cóid. Nuair a cheadaíonn an fón é (Android, ríomhaire) coinníonn sé nasc chuig an gcomhad; murach sin, iarrann sé ort an PDF a roghnú arís chun é a oscailt.",
+  "nocopy.on": "Déanta! As seo amach ní chóipeálfaidh mé do PDFanna.",
+  "nocopy.off": "Ceart go leor, coinneoidh mé cóip de PDFanna nach féidir a nascadh."
 }

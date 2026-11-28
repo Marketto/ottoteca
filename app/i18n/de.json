@@ -271,5 +271,17 @@
   "gw.ready": "Pass fertig! Tippe, um ihn zu Google Wallet hinzuzufügen.",
   "gw.addNow": "Zu Google Wallet hinzufügen",
   "gw.oneTap": "Tipp: Mit deinem eigenen kostenlosen WalletWallet-Schlüssel klappt Google Wallet mit einem Tipp, ohne Fotos.",
-  "aw.back": "Willkommen zurück! Schlüssel kopiert? Tippe auf „Einfügen“ und fertig."
+  "aw.back": "Willkommen zurück! Schlüssel kopiert? Tippe auf „Einfügen“ und fertig.",
+  "ref.title": "Wähle das PDF erneut",
+  "ref.body": "Ottoteca behält keine Kopie von „{name}“ ({path}). Wähle es erneut, um es zu öffnen.",
+  "ref.pick": "Datei wählen",
+  "ref.wrong": "Das ist nicht „{name}“: Wähle dieselbe Datei.",
+  "ref.need": "Zum Öffnen wähle die Datei erneut.",
+  "find.all": "Das ganze Handy",
+  "find.allCopy": "Kopiert die PDFs in Ottoteca: Nur so lässt sich der ganze Speicher durchsuchen.",
+  "find.allRef": "Merkt sich nur Namen und Pfade: Zum Öffnen wählst du das PDF erneut.",
+  "nocopy.label": "PDFs nicht kopieren",
+  "nocopy.hint": "Ottoteca speichert nur Name, Pfad, Vorschau, Text für die Suche und Codes. Wo das Handy es erlaubt (Android, Computer), wird ein Link zur Datei gespeichert; sonst fragt die App beim Öffnen, das PDF erneut zu wählen.",
+  "nocopy.on": "Erledigt! Ab jetzt kopiere ich deine PDFs nicht mehr.",
+  "nocopy.off": "Okay, ich behalte eine Kopie der PDFs, die sich nicht verknüpfen lassen."
 }

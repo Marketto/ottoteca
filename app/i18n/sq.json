@@ -271,5 +271,17 @@
   "gw.ready": "Karta është gati! Prek për ta shtuar në Google Wallet.",
   "gw.addNow": "Shto në Google Wallet",
   "gw.oneTap": "Këshillë: me çelësin tënd falas WalletWallet, Google Wallet punon me një prekje, pa foto.",
-  "aw.back": "Mirë se u ktheve! E kopjove çelësin? Prek «Ngjit» dhe mbaroi."
+  "aw.back": "Mirë se u ktheve! E kopjove çelësin? Prek «Ngjit» dhe mbaroi.",
+  "ref.title": "Zgjidh përsëri PDF-në",
+  "ref.body": "Ottoteca nuk mban kopje të «{name}» ({path}). Zgjidhe përsëri për ta hapur.",
+  "ref.pick": "Zgjidh skedarin",
+  "ref.wrong": "Nuk është «{name}»: zgjidh të njëjtin skedar.",
+  "ref.need": "Për ta hapur, zgjidh përsëri skedarin.",
+  "find.all": "I gjithë telefoni",
+  "find.allCopy": "Kopjon PDF-të në Ottoteca: e vetmja mënyrë për të kërkuar në të gjithë memorien.",
+  "find.allRef": "Mban mend vetëm emrat dhe shtigjet: për të hapur një PDF do ta zgjedhësh përsëri.",
+  "nocopy.label": "Mos i kopjo PDF-të",
+  "nocopy.hint": "Ottoteca mban vetëm emrin, shtegun, parapamjen, tekstin për kërkim dhe kodet. Ku telefoni e lejon (Android, kompjuter) mban një lidhje te skedari; përndryshe, për ta hapur të kërkon ta zgjedhësh përsëri.",
+  "nocopy.on": "U bë! Tani e tutje nuk i kopjoj PDF-të e tua.",
+  "nocopy.off": "Në rregull, do të mbaj kopje të PDF-ve që nuk mund të lidhen."
 }

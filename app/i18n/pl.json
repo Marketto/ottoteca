@@ -271,5 +271,17 @@
   "gw.ready": "Karta gotowa! Stuknij, aby dodać ją do Portfela Google.",
   "gw.addNow": "Dodaj do Portfela Google",
   "gw.oneTap": "Wskazówka: z własnym darmowym kluczem WalletWallet Portfel Google działa jednym stuknięciem, bez zdjęć.",
-  "aw.back": "Witaj z powrotem! Skopiowany klucz? Stuknij „Wklej” i gotowe."
+  "aw.back": "Witaj z powrotem! Skopiowany klucz? Stuknij „Wklej” i gotowe.",
+  "ref.title": "Wybierz PDF ponownie",
+  "ref.body": "Ottoteka nie przechowuje kopii „{name}” ({path}). Wybierz go ponownie, aby otworzyć.",
+  "ref.pick": "Wybierz plik",
+  "ref.wrong": "To nie jest „{name}”: wybierz ten sam plik.",
+  "ref.need": "Aby otworzyć, wybierz plik ponownie.",
+  "find.all": "Cały telefon",
+  "find.allCopy": "Kopiuje PDF-y do Ottoteki: jedyny sposób, by przeszukać całą pamięć.",
+  "find.allRef": "Zapamiętuje tylko nazwy i ścieżki: aby otworzyć PDF, wybierzesz go ponownie.",
+  "nocopy.label": "Nie kopiuj PDF-ów",
+  "nocopy.hint": "Ottoteka przechowuje tylko nazwę, ścieżkę, podgląd, tekst do wyszukiwania i kody. Tam, gdzie telefon pozwala (Android, komputer), zapisuje odnośnik do pliku; w innym wypadku przy otwieraniu poprosi o ponowne wybranie PDF-a.",
+  "nocopy.on": "Gotowe! Od teraz nie kopiuję twoich PDF-ów.",
+  "nocopy.off": "Dobrze, będę trzymać kopię PDF-ów, których nie da się podlinkować."
 }

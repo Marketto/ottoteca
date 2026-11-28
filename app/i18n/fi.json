@@ -271,5 +271,17 @@
   "gw.ready": "Passi valmis! Napauta lisätäksesi sen Google Walletiin.",
   "gw.addNow": "Lisää Google Walletiin",
   "gw.oneTap": "Vinkki: omalla ilmaisella WalletWallet-avaimella Google Wallet toimii yhdellä napautuksella, ilman kuvia.",
-  "aw.back": "Tervetuloa takaisin! Kopioitko avaimen? Napauta ”Liitä”, niin olet valmis."
+  "aw.back": "Tervetuloa takaisin! Kopioitko avaimen? Napauta ”Liitä”, niin olet valmis.",
+  "ref.title": "Valitse PDF uudelleen",
+  "ref.body": "Ottoteca ei säilytä kopiota tiedostosta ”{name}” ({path}). Valitse se uudelleen avataksesi sen.",
+  "ref.pick": "Valitse tiedosto",
+  "ref.wrong": "Tämä ei ole ”{name}”: valitse sama tiedosto.",
+  "ref.need": "Avaa valitsemalla tiedosto uudelleen.",
+  "find.all": "Koko puhelin",
+  "find.allCopy": "Kopioi PDF:t Ottotecaan: ainoa tapa etsiä koko muistista.",
+  "find.allRef": "Muistaa vain nimet ja polut: PDF avataan valitsemalla se uudelleen.",
+  "nocopy.label": "Älä kopioi PDF:iä",
+  "nocopy.hint": "Ottoteca säilyttää vain nimen, polun, esikatselun, hakutekstin ja koodit. Missä puhelin sallii (Android, tietokone), se säilyttää linkin tiedostoon; muuten se pyytää valitsemaan PDF:n uudelleen avattaessa.",
+  "nocopy.on": "Valmis! Tästä lähtien en kopioi PDF:iäsi.",
+  "nocopy.off": "Selvä, säilytän kopion PDF:istä, joita ei voi linkittää."
 }

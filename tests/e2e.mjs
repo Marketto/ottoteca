@@ -334,6 +334,28 @@ try {
   } else console.log("· iPhone: caricamento di cartelle non disponibile in questo browser di prova, controllo saltato");
   if (shots) { await ip.waitForTimeout(1200); await ip.screenshot({ path: "tests/shots/15-iphone.png" }); }
 
+  // «Non copiare i PDF»: solo riferimento, al riavvio si sceglie di nuovo il file
+  const nx = await browser.newContext({ viewport: { width: 1000, height: 800 }, locale: "it-IT", serviceWorkers: "block" });
+  await nx.addInitScript(() => { delete window.showOpenFilePicker; delete window.showDirectoryPicker; }); // come su iPhone
+  const np = await nx.newPage();
+  np.on("pageerror", e => errors.push(e.message));
+  await np.goto(BASE);
+  await np.evaluate(() => localStorage.setItem("otto.nocopy", "1"));
+  await np.reload();
+  await np.setInputFiles("#fileInput", ["tests/fixtures/biglietto.pdf"]);
+  await np.waitForSelector("#grid .thumb img");
+  const stored = await np.evaluate(() => new Promise(res => { const r = indexedDB.open("ottoteca"); r.onsuccess = () => { const tx = r.result.transaction(["docs", "files"]); let docs, files; tx.objectStore("docs").getAll().onsuccess = e => docs = e.target.result; tx.objectStore("files").count().onsuccess = e => files = e.target.result; tx.oncomplete = () => res({ src: docs[0]?.src, path: docs[0]?.path, files }); }; }));
+  ok(stored.src === "ref" && stored.path === "biglietto.pdf" && stored.files === 0, "senza copia: salvato solo il riferimento " + JSON.stringify(stored));
+  await np.reload();
+  await np.waitForSelector("#grid .card-doc .doc");
+  await np.locator("#grid .card-doc .doc").first().click();
+  await np.waitForSelector("#dlg[open] button[value=pick]");
+  const [fc] = await Promise.all([np.waitForEvent("filechooser"), np.click("#dlg button[value=pick]")]);
+  await fc.setFiles("tests/fixtures/biglietto.pdf");
+  await np.waitForSelector("#vPages .page canvas", { timeout: 15000 });
+  ok(true, "dopo il riavvio chiede il file e lo apre");
+  await nx.close();
+
   // offline con il service worker
   const off = await browser.newContext({ viewport: { width: 1000, height: 800 }, locale: "de-DE" });
   const op = await off.newPage();

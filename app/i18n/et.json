@@ -271,5 +271,17 @@
   "gw.ready": "Pass on valmis! Puuduta, et lisada see Google Walletisse.",
   "gw.addNow": "Lisa Google Walletisse",
   "gw.oneTap": "Vihje: oma tasuta WalletWalleti võtmega töötab Google Wallet ühe puudutusega, ilma fotodeta.",
-  "aw.back": "Tere tulemast tagasi! Kas kopeerisid võtme? Puuduta „Kleebi“ ja valmis."
+  "aw.back": "Tere tulemast tagasi! Kas kopeerisid võtme? Puuduta „Kleebi“ ja valmis.",
+  "ref.title": "Vali PDF uuesti",
+  "ref.body": "Ottoteca ei hoia faili „{name}“ ({path}) koopiat. Ava see, valides selle uuesti.",
+  "ref.pick": "Vali fail",
+  "ref.wrong": "See pole „{name}“: vali sama fail.",
+  "ref.need": "Avamiseks vali fail uuesti.",
+  "find.all": "Kogu telefon",
+  "find.allCopy": "Kopeerib PDF-id Ottotecasse: ainus viis otsida kogu mälust.",
+  "find.allRef": "Mäletab ainult nimesid ja teid: PDF-i avamiseks valid selle uuesti.",
+  "nocopy.label": "Ära kopeeri PDF-e",
+  "nocopy.hint": "Ottoteca hoiab ainult nime, teed, eelvaadet, otsinguteksti ja koode. Kus telefon lubab (Android, arvuti), hoitakse linki failile; muidu palub rakendus PDF-i avamiseks selle uuesti valida.",
+  "nocopy.on": "Valmis! Edaspidi ma su PDF-e ei kopeeri.",
+  "nocopy.off": "Hea küll, hoian koopiat PDF-idest, mida ei saa linkida."
 }

@@ -271,5 +271,17 @@
   "gw.ready": "Cardul e gata! Atinge ca să-l adaugi în Google Wallet.",
   "gw.addNow": "Adaugă în Google Wallet",
   "gw.oneTap": "Sfat: cu propria cheie WalletWallet gratuită, Google Wallet merge dintr-o atingere, fără poze.",
-  "aw.back": "Bine ai revenit! Ai copiat cheia? Atinge „Lipește” și gata."
+  "aw.back": "Bine ai revenit! Ai copiat cheia? Atinge „Lipește” și gata.",
+  "ref.title": "Alege din nou PDF-ul",
+  "ref.body": "Ottoteca nu păstrează o copie a „{name}” ({path}). Alege-l din nou ca să-l deschizi.",
+  "ref.pick": "Alege fișierul",
+  "ref.wrong": "Nu este „{name}”: alege același fișier.",
+  "ref.need": "Ca să-l deschizi, alege din nou fișierul.",
+  "find.all": "Tot telefonul",
+  "find.allCopy": "Copiază PDF-urile în Ottoteca: singurul mod de a căuta în toată memoria.",
+  "find.allRef": "Ține minte doar nume și căi: ca să deschizi un PDF îl vei alege din nou.",
+  "nocopy.label": "Nu copia PDF-urile",
+  "nocopy.hint": "Ottoteca păstrează doar numele, calea, previzualizarea, textul pentru căutare și codurile. Unde telefonul permite (Android, computer) păstrează o legătură la fișier; altfel, la deschidere îți cere să alegi din nou PDF-ul.",
+  "nocopy.on": "Gata! De acum nu-ți mai copiez PDF-urile.",
+  "nocopy.off": "Bine, voi păstra o copie a PDF-urilor care nu pot fi legate."
 }

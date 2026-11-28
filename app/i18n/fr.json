@@ -271,5 +271,17 @@
   "gw.ready": "Carte prête ! Touche pour l'ajouter à Google Wallet.",
   "gw.addNow": "Ajouter à Google Wallet",
   "gw.oneTap": "Astuce : avec ta propre clé WalletWallet gratuite, Google Wallet marche en un geste, sans photo.",
-  "aw.back": "Te revoilà ! Tu as copié la clé ? Touche « Coller » et c'est fini."
+  "aw.back": "Te revoilà ! Tu as copié la clé ? Touche « Coller » et c'est fini.",
+  "ref.title": "Choisis à nouveau le PDF",
+  "ref.body": "Ottoteca ne garde pas de copie de « {name} » ({path}). Choisis-le à nouveau pour l'ouvrir.",
+  "ref.pick": "Choisir le fichier",
+  "ref.wrong": "Ce n'est pas « {name} » : choisis le même fichier.",
+  "ref.need": "Pour l'ouvrir, choisis à nouveau le fichier.",
+  "find.all": "Tout le téléphone",
+  "find.allCopy": "Copie les PDF dans Ottoteca : la seule façon de chercher dans toute la mémoire.",
+  "find.allRef": "Ne retient que les noms et chemins : pour ouvrir un PDF, tu le choisiras à nouveau.",
+  "nocopy.label": "Ne pas copier les PDF",
+  "nocopy.hint": "Ottoteca ne garde que le nom, le chemin, l'aperçu, le texte pour la recherche et les codes. Quand le téléphone le permet (Android, ordinateur), il garde un lien vers le fichier ; sinon, pour ouvrir un PDF il te demande de le choisir à nouveau.",
+  "nocopy.on": "C'est fait ! Désormais je ne copie plus tes PDF.",
+  "nocopy.off": "D'accord, je garderai une copie des PDF qui ne peuvent pas être liés."
 }

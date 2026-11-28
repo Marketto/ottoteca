@@ -271,5 +271,17 @@
   "gw.ready": "Pas klaar! Tik om hem aan Google Wallet toe te voegen.",
   "gw.addNow": "Toevoegen aan Google Wallet",
   "gw.oneTap": "Tip: met je eigen gratis WalletWallet-sleutel werkt Google Wallet met één tik, zonder foto's.",
-  "aw.back": "Welkom terug! Sleutel gekopieerd? Tik op ‘Plakken’ en klaar."
+  "aw.back": "Welkom terug! Sleutel gekopieerd? Tik op ‘Plakken’ en klaar.",
+  "ref.title": "Kies de PDF opnieuw",
+  "ref.body": "Ottoteca bewaart geen kopie van ‘{name}’ ({path}). Kies het opnieuw om het te openen.",
+  "ref.pick": "Bestand kiezen",
+  "ref.wrong": "Dat is niet ‘{name}’: kies hetzelfde bestand.",
+  "ref.need": "Kies het bestand opnieuw om het te openen.",
+  "find.all": "De hele telefoon",
+  "find.allCopy": "Kopieert de PDF's naar Ottoteca: de enige manier om het hele geheugen te doorzoeken.",
+  "find.allRef": "Onthoudt alleen namen en paden: om een PDF te openen kies je hem opnieuw.",
+  "nocopy.label": "PDF's niet kopiëren",
+  "nocopy.hint": "Ottoteca bewaart alleen naam, pad, voorbeeld, tekst om te zoeken en codes. Waar de telefoon het toestaat (Android, computer) bewaart het een koppeling naar het bestand; anders vraagt het je de PDF opnieuw te kiezen om hem te openen.",
+  "nocopy.on": "Klaar! Vanaf nu kopieer ik je PDF's niet meer.",
+  "nocopy.off": "Oké, ik bewaar een kopie van PDF's die niet gekoppeld kunnen worden."
 }

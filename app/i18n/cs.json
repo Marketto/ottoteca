@@ -271,5 +271,17 @@
   "gw.ready": "Karta je hotová! Klepni a přidej ji do Google Wallet.",
   "gw.addNow": "Přidat do Google Wallet",
   "gw.oneTap": "Tip: s vlastním klíčem WalletWallet zdarma funguje Google Wallet jedním klepnutím, bez fotek.",
-  "aw.back": "Vítej zpět! Zkopíroval(a) jsi klíč? Klepni na „Vložit“ a je hotovo."
+  "aw.back": "Vítej zpět! Zkopíroval(a) jsi klíč? Klepni na „Vložit“ a je hotovo.",
+  "ref.title": "Vyber PDF znovu",
+  "ref.body": "Ottoteka neukládá kopii „{name}“ ({path}). Pro otevření ho vyber znovu.",
+  "ref.pick": "Vybrat soubor",
+  "ref.wrong": "To není „{name}“: vyber stejný soubor.",
+  "ref.need": "Pro otevření vyber soubor znovu.",
+  "find.all": "Celý telefon",
+  "find.allCopy": "Zkopíruje PDF do Ottoteky: jediný způsob, jak prohledat celou paměť.",
+  "find.allRef": "Pamatuje si jen názvy a cesty: PDF otevřeš tak, že ho vybereš znovu.",
+  "nocopy.label": "Nekopírovat PDF",
+  "nocopy.hint": "Ottoteka uchovává jen název, cestu, náhled, text pro hledání a kódy. Kde to telefon dovolí (Android, počítač), uloží odkaz na soubor; jinak tě při otevření požádá o nový výběr PDF.",
+  "nocopy.on": "Hotovo! Od teď tvoje PDF nekopíruju.",
+  "nocopy.off": "Dobře, budu uchovávat kopii PDF, která nejde propojit."
 }

@@ -271,5 +271,17 @@
   "gw.ready": "Kortelė paruošta! Paliesk, kad pridėtum ją į Google Wallet.",
   "gw.addNow": "Pridėti į Google Wallet",
   "gw.oneTap": "Patarimas: su savo nemokamu WalletWallet raktu Google Wallet veikia vienu palietimu, be nuotraukų.",
-  "aw.back": "Sveikas sugrįžęs! Nukopijavai raktą? Paliesk „Įklijuoti“ ir baigta."
+  "aw.back": "Sveikas sugrįžęs! Nukopijavai raktą? Paliesk „Įklijuoti“ ir baigta.",
+  "ref.title": "Pasirink PDF iš naujo",
+  "ref.body": "Ottoteca nelaiko „{name}“ ({path}) kopijos. Pasirink jį iš naujo, kad atidarytum.",
+  "ref.pick": "Pasirinkti failą",
+  "ref.wrong": "Tai ne „{name}“: pasirink tą patį failą.",
+  "ref.need": "Kad atidarytum, pasirink failą iš naujo.",
+  "find.all": "Visas telefonas",
+  "find.allCopy": "Nukopijuoja PDF į Ottoteca: vienintelis būdas ieškoti visoje atmintyje.",
+  "find.allRef": "Įsimena tik pavadinimus ir kelius: norėdamas atidaryti PDF, pasirinksi jį iš naujo.",
+  "nocopy.label": "Nekopijuoti PDF",
+  "nocopy.hint": "Ottoteca laiko tik pavadinimą, kelią, peržiūrą, paieškos tekstą ir kodus. Kur telefonas leidžia (Android, kompiuteris), išsaugo nuorodą į failą; kitaip atidarant paprašo PDF pasirinkti iš naujo.",
+  "nocopy.on": "Atlikta! Nuo šiol nekopijuosiu tavo PDF.",
+  "nocopy.off": "Gerai, laikysiu kopiją PDF, kurių negalima susieti."
 }

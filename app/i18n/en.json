@@ -271,5 +271,17 @@
   "gw.ready": "Pass ready! Tap to add it to Google Wallet.",
   "gw.addNow": "Add to Google Wallet",
   "gw.oneTap": "Tip: with your own free WalletWallet key, Google Wallet works with one tap, no photos.",
-  "aw.back": "Welcome back! Did you copy the key? Tap “Paste” and you're done."
+  "aw.back": "Welcome back! Did you copy the key? Tap “Paste” and you're done.",
+  "ref.title": "Choose the PDF again",
+  "ref.body": "Ottoteca doesn't keep a copy of “{name}” ({path}). Choose it again to open it.",
+  "ref.pick": "Choose the file",
+  "ref.wrong": "That's not “{name}”: choose the same file.",
+  "ref.need": "To open it, choose the file again.",
+  "find.all": "The whole phone",
+  "find.allCopy": "Copies the PDFs into Ottoteca: the only way to search the entire memory.",
+  "find.allRef": "Only remembers names and paths: to open a PDF you'll choose it again.",
+  "nocopy.label": "Don't copy PDFs",
+  "nocopy.hint": "Ottoteca only keeps name, path, preview, text for search and codes. Where the phone allows it (Android, computer) it keeps a link to the file; otherwise, to open a PDF it asks you to choose it again.",
+  "nocopy.on": "OK! From now on I won't copy your PDFs.",
+  "nocopy.off": "OK, I'll keep a copy of PDFs that can't be linked."
 }

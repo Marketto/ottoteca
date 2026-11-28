@@ -271,5 +271,17 @@
   "gw.ready": "패스 준비 완료! 눌러서 Google 월렛에 추가하세요.",
   "gw.addNow": "Google 월렛에 추가",
   "gw.oneTap": "팁: 내 무료 WalletWallet 키가 있으면 사진 없이 한 번의 탭으로 Google 월렛에 추가돼요.",
-  "aw.back": "다시 오셨네요! 키를 복사했나요? ‘붙여넣기’를 누르면 끝이에요."
+  "aw.back": "다시 오셨네요! 키를 복사했나요? ‘붙여넣기’를 누르면 끝이에요.",
+  "ref.title": "PDF를 다시 선택하세요",
+  "ref.body": "Ottoteca는 ‘{name}’({path})의 사본을 보관하지 않아요. 열려면 다시 선택하세요.",
+  "ref.pick": "파일 선택",
+  "ref.wrong": "‘{name}’이 아니에요. 같은 파일을 선택하세요.",
+  "ref.need": "열려면 파일을 다시 선택하세요.",
+  "find.all": "휴대폰 전체",
+  "find.allCopy": "PDF를 Ottoteca에 복사해요. 전체 저장공간을 검색하는 유일한 방법이에요.",
+  "find.allRef": "이름과 경로만 기억해요. PDF를 열 때 다시 선택하게 돼요.",
+  "nocopy.label": "PDF 복사하지 않기",
+  "nocopy.hint": "Ottoteca는 이름, 경로, 미리보기, 검색용 텍스트, 코드만 보관해요. 휴대폰이 허용하면(Android, 컴퓨터) 파일 링크를 저장하고, 그렇지 않으면 열 때 PDF를 다시 선택하라고 해요.",
+  "nocopy.on": "완료! 이제부터 PDF를 복사하지 않을게요.",
+  "nocopy.off": "알겠어요, 연결할 수 없는 PDF는 사본을 보관할게요."
 }

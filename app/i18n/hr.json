@@ -271,5 +271,17 @@
   "gw.ready": "Propusnica je spremna! Dodirni da je dodaš u Google Wallet.",
   "gw.addNow": "Dodaj u Google Wallet",
   "gw.oneTap": "Savjet: sa svojim besplatnim WalletWallet ključem Google Wallet radi jednim dodirom, bez fotografija.",
-  "aw.back": "Dobro došao natrag! Jesi li kopirao ključ? Dodirni „Zalijepi” i gotovo."
+  "aw.back": "Dobro došao natrag! Jesi li kopirao ključ? Dodirni „Zalijepi” i gotovo.",
+  "ref.title": "Ponovno odaberi PDF",
+  "ref.body": "Ottoteka ne čuva kopiju „{name}” ({path}). Ponovno ga odaberi da bi ga otvorio.",
+  "ref.pick": "Odaberi datoteku",
+  "ref.wrong": "To nije „{name}”: odaberi istu datoteku.",
+  "ref.need": "Da bi ga otvorio, ponovno odaberi datoteku.",
+  "find.all": "Cijeli telefon",
+  "find.allCopy": "Kopira PDF-ove u Ottoteku: jedini način za pretraživanje cijele memorije.",
+  "find.allRef": "Pamti samo nazive i putanje: PDF ćeš otvoriti tako da ga ponovno odabereš.",
+  "nocopy.label": "Ne kopiraj PDF-ove",
+  "nocopy.hint": "Ottoteka čuva samo naziv, putanju, pregled, tekst za pretraživanje i kodove. Gdje telefon dopušta (Android, računalo), čuva poveznicu na datoteku; inače pri otvaranju traži da ponovno odabereš PDF.",
+  "nocopy.on": "Gotovo! Od sada ne kopiram tvoje PDF-ove.",
+  "nocopy.off": "U redu, čuvat ću kopiju PDF-ova koje nije moguće povezati."
 }

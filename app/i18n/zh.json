@@ -271,5 +271,17 @@
   "gw.ready": "卡券已就绪！点一下添加到 Google 钱包。",
   "gw.addNow": "添加到 Google 钱包",
   "gw.oneTap": "提示：使用你自己的免费 WalletWallet 密钥，Google 钱包一键添加，无需照片。",
-  "aw.back": "欢迎回来！复制好密钥了吗？点“粘贴”就完成了。"
+  "aw.back": "欢迎回来！复制好密钥了吗？点“粘贴”就完成了。",
+  "ref.title": "再次选择该 PDF",
+  "ref.body": "Ottoteca 不保存“{name}”（{path}）的副本。请再次选择它以打开。",
+  "ref.pick": "选择文件",
+  "ref.wrong": "这不是“{name}”：请选择同一个文件。",
+  "ref.need": "要打开它，请再次选择该文件。",
+  "find.all": "整部手机",
+  "find.allCopy": "将 PDF 复制到 Ottoteca：这是搜索全部存储的唯一方法。",
+  "find.allRef": "只记住名称和路径：打开 PDF 时需要再次选择。",
+  "nocopy.label": "不复制 PDF",
+  "nocopy.hint": "Ottoteca 只保存名称、路径、预览、搜索用文字和二维码。在手机允许的地方（Android、电脑）会保存指向文件的链接；否则打开 PDF 时会请你再次选择它。",
+  "nocopy.on": "好了！从现在起我不再复制你的 PDF。",
+  "nocopy.off": "好的，对于无法链接的 PDF，我会保留副本。"
 }

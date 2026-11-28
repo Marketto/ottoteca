@@ -271,5 +271,17 @@
   "gw.ready": "Il-pass lest! Agħfas biex iżżidu ma' Google Wallet.",
   "gw.addNow": "Żid ma' Google Wallet",
   "gw.oneTap": "Parir: biċ-ċavetta WalletWallet tiegħek b'xejn, Google Wallet jaħdem b'tapp wieħed, bla ritratti.",
-  "aw.back": "Merħba lura! Ikkopjajt iċ-ċavetta? Agħfas “Waħħal” u lest."
+  "aw.back": "Merħba lura! Ikkopjajt iċ-ċavetta? Agħfas “Waħħal” u lest.",
+  "ref.title": "Erġa' agħżel il-PDF",
+  "ref.body": "Ottoteca ma żżommx kopja ta' “{name}” ({path}). Erġa' agħżlu biex tiftħu.",
+  "ref.pick": "Agħżel il-fajl",
+  "ref.wrong": "Mhux “{name}”: agħżel l-istess fajl.",
+  "ref.need": "Biex tiftħu, erġa' agħżel il-fajl.",
+  "find.all": "It-telefon kollu",
+  "find.allCopy": "Jikkopja l-PDFs f'Ottoteca: l-uniku mod biex tfittex fil-memorja kollha.",
+  "find.allRef": "Jiftakar biss ismijiet u mogħdijiet: biex tiftaħ PDF terġa' tagħżlu.",
+  "nocopy.label": "Tikkopjax il-PDFs",
+  "nocopy.hint": "Ottoteca żżomm biss l-isem, il-mogħdija, id-dehra minn qabel, test għat-tfittxija u kodiċijiet. Fejn it-telefon iħalli (Android, kompjuter) iżżomm link għall-fajl; inkella, biex tiftaħ PDF titolbok terġa' tagħżlu.",
+  "nocopy.on": "Lest! Minn issa 'l quddiem ma nikkopjax il-PDFs tiegħek.",
+  "nocopy.off": "Tajjeb, se nżomm kopja tal-PDFs li ma jistgħux jiġu konnessi."
 }

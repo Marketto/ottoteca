@@ -271,5 +271,17 @@
   "gw.ready": "Kész a kártya! Koppints, hogy hozzáadd a Google Wallethez.",
   "gw.addNow": "Hozzáadás a Google Wallethez",
   "gw.oneTap": "Tipp: saját ingyenes WalletWallet-kulccsal a Google Wallet egy koppintással megy, fotó nélkül.",
-  "aw.back": "Üdv újra! Kimásoltad a kulcsot? Koppints a „Beillesztés” gombra, és kész."
+  "aw.back": "Üdv újra! Kimásoltad a kulcsot? Koppints a „Beillesztés” gombra, és kész.",
+  "ref.title": "Válaszd ki újra a PDF-et",
+  "ref.body": "Az Ottoteca nem tárol másolatot erről: „{name}” ({path}). A megnyitáshoz válaszd ki újra.",
+  "ref.pick": "Fájl kiválasztása",
+  "ref.wrong": "Ez nem a(z) „{name}”: ugyanazt a fájlt válaszd.",
+  "ref.need": "A megnyitáshoz válaszd ki újra a fájlt.",
+  "find.all": "Az egész telefon",
+  "find.allCopy": "Bemásolja a PDF-eket az Ottotecába: csak így lehet a teljes tárhelyen keresni.",
+  "find.allRef": "Csak a neveket és útvonalakat jegyzi meg: a PDF megnyitásához újra kiválasztod.",
+  "nocopy.label": "Ne másolja a PDF-eket",
+  "nocopy.hint": "Az Ottoteca csak a nevet, útvonalat, előnézetet, keresési szöveget és kódokat tárolja. Ahol a telefon engedi (Android, számítógép), hivatkozást tárol a fájlra; máshol megnyitáskor kéri, hogy válaszd ki újra a PDF-et.",
+  "nocopy.on": "Kész! Mostantól nem másolom a PDF-jeidet.",
+  "nocopy.off": "Rendben, másolatot tartok azokról a PDF-ekről, amelyeket nem lehet hivatkozni."
 }
